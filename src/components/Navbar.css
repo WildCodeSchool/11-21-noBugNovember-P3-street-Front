@@ -1,0 +1,58 @@
+.holderLogo {
+    height: 54px;
+    width: 85px;
+    position: absolute;
+
+}
+
+.navbar_container {
+ background-color: rgba(9, 171, 133, 1);
+ height: 54px;
+}
+ 
+
+.holderLink {
+  padding: 14px;
+
+}
+
+.accueil {
+   
+    padding: 12px;
+    background-color: white;
+    width: 108px;
+    height: 54px;
+    color: black;
+    text-align: center;
+    
+}
+
+.button {
+    align-self: start;
+    text-align: center;
+}
+
+.Link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 59%;
+    margin: auto;
+    color: white;
+    align-items: center;
+}
+
+
+
+.holderImg {
+    width: 2000px;
+    height: 426px;
+}
+
+.test {
+    display:flex;
+    align-self: center;
+    position:absolute;
+    right: 0;
+    right: 6%;
+}
