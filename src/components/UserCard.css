@@ -1,0 +1,77 @@
+.userContainer {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background-color: #09ab85;
+  color: white;
+}
+.catContainer {
+  background-color: #09ab85;
+
+  height: 40px;
+  padding: 10px;
+
+  color: white;
+}
+
+.catContainer > h1 {
+  margin: 0;
+}
+
+.avatar {
+  width: 130px;
+  height: 100%;
+  border-radius: 100px;
+
+  /* border: 1px solid white; */
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userInfo {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.userInfo > p {
+  margin: 0 0 5px 0;
+}
+.locIcon {
+  /* width: 5%; */
+  margin-right: 5px;
+}
+
+.catName {
+  padding: 10px;
+  text-align: center;
+  background-color: #09ab85;
+  width: 100%;
+}
+
+.name {
+  margin-top: 10px;
+  color: white;
+}
+
+.descriptionUser {
+  font-style: italic;
+}
+
+.buttonUser {
+  position: relative;
+  bottom: 0;
+  color: #09ab85;
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  margin: 5%;
+  padding: 5px;
+}

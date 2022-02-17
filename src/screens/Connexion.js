@@ -1,5 +1,5 @@
 const Connexion = () => {
-  return();
-}
+  return;
+};
 
 export default Connexion;
