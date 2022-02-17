@@ -1,16 +1,18 @@
 .holderLogo {
-    height: 54px;
-    width: 85px;
-    position: absolute;
+    width: 100%;
 
 }
 
 .navbar_container {
  background-color: rgba(9, 171, 133, 1);
  height: 54px;
+ display : flex;
+ align-items: center;
 }
  
-
+.containerLogo {
+    width: 180px;
+}
 .holderLink {
   padding: 14px;
 
@@ -24,6 +26,7 @@
     height: 54px;
     color: black;
     text-align: center;
+    text-decoration: none;
     
 }
 
@@ -35,24 +38,31 @@
 .Link {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    width: 59%;
+    justify-content: space-evenly;
+    width: 100%;
     margin: auto;
     color: white;
     align-items: center;
 }
-
-
 
 .holderImg {
     width: 2000px;
     height: 426px;
 }
 
-.test {
+.containerConnexion {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding-right: 15px;
+    width: 150px;
+}
+
+/* .connexion {
     display:flex;
     align-self: center;
     position:absolute;
     right: 0;
     right: 6%;
-}
+    
+} */
