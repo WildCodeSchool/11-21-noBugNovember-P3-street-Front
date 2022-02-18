@@ -9,7 +9,7 @@ const Users = () => {
 
 	console.log(dataTalent);
 	console.log(allUsers);
-
+	/*
 	const searchAllUsers = () => {
 		axios
 			.get(`${process.env.REACT_APP_BACK}/all/alluser`)
@@ -28,7 +28,7 @@ const Users = () => {
 		searchAllUsers();
 		searchAnnonces();
 	}, []);
-
+*/
 	return (
 		<div className="talent">
 			<div className="introtalents">Liste de nos Membres-Artistes</div>
