@@ -15,7 +15,7 @@ const Users = () => {
 
 	return (
 		<div className="talent">
-			<div className="introtalents">Nos talents blablabla...</div>
+			<div className="introtalents">Liste de nos Membres-Artistes</div>
 			<div className="selecttalent">
 				<div className="all">Voir tous nos artistes</div>
 				<div className="select">Voir les annonces</div>
