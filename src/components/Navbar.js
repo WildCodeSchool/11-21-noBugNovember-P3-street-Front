@@ -1,10 +1,5 @@
-import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '../components/Navbar.css';
 import Logo from '../assets/Logo.png';
-import photo1 from '../assets/test.jpg';
-import photo2 from '../assets/test2.jpg';
-import photo3 from '../assets/test3.jpg';
-import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -33,22 +28,6 @@ const Navbar = () => {
 					</Link>
 				</div>
 			</div>
-
-			{
-				<div className="holderCarousel">
-					<Splide>
-						<SplideSlide>
-							<img className="holderImg" src={photo2} alt="images" />
-						</SplideSlide>
-						<SplideSlide>
-							<img className="holderImg" src={photo3} alt="images" />
-						</SplideSlide>
-						<SplideSlide>
-							<img className="holderImg" src={photo1} alt="images" />
-						</SplideSlide>
-					</Splide>
-				</div>
-			}
 		</>
 	);
 };
