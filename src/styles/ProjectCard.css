@@ -1,0 +1,57 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #e9e9e9;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.cardInfo {
+  height: 150px;
+}
+.cardInfo > h1 {
+  margin: 0px 0px 0px 10px;
+  text-align: center;
+}
+.projectImage {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px 10px 0 0;
+}
+
+.info {
+  flex-direction: column;
+}
+
+.info > p {
+  margin: 0px 0px 5px 5px;
+}
+
+.button {
+  color: #09ab85;
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  margin: 5%;
+  padding: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: right;
+}
+
+/* .projectCat > h2 {
+  margin: 0;
+  background-color: brown;
+  width: 95px;
+  padding: 1px;
+  text-align: center;
+  border-radius: 0 0 10px 0;
+} */

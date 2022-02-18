@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.17",
     "@splidejs/react-splide": "^0.6.20",
     "@splidejs/splide": "^3.6.12",
     "@testing-library/jest-dom": "^5.16.2",
