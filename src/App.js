@@ -18,9 +18,6 @@ function App() {
 				<Route path="/talents" element={<Users />} />
 				<Route path="/connexion" element={<Connexion />} />
 			</Routes>
-				<div className='home'>
-					<Home />
-				</div>
 		</div>
 	);
 }

@@ -1,0 +1,47 @@
+.home {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.francecontainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.spec {
+    padding-left: 25%;
+    margin-top: 45%;
+}
+
+.visioncontainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.isolement {
+    padding-left: 25%;
+    margin-top: 21%;
+}
+
+h2 {
+    padding: 4% 4%;
+    color: #dcbe1c;
+    font-family: 'Cinzel', serif;
+}
+
+p {
+    font-size: 1.2rem;
+    padding-top: 2%;
+    font-family: 'Kalam', cursive;
+}
+
+ul {
+    padding-top: 2%;
+}
+
+.stats {
+    padding-top: 4%;
+    font-size: 1.2rem;
+    font-family: 'Kalam', cursive;
+}

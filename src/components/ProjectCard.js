@@ -1,6 +1,7 @@
 import '../styles/ProjectCard.css';
 import projectImage from '../assets/project.jpg';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const ProjectCard = () => {
 	return (
 		<div className="cardContainer">
