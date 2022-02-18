@@ -20,7 +20,7 @@ const ProjectCard = () => {
 			</div>
 			<div className="content">
 				<div className="localisation">
-					<i class="fa-solid fa-location-dot"></i> Nice - France
+					<i className="fa-solid fa-location-dot"></i> Nice - France
 				</div>
 				<div className="dispo">
 					<i className="fa-solid fa-calendar-day" /> 01/03/2022
