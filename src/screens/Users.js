@@ -5,12 +5,28 @@ import { useState, useEffect } from 'react';
 
 const Users = () => {
 	const [dataTalent, setDataTalent] = useState([]);
+	const [allUsers, setAllUsers] = useState([]);
 
-	useEffect(() => {
+	console.log(dataTalent);
+	console.log(allUsers);
+
+	const searchAllUsers = () => {
+		axios
+			.get(`${process.env.REACT_APP_BACK}/all/alluser`)
+			.then((response) => response.data)
+			.then((data) => setAllUsers(data));
+	};
+
+	const searchAnnonces = () => {
 		axios
 			.get(`${process.env.REACT_APP_BACK}/all/annonces_all_users`)
 			.then((response) => response.data)
 			.then((data) => setDataTalent(data));
+	};
+
+	useEffect(() => {
+		searchAllUsers();
+		searchAnnonces();
 	}, []);
 
 	return (
