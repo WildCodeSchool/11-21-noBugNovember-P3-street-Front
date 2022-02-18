@@ -1,5 +1,16 @@
+import UserCard from '../components/UserCard';
+
 const Users = () => {
-  return;
+	return (
+		<div>
+			<UserCard />
+			<UserCard />
+			<UserCard />
+			<UserCard />
+			<UserCard />
+			<UserCard />
+		</div>
+	);
 };
 
 export default Users;
