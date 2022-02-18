@@ -1,4 +1,4 @@
-import './UserCard.css';
+import '../styles/UserCard.css';
 import avatar from '../assets/avatar.jpg';
 //import { FontAwesomeIcon } from '@fontawesome/react-fontawesome';
 

@@ -1,0 +1,7 @@
+.grille {
+	display: grid;
+	margin: 100px auto 0;
+	grid-template-columns: repeat(auto-fill, minmax(550px, 0.2fr));
+	grid-gap: 45px;
+	justify-content: center;
+}
