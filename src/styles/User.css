@@ -29,7 +29,12 @@
 	padding: 10px;
 	background-color: #09ab85;
 	color: white;
+	border: solid 2px white;
 	border-right: solid 1px black;
+}
+
+.all:hover {
+	border: solid 2px rgb(21, 120, 212);
 }
 
 .select {
@@ -41,5 +46,10 @@
 	padding: 10px;
 	background-color: #09ab85;
 	color: white;
+	border: solid 2px white;
 	border-left: solid 1px black;
+}
+
+.select:hover {
+	border: solid 2px rgb(21, 120, 212);
 }
