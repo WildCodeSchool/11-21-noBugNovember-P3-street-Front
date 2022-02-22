@@ -17,14 +17,14 @@
 }
 
 .all:hover {
-	background-color: #003025;
+	background-color: #086e56;
 }
 
 .grille {
 	display: grid;
 	margin: 100px auto 0;
 	grid-template-columns: repeat(auto-fill, minmax(550px, 0.2fr));
-	grid-gap: 45px;
+	grid-gap: 15px;
 	justify-content: center;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .select:hover {
-	background-color: #003025;
+	background-color: #086e56;
 }
 
 .selecttalent {
@@ -101,6 +101,10 @@
 	transition: 0.5s;
 }
 
+.subdomain.active {
+	background-color: #086e56;
+}
+
 .subdomain:hover {
 	background-color: #086e56;
 }
@@ -136,4 +140,8 @@
 
 .cancel:hover {
 	background-color: #086e56;
+}
+
+.case {
+	display: none;
 }

@@ -17,11 +17,7 @@ const UserCard = (props) => {
 					)}
 				</div>
 				<div className="rightside">
-					<div className="job">
-						{props.domain}
-						<br />
-						{props.artname}
-					</div>
+					<div className="job">{props.artname}</div>
 					<div className="pseudo">
 						{props.firstname} {props.lastname}
 					</div>
@@ -32,15 +28,6 @@ const UserCard = (props) => {
 				<div className="localisation">
 					<i className="fa-solid fa-location-dot"></i> {props.city} -{' '}
 					{props.country}
-				</div>
-				<div className="email">
-					{props.emailVisibility ? (
-						<a href={`mailto:${props.email}`}>
-							<i className="fa-solid fa-envelope" />
-						</a>
-					) : (
-						''
-					)}
 				</div>
 				<div className="twitter">
 					{props.twitter === null ? (
@@ -78,13 +65,22 @@ const UserCard = (props) => {
 						</a>
 					)}
 				</div>
+				<div className="email">
+					{props.emailVisibility ? (
+						<a href={`mailto:${props.email}`}>
+							<i className="fa-solid fa-envelope" />
+						</a>
+					) : (
+						<i className="fa-solid fa-envelope bloque" />
+					)}
+				</div>
 				<div className="phone">
 					{props.phoneVisibility ? (
 						<a href={`tel:${props.phone}`}>
 							<i className="fa-solid fa-phone-flip" />
 						</a>
 					) : (
-						''
+						<i className="fa-solid fa-phone-flip bloque" />
 					)}
 				</div>
 			</div>

@@ -1,3 +1,4 @@
+import SearchContainer from '../components/SearchContainer';
 import UserCardAnnonce from '../components/UserCardAnnonce';
 import UserCard from '../components/UserCard';
 import '../styles/User.css';
@@ -5,19 +6,28 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const Users = () => {
-	const [dataTalent, setDataTalent] = useState([]);
-	const [allUsers, setAllUsers] = useState([]);
-	const [selectView, setSelectView] = useState(0);
-	const [domain, setDomain] = useState([]);
-	const [subDomain, setSubDomain] = useState([]);
+	const [allUsers, setAllUsers] = useState([]); //données de tous les utilisateurs
+	const [dataTalent, setDataTalent] = useState([]); //données des utilisateurs ayant posté une annonce
+	const [domain, setDomain] = useState([]); //Liste des domaines
+	const [viewDomain, setViewDomain] = useState(false); //Vue de la liste des domaines
 	const [selectDomain, setSelectDomain] = useState();
 	const [selectSubDomain, setSelectSubDomain] = useState();
+	const [selectView, setSelectView] = useState(0); //Choix entre tous les users et les annonces
+	const [subDomain, setSubDomain] = useState([]); //Liste des sous-domaines
+	const [viewSubDomain, setViewSubDomain] = useState(false);
 
-	console.log(domain);
-	console.log(subDomain);
+	console.log(viewDomain);
 
 	const choiceView = (id) => {
 		setSelectView(id);
+	};
+
+	const derouleDomain = () => {
+		setViewDomain(!viewDomain);
+	};
+
+	const derouleSubDomain = () => {
+		setViewSubDomain(!viewSubDomain);
 	};
 
 	const searchAllUsers = () => {
@@ -73,10 +83,24 @@ const Users = () => {
 				</div>
 			</div>
 			<div className="thefilter">
-				<form className="formulaire">
-					<div className="domain">Domaine</div>
-				</form>
-				<div className="subdomain">Sous-domaine</div>
+				<div className="domain" onClick={() => derouleDomain()}>
+					Domaine
+					<div
+						className={
+							viewDomain ? (
+								<SearchContainer
+									domain={domain}
+									setViewDomain={setViewDomain}
+								/>
+							) : (
+								'case'
+							)
+						}
+					></div>
+				</div>
+				<div className="subdomain" onClick={() => derouleSubDomain()}>
+					Sous-domaine
+				</div>
 				<div className="search">
 					<i className="fa-solid fa-magnifying-glass" />
 				</div>

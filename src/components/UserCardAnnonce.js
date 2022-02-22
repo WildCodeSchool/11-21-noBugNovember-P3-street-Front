@@ -27,7 +27,7 @@ const UserCardAnnonce = (props) => {
 					</div>
 				</div>
 			</div>
-			<div className="desc">{props.descriptionAnnonce}</div>
+			<div className="desc2">{props.descriptionAnnonce}</div>
 			<div className="content">
 				<div className="localisation">
 					<i className="fa-solid fa-location-dot"></i> {props.city} -{' '}
@@ -35,6 +35,24 @@ const UserCardAnnonce = (props) => {
 				</div>
 				<div className="dispo">
 					<i className="fa-solid fa-calendar-day" /> {props.date}
+				</div>
+				<div className="phone">
+					{props.phoneVisibility ? (
+						<a href={`tel:${props.phone}`}>
+							<i className="fa-solid fa-phone-flip" />
+						</a>
+					) : (
+						''
+					)}
+				</div>
+				<div className="email">
+					{props.emailVisibility ? (
+						<a href={`mailto:${props.email}`}>
+							<i className="fa-solid fa-envelope" />
+						</a>
+					) : (
+						''
+					)}
 				</div>
 			</div>
 		</div>
