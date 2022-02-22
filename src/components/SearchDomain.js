@@ -1,12 +1,12 @@
 import '../styles/SearchContainer.css';
 
-const SearchDomain = (props) => {
+const SearchContainer = (props) => {
 	const setValues = (el) => {
 		props.setSelectDomain(false);
 	};
 
 	return (
-		<div className="searchContainer">
+		<div className="searchDomain">
 			<div className="searchGrid">
 				{props.domain.map((el) => (
 					<div className="elGrid">
@@ -18,4 +18,4 @@ const SearchDomain = (props) => {
 	);
 };
 
-export default SearchDomain;
+export default SearchContainer;

@@ -1,4 +1,5 @@
-import SearchContainer from '../components/SearchContainer';
+import SearchDomain from '../components/SearchDomain';
+import SearchSubDomain from '../components/SearchSubDomain';
 import UserCardAnnonce from '../components/UserCardAnnonce';
 import UserCard from '../components/UserCard';
 import '../styles/User.css';
@@ -15,8 +16,6 @@ const Users = () => {
 	const [selectView, setSelectView] = useState(0); //Choix entre tous les users et les annonces
 	const [subDomain, setSubDomain] = useState([]); //Liste des sous-domaines
 	const [viewSubDomain, setViewSubDomain] = useState(false);
-
-	console.log(viewDomain);
 
 	const choiceView = (id) => {
 		setSelectView(id);
@@ -85,21 +84,18 @@ const Users = () => {
 			<div className="thefilter">
 				<div className="domain" onClick={() => derouleDomain()}>
 					Domaine
-					<div
-						className={
-							viewDomain ? (
-								<SearchContainer
-									domain={domain}
-									setViewDomain={setViewDomain}
-								/>
-							) : (
-								'case'
-							)
-						}
-					></div>
+					<div className={viewDomain ? 'hello' : 'cache'}>
+						<SearchDomain domain={domain} setSelectDomain={setSelectDomain} />
+					</div>
 				</div>
 				<div className="subdomain" onClick={() => derouleSubDomain()}>
 					Sous-domaine
+					<div className={viewSubDomain ? 'hello' : 'cache'}>
+						<SearchSubDomain
+							subDomain={subDomain}
+							setSelectSubDomain={setSelectSubDomain}
+						/>
+					</div>
 				</div>
 				<div className="search">
 					<i className="fa-solid fa-magnifying-glass" />
