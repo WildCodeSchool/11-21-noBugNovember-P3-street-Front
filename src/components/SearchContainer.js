@@ -1,19 +1,21 @@
 import '../styles/SearchContainer.css';
 
-const SearchContainer = (props) => {
+const SearchDomain = (props) => {
 	const setValues = (el) => {
-		props.setViewDomain(false);
+		props.setSelectDomain(false);
 	};
 
 	return (
-		<div className="searchGrid">
-			{props.domain.map((el) => (
-				<div className="elGrid">
-					<p onClick={() => setValues(el)}>{el}</p>
-				</div>
-			))}
+		<div className="searchContainer">
+			<div className="searchGrid">
+				{props.domain.map((el) => (
+					<div className="elGrid">
+						<p onClick={() => setValues(el.id)}>{el.domain}</p>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };
 
-export default SearchContainer;
+export default SearchDomain;
