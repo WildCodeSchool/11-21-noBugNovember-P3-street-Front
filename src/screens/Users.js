@@ -8,6 +8,13 @@ const Users = () => {
 	const [dataTalent, setDataTalent] = useState([]);
 	const [allUsers, setAllUsers] = useState([]);
 	const [selectView, setSelectView] = useState(0);
+	const [domain, setDomain] = useState([]);
+	const [subDomain, setSubDomain] = useState([]);
+	const [selectDomain, setSelectDomain] = useState();
+	const [selectSubDomain, setSelectSubDomain] = useState();
+
+	console.log(domain);
+	console.log(subDomain);
 
 	const choiceView = (id) => {
 		setSelectView(id);
@@ -27,20 +34,54 @@ const Users = () => {
 			.then((data) => setDataTalent(data));
 	};
 
+	const searchDomain = () => {
+		axios
+			.get(`${process.env.REACT_APP_BACK}/all/domain`)
+			.then((response) => response.data)
+			.then((data) => setDomain(data));
+	};
+
+	const searchSubDomain = () => {
+		axios
+			.get(`${process.env.REACT_APP_BACK}/all/subdomain`)
+			.then((response) => response.data)
+			.then((data) => setSubDomain(data));
+	};
+
 	useEffect(() => {
 		searchAllUsers();
 		searchAnnonces();
+		searchDomain();
+		searchSubDomain();
 	}, []);
 
 	return (
 		<div className="talent">
 			<div className="introtalents">Liste de nos Membres</div>
 			<div className="selecttalent">
-				<div className="all" onClick={() => choiceView(0)}>
+				<div
+					className={selectView === 0 ? 'all active' : 'all'}
+					onClick={() => choiceView(0)}
+				>
 					Voir tous nos artistes
 				</div>
-				<div className="select" onClick={() => choiceView(1)}>
+				<div
+					className={selectView === 1 ? 'select active' : 'select'}
+					onClick={() => choiceView(1)}
+				>
 					Voir les annonces
+				</div>
+			</div>
+			<div className="thefilter">
+				<form className="formulaire">
+					<div className="domain">Domaine</div>
+				</form>
+				<div className="subdomain">Sous-domaine</div>
+				<div className="search">
+					<i className="fa-solid fa-magnifying-glass" />
+				</div>
+				<div className="cancel">
+					<i className="fa-solid fa-xmark"></i>
 				</div>
 			</div>
 			<div className="grille">

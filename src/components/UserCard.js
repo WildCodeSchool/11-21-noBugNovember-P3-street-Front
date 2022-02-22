@@ -10,7 +10,10 @@ const UserCard = (props) => {
 					{props.avatar === null ? (
 						<img src={avatar} alt={props.firstname} />
 					) : (
-						<img src={props.avatar} alt={props.firstname} />
+						<img
+							src={`${process.env.REACT_APP_BACK}/${props.avatar}`}
+							alt={props.firstname}
+						/>
 					)}
 				</div>
 				<div className="rightside">
@@ -29,6 +32,15 @@ const UserCard = (props) => {
 				<div className="localisation">
 					<i className="fa-solid fa-location-dot"></i> {props.city} -{' '}
 					{props.country}
+				</div>
+				<div className="email">
+					{props.emailVisibility ? (
+						<a href={`mailto:${props.email}`}>
+							<i className="fa-solid fa-envelope" />
+						</a>
+					) : (
+						''
+					)}
 				</div>
 				<div className="twitter">
 					{props.twitter === null ? (
@@ -64,6 +76,15 @@ const UserCard = (props) => {
 						<a href={props.spotify}>
 							<i className="fa-brands fa-spotify"></i>
 						</a>
+					)}
+				</div>
+				<div className="phone">
+					{props.phoneVisibility ? (
+						<a href={`tel:${props.phone}`}>
+							<i className="fa-solid fa-phone-flip" />
+						</a>
+					) : (
+						''
 					)}
 				</div>
 			</div>

@@ -7,7 +7,14 @@ const UserCardAnnonce = (props) => {
 		<div className="userContainer">
 			<div className="head">
 				<div className="avatar">
-					<img src={props.avatar} alt={props.firstname} />
+					{props.avatar === null ? (
+						<img src={avatar} alt={props.firstname} />
+					) : (
+						<img
+							src={`${process.env.REACT_APP_BACK}/${props.avatar}`}
+							alt={props.firstname}
+						/>
+					)}
 				</div>
 				<div className="rightside">
 					<div className="job">
