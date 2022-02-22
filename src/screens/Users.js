@@ -109,13 +109,21 @@ const Users = () => {
 			.then((data) => setSubDomain(data));
 	};
 
+	//Chargement des données necessaires à la page
 	useEffect(() => {
 		searchAllUsers();
 		searchAnnonces();
 		searchDomain();
 		searchSubDomain();
 	}, []);
-
+	/*
+	useEffect (() => {
+		let temp;
+		if (selectSubDomain === undefined && selectView === 1) {
+			temp = allUsers.filter(e => )
+		}
+	},[selectDomain])
+*/
 	return (
 		<div className="talent">
 			<div className="introtalents">Liste de nos Membres</div>
@@ -148,7 +156,7 @@ const Users = () => {
 					Sous-domaine
 					<div className={viewSubDomain ? 'hello' : 'cache'}>
 						<SearchSubDomain
-							subDomain={subDomain}
+							subDomain={subDomain.sort((a, b) => a - b)}
 							setSelectSubDomain={setSelectSubDomain}
 							setViewSubDomain={setViewSubDomain}
 						/>
