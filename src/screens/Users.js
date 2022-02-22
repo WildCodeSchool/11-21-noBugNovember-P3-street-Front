@@ -4,6 +4,7 @@ import UserCard from "../components/UserCard";
 import "../styles/User.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import bg from "../assets/bg.jpg";
 
 const Users = () => {
   const [allUsers, setAllUsers] = useState([]); //données de tous les utilisateurs

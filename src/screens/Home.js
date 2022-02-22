@@ -4,6 +4,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import photo1 from "../assets/test.jpg";
 import photo2 from "../assets/test2.jpg";
 import photo3 from "../assets/test3.jpg";
+import "../styles/Home.css";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
           </SplideSlide>
         </Splide>
       </div>
+      <div className="home"></div>
     </div>
   );
 };
