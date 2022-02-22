@@ -10,12 +10,64 @@ const Users = () => {
 	const [allUsers, setAllUsers] = useState([]); //données de tous les utilisateurs
 	const [dataTalent, setDataTalent] = useState([]); //données des utilisateurs ayant posté une annonce
 	const [domain, setDomain] = useState([]); //Liste des domaines
-	const [viewDomain, setViewDomain] = useState(false); //Vue de la liste des domaines
 	const [selectDomain, setSelectDomain] = useState();
 	const [selectSubDomain, setSelectSubDomain] = useState();
 	const [selectView, setSelectView] = useState(0); //Choix entre tous les users et les annonces
 	const [subDomain, setSubDomain] = useState([]); //Liste des sous-domaines
+	const [viewDomain, setViewDomain] = useState(false); //Vue de la liste des domaines
 	const [viewSubDomain, setViewSubDomain] = useState(false);
+	const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
+	const [filter, setFilter] = useState([]);
+
+	//console.log('domain : ', selectDomain);
+	//console.log('subdomain : ', selectSubDomain);
+	//console.log('filter : ', filter);
+
+	const arreteTout = (id) => {
+		setIsFilter(false);
+		choiceView(id);
+	};
+
+	const letsGo = () => {
+		let temp;
+		if (
+			selectDomain !== undefined &&
+			selectSubDomain !== undefined &&
+			selectView === 0
+		) {
+			temp = allUsers.filter(
+				(e) => e.domain === selectDomain && e.art_name === selectSubDomain
+			);
+		} else if (
+			selectDomain !== undefined &&
+			selectSubDomain !== undefined &&
+			selectView === 1
+		) {
+			temp = allUsers.filter(
+				(e) => e.domain === selectDomain && e.art_name === selectSubDomain
+			);
+		}
+
+		if (selectDomain !== undefined && selectView === 0) {
+			temp = allUsers.filter((e) => e.domain === selectDomain);
+		} else if (selectDomain !== undefined && selectView === 1) {
+			temp = dataTalent.filter((e) => e.domain === selectDomain);
+		}
+		if (selectSubDomain !== undefined && selectView === 0) {
+			temp = allUsers.filter((e) => e.art_name === selectSubDomain);
+		} else if (selectSubDomain !== undefined && selectView === 1) {
+			temp = dataTalent.filter((e) => e.art_name === selectSubDomain);
+		}
+		setFilter(temp);
+		setIsFilter(true);
+	};
+
+	const goodBye = () => {
+		setIsFilter(false);
+		setFilter();
+		setSelectDomain();
+		setSelectSubDomain();
+	};
 
 	const choiceView = (id) => {
 		setSelectView(id);
@@ -70,13 +122,13 @@ const Users = () => {
 			<div className="selecttalent">
 				<div
 					className={selectView === 0 ? 'all active' : 'all'}
-					onClick={() => choiceView(0)}
+					onClick={() => arreteTout(0)}
 				>
 					Voir tous nos artistes
 				</div>
 				<div
 					className={selectView === 1 ? 'select active' : 'select'}
-					onClick={() => choiceView(1)}
+					onClick={() => arreteTout(1)}
 				>
 					Voir les annonces
 				</div>
@@ -85,7 +137,11 @@ const Users = () => {
 				<div className="domain" onClick={() => derouleDomain()}>
 					Domaine
 					<div className={viewDomain ? 'hello' : 'cache'}>
-						<SearchDomain domain={domain} setSelectDomain={setSelectDomain} />
+						<SearchDomain
+							domain={domain}
+							setSelectDomain={setSelectDomain}
+							setViewDomain={setViewDomain}
+						/>
 					</div>
 				</div>
 				<div className="subdomain" onClick={() => derouleSubDomain()}>
@@ -94,36 +150,80 @@ const Users = () => {
 						<SearchSubDomain
 							subDomain={subDomain}
 							setSelectSubDomain={setSelectSubDomain}
+							setViewSubDomain={setViewSubDomain}
 						/>
 					</div>
 				</div>
-				<div className="search">
+				<div className="search" onClick={() => letsGo()}>
 					<i className="fa-solid fa-magnifying-glass" />
 				</div>
-				<div className="cancel">
+				<div className="cancel" onClick={() => goodBye()}>
 					<i className="fa-solid fa-xmark"></i>
 				</div>
 			</div>
 			<div className="grille">
 				{selectView === 0
-					? allUsers.map((users) => (
-							<UserCard
+					? isFilter
+						? filter.map((users) => (
+								<UserCard
+									firstname={users.firstname}
+									lastname={users.lastname}
+									avatar={users.avatar}
+									city={users.city}
+									country={users.country}
+									email={users.email}
+									emailVisibility={users.emailVisibility}
+									phone={users.phone}
+									phoneVisibility={users.phoneVisibility}
+									instagram={users.instagram}
+									spotify={users.spotify}
+									twitter={users.twitter}
+									youtube={users.youtube}
+									description={users.description_users}
+									domain={users.domain}
+									artname={users.art_name}
+								/>
+						  ))
+						: allUsers.map((users) => (
+								<UserCard
+									firstname={users.firstname}
+									lastname={users.lastname}
+									avatar={users.avatar}
+									city={users.city}
+									country={users.country}
+									email={users.email}
+									emailVisibility={users.emailVisibility}
+									phone={users.phone}
+									phoneVisibility={users.phoneVisibility}
+									instagram={users.instagram}
+									spotify={users.spotify}
+									twitter={users.twitter}
+									youtube={users.youtube}
+									description={users.description_users}
+									domain={users.domain}
+									artname={users.art_name}
+								/>
+						  ))
+					: isFilter
+					? filter.map((users) => (
+							<UserCardAnnonce
 								firstname={users.firstname}
 								lastname={users.lastname}
 								avatar={users.avatar}
-								city={users.city}
-								country={users.country}
+								domain={users.domain}
+								art_name={users.art_name}
 								email={users.email}
 								emailVisibility={users.emailVisibility}
 								phone={users.phone}
 								phoneVisibility={users.phoneVisibility}
+								city={users.city}
+								country={users.country}
 								instagram={users.instagram}
 								spotify={users.spotify}
 								twitter={users.twitter}
 								youtube={users.youtube}
-								description={users.description_users}
-								domain={users.domain}
-								artname={users.art_name}
+								descriptionAnnonce={users.description_annonce}
+								date={users.date}
 							/>
 					  ))
 					: dataTalent.map((users) => (

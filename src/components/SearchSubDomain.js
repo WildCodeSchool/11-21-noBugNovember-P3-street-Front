@@ -1,8 +1,9 @@
 import '../styles/SearchContainer.css';
 
 const SearchContainer = (props) => {
-	const setValues = (el) => {
-		props.setSelectSubDomain(false);
+	const setValues = (y) => {
+		props.setViewSubDomain(false);
+		props.setSelectSubDomain(y);
 	};
 
 	return (
@@ -10,7 +11,7 @@ const SearchContainer = (props) => {
 			<div className="searchGrid">
 				{props.subDomain.map((el) => (
 					<div className="elGrid">
-						<p onClick={() => setValues(el.id)}>{el.art_name}</p>
+						<p onClick={() => setValues(el.art_name)}>{el.art_name}</p>
 					</div>
 				))}
 			</div>
