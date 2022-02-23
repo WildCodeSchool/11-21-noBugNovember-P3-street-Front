@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../styles/SearchContainer.css';
 
-const SearchContainer = (props) => {
+const SearchSubDomain = (props) => {
 	const [isFilter, setIsFilter] = useState(false);
 	const [reponse, setReponse] = useState([]);
 
@@ -44,4 +44,4 @@ const SearchContainer = (props) => {
 	);
 };
 
-export default SearchContainer;
+export default SearchSubDomain;
