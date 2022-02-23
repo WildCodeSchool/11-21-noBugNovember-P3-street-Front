@@ -10,7 +10,7 @@ const Users = () => {
 	const [allUsers, setAllUsers] = useState([]); //données de tous les utilisateurs
 	const [dataTalent, setDataTalent] = useState([]); //données des utilisateurs ayant posté une annonce
 	const [domain, setDomain] = useState([]); //Liste des domaines
-	const [selectDomain, setSelectDomain] = useState();
+	const [selectDomain, setSelectDomain] = useState(); //
 	const [selectSubDomain, setSelectSubDomain] = useState();
 	const [selectView, setSelectView] = useState(0); //Choix entre tous les users et les annonces
 	const [subDomain, setSubDomain] = useState([]); //Liste des sous-domaines
@@ -156,6 +156,7 @@ const Users = () => {
 					Sous-domaine
 					<div className={viewSubDomain ? 'hello' : 'cache'}>
 						<SearchSubDomain
+							selectDomain={selectDomain}
 							subDomain={subDomain.sort((a, b) => a - b)}
 							setSelectSubDomain={setSelectSubDomain}
 							setViewSubDomain={setViewSubDomain}
