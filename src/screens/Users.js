@@ -19,10 +19,6 @@ const Users = () => {
 	const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
 	const [filter, setFilter] = useState([]);
 
-	console.log('filtre : ', filter);
-	//console.log('subdomain : ', selectSubDomain);
-	//console.log('filter : ', filter);
-
 	const arreteTout = (id) => {
 		setIsFilter(false);
 		choiceView(id);
