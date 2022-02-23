@@ -19,6 +19,8 @@ const Users = () => {
 	const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
 	const [filter, setFilter] = useState([]);
 
+	console.log(dataTalent);
+
 	const arreteTout = (id) => {
 		setIsFilter(false);
 		choiceView(id);
@@ -147,7 +149,7 @@ const Users = () => {
 			</div>
 			<div className="thefilter">
 				<div className="domain" onClick={() => derouleDomain()}>
-					{selectDomain !== undefined ? selectDomain : 'Domaine'}
+					{selectDomain !== undefined ? selectDomain : 'Art'}
 					<div className={viewDomain ? 'hello' : 'cache'}>
 						<SearchDomain
 							domain={domain}
@@ -157,7 +159,7 @@ const Users = () => {
 					</div>
 				</div>
 				<div className="subdomain" onClick={() => derouleSubDomain()}>
-					{selectSubDomain !== undefined ? selectSubDomain : 'Sous-domaine'}
+					{selectSubDomain !== undefined ? selectSubDomain : 'Métiers'}
 					<div className={viewSubDomain ? 'hello' : 'cache'}>
 						<SearchSubDomain
 							selectDomain={selectDomain}
@@ -195,6 +197,7 @@ const Users = () => {
 									description={users.description_users}
 									domain={users.domain}
 									artname={users.art_name}
+									available={users.available}
 								/>
 						  ))
 						: allUsers.map((users) => (
@@ -215,6 +218,7 @@ const Users = () => {
 									description={users.description_users}
 									domain={users.domain}
 									artname={users.art_name}
+									available={users.available}
 								/>
 						  ))
 					: isFilter

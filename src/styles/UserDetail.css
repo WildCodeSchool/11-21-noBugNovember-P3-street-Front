@@ -1,0 +1,61 @@
+.UserDetail {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 50px;
+}
+
+.entete {
+	display: flex;
+}
+
+.photo {
+	display: flex;
+	width: 40vh;
+	justify-content: center;
+}
+
+.photo img {
+	max-width: 400px;
+	max-height: 400px;
+	object-fit: cover;
+}
+
+.blaze {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 2em;
+	width: 40vh;
+}
+
+.listprojects {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 50px;
+	/*width: 80%;*/
+	align-items: center;
+}
+
+.creator {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 25px;
+	width: 80%;
+	border: solid 2px black;
+	padding: 5px;
+	border-radius: 20px 20px 20px 20px;
+	font-size: 1.5em;
+}
+
+.participe {
+	display: flex;
+	justify-content: center;
+	width: 80%;
+	border: solid 2px black;
+	padding: 5px;
+	border-radius: 20px 20px 20px 20px;
+	font-size: 1.5em;
+}
