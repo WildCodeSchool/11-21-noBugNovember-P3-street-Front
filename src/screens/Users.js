@@ -66,8 +66,11 @@ const Users = () => {
 		) {
 			temp = dataTalent.filter((e) => e.art_name === selectSubDomain);
 		}
-		setFilter(temp);
-		setIsFilter(true);
+		console.log(temp);
+		if (temp !== undefined) {
+			setFilter(temp);
+			setIsFilter(true);
+		}
 	};
 
 	const goodBye = () => {
