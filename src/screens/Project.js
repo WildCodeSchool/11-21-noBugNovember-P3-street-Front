@@ -3,7 +3,9 @@ import axios from "axios";
 import ProjectCard from "../components/ProjectCard";
 import ProjectAnnonceCard from "../components/ProjectAnnonceCard";
 import "../styles/Project.css";
-import SearchContainer from "../components/SearchContainer";
+import "../styles/SearchContainer.css";
+import SearchDomain from "../components/SearchDomain";
+import SearchSubDomain from "../components/SearchSubDomain";
 
 const Project = () => {
   const [allProjects, setAllProjects] = useState([]);
@@ -15,6 +17,52 @@ const Project = () => {
   const [selectView, setSelectView] = useState(0); //Choix entre tous les users et les annonces
   const [subDomain, setSubDomain] = useState([]); //Liste des sous-domaines
   const [viewSubDomain, setViewSubDomain] = useState(false);
+  const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
+  const [filter, setFilter] = useState([]);
+
+  const arreteTout = (id) => {
+    setIsFilter(false);
+    choiceView(id);
+  };
+
+  const letsGo = () => {
+    let temp;
+    if (
+      selectDomain !== undefined &&
+      // selectSubDomain !== undefined &&
+      selectView === 0
+    ) {
+      temp = allProjects.filter((e) => e.domain === selectDomain);
+    } else if (
+      selectDomain !== undefined &&
+      // selectSubDomain !== undefined &&
+      selectView === 1
+    ) {
+      temp = allProjects.filter((e) => e.domain === selectDomain);
+    }
+
+    if (selectDomain !== undefined && selectView === 0) {
+      temp = allProjects.filter((e) => e.domain === selectDomain);
+    } else if (selectDomain !== undefined && selectView === 1) {
+      temp = allProjectAnnonces.filter((e) => e.domain === selectDomain);
+    }
+    // if (selectSubDomain !== undefined && selectView === 0) {
+    //   temp = allProjects.filter((e) => e.art_name === selectSubDomain);
+    // } else if (selectSubDomain !== undefined && selectView === 1) {
+    //   temp = allProjectAnnonces.filter((e) => e.art_name === selectSubDomain);
+    // }
+    console.log("FILTRE", temp);
+    console.log(selectDomain);
+    setFilter(temp);
+    setIsFilter(true);
+  };
+
+  const goodBye = () => {
+    setIsFilter(false);
+    setFilter();
+    setSelectDomain();
+    setSelectSubDomain();
+  };
 
   const choiceView = (id) => {
     setSelectView(id);
@@ -42,14 +90,31 @@ const Project = () => {
       .then((data) => setAllProjectAnnonces(data));
   };
 
+  const searchDomain = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/domain`)
+      .then((response) => response.data)
+      .then((data) => setDomain(data));
+  };
+
+  const searchSubDomain = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/subdomain`)
+      .then((response) => response.data)
+      .then((data) => setSubDomain(data));
+  };
+
   useEffect(() => {
     searchAllProjects();
     searchAllProjectsAnnonces();
+    searchDomain();
+    searchSubDomain();
   }, []);
 
   return (
     <div className="talent">
-      {console.log(allProjectAnnonces)}
+      {/* {console.log(allProjectAnnonces)}
+      {console.log(allProjects)} */}
       <div className="introtalents">
         <h1>Liste des projets</h1>
       </div>
@@ -57,48 +122,58 @@ const Project = () => {
       <div className="selecttalent">
         <div
           className={selectView === 0 ? "all active" : "all"}
-          onClick={() => choiceView(0)}
+          onClick={() => arreteTout(0)}
         >
           Voir tous les projets
         </div>
         <div
           className={selectView === 1 ? "select active" : "select"}
-          onClick={() => choiceView(1)}
+          onClick={() => arreteTout(1)}
         >
-          Voir les annonces projet
+          Voir les annonces projets
         </div>
       </div>
       <div className="thefilter">
         <div className="domain" onClick={() => derouleDomain()}>
           Domaine
-          <div
-            className={
-              viewDomain ? (
-                <SearchContainer
-                  domain={domain}
-                  setViewDomain={setViewDomain}
-                />
-              ) : (
-                "case"
-              )
-            }
-          ></div>
+          <div className={viewDomain ? "hello" : "cache"}>
+            <SearchDomain
+              domain={domain}
+              setSelectDomain={setSelectDomain}
+              setViewDomain={setViewDomain}
+            />
+          </div>
         </div>
-        <div className="subdomain" onClick={() => derouleSubDomain()}>
+        {/* <div className="subdomain" onClick={() => derouleSubDomain()}>
           Sous-domaine
-        </div>
-        <div className="search">
+          <div className={viewSubDomain ? "hello" : "cache"}>
+            <SearchSubDomain
+              subDomain={subDomain.sort((a, b) => a - b)}
+              setSelectSubDomain={setSelectSubDomain}
+              setViewSubDomain={setViewSubDomain}
+            />
+          </div>
+        </div> */}
+        <div className="search" onClick={() => letsGo()}>
           <i className="fa-solid fa-magnifying-glass" />
         </div>
-        <div className="cancel">
+        <div className="cancel" onClick={() => goodBye()}>
           <i className="fa-solid fa-xmark"></i>
         </div>
       </div>
 
       <div className="grille">
         {selectView === 0
-          ? allProjects.map((el, index) => (
-              <ProjectCard project={el} key={index} />
+          ? isFilter
+            ? filter.map((el, index) => (
+                <ProjectCard project={el} key={index} />
+              ))
+            : allProjects.map((el, index) => (
+                <ProjectCard project={el} key={index} />
+              ))
+          : isFilter
+          ? filter.map((el, index) => (
+              <ProjectAnnonceCard annonce={el} key={index} />
             ))
           : allProjectAnnonces.map((el, index) => (
               <ProjectAnnonceCard annonce={el} key={index} />
