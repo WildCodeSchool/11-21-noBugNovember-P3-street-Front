@@ -19,7 +19,7 @@ const Users = () => {
 	const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
 	const [filter, setFilter] = useState([]);
 
-	//console.log('domain : ', selectDomain);
+	console.log('filtre : ', filter);
 	//console.log('subdomain : ', selectSubDomain);
 	//console.log('filter : ', filter);
 
@@ -35,9 +35,8 @@ const Users = () => {
 			selectSubDomain !== undefined &&
 			selectView === 0
 		) {
-			temp = allUsers.filter(
-				(e) => e.domain === selectDomain && e.art_name === selectSubDomain
-			);
+			temp = allUsers.filter((e) => e.domain === selectDomain);
+			temp = temp.filter((e) => e.art_name === selectSubDomain);
 		} else if (
 			selectDomain !== undefined &&
 			selectSubDomain !== undefined &&
@@ -46,16 +45,29 @@ const Users = () => {
 			temp = allUsers.filter(
 				(e) => e.domain === selectDomain && e.art_name === selectSubDomain
 			);
-		}
-
-		if (selectDomain !== undefined && selectView === 0) {
+		} else if (
+			selectDomain !== undefined &&
+			selectSubDomain === undefined &&
+			selectView === 0
+		) {
 			temp = allUsers.filter((e) => e.domain === selectDomain);
-		} else if (selectDomain !== undefined && selectView === 1) {
+		} else if (
+			selectDomain !== undefined &&
+			selectSubDomain === undefined &&
+			selectView === 1
+		) {
 			temp = dataTalent.filter((e) => e.domain === selectDomain);
-		}
-		if (selectSubDomain !== undefined && selectView === 0) {
+		} else if (
+			selectSubDomain !== undefined &&
+			selectDomain === undefined &&
+			selectView === 0
+		) {
 			temp = allUsers.filter((e) => e.art_name === selectSubDomain);
-		} else if (selectSubDomain !== undefined && selectView === 1) {
+		} else if (
+			selectSubDomain !== undefined &&
+			selectDomain === undefined &&
+			selectView === 1
+		) {
 			temp = dataTalent.filter((e) => e.art_name === selectSubDomain);
 		}
 		setFilter(temp);
@@ -116,14 +128,7 @@ const Users = () => {
 		searchDomain();
 		searchSubDomain();
 	}, []);
-	/*
-	useEffect (() => {
-		let temp;
-		if (selectSubDomain === undefined && selectView === 1) {
-			temp = allUsers.filter(e => )
-		}
-	},[selectDomain])
-*/
+
 	return (
 		<div className="talent">
 			<div className="introtalents">Liste de nos Membres</div>
