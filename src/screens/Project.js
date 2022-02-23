@@ -19,6 +19,9 @@ const Project = () => {
   const [viewSubDomain, setViewSubDomain] = useState(false);
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
   const [filter, setFilter] = useState([]);
+  const [selectStatus, setSelectStatus] = useState();
+  console.log("status", selectStatus);
+  console.log("view", selectView);
 
   const arreteTout = (id) => {
     setIsFilter(false);
@@ -27,34 +30,34 @@ const Project = () => {
 
   const letsGo = () => {
     let temp;
-    if (
-      selectDomain !== undefined &&
-      // selectSubDomain !== undefined &&
-      selectView === 0
-    ) {
-      temp = allProjects.filter((e) => e.domain === selectDomain);
-    } else if (
-      selectDomain !== undefined &&
-      // selectSubDomain !== undefined &&
-      selectView === 1
-    ) {
-      temp = allProjects.filter((e) => e.domain === selectDomain);
-    }
-
     if (selectDomain !== undefined && selectView === 0) {
       temp = allProjects.filter((e) => e.domain === selectDomain);
     } else if (selectDomain !== undefined && selectView === 1) {
-      temp = allProjectAnnonces.filter((e) => e.domain === selectDomain);
+      temp = allProjects.filter(
+        (e) => e.domain === selectDomain && e.status === selectStatus
+      );
+    } else if (
+      selectDomain === undefined &&
+      selectStatus !== undefined &&
+      selectView === 0
+    ) {
+      temp = allProjects.filter((e) => e.status === selectStatus);
     }
-    // if (selectSubDomain !== undefined && selectView === 0) {
-    //   temp = allProjects.filter((e) => e.art_name === selectSubDomain);
-    // } else if (selectSubDomain !== undefined && selectView === 1) {
-    //   temp = allProjectAnnonces.filter((e) => e.art_name === selectSubDomain);
-    // }
-    console.log("FILTRE", temp);
-    console.log(selectDomain);
-    setFilter(temp);
-    setIsFilter(true);
+
+    if (selectDomain !== undefined && selectView === 0) {
+      temp = allProjects.filter(
+        (e) => e.domain === selectDomain && e.status === selectStatus
+      );
+    } else if (selectDomain !== undefined && selectView === 1) {
+      temp = allProjectAnnonces.filter(
+        (e) => e.domain === selectDomain && e.status === selectStatus
+      );
+    }
+
+    if (temp !== undefined) {
+      setFilter(temp);
+      setIsFilter(true);
+    }
   };
 
   const goodBye = () => {
@@ -62,6 +65,7 @@ const Project = () => {
     setFilter();
     setSelectDomain();
     setSelectSubDomain();
+    setSelectStatus();
   };
 
   const choiceView = (id) => {
@@ -70,10 +74,6 @@ const Project = () => {
 
   const derouleDomain = () => {
     setViewDomain(!viewDomain);
-  };
-
-  const derouleSubDomain = () => {
-    setViewSubDomain(!viewSubDomain);
   };
 
   const searchAllProjects = () => {
@@ -113,12 +113,9 @@ const Project = () => {
 
   return (
     <div className="talent">
-      {/* {console.log(allProjectAnnonces)}
-      {console.log(allProjects)} */}
       <div className="introtalents">
         <h1>Liste des projets</h1>
       </div>
-
       <div className="selecttalent">
         <div
           className={selectView === 0 ? "all active" : "all"}
@@ -135,7 +132,7 @@ const Project = () => {
       </div>
       <div className="thefilter">
         <div className="domain" onClick={() => derouleDomain()}>
-          Domaine
+          {selectDomain !== undefined ? selectDomain : "Domaine"}
           <div className={viewDomain ? "hello" : "cache"}>
             <SearchDomain
               domain={domain}
@@ -144,16 +141,30 @@ const Project = () => {
             />
           </div>
         </div>
-        {/* <div className="subdomain" onClick={() => derouleSubDomain()}>
-          Sous-domaine
-          <div className={viewSubDomain ? "hello" : "cache"}>
-            <SearchSubDomain
-              subDomain={subDomain.sort((a, b) => a - b)}
-              setSelectSubDomain={setSelectSubDomain}
-              setViewSubDomain={setViewSubDomain}
-            />
+        {selectView === 0 ? (
+          <div className="statusFilter">
+            <div
+              className={selectStatus === 0 ? "allStatus active" : "allStatus"}
+              onClick={() => setSelectStatus(0)}
+            >
+              Projets en cours(recherche)
+            </div>
+            <div
+              className={selectStatus === 1 ? "allStatus active" : "allStatus"}
+              onClick={() => setSelectStatus(1)}
+            >
+              Projet en cours(complet)
+            </div>
+            <div
+              className={selectStatus === 2 ? "allStatus active" : "allStatus"}
+              onClick={() => setSelectStatus(2)}
+            >
+              Projets terminés
+            </div>
           </div>
-        </div> */}
+        ) : (
+          ""
+        )}
         <div className="search" onClick={() => letsGo()}>
           <i className="fa-solid fa-magnifying-glass" />
         </div>
@@ -161,7 +172,6 @@ const Project = () => {
           <i className="fa-solid fa-xmark"></i>
         </div>
       </div>
-
       <div className="grille">
         {selectView === 0
           ? isFilter
