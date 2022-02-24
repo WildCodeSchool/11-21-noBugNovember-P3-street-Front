@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Project from './screens/Project';
 import Users from './screens/Users';
 import CreateProject from './components/CreateProject'
+import UserDetail from './screens/UserDetail';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -19,6 +20,8 @@ function App() {
 				<Route path='/talents' element={<Users />} />
 				<Route path='/connexion' element={<Connexion />} /> 
 				<Route path='/add_projects' element={<CreateProject />} />
+				<Route path="/talents/:id" element={<UserDetail />} />
+				<Route path="/connexion" element={<Connexion />} />
 			</Routes>
 		</div>
 	);
