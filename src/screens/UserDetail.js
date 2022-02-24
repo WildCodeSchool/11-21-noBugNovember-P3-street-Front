@@ -5,7 +5,7 @@ import '../styles/UserDetail.css';
 
 const UserDetail = () => {
 	const [data, setData] = useState([]); //Données talent
-	const [participe, setParticipe] = useState([]); //Projet où le talent est collaborateur
+	const [participe, setParticipe] = useState(); //Projet où le talent est collaborateur
 	const [projet, setProjet] = useState([]); //Projet où le talent est initiateur
 	let { id } = useParams();
 
@@ -31,22 +31,28 @@ const UserDetail = () => {
 
 	return (
 		<div className="UserDetail">
-			<div className="entete">
+			<div className="carte">
 				<div className="photo">
 					<img
 						src={`${process.env.REACT_APP_BACK}/${data.avatar}`}
 						alt={data.firstname}
 					/>
 				</div>
-				<div className="blaze">
-					{data.firstname}
-					<br />
-					{data.lastname}
+				<div className="prez">
+					<div className="whatsmyname">
+						{data.firstname} {data.lastname}
+					</div>
+					<div className="metier">{data.art_name}</div>
+					<div className="aboutme">{data.description_users}</div>
 				</div>
 			</div>
 			<div className="listprojects">
 				<div className="creator">Projet lancé par {data.firstname} </div>
-				<div className="participe">Projet où {data.firstname} a participé</div>
+				<div className="participe">
+					{participe !== undefined && participe.length > 0
+						? `Projet où ${data.firstname} a participé`
+						: `${data.firstname} n'a participé à aucun projet`}
+				</div>
 			</div>
 		</div>
 	);
