@@ -3,7 +3,7 @@
 	position: absolute;
 	z-index: 1000;
 	bottom: -10px;
-	left: -10px;
+	left: 30px;
 	transform: translateY(100%);
 	padding: 20px 15px;
 	color: white;
@@ -20,7 +20,7 @@
 	position: absolute;
 	z-index: 1000;
 	bottom: -10px;
-	left: 20px;
+	left: 0px;
 	transform: translateY(100%);
 	padding: 20px 15px;
 	color: white;
@@ -42,6 +42,12 @@
 .searchGrid {
 	display: grid;
 	grid-template-columns: repeat(3, auto);
+	grid-template-rows: repeat(auto-fill, 1fr);
+}
+
+.searchGridDomain {
+	display: grid;
+	grid-template-columns: repeat(1, auto);
 	grid-template-rows: repeat(auto-fill, 1fr);
 }
 
