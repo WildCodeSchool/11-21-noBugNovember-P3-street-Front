@@ -1,1 +1,164 @@
+.homeBanner {
+  height: 94vh;
+  width: 100vw;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+}
 
+.homeBanner img {
+  width: 100%;
+  height: max-content;
+}
+
+.sections {
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.homePresentation {
+  width: 100%;
+  height: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 2%;
+  margin: 10vh 0vw;
+}
+
+.framePresentation {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5vw;
+  border: 1px solid lightgreen;
+  justify-content: center;
+}
+
+.framePresentation p {
+  margin: 1vh;
+}
+
+.btnNousrejoindre {
+  position: relative;
+  right: -80%;
+  /* transform: translate(-0px, 65px); */
+  top: 55%;
+  background-color: darkred;
+  padding: 1vw 2vw;
+  border-radius: 5px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.homeDoneProjects {
+  width: 100%;
+  height: 50%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10vw;
+  margin: 5vh 0vw;
+}
+.homeProjectDone {
+  width: 30vw;
+  height: 30vh;
+  background-color: red;
+}
+
+.tousLesProjets {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tousLesProjetsBtn {
+  margin: 10vh;
+  display: flex;
+  background-color: #036eff;
+  color: whitesmoke;
+  width: 20vw;
+  height: 10vh;
+  border-radius: 0.5vw;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.comments {
+  background-color: transparent;
+}
+
+.containerComments {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  padding: 5vw 5vw 0vw 5vw;
+}
+.comment {
+  display: flex;
+  width: 20vw;
+  height: 30vh;
+  background-color: transparent;
+  border: 1px solid gold;
+  border-radius: 5vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+}
+
+.rating {
+  display: flex;
+  margin: 3% 7% 7% 7%;
+}
+
+.textComment {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.commentAuteur {
+  text-align: end;
+}
+
+.fa-star,
+.fa-star-half {
+  color: gold;
+}
+
+.cta {
+  color: green;
+  cursor: pointer;
+}
+
+.containerSeeComments {
+  width: 76%;
+  display: flex;
+  justify-content: center;
+}
+.seeComments {
+  margin: 10vh;
+  display: flex;
+  background-color: #036eff;
+  color: whitesmoke;
+  width: 20vw;
+  height: 10vh;
+  border-radius: 0.5vw;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
