@@ -22,6 +22,7 @@ const Project = () => {
   const [selectStatus, setSelectStatus] = useState();
   console.log("status", selectStatus);
   console.log("view", selectView);
+  console.log("domain", selectDomain);
 
   const arreteTout = (id) => {
     setIsFilter(false);
@@ -30,28 +31,26 @@ const Project = () => {
 
   const letsGo = () => {
     let temp;
-    if (selectDomain !== undefined && selectView === 0) {
+    if (
+      selectDomain !== undefined &&
+      selectView === 0 &&
+      selectStatus === undefined
+    ) {
       temp = allProjects.filter((e) => e.domain === selectDomain);
-    } else if (selectDomain !== undefined && selectView === 1) {
-      temp = allProjects.filter(
-        (e) => e.domain === selectDomain && e.status === selectStatus
-      );
     } else if (
       selectDomain === undefined &&
       selectStatus !== undefined &&
       selectView === 0
     ) {
       temp = allProjects.filter((e) => e.status === selectStatus);
-    }
-
-    if (selectDomain !== undefined && selectView === 0) {
-      temp = allProjects.filter(
-        (e) => e.domain === selectDomain && e.status === selectStatus
-      );
+    } else if (
+      selectDomain !== undefined &&
+      selectView === 0 &&
+      selectStatus === undefined
+    ) {
+      temp = allProjects.filter((e) => e.domain === selectDomain);
     } else if (selectDomain !== undefined && selectView === 1) {
-      temp = allProjectAnnonces.filter(
-        (e) => e.domain === selectDomain && e.status === selectStatus
-      );
+      temp = allProjectAnnonces.filter((e) => e.domain === selectDomain);
     }
 
     if (temp !== undefined) {
