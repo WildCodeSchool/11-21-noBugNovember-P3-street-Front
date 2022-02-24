@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import '../styles/UserCard.css';
 import avatar from '../assets/avatar.png';
 //import { FontAwesomeIcon } from '@fontawesome/react-fontawesome';
@@ -81,6 +82,13 @@ const UserCard = (props) => {
 						</a>
 					) : (
 						<i className="fa-solid fa-phone-flip bloque" />
+					)}
+				</div>
+				<div className="available">
+					{props.available ? (
+						<i class="fa-solid fa-calendar-check" alt="Disponible !" />
+					) : (
+						<i class="fa-solid fa-calendar-minus bye" alt="Non Disponible" />
 					)}
 				</div>
 			</div>

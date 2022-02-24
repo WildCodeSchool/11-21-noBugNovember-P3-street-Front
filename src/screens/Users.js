@@ -10,8 +10,8 @@ const Users = () => {
 	const [allUsers, setAllUsers] = useState([]); //données de tous les utilisateurs
 	const [dataTalent, setDataTalent] = useState([]); //données des utilisateurs ayant posté une annonce
 	const [domain, setDomain] = useState([]); //Liste des domaines
-	const [selectDomain, setSelectDomain] = useState();
-	const [selectSubDomain, setSelectSubDomain] = useState();
+	const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
+	const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
 	const [selectView, setSelectView] = useState(0); //Choix entre tous les users et les annonces
 	const [subDomain, setSubDomain] = useState([]); //Liste des sous-domaines
 	const [viewDomain, setViewDomain] = useState(false); //Vue de la liste des domaines
@@ -19,9 +19,7 @@ const Users = () => {
 	const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
 	const [filter, setFilter] = useState([]);
 
-	//console.log('domain : ', selectDomain);
-	//console.log('subdomain : ', selectSubDomain);
-	//console.log('filter : ', filter);
+	console.log(dataTalent);
 
 	const arreteTout = (id) => {
 		setIsFilter(false);
@@ -35,9 +33,8 @@ const Users = () => {
 			selectSubDomain !== undefined &&
 			selectView === 0
 		) {
-			temp = allUsers.filter(
-				(e) => e.domain === selectDomain && e.art_name === selectSubDomain
-			);
+			temp = allUsers.filter((e) => e.domain === selectDomain);
+			temp = temp.filter((e) => e.art_name === selectSubDomain);
 		} else if (
 			selectDomain !== undefined &&
 			selectSubDomain !== undefined &&
@@ -46,20 +43,36 @@ const Users = () => {
 			temp = allUsers.filter(
 				(e) => e.domain === selectDomain && e.art_name === selectSubDomain
 			);
-		}
-
-		if (selectDomain !== undefined && selectView === 0) {
+		} else if (
+			selectDomain !== undefined &&
+			selectSubDomain === undefined &&
+			selectView === 0
+		) {
 			temp = allUsers.filter((e) => e.domain === selectDomain);
-		} else if (selectDomain !== undefined && selectView === 1) {
+		} else if (
+			selectDomain !== undefined &&
+			selectSubDomain === undefined &&
+			selectView === 1
+		) {
 			temp = dataTalent.filter((e) => e.domain === selectDomain);
-		}
-		if (selectSubDomain !== undefined && selectView === 0) {
+		} else if (
+			selectSubDomain !== undefined &&
+			selectDomain === undefined &&
+			selectView === 0
+		) {
 			temp = allUsers.filter((e) => e.art_name === selectSubDomain);
-		} else if (selectSubDomain !== undefined && selectView === 1) {
+		} else if (
+			selectSubDomain !== undefined &&
+			selectDomain === undefined &&
+			selectView === 1
+		) {
 			temp = dataTalent.filter((e) => e.art_name === selectSubDomain);
 		}
-		setFilter(temp);
-		setIsFilter(true);
+		console.log(temp);
+		if (temp !== undefined) {
+			setFilter(temp);
+			setIsFilter(true);
+		}
 	};
 
 	const goodBye = () => {
@@ -116,14 +129,7 @@ const Users = () => {
 		searchDomain();
 		searchSubDomain();
 	}, []);
-	/*
-	useEffect (() => {
-		let temp;
-		if (selectSubDomain === undefined && selectView === 1) {
-			temp = allUsers.filter(e => )
-		}
-	},[selectDomain])
-*/
+
 	return (
 		<div className="talent">
 			<div className="introtalents">Liste de nos Membres</div>
@@ -143,7 +149,7 @@ const Users = () => {
 			</div>
 			<div className="thefilter">
 				<div className="domain" onClick={() => derouleDomain()}>
-					Domaine
+					{selectDomain !== undefined ? selectDomain : 'Art'}
 					<div className={viewDomain ? 'hello' : 'cache'}>
 						<SearchDomain
 							domain={domain}
@@ -153,9 +159,10 @@ const Users = () => {
 					</div>
 				</div>
 				<div className="subdomain" onClick={() => derouleSubDomain()}>
-					Sous-domaine
+					{selectSubDomain !== undefined ? selectSubDomain : 'Métiers'}
 					<div className={viewSubDomain ? 'hello' : 'cache'}>
 						<SearchSubDomain
+							selectDomain={selectDomain}
 							subDomain={subDomain.sort((a, b) => a - b)}
 							setSelectSubDomain={setSelectSubDomain}
 							setViewSubDomain={setViewSubDomain}
@@ -190,6 +197,7 @@ const Users = () => {
 									description={users.description_users}
 									domain={users.domain}
 									artname={users.art_name}
+									available={users.available}
 								/>
 						  ))
 						: allUsers.map((users) => (
@@ -210,6 +218,7 @@ const Users = () => {
 									description={users.description_users}
 									domain={users.domain}
 									artname={users.art_name}
+									available={users.available}
 								/>
 						  ))
 					: isFilter
