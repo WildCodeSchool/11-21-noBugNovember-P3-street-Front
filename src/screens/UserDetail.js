@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Reseaux from '../components/Reseaux';
 import Axios from 'axios';
 import '../styles/UserDetail.css';
 
@@ -10,7 +11,8 @@ const UserDetail = () => {
 	let { id } = useParams();
 
 	console.log(data);
-	console.log(participe);
+	console.log('participe', participe);
+	console.log('projet', projet);
 
 	const dataUser = () => {
 		Axios.put(`${process.env.REACT_APP_BACK}/all/user`, { id: id })
@@ -24,9 +26,16 @@ const UserDetail = () => {
 			.then((data) => setParticipe(data));
 	};
 
+	const creatorOfProject = () => {
+		Axios.put(`${process.env.REACT_APP_BACK}/all/project_creator`, { id: id })
+			.then((response) => response.data)
+			.then((data) => setProjet(data));
+	};
+
 	useEffect(() => {
 		dataUser();
 		userHasProjects();
+		creatorOfProject();
 	}, []);
 
 	return (
@@ -43,11 +52,34 @@ const UserDetail = () => {
 						{data.firstname} {data.lastname}
 					</div>
 					<div className="metier">{data.art_name}</div>
+					<div className="living">
+						<i className="fa-solid fa-location-dot" /> {data.city} -{' '}
+						{data.country}
+					</div>
 					<div className="aboutme">{data.description_users}</div>
+					<div className="reseaux">
+						{data.twitter !== undefined ||
+						data.youtube !== undefined ||
+						data.instagram !== undefined ||
+						data.spotify !== undefined ? (
+							<Reseaux
+								youtube={data.youtube}
+								twitter={data.twitter}
+								spotify={data.spotify}
+								instagram={data.instagram}
+							/>
+						) : (
+							`Aucun réseaux sociaux de renseignés`
+						)}
+					</div>
 				</div>
 			</div>
 			<div className="listprojects">
-				<div className="creator">Projet lancé par {data.firstname} </div>
+				<div className="creator">
+					{projet !== undefined && projet.length > 0
+						? `Projet lancé par ${data.firstname}`
+						: `${data.firstname} n'a lancé aucun projet`}
+				</div>
 				<div className="participe">
 					{participe !== undefined && participe.length > 0
 						? `Projet où ${data.firstname} a participé`
