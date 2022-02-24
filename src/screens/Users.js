@@ -19,10 +19,19 @@ const Users = () => {
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
   const [filter, setFilter] = useState([]);
 
+<<<<<<< HEAD
   const arreteTout = (id) => {
     setIsFilter(false);
     choiceView(id);
   };
+=======
+	console.log(dataTalent);
+
+	const arreteTout = (id) => {
+		setIsFilter(false);
+		choiceView(id);
+	};
+>>>>>>> dev
 
   const letsGo = () => {
     let temp;
@@ -128,6 +137,7 @@ const Users = () => {
     searchSubDomain();
   }, []);
 
+<<<<<<< HEAD
   return (
     <div className="talent">
       <div className="introtalents">Liste de nos Membres</div>
@@ -263,6 +273,145 @@ const Users = () => {
       </div>
     </div>
   );
+=======
+	return (
+		<div className="talent">
+			<div className="introtalents">Liste de nos Membres</div>
+			<div className="selecttalent">
+				<div
+					className={selectView === 0 ? 'all active' : 'all'}
+					onClick={() => arreteTout(0)}
+				>
+					Voir tous nos artistes
+				</div>
+				<div
+					className={selectView === 1 ? 'select active' : 'select'}
+					onClick={() => arreteTout(1)}
+				>
+					Voir les annonces
+				</div>
+			</div>
+			<div className="thefilter">
+				<div className="domain" onClick={() => derouleDomain()}>
+					{selectDomain !== undefined ? selectDomain : 'Art'}
+					<div className={viewDomain ? 'hello' : 'cache'}>
+						<SearchDomain
+							domain={domain}
+							setSelectDomain={setSelectDomain}
+							setViewDomain={setViewDomain}
+						/>
+					</div>
+				</div>
+				<div className="subdomain" onClick={() => derouleSubDomain()}>
+					{selectSubDomain !== undefined ? selectSubDomain : 'Métiers'}
+					<div className={viewSubDomain ? 'hello' : 'cache'}>
+						<SearchSubDomain
+							selectDomain={selectDomain}
+							subDomain={subDomain.sort((a, b) => a - b)}
+							setSelectSubDomain={setSelectSubDomain}
+							setViewSubDomain={setViewSubDomain}
+						/>
+					</div>
+				</div>
+				<div className="search" onClick={() => letsGo()}>
+					<i className="fa-solid fa-magnifying-glass" />
+				</div>
+				<div className="cancel" onClick={() => goodBye()}>
+					<i className="fa-solid fa-xmark"></i>
+				</div>
+			</div>
+			<div className="grille">
+				{selectView === 0
+					? isFilter
+						? filter.map((users) => (
+								<UserCard
+									firstname={users.firstname}
+									lastname={users.lastname}
+									avatar={users.avatar}
+									city={users.city}
+									country={users.country}
+									email={users.email}
+									emailVisibility={users.emailVisibility}
+									phone={users.phone}
+									phoneVisibility={users.phoneVisibility}
+									instagram={users.instagram}
+									spotify={users.spotify}
+									twitter={users.twitter}
+									youtube={users.youtube}
+									description={users.description_users}
+									domain={users.domain}
+									artname={users.art_name}
+									available={users.available}
+								/>
+						  ))
+						: allUsers.map((users) => (
+								<UserCard
+									firstname={users.firstname}
+									lastname={users.lastname}
+									avatar={users.avatar}
+									city={users.city}
+									country={users.country}
+									email={users.email}
+									emailVisibility={users.emailVisibility}
+									phone={users.phone}
+									phoneVisibility={users.phoneVisibility}
+									instagram={users.instagram}
+									spotify={users.spotify}
+									twitter={users.twitter}
+									youtube={users.youtube}
+									description={users.description_users}
+									domain={users.domain}
+									artname={users.art_name}
+									available={users.available}
+								/>
+						  ))
+					: isFilter
+					? filter.map((users) => (
+							<UserCardAnnonce
+								firstname={users.firstname}
+								lastname={users.lastname}
+								avatar={users.avatar}
+								domain={users.domain}
+								art_name={users.art_name}
+								email={users.email}
+								emailVisibility={users.emailVisibility}
+								phone={users.phone}
+								phoneVisibility={users.phoneVisibility}
+								city={users.city}
+								country={users.country}
+								instagram={users.instagram}
+								spotify={users.spotify}
+								twitter={users.twitter}
+								youtube={users.youtube}
+								descriptionAnnonce={users.description_annonce}
+								date={users.date}
+							/>
+					  ))
+					: dataTalent.map((users) => (
+							<UserCardAnnonce
+								firstname={users.firstname}
+								lastname={users.lastname}
+								avatar={users.avatar}
+								domain={users.domain}
+								art_name={users.art_name}
+								email={users.email}
+								emailVisibility={users.emailVisibility}
+								phone={users.phone}
+								phoneVisibility={users.phoneVisibility}
+								city={users.city}
+								country={users.country}
+								instagram={users.instagram}
+								spotify={users.spotify}
+								twitter={users.twitter}
+								youtube={users.youtube}
+								descriptionAnnonce={users.description_annonce}
+								date={users.date}
+							/>
+					  ))}
+			</div>
+		</div>
+	);
+>>>>>>> dev
 };
 
 export default Users;
