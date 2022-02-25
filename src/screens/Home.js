@@ -55,7 +55,6 @@ const Home = () => {
             <div className="button btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>
-        <h1>Nos projets récemment terminés</h1>
         <div className="homeDoneProjects">
           <UserCard
             avatar={null}
