@@ -4,9 +4,10 @@
 
 .navbar_container {
   background-color: rgba(9, 171, 133, 1);
-  height: 54px;
+  height: 6vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .containerLogo {
