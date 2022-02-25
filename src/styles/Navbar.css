@@ -13,6 +13,7 @@
 .containerLogo {
   width: 180px;
 }
+
 .holderLink {
   padding: 14px;
 }
@@ -55,7 +56,7 @@
   width: 150px;
 }
 
-/* .connexion {
+/* .connect {
     display:flex;
     align-self: center;
     position:absolute;
