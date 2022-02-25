@@ -1,0 +1,32 @@
+.isLaunch {
+	display: flex;
+	border: 2px solid black;
+	border-radius: 20px;
+	width: 450px;
+	height: 150px;
+	background-color: #09ab85;
+	justify-content: space-between;
+}
+
+.illustration {
+	display: flex;
+	height: 150px;
+	width: 150px;
+	object-fit: cover;
+}
+
+.illustration img {
+	height: 146px;
+	width: 146px;
+	object-fit: cover;
+	border-radius: 20px 0px 0px 20px;
+}
+
+.restes {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	color: white;
+	text-align: center;
+}
