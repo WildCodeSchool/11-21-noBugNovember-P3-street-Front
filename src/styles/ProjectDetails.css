@@ -1,0 +1,55 @@
+.projectDetailsContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 94vh;
+  padding-top: 5%;
+}
+.projectInfos {
+  border: 1px solid red;
+  width: 60vw;
+  height: 50vh;
+  display: flex;
+}
+
+.projectTextContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.projectAvatar {
+  width: 100%;
+  height: 100%;
+}
+
+.projectAvatarContainer {
+  border: 1px solid green;
+  width: 60%;
+}
+.usersContainer {
+  border: 1px solid yellow;
+  width: 15vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.usersInProject {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  border: 1px solid blue;
+}
+
+.avatarContainer {
+  width: 60%;
+}
+
+.avatarUsers {
+  width: 100%;
+}
