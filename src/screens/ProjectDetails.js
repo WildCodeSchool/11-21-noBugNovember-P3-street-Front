@@ -7,6 +7,7 @@ const ProjectDetails = () => {
   const [projectDetail, setProjectDetail] = useState([]);
   const [projectUsers, setProjectUsers] = useState([]);
   const params = useParams();
+  console.log(projectDetail);
 
   const getProjectDetails = () => {
     axios
@@ -29,7 +30,6 @@ const ProjectDetails = () => {
   return (
     <div className="projectDetailsContainer">
       {console.log("USERS", projectUsers)}
-      {/* {console.log(projectDetail)} */}
       <div className="projectInfos">
         <div className="projectAvatarContainer">
           {projectDetail.map((el) => (
@@ -43,6 +43,8 @@ const ProjectDetails = () => {
         <div className="projectTextContainer">
           <h1>{projectDetail.map((el) => el.name)}</h1>
           <p>{projectDetail.map((el) => el.description)}</p>
+          <p>Créateur du projet : {projectDetail.map((el) => el.firstname)}</p>
+          <p>{projectDetail.map((el) => el.lastname)}</p>
         </div>
       </div>
       <div className="usersContainer">
