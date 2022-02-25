@@ -3,7 +3,7 @@ import projectImage from "../assets/project.jpg";
 
 const ProjectAnnonceCard = ({ annonce }) => {
   return (
-    <div className="userContainer">
+    <div className="projectContainer">
       <div className="head">
         <div className="avatar">
           <img src={`${process.env.REACT_APP_BACK}/${annonce.logo}`} alt="" />

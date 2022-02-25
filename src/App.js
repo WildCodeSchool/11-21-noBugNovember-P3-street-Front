@@ -5,6 +5,7 @@ import Project from './screens/Project';
 import Users from './screens/Users';
 import CreateProject from './components/CreateProject'
 import UserDetail from './screens/UserDetail';
+import ProjectDetails from './screens/ProjectDetails'
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/projets' element={<Project />} />
+				<Route path="/projects/:id" element={<ProjectDetails />} />
 				<Route path='/talents' element={<Users />} />
 				<Route path='/connexion' element={<Connexion />} /> 
 				<Route path='/add_projects' element={<CreateProject />} />
