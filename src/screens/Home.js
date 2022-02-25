@@ -57,17 +57,19 @@ const Home = () => {
         </div>
         <div className="homeDoneProjects">
           <UserCard
-            /*   avatar={avatar} */
+            avatar={null}
             firstname="Break Free"
             artname="Street Art"
             description="« Un vent de liberté souffle dans la ville de Toulouse avec ce projet Street Art. Un besoin vital de se libérer et reprendre le contrôle de nos vies. »"
           />
           <UserCard
+            avatar={null}
             firstname="King Monsters"
             artname="Musique"
             description="Nina est une nouvelle artiste chanteuse – Interprète, à l’univers plutôt sombre. King Monsters est son premier tube qu’elle partage sur la plateforme. "
           />
           <UserCard
+            avatar={null}
             firstname="Back to Dust"
             artname="Court métrage"
             description="Ethan étant malade, épuisé et cerné par la vie, voit son état se dégrader de jours en jours, sans amélioration. Ne lui restant plus beaucoup de temps."
