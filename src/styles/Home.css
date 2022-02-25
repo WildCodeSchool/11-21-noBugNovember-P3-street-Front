@@ -1,7 +1,7 @@
 .homeBanner {
   height: 94vh;
   width: 100vw;
-  background-color: red;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -11,6 +11,19 @@
 .homeBanner img {
   width: 100%;
   height: max-content;
+}
+
+.overlayBanner {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  color: white;
+  width: 50%;
+}
+
+.quoteAuthor {
+  align-self: flex-end;
 }
 
 .sections {
