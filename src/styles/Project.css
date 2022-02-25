@@ -4,11 +4,12 @@
 .statusFilter {
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 
 .allStatus {
   display: flex;
-  width: 250px;
+  width: 15vw;
   justify-content: center;
   font-size: 1.25em;
   padding: 10px;
