@@ -1,32 +1,37 @@
 import '../styles/UserCardAnnonce.css';
 import avatar from '../assets/avatar.png';
+import { Link } from 'react-router-dom';
 //import { FontAwesomeIcon } from '@fontawesome/react-fontawesome';
 
 const UserCardAnnonce = (props) => {
+	const usersId = `/talents/${props.id}`;
 	return (
 		<div className="userContainer">
-			<div className="head">
-				<div className="avatar">
-					{props.avatar === null ? (
-						<img src={avatar} alt={props.firstname} />
-					) : (
-						<img
-							src={`${process.env.REACT_APP_BACK}/${props.avatar}`}
-							alt={props.firstname}
-						/>
-					)}
-				</div>
-				<div className="rightside">
-					<div className="job">
-						{props.domain}
-						<br />
-						{props.art_name}
+			<Link to={usersId}>
+				<div className="head">
+					<div className="avatar">
+						{props.avatar === null ? (
+							<img src={avatar} alt={props.firstname} />
+						) : (
+							<img
+								src={`${process.env.REACT_APP_BACK}/${props.avatar}`}
+								alt={props.firstname}
+							/>
+						)}
 					</div>
-					<div className="pseudo">
-						{props.firstname} {props.lastname}
+
+					<div className="rightside">
+						<div className="job">
+							{props.domain}
+							<br />
+							{props.art_name}
+						</div>
+						<div className="pseudo">
+							{props.firstname} {props.lastname}
+						</div>
 					</div>
 				</div>
-			</div>
+			</Link>
 			<div className="desc2">{props.descriptionAnnonce}</div>
 			<div className="content">
 				<div className="localisation">

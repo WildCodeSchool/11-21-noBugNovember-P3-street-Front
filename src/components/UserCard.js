@@ -1,29 +1,33 @@
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import '../styles/UserCard.css';
 import avatar from '../assets/avatar.png';
 //import { FontAwesomeIcon } from '@fontawesome/react-fontawesome';
 
 const UserCard = (props) => {
+	const usersId = `/talents/${props.id}`;
 	return (
 		<div className="userContainer">
-			<div className="head">
-				<div className="avatar">
-					{props.avatar === null ? (
-						<img src={avatar} alt={props.firstname} />
-					) : (
-						<img
-							src={`${process.env.REACT_APP_BACK}/${props.avatar}`}
-							alt={props.firstname}
-						/>
-					)}
-				</div>
-				<div className="rightside">
-					<div className="job">{props.artname}</div>
-					<div className="pseudo">
-						{props.firstname} {props.lastname}
+			<Link to={usersId}>
+				<div className="head">
+					<div className="avatar">
+						{props.avatar === null ? (
+							<img src={avatar} alt={props.firstname} />
+						) : (
+							<img
+								src={`${process.env.REACT_APP_BACK}/${props.avatar}`}
+								alt={props.firstname}
+							/>
+						)}
+					</div>
+					<div className="rightside">
+						<div className="job">{props.artname}</div>
+						<div className="pseudo">
+							{props.firstname} {props.lastname}
+						</div>
 					</div>
 				</div>
-			</div>
+			</Link>
+
 			<div className="desc">{props.description}</div>
 			<div className="content">
 				<div className="localisation">
