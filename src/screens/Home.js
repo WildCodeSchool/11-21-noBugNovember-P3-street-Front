@@ -6,6 +6,7 @@ import photo2 from "../assets/test2.jpg";
 import photo3 from "../assets/test3.jpg";
 import "../styles/Home.css";
 
+
 const Home = () => {
   return (
     <div>
