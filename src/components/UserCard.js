@@ -66,7 +66,7 @@ const UserCard = (props) => {
 						</a>
 					)}
 				</div>
-				<div className="email">
+				{/*<div className="email">
 					{props.emailVisibility ? (
 						<a href={`mailto:${props.email}`}>
 							<i className="fa-solid fa-envelope" />
@@ -74,8 +74,8 @@ const UserCard = (props) => {
 					) : (
 						<i className="fa-solid fa-envelope bloque" />
 					)}
-				</div>
-				<div className="phone">
+					</div>*/}
+				{/*<div className="phone">
 					{props.phoneVisibility ? (
 						<a href={`tel:${props.phone}`}>
 							<i className="fa-solid fa-phone-flip" />
@@ -83,7 +83,7 @@ const UserCard = (props) => {
 					) : (
 						<i className="fa-solid fa-phone-flip bloque" />
 					)}
-				</div>
+					</div>*/}
 				<div className="available">
 					{props.available ? (
 						<i class="fa-solid fa-calendar-check" alt="Disponible !" />

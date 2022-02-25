@@ -1,4 +1,4 @@
-.userContainer {
+.projectContainer {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -8,7 +8,7 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-color: #09ab85;
+  background-color: #094fabd0;
   color: white;
 }
 
