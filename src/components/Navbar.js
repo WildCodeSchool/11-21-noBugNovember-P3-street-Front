@@ -24,7 +24,7 @@ const Navbar = () => {
 				</div>
 				<div className="containerConnexion">
 					<Link to="/connexion">
-						<div className="connexion">Se connecter</div>
+						<div className="connect">Se connecter</div>
 					</Link>
 				</div>
 			</div>

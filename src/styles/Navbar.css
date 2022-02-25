@@ -1,6 +1,5 @@
 .holderLogo {
     width: 100%;
-
 }
 
 .navbar_container {
@@ -13,13 +12,12 @@
 .containerLogo {
     width: 180px;
 }
+
 .holderLink {
   padding: 14px;
-
 }
 
 .accueil {
-   
     padding: 12px;
     background-color: white;
     width: 108px;
@@ -27,13 +25,12 @@
     color: black;
     text-align: center;
     text-decoration: none;
-    
 }
 
-.button {
+/* .button {
     align-self: start;
     text-align: center;
-}
+} */
 
 .Link {
     display: flex;
@@ -58,7 +55,7 @@
     width: 150px;
 }
 
-/* .connexion {
+/* .connect {
     display:flex;
     align-self: center;
     position:absolute;

@@ -1,5 +1,6 @@
 .home {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -16,6 +17,7 @@
 
 .visioncontainer {
     display: flex;
+    padding-left: 4%;
     justify-content: space-between;
 }
 
@@ -25,6 +27,8 @@
 }
 
 h2 {
+    display: flex;
+    justify-content: center;
     padding: 4% 4%;
     color: #dcbe1c;
     font-family: 'Cinzel', serif;
