@@ -3,6 +3,7 @@ import Home from './screens/Home';
 import Navbar from './components/Navbar';
 import Project from './screens/Project';
 import Users from './screens/Users';
+import UserDetail from './screens/UserDetail';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/projets" element={<Project />} />
 				<Route path="/talents" element={<Users />} />
+				<Route path="/talents/:id" element={<UserDetail />} />
 				<Route path="/connexion" element={<Connexion />} />
 			</Routes>
 		</div>

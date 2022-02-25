@@ -1,17 +1,35 @@
 /* Container du composant  */
-.searchContainer {
+.searchDomain {
 	position: absolute;
 	z-index: 1000;
 	bottom: -10px;
+	left: 30px;
 	transform: translateY(100%);
 	padding: 20px 15px;
-	color: var(--thirdColor);
+	color: white;
 	outline: none;
 	font-size: 0.8em;
 	border-radius: 32px;
-	background: var(--gradientColor);
+	background-color: #09ab85;
 	backdrop-filter: blur(20px);
-	box-shadow: 5px 5px 5px var(--shadowColor);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	border: 1px solid;
+}
+
+.searchSubDomain {
+	position: absolute;
+	z-index: 1000;
+	bottom: -10px;
+	left: 0px;
+	transform: translateY(100%);
+	padding: 20px 15px;
+	color: white;
+	outline: none;
+	font-size: 0.8em;
+	border-radius: 32px;
+	background-color: #09ab85;
+	backdrop-filter: blur(20px);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 	border: 1px solid;
 }
 
@@ -24,6 +42,12 @@
 .searchGrid {
 	display: grid;
 	grid-template-columns: repeat(3, auto);
+	grid-template-rows: repeat(auto-fill, 1fr);
+}
+
+.searchGridDomain {
+	display: grid;
+	grid-template-columns: repeat(1, auto);
 	grid-template-rows: repeat(auto-fill, 1fr);
 }
 
@@ -40,7 +64,7 @@
 	border: 1px solid transparent;
 	justify-content: center;
 	align-items: center;
-	min-width: 4 0px;
+	min-width: 40px;
 	min-height: 40px;
 	border-radius: 32px;
 	cursor: pointer;
@@ -48,5 +72,5 @@
 }
 
 .elGrid p:hover {
-	border: 1px solid var(--firstColor);
+	border: 1px solid white;
 }

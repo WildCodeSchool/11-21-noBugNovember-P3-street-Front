@@ -1,16 +1,16 @@
 .holderLogo {
-    width: 100%;
+  width: 100%;
 }
 
 .navbar_container {
- background-color: rgba(9, 171, 133, 1);
- height: 54px;
- display : flex;
- align-items: center;
+  background-color: rgba(9, 171, 133, 1);
+  height: 54px;
+  display: flex;
+  align-items: center;
 }
- 
+
 .containerLogo {
-    width: 180px;
+  width: 180px;
 }
 
 .holderLink {
@@ -18,41 +18,41 @@
 }
 
 .accueil {
-    padding: 12px;
-    background-color: white;
-    width: 108px;
-    height: 54px;
-    color: black;
-    text-align: center;
-    text-decoration: none;
+  padding: 12px;
+  background-color: white;
+  width: 108px;
+  height: 54px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
 }
 
-/* .button {
-    align-self: start;
-    text-align: center;
-} */
+.button {
+  align-self: start;
+  text-align: center;
+}
 
 .Link {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    margin: auto;
-    color: white;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: auto;
+  color: white;
+  align-items: center;
 }
 
 .holderImg {
-    width: 2000px;
-    height: 426px;
+  width: 2000px;
+  height: 426px;
 }
 
 .containerConnexion {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    padding-right: 15px;
-    width: 150px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  padding-right: 15px;
+  width: 150px;
 }
 
 /* .connect {
