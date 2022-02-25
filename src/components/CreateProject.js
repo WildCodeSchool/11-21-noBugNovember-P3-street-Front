@@ -1,6 +1,10 @@
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
 import "./CreateProject.css";
+import 'react-calendar/dist/Calendar.css';
 
 const CreateProject = () => {
+    const [value, onChange] = useState(new Date())
   return (
     <>
       <div className="titleContainer" >
@@ -25,9 +29,10 @@ const CreateProject = () => {
                         <p>Région</p>
                         <input className="region" type="select" placeholder="Séléctionnez la région"></input>
                         <p>Date de début</p>
-                        <input className="jour" type="select" placeholder="Jour"></input>
-                        <input className="mois" type="select" placeholder="Mois"></input>
-                        <input className="année" type="select" placeholder="Année"></input>
+                        <Calendar className="calendar" onChange={onChange} value={value} />
+                        {/* <input className="date" type="select" placeholder="Jour"></input>
+                        <input className="date" type="select" placeholder="Mois"></input>
+                        <input className="date" type="select" placeholder="Année"></input> */}
                         <p>Date de fin estimée</p>
                         <input className="jourEnd" type="select" placeholder="Jour"></input>
                         <input className="moisEnd" type="select" placeholder="Mois"></input>

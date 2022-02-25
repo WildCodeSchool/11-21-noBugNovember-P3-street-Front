@@ -30,7 +30,7 @@
     height: 30px;
 }
 
-.jour {
+/* .jour {
     width: 65px;
     height: 30px;
 }
@@ -43,9 +43,9 @@
 .année {
     width: 65px;
     height: 30px;
-}
+} */
 
-.jourEnd {
+/* .jourEnd {
     width: 65px;
     height: 30px;
 }
@@ -58,7 +58,7 @@
 .annéeEnd {
     width: 65px;
     height: 30px;
-}
+} */
 
 .photoContainer {
     width: 100px;
@@ -96,3 +96,18 @@
     height:30px;
     width: 180px;
 }
+
+.date {
+    display: flex;
+    align-items:flex-start;
+}
+
+.sixthContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .calendar {
+    width: 100px;
+    height: 100px;
+} */
