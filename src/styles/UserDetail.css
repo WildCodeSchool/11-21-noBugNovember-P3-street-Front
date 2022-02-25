@@ -1,97 +1,132 @@
 .UserDetail {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 50px;
-}
-
-.carte {
-	display: flex;
-	width: 80%;
 	position: relative;
-	justify-content: space-between;
-	align-items: center;
-	border: solid 2px black;
-	border-radius: 20px;
-	background-color: #09ab85;
+	left: 5%;
+	margin-top: 40px;
+	justify-content: center;
+	width: 90%;
 }
 
-.photo {
+.profil {
 	display: flex;
-	align-self: flex-start;
+	position: relative;
+	flex-direction: column;
+	justify-content: center;
+	width: 40%;
+	height: 100%;
+	/*border: solid 2px black;*/
+	background-color: #09ab85;
+	font-family: 'Roboto', sans-serif;
+	border-radius: 40px 40px 40px 40px;
 }
 
-.photo img {
-	border-radius: 20px 0px 0px 0px;
-	height: 150px;
-	width: 150px;
+.projects {
+	display: flex;
+	border: 2px solid black;
+	/*border-radius: 0px 40px 40px 0px;*/
+}
+
+.perso {
+	display: flex;
+	justify-content: center;
+	border-radius: 50%;
+	margin-bottom: 10px;
+}
+
+.perso img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
 	object-fit: cover;
 }
 
-.prez {
+.blaze,
+.onejob,
+.living,
+.lesresals,
+.description {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-end;
+	justify-content: center;
+	margin: 2px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.4em;
 	color: white;
-	width: 100%;
-}
-
-.whatsmyname {
-	font-size: 1.5em;
-	margin-bottom: 10px;
-}
-
-.metier {
-	font-size: 1.5em;
-	margin-bottom: 10px;
-}
-
-.living {
-	font-size: 1.5em;
-	margin-bottom: 10px;
-}
-
-.aboutme {
-	font-size: 1.5em;
-	margin-bottom: 10px;
 	text-align: center;
 }
 
-.reseaux {
-	margin-top: 10px;
-	margin-bottom: 10px;
+.description {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.dispo2 {
+	display: flex;
+	justify-content: center;
+	font-size: 1.75em;
+	margin: 15px;
+	color: white;
+}
+
+.projects {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+.lefiltre {
 	display: flex;
 	justify-content: center;
 	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-.listprojects {
+.lancerbyuser {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	margin-top: 50px;
-	width: 80%;
 	align-items: center;
+	position: relative;
+	font-size: 1.25em;
+	width: 250px;
+	padding: 10px;
+	background-color: #09ab85;
+	color: white;
+	border-radius: 25px 0px 0px 25px;
+	appearance: none;
+	transition: 0.5s;
 }
 
-.creator {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 25px;
-	width: 80%;
-	border: solid 2px black;
-	padding: 5px;
-	border-radius: 20px 20px 20px 20px;
-	font-size: 1.5em;
+.lancerbyuser:hover {
+	background-color: #086e56;
 }
 
-.participe {
+.lancerbyuser.active {
+	background-color: #086e56;
+}
+
+.participatebyuser {
 	display: flex;
 	justify-content: center;
-	width: 80%;
-	border: solid 2px black;
-	padding: 5px;
-	border-radius: 20px 20px 20px 20px;
-	font-size: 1.5em;
+	align-items: center;
+	position: relative;
+	font-size: 1.25em;
+	width: 250px;
+	padding: 10px;
+	background-color: #09ab85;
+	color: white;
+	border-radius: 0px 25px 25px 0px;
+	appearance: none;
+	transition: 0.5s;
+}
+
+.participatebyuser:hover {
+	background-color: #086e56;
+}
+
+.participatebyuser.active {
+	background-color: #086e56;
+}
+
+.cache {
+	display: none;
 }

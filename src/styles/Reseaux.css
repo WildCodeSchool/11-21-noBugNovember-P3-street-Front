@@ -2,11 +2,12 @@
 	display: flex;
 	width: 100%;
 	justify-content: space-around;
-	font-size: 2.5em;
+	font-size: 2em;
 	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
-/*
-.video {
-	font-size: 2.5em;
+
+.perso {
+	margin-top: 10px;
 }
-*/
