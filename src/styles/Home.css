@@ -84,7 +84,7 @@
 }
 
 .tousLesProjetsBtn {
-  margin: 10vh;
+  margin: 7vh;
   display: flex;
   background-color: #036eff;
   color: whitesmoke;
@@ -98,6 +98,7 @@
 
 .comments {
   background-color: transparent;
+  margin: 3vh 0vw 3vh 0vw;
 }
 
 .containerComments {
@@ -150,7 +151,8 @@
   display: flex;
   justify-content: center;
 }
-.seeComments {
+.seeComments,
+.searchTalentProjectBtn {
   margin: 10vh;
   display: flex;
   background-color: #036eff;
@@ -161,4 +163,78 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.searchTalentProjectContainer {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.fa-searchengin,
+.fa-folder-tree {
+  font-size: 100px;
+  color: #030000;
+}
+
+.searchTalent,
+.searchProject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  height: 20vh;
+  justify-content: space-between;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  width: 100%;
+  height: 50vh;
+  padding: 5vh 2vw;
+  margin-top: 15vh;
+}
+
+.containerCol {
+  display: flex;
+  justify-content: space-around;
+}
+
+.colFooter {
+  width: 10vw;
+}
+.colFooterInfosParaph {
+  color: grey;
+}
+
+.colFooterHeader {
+  margin-bottom: 5vh;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.colFooterInfosContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.colFooterInfos {
+  color: grey;
+  margin-bottom: 2vh;
+  cursor: pointer;
+}
+
+.colFooterInfos:hover {
+  color: whitesmoke;
+}
+
+.bottomFooter {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3vw;
+  color: lightgrey;
 }

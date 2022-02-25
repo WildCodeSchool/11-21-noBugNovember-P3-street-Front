@@ -4,3 +4,18 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
+body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+  padding: 1px;
+}
+
+body::-webkit-scrollbar-track {
+  background: lightgrey; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 1px solid lightgrey;
+}
