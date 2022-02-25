@@ -6,7 +6,7 @@
 }
 
 body::-webkit-scrollbar {
-  width: 12px; /* width of the entire scrollbar */
+  width: 0.8vw; /* width of the entire scrollbar */
   padding: 1px;
 }
 
