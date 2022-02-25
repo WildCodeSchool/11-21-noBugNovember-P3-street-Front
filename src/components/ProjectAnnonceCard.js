@@ -9,7 +9,7 @@ const ProjectAnnonceCard = ({ annonce }) => {
           <img src={`${process.env.REACT_APP_BACK}/${annonce.logo}`} alt="" />
         </div>
         <div className="rightside">
-          <div className="job">{annonce.name}</div>
+          <div className="job">{annonce.role}</div>
           <div className="pseudo"></div>
         </div>
       </div>
