@@ -8,7 +8,7 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-color: #094fabd0;
+  background-color: var(--second);
   color: white;
 }
 
@@ -18,7 +18,7 @@
   height: 150px;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--white);
   color: black;
   border-radius: 10px 10px 80px 10px;
 }
@@ -59,19 +59,31 @@
   margin: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.5em;
+  justify-content: flex-start;
+  font-size: 1em;
 }
 
 .content {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   position: absolute;
   width: 100%;
   bottom: 0;
-  margin: 5px;
-  height: 30px;
+  height: 12%;
+  padding: 0% 3% 0% 3%;
+}
+
+.quandOu {
+  width: 70%;
+}
+
+.projecTtime {
+  width: 20%;
+}
+
+.quandOu i {
+  margin-right: 0.4vw;
 }
 
 .bloque {
