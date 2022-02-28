@@ -6,11 +6,13 @@
   flex-direction: row;
   justify-content: center;
   overflow: hidden;
+  box-shadow: inset 0 0 500px rgba(0, 0, 0, 0.7);
 }
 
 .homeBanner img {
   width: 100%;
   height: max-content;
+  z-index: -1;
 }
 
 .overlayBanner {
@@ -18,7 +20,7 @@
   flex-direction: column;
   position: absolute;
   top: 45%;
-  color: white;
+  color: var(--white);
   width: 50%;
 }
 
@@ -52,7 +54,7 @@
   align-items: center;
   flex-direction: column;
   padding: 5vw;
-  border: 1px solid lightgreen;
+  border: 1px solid var(--main);
   justify-content: center;
 }
 
@@ -61,16 +63,16 @@
 }
 
 .btnNousrejoindre {
-  position: relative;
+  /*   position: relative; */
   /* right: -80%; */
   transform: translate(0px, 13vh);
   /* top: 55%; */
-  align-self: flex-end;
+  align-self: end;
   justify-self: flex-end;
-  background-color: darkred;
-  padding: 1vw 2vw;
+  background-color: var(--red);
+  padding: 2% 3%;
   border-radius: 5px;
-  color: whitesmoke;
+  color: var(--white);
   cursor: pointer;
   max-width: 200px;
   max-height: 96px;
@@ -90,7 +92,7 @@
 .homeProjectDone {
   width: 30vw;
   height: 30vh;
-  background-color: red;
+  background-color: var(--red);
 }
 
 .tousLesProjets {
@@ -104,7 +106,7 @@
 .tousLesProjetsBtn {
   margin: 7vh;
   display: flex;
-  background-color: #036eff;
+  background-color: var(--second);
   color: whitesmoke;
   width: 20vw;
   height: 10vh;
@@ -160,7 +162,7 @@
 }
 
 .cta {
-  color: green;
+  color: var(--main);
   cursor: pointer;
 }
 
@@ -173,8 +175,8 @@
 .searchTalentProjectBtn {
   margin: 3vh;
   display: flex;
-  background-color: #036eff;
-  color: whitesmoke;
+  background-color: var(--second);
+  color: var(--white);
   width: 20vw;
   height: 10vh;
   border-radius: 0.5vw;
@@ -230,7 +232,7 @@
 
 .colFooterHeader {
   margin-bottom: 5vh;
-  color: whitesmoke;
+  color: var(--white);
   font-weight: bold;
 }
 
@@ -246,7 +248,7 @@
 }
 
 .colFooterInfos:hover {
-  color: whitesmoke;
+  color: var(--white);
 }
 
 .bottomFooter {

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 const ProjectCard = ({ project }) => {
   const projectId = `/projects/${project.id}`;
+  const dateProject = project.estimated_start_date.slice(0, 10);
+
   return (
     <div className="projectContainer">
       <Link to={projectId}>
@@ -18,9 +20,13 @@ const ProjectCard = ({ project }) => {
         </div>
         <div className="desc">{project.description}</div>
         <div className="content">
-          <div className="localisation">
+          <div className="quandOu localisation">
             <i className="fa-solid fa-location-dot"></i>
             {project.localisation}
+          </div>
+          <div className="quandOu projecTtime">
+            <i class="fa-solid fa-calendar-days"></i>
+            {dateProject}
           </div>
         </div>
       </Link>

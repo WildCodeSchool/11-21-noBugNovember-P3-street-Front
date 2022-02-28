@@ -1,3 +1,18 @@
+:root {
+  --main: #09ab85;
+  --main-dark: #086e56;
+  --second: #094fabd0;
+  --grey: #939993;
+  --darkgrey: #5b665b;
+  --white: whitesmoke;
+  --red: darkred;
+  --cta: #9b9ee1;
+  --shadowColor: #2b0e4545;
+  --fontTitle: "IvyJournal" 400;
+  --fontBody: "Ivyjournal", sans-serif;
+  backface-visibility: hidden;
+}
+
 .App {
   margin: 0;
   padding: 0;
@@ -11,7 +26,6 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: lightgrey; /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {

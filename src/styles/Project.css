@@ -13,11 +13,15 @@
   justify-content: center;
   font-size: 1.25em;
   padding: 10px;
-  background-color: #09ab85;
+  background-color: var(--grey);
   color: white;
   transition: 0.5s;
 }
 
 .allStatus.active {
-  background-color: #086e56;
+  background-color: var(--main-dark);
+}
+
+.allStatus:hover {
+  background-color: var(--darkgrey);
 }
