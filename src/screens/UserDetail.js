@@ -15,7 +15,7 @@ const UserDetail = () => {
 
 	const disponibilite = () => {
 		if (data.available === 1) {
-			return <i class="fa-solid fa-calendar-check" alt="Disponible !" />;
+			return <i class="fa-solid fa-calendar-check" alt="Disponible" />;
 		} else {
 			return <i class="fa-solid fa-calendar-minus bye" alt="Non disponible" />;
 		}
@@ -121,7 +121,7 @@ const UserDetail = () => {
 											youtube={p.youtubelink}
 										/>
 								  ))
-								: ''}
+								: `Aucun projet par ${data.firstname}`}
 						</div>
 					</div>
 					<div className={selectProjet === 1 ? 'participe' : 'cache'}>
@@ -136,7 +136,7 @@ const UserDetail = () => {
 											domain={pa.domain}
 										/>
 								  ))
-								: ''}
+								: `${data.firstname} n'a participé à aucun projet`}
 						</div>
 					</div>
 				</div>

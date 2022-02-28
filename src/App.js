@@ -17,10 +17,10 @@ function App() {
 			</header>
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/add_projects" element={<CreateProject />} />
+				<Route path="/connexion" element={<Connexion />} />
 				<Route path="/projets" element={<Project />} />
 				<Route path="/talents" element={<Users />} />
-				<Route path="/connexion" element={<Connexion />} />
-				<Route path="/add_projects" element={<CreateProject />} />
 				<Route path="/projets/:id" element={<ProjectDetails />} />
 				<Route path="/talents/:id" element={<UserDetail />} />
 			</Routes>
