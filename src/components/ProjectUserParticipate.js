@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import '../styles/ProjectUserParticipate.css';
 
 const ProjectUserParticipate = (props) => {
-	const projectLink = `/projet/${props.id}`;
+	const projectLink = `/projets/${props.id}`;
 	return (
 		<div className="isParticipate">
 			<Link to={projectLink}>

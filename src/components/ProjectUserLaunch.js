@@ -4,9 +4,7 @@ import '../styles/ProjectUserLaunch.css';
 
 const ProjectUserLaunch = (props) => {
 	const [status, setStatus] = useState('');
-	const projectLink = `/projet/${props.id}`;
-
-	console.log(projectLink);
+	const projectLink = `/projets/${props.id}`;
 
 	useEffect(() => {
 		if (props.status === 0) {

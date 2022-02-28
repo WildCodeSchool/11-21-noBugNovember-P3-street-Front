@@ -132,6 +132,7 @@ const UserDetail = () => {
 							{participe !== undefined && participe.length > 0
 								? participe.map((pa) => (
 										<ProjectUserParticipate
+											id={pa.id}
 											name={pa.name}
 											status={pa.status}
 											logo={pa.logo}
