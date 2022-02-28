@@ -42,14 +42,17 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: auto;
-  border: 1px solid blue;
+
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 .avatarContainer {
-  width: 60%;
+  width: 100%;
+  height: 100%;
 }
 
 .avatarUsers {
   width: 100%;
+  height: 30vh;
 }

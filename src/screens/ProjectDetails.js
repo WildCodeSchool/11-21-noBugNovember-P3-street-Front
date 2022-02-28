@@ -7,7 +7,8 @@ const ProjectDetails = () => {
   const [projectDetail, setProjectDetail] = useState([]);
   const [projectUsers, setProjectUsers] = useState([]);
   const params = useParams();
-  console.log(projectDetail);
+
+  console.log(params);
 
   const getProjectDetails = () => {
     axios
@@ -26,7 +27,6 @@ const ProjectDetails = () => {
     getProjectDetails();
     usersInProject();
   }, []);
-
   return (
     <div className="projectDetailsContainer">
       {console.log("USERS", projectUsers)}

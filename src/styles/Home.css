@@ -62,14 +62,18 @@
 
 .btnNousrejoindre {
   position: relative;
-  right: -80%;
-  /* transform: translate(-0px, 65px); */
-  top: 55%;
+  /* right: -80%; */
+  transform: translate(0px, 13vh);
+  /* top: 55%; */
+  align-self: flex-end;
+  justify-self: flex-end;
   background-color: darkred;
   padding: 1vw 2vw;
   border-radius: 5px;
   color: whitesmoke;
   cursor: pointer;
+  max-width: 200px;
+  max-height: 96px;
 }
 
 .homeDoneProjects {

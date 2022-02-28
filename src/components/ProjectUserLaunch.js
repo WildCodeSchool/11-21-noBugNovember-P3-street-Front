@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/ProjectUserLaunch.css';
-import React from 'react';
 
 const ProjectUserLaunch = (props) => {
 	const [status, setStatus] = useState('');
+	const projectLink = `/projets/${props.id}`;
 
 	useEffect(() => {
 		if (props.status === 0) {
@@ -17,14 +18,16 @@ const ProjectUserLaunch = (props) => {
 
 	return (
 		<div className="isLaunch">
-			<div className="illustration">
-				<img src={`${process.env.REACT_APP_BACK}/${props.logo}`} />
-			</div>
-			<div className="restes">
-				<div className="blaze">{props.name}</div>
-				<div className="envir">{props.domain}</div>
-				<div className="onenestou">{status}</div>
-			</div>
+			<Link to={projectLink}>
+				<div className="illustration">
+					<img src={`${process.env.REACT_APP_BACK}/${props.logo}`} />
+				</div>
+				<div className="restes">
+					<div className="blaze">{props.name}</div>
+					<div className="envir">{props.domain}</div>
+					<div className="onenestou">{status}</div>
+				</div>
+			</Link>
 		</div>
 	);
 };
