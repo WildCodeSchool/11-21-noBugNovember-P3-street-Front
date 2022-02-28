@@ -34,6 +34,16 @@ const Home = () => {
         </Splide>
       </div> */}
       <div className="homeBanner">
+        <div className="overlayBanner">
+          <h1>
+            “Lorsqu'on rêve tout seul, ce n'est qu'un rêve alors que lorsqu'on
+            rêve à plusieurs c'est déjà une réalité. L'utopie partagée, c'est le
+            ressort de l'Histoire.”
+          </h1>
+          <h1 className="quoteAuthor">
+            <em>- Elder Camara</em>
+          </h1>
+        </div>
         <img className="holderImg" src={guitarneon} alt="images" />
       </div>
       <div className="sections">
@@ -55,6 +65,7 @@ const Home = () => {
             <div className="button btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>
+        <h1>Projets terminés récemment</h1>
         <div className="homeDoneProjects">
           <UserCard
             avatar={null}

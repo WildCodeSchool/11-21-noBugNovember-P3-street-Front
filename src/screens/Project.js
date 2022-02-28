@@ -121,7 +121,7 @@ const Project = () => {
   return (
     <div className="talent">
       <div className="introtalents">
-        <h1>Liste des projets</h1>
+        <h2>Liste des projets</h2>
       </div>
       <div className="selecttalent">
         <div
