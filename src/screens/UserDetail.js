@@ -13,14 +13,9 @@ const UserDetail = () => {
 	const [selectProjet, setSelectProjet] = useState(0);
 	let { id } = useParams();
 
-	//console.log(data);
-	//console.log('selection projet : ', selectProjet);
-	//console.log('participe', participe);
-	//console.log('projet', projet);
-
 	const disponibilite = () => {
 		if (data.available === 1) {
-			return <i class="fa-solid fa-calendar-check" alt="Disponible !" />;
+			return <i class="fa-solid fa-calendar-check" alt="Disponible" />;
 		} else {
 			return <i class="fa-solid fa-calendar-minus bye" alt="Non disponible" />;
 		}
@@ -73,7 +68,7 @@ const UserDetail = () => {
 					{data.country} - {data.city}
 				</div>
 				<div className="dispo2">{disponibilite()}</div>
-				<div className="description">{data.description_users}</div>
+				<div className="description3">{data.description_users}</div>
 				<div className="lesresals">
 					{data.twitter !== undefined ||
 					data.youtube !== undefined ||
@@ -117,6 +112,7 @@ const UserDetail = () => {
 							{projet !== undefined && projet.length > 0
 								? projet.map((p) => (
 										<ProjectUserLaunch
+											id={p.id}
 											name={p.name}
 											logo={p.logo}
 											status={p.status}
@@ -125,7 +121,7 @@ const UserDetail = () => {
 											youtube={p.youtubelink}
 										/>
 								  ))
-								: ''}
+								: `Aucun projet par ${data.firstname}`}
 						</div>
 					</div>
 					<div className={selectProjet === 1 ? 'participe' : 'cache'}>
@@ -133,13 +129,14 @@ const UserDetail = () => {
 							{participe !== undefined && participe.length > 0
 								? participe.map((pa) => (
 										<ProjectUserParticipate
+											id={pa.id}
 											name={pa.name}
 											status={pa.status}
 											logo={pa.logo}
 											domain={pa.domain}
 										/>
 								  ))
-								: ''}
+								: `${data.firstname} n'a participé à aucun projet`}
 						</div>
 					</div>
 				</div>
