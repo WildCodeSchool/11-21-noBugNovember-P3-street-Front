@@ -4,12 +4,24 @@
     justify-content: center;
     align-items: flex-start;
     position: absolute;
+    top: 15%;
     left: 30%;
     justify-content: space-between;
     margin-top: 60px;
 
 }
 
+.titleContainer {
+    display: flex;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+}
+
+input {
+    border: 1px solid black;
+    outline: none;
+}
 .name {
     width: 300px;
     height: 30px;
@@ -20,9 +32,10 @@
     height: 30px;
 }
 
-.description {
+.descriptionProject {
     width: 550px;
     height: 130px;
+    margin: 0;
 }
 
 .region {
@@ -30,39 +43,9 @@
     height: 30px;
 }
 
-/* .jour {
-    width: 65px;
-    height: 30px;
-}
-
-.mois {
-    width: 65px;
-    height: 30px;
-}
-
-.année {
-    width: 65px;
-    height: 30px;
-} */
-
-/* .jourEnd {
-    width: 65px;
-    height: 30px;
-}
-
-.moisEnd {
-    width: 65px;
-    height: 30px;
-}
-
-.annéeEnd {
-    width: 65px;
-    height: 30px;
-} */
-
 .photoContainer {
-    width: 100px;
-    height: 100px;
+    width: 115px;
+    height: 115px;
     border: 1px solid black;
 }
 
@@ -111,3 +94,24 @@
     width: 100px;
     height: 100px;
 } */
+
+.css-1lwbda4-MuiStack-root {
+    /* margin-block: 10px;
+    margin-inline: 0; */
+    margin: 10px 0 ;
+}
+
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+    color: rgb(0 0 0)!important;
+    font-size: 19px!important;
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+    border-color: rgb(0 0 0)!important;
+}
+
+.secondButton {
+    height: 35px;
+    width: 150px;
+}
+

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import Calendar from 'react-calendar';
 import "./CreateProject.css";
 import 'react-calendar/dist/Calendar.css';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+
 
 const CreateProject = () => {
-    const [value, onChange] = useState(new Date())
+    
   return (
     <>
       <div className="titleContainer" >
@@ -18,7 +20,7 @@ const CreateProject = () => {
                     <p>Domaine</p>
                     <input className="domaine" type="search" placeholder="Sélectionnez un domaine artistique"></input>
                     <p>Description</p>
-                    <input className="description" type="text"></input>
+                    <input className="descriptionProject" type="text"></input>
                 </div>
                 <div className="fourthContainer" >
                     <div className="photoContainer"></div>
@@ -28,15 +30,31 @@ const CreateProject = () => {
                     <div className="sixthContainer">
                         <p>Région</p>
                         <input className="region" type="select" placeholder="Séléctionnez la région"></input>
-                        <p>Date de début</p>
-                        <Calendar className="calendar" onChange={onChange} value={value} />
-                        {/* <input className="date" type="select" placeholder="Jour"></input>
-                        <input className="date" type="select" placeholder="Mois"></input>
-                        <input className="date" type="select" placeholder="Année"></input> */}
-                        <p>Date de fin estimée</p>
-                        <input className="jourEnd" type="select" placeholder="Jour"></input>
-                        <input className="moisEnd" type="select" placeholder="Mois"></input>
-                        <input className="annéeEnd" type="select" placeholder="Année"></input>
+                        {/* <p>Date de début</p> */}
+                        <Stack className="calendar" component="form" noValidate spacing={3}>
+                        <TextField
+                            id="date"
+                            label="Date de début"
+                            type="date"
+                            defaultValue="2022-02-28"
+                            sx={{ width: 220 }}
+                            InputLabelProps={{
+                            shrink: true,
+                            }}
+                            />  
+                        </Stack>
+                        <Stack  component="form" noValidate spacing={3}>
+                        <TextField
+                            id="date"
+                            label="Date de fin"
+                            type="date"
+                            defaultValue="2022-02-28"
+                            sx={{ width: 220 }}
+                            InputLabelProps={{
+                            shrink: true,
+                            }}
+                            />
+                        </Stack>
                     </div>
                     <div className="seventhContainer">
                         <div className="holderButton">
@@ -64,41 +82,3 @@ export default CreateProject;
 
 
 
-// // <h2>Créez votre projet</h2>
-// <div className="firstDiv">   
-// <div className="nameContainer">
-//   <p>Nom du projet</p>
-//   <input className="name" type="text" placeholder="Streetzer"></input>
-// </div>
-// <div className="domaineContainer">
-//   <p>Domaine</p>
-//   <input
-//     className="domaine"
-//     type="search"
-//     placeholder="Sélectionnez un domaine artistique"
-//   ></input>
-// </div>
-// <div className="descriptionContainer">
-//   <p>Description</p>
-//   <input className="description" type="text"></input>
-// </div>
-// <div className="regionContainer">
-//   <p>Région</p>
-//   <input className="region" type="select" placeholder="Séléctionnez la région"></input>
-// </div>
-// <div className="dateBegin">
-//   <p>Date de début</p>
-//   <input className="jour" type="select" placeholder="Jour"></input>
-//   <input className="mois" type="select" placeholder="Mois"></input>
-//   <input className="année" type="select" placeholder="Année"></input>
-// </div>
-// <div className="dateEnd">
-//   <p>Date de fin estimée</p>
-//   <input className="jourEnd" type="select" placeholder="Jour"></input>
-//   <input className="moisEnd" type="select" placeholder="Mois"></input>
-//   <input className="annéeEnd" type="select" placeholder="Année"></input>
-// </div>
-// {/* <div className="holderButton">
-//   <div className="holderButton">Publier le projet</div>
-// </div> */}
-// </div>
