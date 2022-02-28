@@ -13,10 +13,8 @@ const UserDetail = () => {
 	const [selectProjet, setSelectProjet] = useState(0);
 	let { id } = useParams();
 
-	//console.log(data);
-	//console.log('selection projet : ', selectProjet);
-	//console.log('participe', participe);
-	//console.log('projet', projet);
+	console.log(participe);
+	console.log(projet);
 
 	const disponibilite = () => {
 		if (data.available === 1) {
@@ -73,7 +71,7 @@ const UserDetail = () => {
 					{data.country} - {data.city}
 				</div>
 				<div className="dispo2">{disponibilite()}</div>
-				<div className="description">{data.description_users}</div>
+				<div className="description3">{data.description_users}</div>
 				<div className="lesresals">
 					{data.twitter !== undefined ||
 					data.youtube !== undefined ||
@@ -117,6 +115,7 @@ const UserDetail = () => {
 							{projet !== undefined && projet.length > 0
 								? projet.map((p) => (
 										<ProjectUserLaunch
+											id={p.id}
 											name={p.name}
 											logo={p.logo}
 											status={p.status}
