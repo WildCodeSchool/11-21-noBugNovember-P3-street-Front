@@ -13,9 +13,6 @@ const UserDetail = () => {
 	const [selectProjet, setSelectProjet] = useState(0);
 	let { id } = useParams();
 
-	console.log(participe);
-	console.log(projet);
-
 	const disponibilite = () => {
 		if (data.available === 1) {
 			return <i class="fa-solid fa-calendar-check" alt="Disponible !" />;
