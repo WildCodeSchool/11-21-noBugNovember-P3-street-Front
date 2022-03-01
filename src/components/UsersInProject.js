@@ -1,11 +1,16 @@
 import "../styles/ProjectDetails.css";
 import avatar from "../assets/avatar.png";
+import { Link } from "react-router-dom";
 const UsersInProject = ({ user }) => {
+  const userId = `/talents/${user.id}`;
   return (
     <div className="usersInProject">
-      {user.lastname}
-      {user.firstname}
-      <div className="avatarContainer">
+      <Link to={userId}>
+        <div className="userName">
+          {user.lastname}
+          {user.firstname}
+        </div>
+
         {user.avatar === null ? (
           <img src={avatar} alt={user.firstname} className="avatarUsers" />
         ) : (
@@ -15,7 +20,7 @@ const UsersInProject = ({ user }) => {
             className="avatarUsers"
           />
         )}
-      </div>
+      </Link>
     </div>
   );
 };
