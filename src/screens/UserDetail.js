@@ -15,9 +15,18 @@ const UserDetail = () => {
 
 	const disponibilite = () => {
 		if (data.available === 1) {
-			return <i class="fa-solid fa-calendar-check" alt="Disponible" />;
+			return (
+				<div>
+					<i class="fa-solid fa-calendar-check" alt="Disponible" /> Disponible
+				</div>
+			);
 		} else {
-			return <i class="fa-solid fa-calendar-minus bye" alt="Non disponible" />;
+			return (
+				<div>
+					<i class="fa-solid fa-calendar-minus bye" alt="Non disponible" /> Non
+					disponible
+				</div>
+			);
 		}
 	};
 
