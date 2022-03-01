@@ -1,0 +1,39 @@
+.usersInGestion {
+  display: flex;
+  justify-content: space-around;
+  padding: 1%;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  background-color: var(--main);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.boutonGestionValider {
+  border: 1px solid black;
+  padding: 1%;
+  border-radius: 50px;
+  background-color: rgba(73, 168, 73, 0.918);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.boutonGestionBloquer {
+  border: 1px solid black;
+  padding: 1%;
+  border-radius: 50px;
+  background-color: rgba(235, 64, 64, 0.822);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.entries {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
