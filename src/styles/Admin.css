@@ -1,0 +1,87 @@
+.admin {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: 30px;
+	height: 90vh;
+}
+
+.welcomeadmin {
+	display: flex;
+	justify-content: center;
+	font-size: 2em;
+}
+
+.contenu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.dashboard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: solid 2px black;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.dashusers {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px;
+}
+
+.dashprojects {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px;
+}
+
+.title {
+	display: flex;
+	font-size: 2em;
+	justify-content: center;
+	padding: 10px;
+}
+
+.titleuser {
+	display: flex;
+	font-size: 1.5em;
+	justify-content: center;
+}
+
+.titleproject {
+	display: flex;
+	font-size: 1.5em;
+	justify-content: center;
+}
+
+.manageuser {
+	display: flex;
+	width: 500px;
+	justify-content: center;
+	font-size: 2em;
+	margin: 10px;
+	border-radius: 20px 20px 20px 20px;
+	color: white;
+	background-color: var(--main);
+}
+
+.manageproject {
+	display: flex;
+	width: 500px;
+	justify-content: center;
+	font-size: 2em;
+	margin: 10px;
+	border-radius: 20px 20px 20px 20px;
+	color: white;
+	background-color: var(--second);
+}
