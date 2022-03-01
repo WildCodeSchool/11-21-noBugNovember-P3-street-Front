@@ -14,7 +14,6 @@
 	justify-content: flex-start;
 	width: 40%;
 	height: 90vh;
-	/*border: solid 2px black;*/
 	background-color: #09ab85;
 	font-family: 'Roboto', sans-serif;
 	border-radius: 40px 40px 40px 40px;
@@ -22,8 +21,6 @@
 
 .projects {
 	display: flex;
-	/*border: 2px solid black;*/
-	/*border-radius: 0px 40px 40px 0px;*/
 }
 
 .perso {
@@ -130,15 +127,7 @@
 	appearance: none;
 	transition: 0.5s;
 }
-/*
-.participatebyuser:hover {
-	background-color: #086e56;
-}
 
-.participatebyuser.active {
-	background-color: #086e56;
-}
-*/
 .cache {
 	display: none;
 }
