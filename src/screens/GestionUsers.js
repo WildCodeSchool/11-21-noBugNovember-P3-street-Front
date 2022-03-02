@@ -64,24 +64,20 @@ const GestionUsers = () => {
       </div>
       <div className="tableauContainer">
         {isFilter
-          ? blockedUsers
-              // .filter((el) => el.firtname.includes(searchTerm))
-              .map((el) => (
-                <UsersInGestion
-                  user={el}
-                  getBlockedUsers={getBlockedUsers}
-                  getValidatedUsers={getValidatedUsers}
-                />
-              ))
-          : validatedUsers
-              // .filter((el) => el.firtname.includes(searchTerm))
-              .map((el) => (
-                <UsersInGestion
-                  user={el}
-                  getBlockedUsers={getBlockedUsers}
-                  getValidatedUsers={getValidatedUsers}
-                />
-              ))}
+          ? blockedUsers.map((el) => (
+              <UsersInGestion
+                user={el}
+                getBlockedUsers={getBlockedUsers}
+                getValidatedUsers={getValidatedUsers}
+              />
+            ))
+          : validatedUsers.map((el) => (
+              <UsersInGestion
+                user={el}
+                getBlockedUsers={getBlockedUsers}
+                getValidatedUsers={getValidatedUsers}
+              />
+            ))}
       </div>
     </div>
   );
