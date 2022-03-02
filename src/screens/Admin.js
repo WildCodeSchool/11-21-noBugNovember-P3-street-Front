@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Dashboard from '../components/Dashboard';
+import NavbarAdmin from '../components/NavbarAdmin';
 import Axios from 'axios';
 import '../styles/Admin.css';
 
@@ -77,34 +79,21 @@ const Admin = () => {
 	return (
 		<div className="admin">
 			<div className="welcomeadmin">Page d'administration de Streetzer</div>
-			<div className="dashboard">
-				<div className="title">Dashboard</div>
-				<div className="dashusers">
-					<div className="titleuser">Utilisateurs</div>
-					<div classNAme="contentusers">
-						Nombre d'utilisateurs enregistrés : {users.length}
-						<br />
-						Nombre d'utilisateurs bloqués : {usersBlocked()}
-					</div>
+			<div className="contentadmin">
+				<div className="adminnavbar">
+					<NavbarAdmin />
 				</div>
-				<div className="dashprojects">
-					<div className="titleproject">Projets</div>
-					<div classNAme="contentusers">
-						Nombre de projets enregistrés : {projects.length}
-						<br />
-						Nombre de projets bloqués : {projectsBlocked()}
-						<br />
-						Nombre de projets en recherche d'équipiers : {projectsMate()}
-						<br />
-						Nombre de projets avec équipe complete : {projectsCompleted()}
-						<br />
-						Nombre de projets terminés : {projectsFinish()}
-					</div>
+				<div className="tableau">
+					<Dashboard
+						users={users}
+						projects={projects}
+						usersBlocked={usersBlocked}
+						projectsBlocked={projectsBlocked}
+						projectsMate={projectsMate}
+						projectsCompleted={projectsCompleted}
+						projectsFinish={projectsFinish}
+					/>
 				</div>
-			</div>
-			<div className="contenu">
-				<div className="manageuser">Gestion des utilisateurs</div>
-				<div className="manageproject">Gestion des projets</div>
 			</div>
 		</div>
 	);

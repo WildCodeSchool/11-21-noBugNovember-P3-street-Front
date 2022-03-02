@@ -2,7 +2,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	align-items: center;
+	width: 100%;
+	/*align-items: flex-start;*/
 	margin-top: 30px;
 	height: 90vh;
 }
@@ -11,77 +12,26 @@
 	display: flex;
 	justify-content: center;
 	font-size: 2em;
+	width: 100%;
 }
 
-.contenu {
+.contentadmin {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 100%;
 }
 
-.dashboard {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 50%;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	border: solid 2px black;
-	border-radius: 20px;
-	padding: 10px;
+.adminnavbar {
+	position: fixed;
+	left: 0;
+	top: 10vh;
 }
 
-.dashusers {
+.tableau {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	margin: 10px;
-}
-
-.dashprojects {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 10px;
-}
-
-.title {
-	display: flex;
-	font-size: 2em;
-	justify-content: center;
-	padding: 10px;
-}
-
-.titleuser {
-	display: flex;
-	font-size: 1.5em;
-	justify-content: center;
-}
-
-.titleproject {
-	display: flex;
-	font-size: 1.5em;
-	justify-content: center;
-}
-
-.manageuser {
-	display: flex;
-	width: 500px;
-	justify-content: center;
-	font-size: 2em;
-	margin: 10px;
-	border-radius: 20px 20px 20px 20px;
-	color: white;
-	background-color: var(--main);
-}
-
-.manageproject {
-	display: flex;
-	width: 500px;
-	justify-content: center;
-	font-size: 2em;
-	margin: 10px;
-	border-radius: 20px 20px 20px 20px;
-	color: white;
-	background-color: var(--second);
+	width: 100%;
+	/*margin-left: 550px;*/
 }
