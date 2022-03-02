@@ -13,6 +13,13 @@ const NavbarAdmin = () => {
 				<i class="fa-solid fa-angle-right" />
 			</div>
 
+			<div className={active ? 'gestionhome active' : 'gestionhome'}>
+				<div className="icone">
+					<i class="fa-solid fa-house" />
+				</div>
+				<div className={active ? 'text active' : 'text'}>Home</div>
+			</div>
+
 			<div className={active ? 'gestionuser active' : 'gestionuser'}>
 				<div className="icone">
 					<i class="fa-solid fa-user" />
@@ -25,21 +32,11 @@ const NavbarAdmin = () => {
 				</div>
 				<div className={active ? 'text active' : 'text'}>Projets</div>
 			</div>
-			<div className={active ? 'gestionmate active' : 'gestionmate'}>
-				<div className="icone">
-					<i class="fa-solid fa-user" />
-					<i class="fa-solid fa-bullhorn" />
-				</div>
-				<div className={active ? 'text active' : 'text'}>
-					Annonces utilisateurs
-				</div>
-			</div>
 			<div className={active ? 'gestionannonce active' : 'gestionannonce'}>
 				<div className="icone">
-					<i class="fa-solid fa-diagram-project" />
 					<i class="fa-solid fa-bullhorn" />
 				</div>
-				<div className={active ? 'text active' : 'text'}>Annonces projets</div>
+				<div className={active ? 'text active' : 'text'}>Annonces</div>
 			</div>
 		</div>
 	);
