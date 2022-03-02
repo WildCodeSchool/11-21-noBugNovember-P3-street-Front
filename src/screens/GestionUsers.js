@@ -8,6 +8,10 @@ const GestionUsers = () => {
   const [validatedUsers, setValidatedUsers] = useState([]);
   const [blockedUsers, setBlockedUsers] = useState([]);
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
+  const [searchTerm, setSearchTerm] = useState();
+  const [validatedUsersToFilter, setValidatedUsersToFilter] = useState([]);
+  // const [viewMore, setViewMore] = useState(false);
+  console.log(searchTerm);
   console.log(blockedUsers);
   console.log(validatedUsers);
 
@@ -17,13 +21,28 @@ const GestionUsers = () => {
       .then((response) => response.data)
       .then((data) => setValidatedUsers(data));
   };
+
+  // const getValidatedUsersToFilter = () => {
+  //   axios
+  //     .get(`${process.env.REACT_APP_BACK}/admin/validated_users`)
+  //     .then((response) => response.data)
+  //     .then((data) => setValidatedUsersToFilter(data));
+  // };
+
   const getBlockedUsers = () => {
     axios
       .get(`${process.env.REACT_APP_BACK}/admin/blocked_users`)
       .then((response) => response.data)
       .then((data) => setBlockedUsers(data));
   };
+  const handleSearchTerm = (e) => {
+    let value = e.target.value;
+    setSearchTerm(value);
+  };
 
+  const handleFilter = () => {
+    setIsFilter(false);
+  };
   useEffect(() => {
     getValidatedUsers();
     getBlockedUsers();
@@ -34,8 +53,9 @@ const GestionUsers = () => {
       <div className="adminTitle">
         <h1>Gestion des utilisateurs</h1>
       </div>
+
       <div className="filtreGestionUsers">
-        <div className="activ" onClick={() => setIsFilter(false)}>
+        <div className="activ" onClick={handleFilter}>
           Utilisateurs
         </div>
         <div className="activ" onClick={() => setIsFilter(true)}>
@@ -44,8 +64,24 @@ const GestionUsers = () => {
       </div>
       <div className="tableauContainer">
         {isFilter
-          ? blockedUsers.map((el) => <UsersInGestion user={el} />)
-          : validatedUsers.map((el) => <UsersInGestion user={el} />)}
+          ? blockedUsers
+              // .filter((el) => el.firtname.includes(searchTerm))
+              .map((el) => (
+                <UsersInGestion
+                  user={el}
+                  getBlockedUsers={getBlockedUsers}
+                  getValidatedUsers={getValidatedUsers}
+                />
+              ))
+          : validatedUsers
+              // .filter((el) => el.firtname.includes(searchTerm))
+              .map((el) => (
+                <UsersInGestion
+                  user={el}
+                  getBlockedUsers={getBlockedUsers}
+                  getValidatedUsers={getValidatedUsers}
+                />
+              ))}
       </div>
     </div>
   );
