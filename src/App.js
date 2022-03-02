@@ -1,4 +1,4 @@
-import Connexion from './screens/Connexion';
+import Form from './screens/Form';
 import Home from './screens/Home';
 import Navbar from './components/Navbar';
 import Project from './screens/Project';
@@ -18,7 +18,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/add_projects" element={<CreateProject />} />
-				<Route path="/connexion" element={<Connexion />} />
+				<Route path="/connexion" element={<Form />} />
 				<Route path="/projets" element={<Project />} />
 				<Route path="/talents" element={<Users />} />
 				<Route path="/projets/:id" element={<ProjectDetails />} />
