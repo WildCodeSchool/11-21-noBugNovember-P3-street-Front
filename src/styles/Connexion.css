@@ -13,13 +13,13 @@ button {
   justify-content: center;
 }
 
-form {
+.formUsers {
   display: block;
   position: relative;
   width: 20vw;
 }
 
-form:after {
+.formUsers:after {
   content: "";
   display: block;
   position: absolute;
@@ -31,7 +31,7 @@ form:after {
   background-image: linear-gradient(to bottom right, #ffce00, #fe4880);
 }
 
-form .form-inner {
+.formUsers .form-inner {
   position: relative;
   display: block;
   background-color: #fff;
@@ -39,13 +39,13 @@ form .form-inner {
   z-index: 3;
 }
 
-form .form-inner h2 {
+.formUsers .form-inner h2 {
   color: var(--main);
   font-weight: normal;
   margin: 2vh 0vh;
 }
 
-form .form-inner .form-group {
+.formUsers .form-inner .form-group {
   display: block;
   width: 100%;
   margin: 2vh 0vh 2vh 0vh;
@@ -63,7 +63,7 @@ form .form-inner .form-group {
   color: #fe4880;
 }
 
-form .form-inner .form-group input {
+.formUsers .form-inner .form-group input {
   display: block;
   width: 100%;
   padding: 10px 15px;
@@ -72,11 +72,11 @@ form .form-inner .form-group input {
   transition: 0.4s;
 }
 
-form .form-inner .form-group input:focus {
+.formUsers .form-inner .form-group input:focus {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
 
-form .form-inner input[type="submit"],
+.formUsers .form-inner input[type="submit"],
 .welcome button {
   display: flex;
   padding: 10px 15px;
@@ -95,7 +95,7 @@ form .form-inner input[type="submit"],
   cursor: pointer;
 }
 
-form .form-inner input[type="submit"]:hover,
+.formUsers .form-inner input[type="submit"]:hover,
 .welcome button:hover {
   background-position: 100% 0%;
 }
