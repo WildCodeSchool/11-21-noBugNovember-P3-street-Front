@@ -7,7 +7,7 @@ import Users from "./screens/Users";
 import CreateProject from "./components/CreateProject";
 import UserDetail from "./screens/UserDetail";
 import ProjectDetails from "./screens/ProjectDetails";
-import GestionUsers from "./screens/GestionUsers";
+import AdminGestionUsers from "./screens/AdminGestionUsers";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -26,7 +26,7 @@ function App() {
         <Route path="/talents" element={<Users />} />
         <Route path="/projets/:id" element={<ProjectDetails />} />
         <Route path="/talents/:id" element={<UserDetail />} />
-        <Route path="/admin/users" element={<GestionUsers />} />
+        <Route path="/admin/users" element={<AdminGestionUsers />} />
       </Routes>
     </div>
   );

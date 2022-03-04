@@ -35,8 +35,8 @@
   width: 10%;
   display: flex;
   align-items: center;
-  justify-content: left;
 }
+
 .entryViewMore {
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@
 }
 
 .viewMore {
-  height: 200px;
+  height: 300px;
   color: white;
   padding: 1%;
   margin: 0;
@@ -77,19 +77,35 @@
 }
 .avatarGestionContainer {
   width: 25%;
-  height: 100%;
+  height: auto;
 }
 .avatarUserGestion {
   width: 100%;
   height: 100%;
+  position: cover;
 }
 .viewMoreDescr {
-  width: 50%;
-  text-align: left;
+  margin-left: 1%;
+  width: 40%;
+  text-align: center;
+}
+.viewMoreDescrTitle {
+  margin-bottom: 1%;
 }
 .viewMoreInfos {
-  width: 50%;
-  text-align: center;
+  width: 20%;
+  margin-left: 5%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.arrowDown {
+  transition: 0.5s;
+}
+.arrowUp {
+  transition: 0.5s;
+  transform: rotate(180deg);
 }
 /* @keyframes slideinTop {
   from {

@@ -1,10 +1,12 @@
-import "../styles/GestionUsers.css";
+import "../styles/AdminGestionUsers.css";
+// import "../styles/NavbarAdmin.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 import UsersInGestion from "../components/UsersInGestion";
+import NavbarAdmin from "../components/NavbarAdmin";
 
-const GestionUsers = () => {
+const AdminGestionUsers = () => {
   const [validatedUsers, setValidatedUsers] = useState([]);
   const [blockedUsers, setBlockedUsers] = useState([]);
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
@@ -50,6 +52,9 @@ const GestionUsers = () => {
 
   return (
     <div className="gestionUsersContainer">
+      <div className="adminnavbar">
+        <NavbarAdmin />
+      </div>
       <div className="adminTitle">
         <h1>Gestion des utilisateurs</h1>
       </div>
@@ -82,4 +87,4 @@ const GestionUsers = () => {
     </div>
   );
 };
-export default GestionUsers;
+export default AdminGestionUsers;
