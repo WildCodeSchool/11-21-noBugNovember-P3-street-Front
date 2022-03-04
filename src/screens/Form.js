@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 import '../styles/Form.css';
-import FormRight from '../components/FormRight';
 import FormSuccess from '../components/FormSucces';
-import brahim from "../assets/Brahim.jpg";
 import validate from '../components/ValidateInfo';
 import useForm from '../components/useForm';
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const submitForm = () => {
+    setIsSubmitted(true);
+  }
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validate
   );
 
-  function submitForm() {
-    setIsSubmitted(true);
-  }
   return (
     <>
     <div className='join'>
       <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
     </div>
-        <div className='form-container'>
-          <div className='form-content-middle'>
-            <img className='form-img' src={brahim} alt='brahim' />
-          </div>
-        <div className='form-content-left'>
+    <div className='form-container'>
+    {!isSubmitted ? (
+        <div className='form-content'>
           <form onSubmit={handleSubmit} className='form' noValidate>
-            <h1>On commence ici !</h1>
         <div className='form-inputs'>
           <label className='form-label'>Nom</label>
             <input
@@ -63,6 +58,30 @@ const Form = () => {
             onChange={handleChange}
           />
           {errors.email && <p>{errors.email}</p>}
+          </div>
+        <div className='form-inputs'>
+          <label className='form-label'>Mot de passe</label>
+          <input
+            className='form-input'
+            type='password'
+            name='password'
+            placeholder='Votre mot de passe'
+            value={values.password}
+            onChange={handleChange}
+          />
+          {errors.password && <p>{errors.password}</p>}
+        </div>
+        <div className='form-inputs'>
+          <label className='form-label'>Confirmer mot de passe</label>
+          <input
+            className='form-input'
+            type='password'
+            name='password2'
+            placeholder='Confirmer votre mot de passe'
+            value={values.password2}
+            onChange={handleChange}
+          />
+          {errors.password2 && <p>{errors.password2}</p>}
         </div>
         <div className='form-inputs'>
           <label className='form-label'>Téléphone</label>
@@ -100,16 +119,74 @@ const Form = () => {
           />
           {errors.country && <p>{errors.country}</p>}
         </div>
+        <div className='form-inputs'>
+          <label className='form-label'>Youtube</label>
+          <input
+            className='form-input'
+            type='text'
+            name='Youtube'
+            placeholder='Votre chaîne Youtube'
+            value={values.youtube}
+            onChange={handleChange}
+          />
+        </div>
+        <div className='form-inputs'>
+          <label className='form-label'>instagram</label>
+          <input
+            className='form-input'
+            type='text'
+            name='instagram'
+            placeholder='Votre Instagram'
+            value={values.instagram}
+            onChange={handleChange}
+          />
+        </div>
+        <div className='form-inputs'>
+          <label className='form-label'>Twitter</label>
+          <input
+            className='form-input'
+            type='text'
+            name='twitter'
+            placeholder='Votre Twitter'
+            value={values.twitter}
+            onChange={handleChange}
+          />
+        </div>
+        <div className='form-inputs'>
+          <label className='form-label'>Spotify / Soundcloud</label>
+          <input
+            className='form-input'
+            type='text'
+            name='spotify'
+            placeholder='Votre Spotify / Soundcloud'
+            value={values.spotify}
+            onChange={handleChange}
+          />
+        </div>
+        <div className='form-inputs'>
+        <label className='form-label'>Description</label>
+        <input
+            className='form-input'
+            type='text'
+            name='description'
+            placeholder='Parlez-nous un peu de vous...'
+            value={values.description}
+            onChange={handleChange}
+          />
+          <button className='form-input-btn' type='submit'>
+          Créer votre profil
+          </button>
+        </div>
       </form>
         </div>
-        {!isSubmitted ? (
-          <FormRight submitForm={submitForm} />
         ) : (
-          <FormSuccess />
-        )}
-      </div>
+          <FormSuccess /> 
+        )
+          }
+      </div> 
     </>
-  );
+        );
 };
+    
 
 export default Form;

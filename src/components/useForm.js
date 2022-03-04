@@ -5,6 +5,8 @@ const useForm = (callback, validate) => {
     lastname: '',
     firstname: '',
     email: '',
+    password: '',
+    password2: '',
     phone: '',
     city: '',
     country: '',
