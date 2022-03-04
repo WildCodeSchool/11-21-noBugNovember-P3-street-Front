@@ -10,8 +10,8 @@
 }
 
 .homeBanner img {
-  width: 100%;
-  height: max-content;
+  width: max-content;
+  height: 100%;
   z-index: -1;
 }
 

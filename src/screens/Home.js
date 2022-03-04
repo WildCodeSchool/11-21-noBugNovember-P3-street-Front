@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import guitarneon from "../assets/front.jpg";
 import Assmaph from "../assets/Assmaph.jpg";
+import test2 from "../assets/test2.jpg";
 import "../styles/Home.css";
 import UserCard from "../components/UserCard";
 import Footer from "../components/Footer";
@@ -32,7 +33,7 @@ const Home = () => {
             <em>- Elder Camara</em>
           </h1>
         </div>
-        <img className="holderImg" src={guitarneon} alt="images" />
+        <img className="holderImg" src={test2} alt="images" />
       </div>
       <div className="sections">
         <div className="homePresentation">
