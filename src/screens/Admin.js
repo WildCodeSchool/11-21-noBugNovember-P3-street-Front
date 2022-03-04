@@ -9,7 +9,11 @@ const Admin = () => {
 	const [users, setUsers] = useState([]); //stockage données utilisateurs
 	const [projects, setProjects] = useState([]); //stokage données projet
 
-	console.log(users);
+	const getProjects = () => {
+		Axios.get(`${process.env.REACT_APP_BACK}/admin/status_projects`)
+			.then((response) => response.data)
+			.then((data) => setProjects(data));
+	};
 
 	const getUsers = () => {
 		Axios.get(`${process.env.REACT_APP_BACK}/admin/status_users`)
@@ -17,47 +21,10 @@ const Admin = () => {
 			.then((data) => setUsers(data));
 	};
 
-	const getProjects = () => {
-		Axios.get(`${process.env.REACT_APP_BACK}/admin/status_projects`)
-			.then((response) => response.data)
-			.then((data) => setProjects(data));
-	};
-
-	const usersBlocked = () => {
-		let count = 0;
-		for (let i = 0; i < users.length; i++) {
-			if (users[i].blocked === 1) {
-				count++;
-			}
-		}
-		return count;
-	};
-
-	const usersAvailable = () => {
-		let count = 0;
-		for (let i = 0; i < users.length; i++) {
-			if (users[i].available === 1) {
-				count++;
-			}
-		}
-		console.log(count);
-		return count;
-	};
-
 	const projectsBlocked = () => {
 		let count = 0;
 		for (let i = 0; i < projects.length; i++) {
 			if (projects[i].blocked === 1) {
-				count++;
-			}
-		}
-		return count;
-	};
-
-	const projectsMate = () => {
-		let count = 0;
-		for (let i = 0; i < projects.length; i++) {
-			if (projects[i].status === 0) {
 				count++;
 			}
 		}
@@ -78,6 +45,36 @@ const Admin = () => {
 		let count = 0;
 		for (let i = 0; i < projects.length; i++) {
 			if (projects[i].status === 2) {
+				count++;
+			}
+		}
+		return count;
+	};
+
+	const projectsMate = () => {
+		let count = 0;
+		for (let i = 0; i < projects.length; i++) {
+			if (projects[i].status === 0) {
+				count++;
+			}
+		}
+		return count;
+	};
+
+	const usersAvailable = () => {
+		let count = 0;
+		for (let i = 0; i < users.length; i++) {
+			if (users[i].available === 1) {
+				count++;
+			}
+		}
+		return count;
+	};
+
+	const usersBlocked = () => {
+		let count = 0;
+		for (let i = 0; i < users.length; i++) {
+			if (users[i].blocked === 1) {
 				count++;
 			}
 		}
