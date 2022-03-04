@@ -12,7 +12,7 @@
 }
 
 .navbaradmin.active {
-	width: 350px;
+	width: 280px;
 	font-size: 1.75em;
 	padding-left: 10px;
 }
@@ -50,7 +50,7 @@
 }
 
 .nav.active {
-	transform: translateX(290px) rotate(540deg);
+	transform: translateX(220px) rotate(540deg);
 }
 
 .nav:hover {
