@@ -3,7 +3,7 @@ import projectImage from "../assets/project.jpg";
 import { Link } from "react-router-dom";
 
 const ProjectCard = ({ project }) => {
-  const projectId = `/projects/${project.id}`;
+  const projectId = `/projets/${project.id}`;
   const dateProject = project.estimated_start_date.slice(0, 10);
 
   return (

@@ -57,7 +57,7 @@ function Connexion() {
             <button onClick={Logout}>LOGOUT</button>
           </div>
         ) : (
-          <form onSubmit={submitHandler}>
+          <form onSubmit={submitHandler} className="formUsers">
             <div className="form-inner">
               <h2>Login</h2>
               {error !== "" ? <div className="error">{error}</div> : ""}
