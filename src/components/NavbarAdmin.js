@@ -12,14 +12,12 @@ const NavbarAdmin = () => {
 			>
 				<i class="fa-solid fa-angle-right" />
 			</div>
-
 			<div className={active ? 'gestionhome active' : 'gestionhome'}>
 				<div className="icone">
 					<i class="fa-solid fa-house" />
 				</div>
 				<div className={active ? 'text active' : 'text'}>Home</div>
 			</div>
-
 			<div className={active ? 'gestionuser active' : 'gestionuser'}>
 				<div className="icone">
 					<i class="fa-solid fa-user" />
