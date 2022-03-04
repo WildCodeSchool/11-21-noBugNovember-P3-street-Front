@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import guitarneon from "../assets/front.jpg";
+import Assmaph from "../assets/Assmaph.jpg";
 import "../styles/Home.css";
 import UserCard from "../components/UserCard";
 import Footer from "../components/Footer";
