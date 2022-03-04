@@ -89,6 +89,11 @@ function Connexion() {
                 <div className="connexionButton">
                   <input type="submit" value="Connexion" />
                 </div>
+                <div className="containerspacerConnexion">
+                  <div className="spacerConnexion"></div>
+                  <i class="fa-solid fa-bolt bolt-connexion"></i>
+                  <div className="spacerConnexion"></div>
+                </div>
                 <div className="new">
                   <h3>Nouveau chez StreetZer ?</h3>
                 </div>
