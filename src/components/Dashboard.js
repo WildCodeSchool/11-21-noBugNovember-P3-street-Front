@@ -11,6 +11,9 @@ const Dashboard = (props) => {
 						Nombre d'utilisateurs enregistrés : {props.users.length}
 						<br />
 						Nombre d'utilisateurs bloqués : {props.usersBlocked()}
+						<br />
+						Nombre d'utilisateurs se déclarant disponible :
+						{props.usersAvailable()}
 					</div>
 				</div>
 				<div className="dashprojects">

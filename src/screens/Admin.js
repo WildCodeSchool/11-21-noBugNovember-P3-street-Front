@@ -9,6 +9,8 @@ const Admin = () => {
 	const [users, setUsers] = useState([]); //stockage données utilisateurs
 	const [projects, setProjects] = useState([]); //stokage données projet
 
+	console.log(users);
+
 	const getUsers = () => {
 		Axios.get(`${process.env.REACT_APP_BACK}/admin/status_users`)
 			.then((response) => response.data)
@@ -28,6 +30,17 @@ const Admin = () => {
 				count++;
 			}
 		}
+		return count;
+	};
+
+	const usersAvailable = () => {
+		let count = 0;
+		for (let i = 0; i < users.length; i++) {
+			if (users[i].available === 1) {
+				count++;
+			}
+		}
+		console.log(count);
 		return count;
 	};
 
@@ -88,6 +101,7 @@ const Admin = () => {
 						users={users}
 						projects={projects}
 						usersBlocked={usersBlocked}
+						usersAvailable={usersAvailable}
 						projectsBlocked={projectsBlocked}
 						projectsMate={projectsMate}
 						projectsCompleted={projectsCompleted}
