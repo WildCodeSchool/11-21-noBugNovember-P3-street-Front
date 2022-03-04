@@ -14,7 +14,7 @@
 .titleContainer {
     display: flex;
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 30%;
 }
 
@@ -113,5 +113,15 @@ input {
 .secondButton {
     height: 35px;
     width: 150px;
+}
+
+.selectRegion {
+    width: 165px;
+    height: 46px;
+}
+
+.selectDomaine{
+    width: 165px;
+    height: 40px;
 }
 
