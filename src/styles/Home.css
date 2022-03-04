@@ -63,11 +63,8 @@
 }
 
 .btnNousrejoindre {
-  /*   position: relative; */
-  /* right: -80%; */
   transform: translate(0px, 13vh);
-  /* top: 55%; */
-  align-self: end;
+  align-self: flex-end;
   justify-self: flex-end;
   background-color: var(--red);
   padding: 2% 3%;
@@ -84,11 +81,12 @@
   background-color: transparent;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 10vw;
+  padding: 3vw;
   margin: 2vh 0vh 0vh 0vw;
 }
+
 .homeProjectDone {
   width: 30vw;
   height: 30vh;
@@ -109,7 +107,7 @@
   background-color: var(--second);
   color: whitesmoke;
   width: 20vw;
-  height: 10vh;
+  height: 8vh;
   border-radius: 0.5vw;
   justify-content: center;
   align-items: center;
@@ -118,7 +116,7 @@
 
 .comments {
   background-color: transparent;
-  margin: 16vh 0vw 3vh 0vw;
+  margin: 0vh 0vw 3vh 0vw;
 }
 
 .containerComments {
@@ -178,25 +176,36 @@
   background-color: var(--second);
   color: var(--white);
   width: 20vw;
-  height: 10vh;
+  height: 8vh;
   border-radius: 0.5vw;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 
+.seeComments:hover,
+.tousLesProjetsBtn:hover,
+.btnNousrejoindre:hover {
+  /*   background-color: red; */
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
 .searchTalentProjectContainer {
-  margin: 10vh;
+  margin: 6vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 60%;
 }
 
-.fa-searchengin,
+.fa-searchengin {
+  font-size: 100px;
+  color: var(--main);
+}
+
 .fa-folder-tree {
   font-size: 100px;
-  color: #030000;
+  color: var(--second);
 }
 
 .searchTalent,
@@ -205,56 +214,37 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  height: 30vh;
+  width: 30vh;
+  justify-content: space-between;
 
-  height: 20vh;
+  border-radius: 50%;
+  padding: 6vh 0vh 6vh 0vh;
+}
+
+.containerSpacer {
+  margin: 12vh 0vh;
+  display: flex;
+  height: 2px;
+  align-items: center;
+  width: 100vh;
   justify-content: space-between;
 }
-
-.footer {
-  background-color: #1a1a1a;
-  width: 100%;
-  height: 50vh;
-  padding: 5vh 2vw;
-  margin-top: 5vh;
-}
-
-.containerCol {
+.spacerHome {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  width: 20vw;
+  background-color: var(--main);
+  height: 2px;
 }
 
-.colFooter {
-  width: 10vw;
-}
-.colFooterInfosParaph {
-  color: grey;
-}
-
-.colFooterHeader {
-  margin-bottom: 5vh;
-  color: var(--white);
-  font-weight: bold;
-}
-
-.colFooterInfosContainer {
+.fa-bolt {
   display: flex;
-  flex-direction: column;
-}
-
-.colFooterInfos {
-  color: grey;
-  margin-bottom: 2vh;
-  cursor: pointer;
-}
-
-.colFooterInfos:hover {
-  color: var(--white);
-}
-
-.bottomFooter {
-  width: 100vw;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 3vw;
-  color: lightgrey;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  outline: 2px solid var(--main);
+  justify-content: center;
+  align-items: center;
+  font-size: large;
 }
