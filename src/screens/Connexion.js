@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import '../styles/Connexion.css'
+import React, { useState } from "react";
+import "../styles/Connexion.css";
 // import img from '../assets/neige.jpg'
 
 // const sectionStyle = {
@@ -12,78 +12,101 @@ import '../styles/Connexion.css'
 // }
 
 function Connexion() {
-	
-	const adminUser = {
-		email: "admin@admin.com",
-		password: "admin123"
-	}
+  const adminUser = {
+    email: "admin@admin.com",
+    password: "admin123",
+  };
 
-	const [user, setUser] = useState({email:""});
-	const [error, setError] = useState("");
+  const [user, setUser] = useState({ email: "" });
+  const [error, setError] = useState("");
 
-	const Login = details => {
-		console.log(details);
-	
-		if (details.email === adminUser.email && details.password === adminUser.password) {
-		console.log("Connecté(e)");
-		setUser({
-			email: details.email
-		});
-	} else {
-		console.log("Les infos ne correspondent pas !");
-		setError("Les infos ne correspondent pas !");
-	}
-  }
+  const Login = (details) => {
+    console.log(details);
 
-	const Logout = () => {
-		setUser({email: ""});
-	}
-	const [details, setDetails] = useState({email: "", password: ""});
+    if (
+      details.email === adminUser.email &&
+      details.password === adminUser.password
+    ) {
+      console.log("Connecté(e)");
+      setUser({
+        email: details.email,
+      });
+    } else {
+      console.log("Les infos ne correspondent pas !");
+      setError("Les infos ne correspondent pas !");
+    }
+  };
 
-	const submitHandler = e => {
-		e.preventDefault();
+  const Logout = () => {
+    setUser({ email: "" });
+  };
+  const [details, setDetails] = useState({ email: "", password: "" });
 
-		Login(details);
-	}
-	
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    Login(details);
+  };
+
   return (
-	  <>
-		<div className='connexion'>
-	{(user.email !== "") ? (
-		<div className='welcome'>
-			<h2>Bienvenue chez StreetZer</h2>
-			<button onClick={Logout}>LOGOUT</button>
-		</div> 
-		) : ( 
-			<form onSubmit={submitHandler}>
-		<div className='form-inner'>
-			<h2>Login</h2>
-			{(error !== "") ? ( <div className="error">{error}</div> ) : "" }
-			<div className='form-group'>
-				<label htmlFor="email">Email: </label>
-				<input type="email" name="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email} />
-			</div>
-			<div className='form-group'>
-				<label htmlFor='password'>Password: </label>
-				<input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password} />
-			</div>
-			<div className='buttons'>
-				<div className='connexionButton'>
-					<input type="submit" value="Connexion" />
-				</div>
-				<div className='new'>
-					<h3>Nouveau chez StreetZer ?</h3>
-				</div>
-					<div className='creationButton'>
-						<input type="submit" value="Créer un compte" />
-					</div>
-			</div>
-		</div>
-	</form>
-		)}
-		</div>
-		</>
-		);
+    <>
+      <div className="connexion">
+        {user.email !== "" ? (
+          <div className="welcome">
+            <h2>Bienvenue chez StreetZer</h2>
+            <button onClick={Logout}>LOGOUT</button>
+          </div>
+        ) : (
+          <form onSubmit={submitHandler}>
+            <div className="form-inner">
+              <h2>Login</h2>
+              {error !== "" ? <div className="error">{error}</div> : ""}
+              <div className="form-group">
+                <label htmlFor="email">Email: </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  onChange={(e) =>
+                    setDetails({ ...details, email: e.target.value })
+                  }
+                  value={details.email}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password">Password: </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  onChange={(e) =>
+                    setDetails({ ...details, password: e.target.value })
+                  }
+                  value={details.password}
+                />
+              </div>
+              <div className="buttons">
+                <div className="connexionButton">
+                  <input type="submit" value="Connexion" />
+                </div>
+                <div className="containerspacerConnexion">
+                  <div className="spacerConnexion"></div>
+                  <i class="fa-solid fa-bolt bolt-connexion"></i>
+                  <div className="spacerConnexion"></div>
+                </div>
+                <div className="new">
+                  <h3>Nouveau chez StreetZer ?</h3>
+                </div>
+                <div className="creationButton">
+                  <input type="submit" value="Créer un compte" />
+                </div>
+              </div>
+            </div>
+          </form>
+        )}
+      </div>
+    </>
+  );
 }
 
 export default Connexion;
