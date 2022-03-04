@@ -4,7 +4,7 @@ import Dashboard from "../components/Dashboard";
 import NavbarAdmin from "../components/NavbarAdmin";
 import Axios from "axios";
 import "../styles/Admin.css";
-import AdminGestionUsers from "./AdminGestionUsers";
+// import AdminGestionUsers from "./AdminGestionUsers";
 
 const Admin = () => {
   const [users, setUsers] = useState([]); //stockage données utilisateurs
