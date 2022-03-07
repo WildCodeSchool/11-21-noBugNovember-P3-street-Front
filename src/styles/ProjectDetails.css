@@ -1,29 +1,30 @@
 .projectDetailsContainer {
   color: white;
   width: 100vw;
-  height: 92vh;
+  min-height: 94vh;
+  height: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 2% 5%;
 }
 
-.projectTitle {
-  font-size: 30px;
-  text-align: center;
-  width: 80%;
-  background-color: var(--second);
-  border-radius: 10px 10px 0 0;
+.avatarDetailsProjet {
+  display: flex;
+  width: 20vh;
+  height: 20vh;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background-color: red;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
-.avatarUsers {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-}
-.projectAvatar {
-  width: 100%;
-  height: 250px;
+
+.avatarDetailsProjet img {
+  height: 100%;
 }
 .projectInfosContainer {
   width: 40%;
@@ -32,17 +33,77 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.playerContainer {
+
+.blocInfosDetailsProjet {
+  display: flex;
+  background-color: var(--second);
+  width: 40%;
+  min-height: 100%;
+
+  border-radius: 40px;
+  padding: 1%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infosDetailsProjet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infosDetailsProjet p {
+  margin: 10px 0px;
+}
+
+.membresDetailsProjet {
+  display: flex;
+  flex-wrap: wrap;
+  width: 32vw;
+  /* background-color: green; */
+  height: auto;
+
+  overflow: hidden;
+}
+
+.wrapperAvatarInfos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* //////////////////////////// */
+
+.blocVisuelDetailsProjet {
+  display: flex;
   width: 60%;
-  height: 80%;
+  min-height: 100%;
+  padding: 1%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  color: black;
+}
+
+.detailsDetailsProjet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.detailsDetailsProjet p {
+  margin: 1vh;
 }
 
 .userSection {
-  border: 2px solid green;
-
+  border: 2px solid black;
+  height: 12vh;
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .projectInfos {
@@ -54,16 +115,38 @@
   background-color: var(--second);
   border-radius: 0 0 10px 10px;
 }
-.player {
+.videoDetailsProjet {
+  height: 40%;
+  display: flex;
   width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.playerContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.player {
+  width: 50%;
   height: 100%;
 }
 
 .usersInProject {
+  width: 5vw;
+  min-width: 96px;
   display: flex;
-  width: 300px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  padding: 1%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0% 1% 0% 0%;
+}
+
+.usersInProject img {
+  height: 10vh;
+}
+
+.usersTitle {
+  width: auto;
 }

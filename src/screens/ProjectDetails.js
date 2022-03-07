@@ -30,55 +30,83 @@ const ProjectDetails = () => {
 
   return (
     <div className="projectDetailsContainer">
-      <div className="projectTitle">
-        <h1>{projectDetail.map((el) => el.name)}</h1>
-      </div>
-      <div className="projectInfos">
-        <div className="projectInfosContainer">
-          <div className="imgTextContainer">
+      <div className="blocInfosDetailsProjet">
+        <div className="wrapperAvatarInfos">
+          <div className="avatarDetailsProjet">
             {projectDetail.map((el) => (
-              <img
-                src={`${process.env.REACT_APP_BACK}/${el.logo}`}
-                alt=""
-                className="projectAvatar"
-              />
+              <img src={`${process.env.REACT_APP_BACK}/${el.logo}`} alt="" />
             ))}
+          </div>
 
-            <div className="projectTextContainer">
-              <p>{projectDetail.map((el) => el.description)}</p>
+          <div className="infosDetailsProjet">
+            <div className="titreDetailsProjet">
+              <p>{projectDetail.map((el) => el.name)}</p>
+            </div>
+            <div className="createurDetailsProjet">
               <p>
-                Créateur du projet : {projectDetail.map((el) => el.firstname)}
+                by&nbsp;
+                {projectDetail.map((el) => el.firstname)}
                 {projectDetail.map((el) => el.lastname)}
               </p>
             </div>
-          </div>
-          <div className="userSection">
-            <div className="usersTitle">
-              <h2>Participants au projet :</h2>
+            <div className="descriDetailsProjet">
+              <p>
+                Deserunt eiusmod dolore cupidatat cupidatat veniam reprehenderit
+                eiusmod ex. Officia reprehenderit minim non incididunt deserunt
+                anim dolor anim minim. Non veniam anim do in cupidatat. Dolor
+                amet dolore aute excepteur adipisicing consequat nostrud ad
+                occaecat duis nisi.
+              </p>
             </div>
-            {projectUsers
-              // .filter((el) => el.firstname.includes(projectDetail.firstname))
-              .map((el, index) => (
-                <UsersInProject user={el} key={index} />
-              ))}
           </div>
         </div>
-        <div className="playerContainer">
-          {console.log(projectDetail.youtubelink)}
-          <iframe
-            src={`https://www.youtube.com/embed/${projectDetail.map(
-              (el) => el.youtubelink
-            )}`}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
-            allowfullscreen
-            className="player"
-          ></iframe>
+
+        <div className="membresDetailsProjet">
+          {projectUsers
+            // .filter((el) => el.firstname.includes(projectDetail.firstname))
+            .map((el, index) => (
+              <UsersInProject user={el} key={index} />
+            ))}
+        </div>
+      </div>
+      <div className="blocVisuelDetailsProjet">
+        <div className="detailsDetailsProjet">
+          <p>Des details</p> <p>Des details</p> <p>Des details</p>
+          <p>Des details</p> <p>Des details</p> <p>Des details</p>
+          <p>
+            Deserunt eiusmod dolore cupidatat cupidatat veniam reprehenderit
+            eiusmod ex. Officia reprehenderit minim non incididunt deserunt anim
+            dolor anim minim. Non veniam anim do in cupidatat. Dolor amet dolore
+            aute excepteur adipisicing consequat nostrud ad occaecat duis nisi.
+            Deserunt eiusmod dolore cupidatat cupidatat veniam reprehenderit
+            eiusmod ex. Officia reprehenderit minim non incididunt deserunt anim
+            dolor anim minim. Non veniam anim do in cupidatat. Dolor amet dolore
+            aute excepteur adipisicing consequat nostrud ad occaecat duis
+            nisi.Reprehenderit aliqua ad qui enim. Ad nisi in enim reprehenderit
+            veniam duis veniam ex. Sunt eu duis non sunt tempor magna aliquip.
+            Lorem dolore sunt Lorem et duis ut. Adipisicing commodo esse esse
+            elit commodo deserunt ipsum adipisicing ea labore non labore
+            occaecat ad.
+          </p>
+        </div>
+        <div className="videoDetailsProjet">
+          Blahblah
+          <div className="playerContainer">
+            {console.log(projectDetail.youtubelink)}
+            <iframe
+              src={`https://www.youtube.com/embed/${projectDetail.map(
+                (el) => el.youtubelink
+              )}`}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+              allowfullscreen
+              className="player"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
 export default ProjectDetails;
