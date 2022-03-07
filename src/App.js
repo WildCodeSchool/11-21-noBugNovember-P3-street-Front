@@ -1,6 +1,9 @@
 import Admin from './screens/Admin';
+import AdminGestionUsers from './screens/AdminGestionUsers';
 import Connexion from './screens/Connexion';
 import CreateProject from './components/CreateProject';
+import Footer from './components/Footer';
+import Form from './screens/Form.js';
 import Home from './screens/Home';
 import Navbar from './components/Navbar';
 import Project from './screens/Project';
@@ -19,11 +22,13 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/add_projects" element={<CreateProject />} />
+				<Route path="/add_user" element={<Form />} />
 				<Route path="/admin" element={<Admin />} />
+				<Route path="/admin/users" element={<AdminGestionUsers />} />
 				<Route path="/connexion" element={<Connexion />} />
 				<Route path="/projets" element={<Project />} />
-				<Route path="/talents" element={<Users />} />
 				<Route path="/projets/:id" element={<ProjectDetails />} />
+				<Route path="/talents" element={<Users />} />
 				<Route path="/talents/:id" element={<UserDetail />} />
 			</Routes>
 		</div>
