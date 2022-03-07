@@ -1,5 +1,6 @@
 import Admin from './screens/Admin';
 import AdminGestionUsers from './screens/AdminGestionUsers';
+import AdminGestionProjects from './screens/AdminGestionProjects';
 import Connexion from './screens/Connexion';
 import CreateProject from './components/CreateProject';
 import Footer from './components/Footer';
@@ -25,6 +26,7 @@ function App() {
 				<Route path="/add_user" element={<Form />} />
 				<Route path="/admin" element={<Admin />} />
 				<Route path="/admin/users" element={<AdminGestionUsers />} />
+				<Route path="/admin/projets" element={<AdminGestionProjects />} />
 				<Route path="/connexion" element={<Connexion />} />
 				<Route path="/projets" element={<Project />} />
 				<Route path="/projets/:id" element={<ProjectDetails />} />
