@@ -3,15 +3,20 @@
   width: 250px;
   justify-content: center;
   border-radius: 25px 0px 0px 25px;
-  font-size: 1.25em;
-  padding: 10px;
+
   background-color: var(--grey);
-  color: white;
   transition: 0.5s;
+  height: 5vh;
+  color: white;
+  /* border: solid 2px white; */
+  /* border-left: solid 1px black; */
+  align-content: center;
+  align-items: center;
 }
 
 .selector {
   cursor: pointer;
+  transition: 0.5s;
 }
 .selector.active {
   background-color: var(--darkgrey);
@@ -41,12 +46,15 @@
   width: 250px;
   justify-content: center;
   border-radius: 0px 25px 25px 0px;
-  font-size: 1.25em;
-  padding: 10px;
+  /* font-size: 1.25em; */
+  /* padding: 10px; */
+  height: 5vh;
   background-color: var(--grey);
   color: white;
-  /*border: solid 2px white;*/
-  /*border-left: solid 1px black;*/
+  /* border: solid 2px white; */
+  /* border-left: solid 1px black; */
+  align-content: center;
+  align-items: center;
 }
 
 .select.active {
@@ -76,9 +84,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 1.25em;
   width: 250px;
-  padding: 10px;
   background-color: var(--grey);
   color: white;
   border-radius: 25px 0px 0px 25px;
@@ -97,9 +103,7 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  font-size: 1.25em;
   width: 250px;
-  padding: 10px;
   background-color: var(--grey);
   color: white;
   transition: 0.5s;

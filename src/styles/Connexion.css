@@ -28,7 +28,8 @@ button {
   right: -5px;
   bottom: -5px;
   z-index: 2;
-  background-image: linear-gradient(to bottom right, #ffce00, #fe4880);
+  /*   background-image: linear-gradient(to bottom right, #ffce00, #fe4880); */
+  background-color: var(--main);
 }
 
 .formUsers .form-inner {
@@ -70,6 +71,7 @@ button {
   background-color: #f8f8f8;
   border-radius: 8px;
   transition: 0.4s;
+  border: none;
 }
 
 .formUsers .form-inner .form-group input:focus {
@@ -81,18 +83,20 @@ button {
   display: flex;
   padding: 10px 15px;
   border-radius: 8px;
-  background-image: linear-gradient(
+  /*   background-image: linear-gradient(
     to right,
     #ffce00 50%,
     #ffce00 50%,
     #fe4880
-  );
+  ); */
+  background-color: var(--main);
   background-size: 200%;
   background-position: 0%;
   transition: 0.4s;
   color: #fff;
   font-weight: 700;
   cursor: pointer;
+  border: none;
 }
 
 .formUsers .form-inner input[type="submit"]:hover,

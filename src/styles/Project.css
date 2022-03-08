@@ -11,11 +11,11 @@
   display: flex;
   width: 15vw;
   justify-content: center;
-  font-size: 1.25em;
-  padding: 10px;
+  height: 5vh;
   background-color: var(--grey);
   color: white;
   transition: 0.5s;
+  align-items: center;
 }
 
 .allStatus.active {
