@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import "./CreateProject.css";
-import 'react-calendar/dist/Calendar.css';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import axios from 'axios'
-
+import React, { useState, useEffect, useRef } from "react";
+import "../styles/CreateProject.css";
+import "react-calendar/dist/Calendar.css";
+import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
+import axios from "axios";
 
 const CreateProject = () => {
     const [domaines, setDomaine] = useState([])
@@ -156,17 +155,27 @@ const CreateProject = () => {
         if (response) setStatus(response.statusText)
       }
 
-      const handleFileChange = (e) => {
-        const img = {
-          data: e.target.files[0],
-        }
-        setImage(img)
-      }
+  const handleFileChange = (e) => {
+    const img = {
+      data: e.target.files[0],
+    };
+    setImage(img);
+  };
 
   return (
     <>
-        <div className="titleContainer" >
-            <h2>Créez votre projet</h2>
+      <div className="titleContainer">
+        <h2>Créez votre projet</h2>
+      </div>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <div>
+          <label>Upload profile picture</label>
+          <input
+            type="file"
+            name="file"
+            onChange={(e) => handleFileChange(e)}
+            required
+          />
         </div>
        
         {status && <h4>{status}</h4>}
@@ -261,21 +270,8 @@ const CreateProject = () => {
                 </div>
             </div>
         </div>
-    </>    
+      </form>
+      </>
+  )}
 
-  );
-};
-
-export default CreateProject;
-
-
-
-
-
-
-
-
-
-
-
-
+export default CreateProject

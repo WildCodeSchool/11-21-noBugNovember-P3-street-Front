@@ -11,10 +11,9 @@
 	display: flex;
 	position: relative;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	width: 40%;
-	height: 100%;
-	/*border: solid 2px black;*/
+	height: 90vh;
 	background-color: #09ab85;
 	font-family: 'Roboto', sans-serif;
 	border-radius: 40px 40px 40px 40px;
@@ -22,8 +21,6 @@
 
 .projects {
 	display: flex;
-	border: 2px solid black;
-	/*border-radius: 0px 40px 40px 0px;*/
 }
 
 .perso {
@@ -44,17 +41,17 @@
 .onejob,
 .living,
 .lesresals,
-.description {
+.description3 {
 	display: flex;
 	justify-content: center;
-	margin: 2px;
+	margin: 10px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.4em;
 	color: white;
 	text-align: center;
 }
 
-.description {
+.description3 {
 	margin-left: 5px;
 	margin-right: 5px;
 }
@@ -81,6 +78,16 @@
 	margin-bottom: 20px;
 }
 
+.lanceur {
+	margin: 50px auto 0;
+	padding: 0 20px;
+	max-width: 88vw;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(450px, 0.2fr));
+	grid-gap: 45px;
+	justify-content: center;
+}
+
 .lancerbyuser {
 	display: flex;
 	justify-content: center;
@@ -89,19 +96,21 @@
 	font-size: 1.25em;
 	width: 250px;
 	padding: 10px;
-	background-color: #09ab85;
+	background-color: #094fabd0;
 	color: white;
 	border-radius: 25px 0px 0px 25px;
 	appearance: none;
 	transition: 0.5s;
 }
 
-.lancerbyuser:hover {
-	background-color: #086e56;
+.lancerbyuser:hover,
+.participatebyuser:hover {
+	background-color: #094fab;
 }
 
-.lancerbyuser.active {
-	background-color: #086e56;
+.lancerbyuser.active,
+.participatebyuser.active {
+	background-color: #094fab;
 }
 
 .participatebyuser {
@@ -112,19 +121,11 @@
 	font-size: 1.25em;
 	width: 250px;
 	padding: 10px;
-	background-color: #09ab85;
+	background-color: #094fabd0;
 	color: white;
 	border-radius: 0px 25px 25px 0px;
 	appearance: none;
 	transition: 0.5s;
-}
-
-.participatebyuser:hover {
-	background-color: #086e56;
-}
-
-.participatebyuser.active {
-	background-color: #086e56;
 }
 
 .cache {

@@ -19,7 +19,7 @@ const Users = () => {
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
   const [filter, setFilter] = useState([]);
 
-  console.log(dataTalent);
+  //console.log(allUsers);
 
   const arreteTout = (id) => {
     setIsFilter(false);
@@ -132,22 +132,24 @@ const Users = () => {
 
   return (
     <div className="talent">
-      <div className="introtalents">Liste de nos Membres</div>
+      <h2 className="introtalents">Liste de nos Membres</h2>
       <div className="selecttalent">
         <div
-          className={selectView === 0 ? "all active" : "all"}
+          className={selectView === 0 ? "all selector active" : "all selector"}
           onClick={() => arreteTout(0)}
         >
           Voir tous nos artistes
         </div>
         <div
-          className={selectView === 1 ? "select active" : "select"}
+          className={
+            selectView === 1 ? "select selector active" : "select selector"
+          }
           onClick={() => arreteTout(1)}
         >
           Voir les annonces
         </div>
       </div>
-      <div className="thefilter">
+      <div className="selector thefilter">
         <div className="domain" onClick={() => derouleDomain()}>
           {selectDomain !== undefined ? selectDomain : "Art"}
           <div className={viewDomain ? "hello" : "cache"}>
@@ -158,7 +160,7 @@ const Users = () => {
             />
           </div>
         </div>
-        <div className="subdomain" onClick={() => derouleSubDomain()}>
+        <div className="selector subdomain" onClick={() => derouleSubDomain()}>
           {selectSubDomain !== undefined ? selectSubDomain : "Métiers"}
           <div className={viewSubDomain ? "hello" : "cache"}>
             <SearchSubDomain
@@ -169,10 +171,10 @@ const Users = () => {
             />
           </div>
         </div>
-        <div className="search" onClick={() => letsGo()}>
+        <div className="selector search" onClick={() => letsGo()}>
           <i className="fa-solid fa-magnifying-glass" />
         </div>
-        <div className="cancel" onClick={() => goodBye()}>
+        <div className="selector cancel" onClick={() => goodBye()}>
           <i className="fa-solid fa-xmark"></i>
         </div>
       </div>
@@ -181,6 +183,7 @@ const Users = () => {
           ? isFilter
             ? filter.map((users) => (
                 <UserCard
+                  id={users.id}
                   firstname={users.firstname}
                   lastname={users.lastname}
                   avatar={users.avatar}
@@ -202,6 +205,7 @@ const Users = () => {
               ))
             : allUsers.map((users) => (
                 <UserCard
+                  id={users.id}
                   firstname={users.firstname}
                   lastname={users.lastname}
                   avatar={users.avatar}
@@ -224,6 +228,7 @@ const Users = () => {
           : isFilter
           ? filter.map((users) => (
               <UserCardAnnonce
+                id={users.id}
                 firstname={users.firstname}
                 lastname={users.lastname}
                 avatar={users.avatar}
@@ -245,6 +250,7 @@ const Users = () => {
             ))
           : dataTalent.map((users) => (
               <UserCardAnnonce
+                id={users.id}
                 firstname={users.firstname}
                 lastname={users.lastname}
                 avatar={users.avatar}

@@ -13,18 +13,18 @@ const Navbar = () => {
         </Link>
         <div className="Link">
           <Link to="/">
-            <div className="accueil"> Accueil</div>
+            <div className="navbarBtn accueil "> Accueil</div>
           </Link>
           <Link to="/projets">
-            <div className="holderLink"> Projets</div>
+            <div className="navbarBtn holderLink "> Projets</div>
           </Link>
           <Link to="/talents">
-            <div className="holderLink"> Talents</div>
+            <div className="navbarBtn holderLink "> Talents</div>
           </Link>
         </div>
         <div className="containerConnexion">
           <Link to="/connexion">
-            <div className="connexion">Se connecter</div>
+            <div className="connexion">S'inscrire</div>
           </Link>
         </div>
       </div>
