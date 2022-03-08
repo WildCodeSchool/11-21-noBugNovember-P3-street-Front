@@ -20,7 +20,9 @@
 
 input {
     border: 1px solid black;
+    border-radius: 3px;
     outline: none;
+    box-shadow: 3px;
 }
 .name {
     width: 300px;
@@ -113,15 +115,21 @@ input {
 .secondButton {
     height: 35px;
     width: 150px;
+    background-color: rgba(9, 171, 133, 1);
+    color: white;
 }
 
 .selectRegion {
     width: 165px;
     height: 46px;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 .selectDomaine{
     width: 165px;
     height: 40px;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
