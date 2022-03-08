@@ -57,13 +57,11 @@ const AdminGestionUsers = () => {
   const handleFilterFalse = () => {
     setIsFilter(false);
     setSearchTerm(undefined);
-    // setValidatedUsersToFilter(validatedUsers);
   };
 
   const handleFilterTrue = () => {
     setIsFilter(true);
     setSearchTerm(undefined);
-    // setBlockedUsersToFilter(blockedUsers);
   };
 
   useEffect(() => {
@@ -80,20 +78,26 @@ const AdminGestionUsers = () => {
         <h1>Gestion des utilisateurs</h1>
       </div>
       <div className="filtreGestionUsers">
-        <div className="activ" onClick={handleFilterFalse}>
+        <div
+          className={isFilter ? "isvalidatedUser" : "isvalidatedUser activ"}
+          onClick={handleFilterFalse}
+        >
           Utilisateurs
         </div>
-        <div className="activ" onClick={handleFilterTrue}>
+        <div
+          className={isFilter ? "isUser activ" : "isUser"}
+          onClick={handleFilterTrue}
+        >
           En attente de validation
         </div>
-        <div className="activ">
+        <div className="isFilter">
           <input
             className="searchBar"
             type="text"
             onChange={handleSearchTerm}
             value={searchTerm}
+            placeholder="Recherche par nom"
           />
-          {/* <div className="searchtruc">sdsdsd</div> */}
         </div>
       </div>
       <div className="tableauContainer">
@@ -101,6 +105,7 @@ const AdminGestionUsers = () => {
           ? searchTerm === undefined
             ? blockedUsers.map((el) => (
                 <UsersInGestion
+                  key={el.id}
                   user={el}
                   setValidatedUsers={setValidatedUsers}
                   getBlockedUsers={getBlockedUsers}
@@ -113,6 +118,7 @@ const AdminGestionUsers = () => {
               ))
             : blockedUsersToFilter.map((el) => (
                 <UsersInGestion
+                  key={el.id}
                   user={el}
                   getBlockedUsers={getBlockedUsers}
                   getValidatedUsers={getValidatedUsers}
@@ -126,6 +132,7 @@ const AdminGestionUsers = () => {
           : searchTerm === undefined
           ? validatedUsers.map((el) => (
               <UsersInGestion
+                key={el.id}
                 user={el}
                 validatedUsersToFilter={validatedUsersToFilter}
                 getBlockedUsers={getBlockedUsers}
@@ -138,6 +145,7 @@ const AdminGestionUsers = () => {
             ))
           : validatedUsersToFilter.map((el) => (
               <UsersInGestion
+                key={el.id}
                 validatedUsersToFilter={validatedUsersToFilter}
                 user={el}
                 getBlockedUsers={getBlockedUsers}
