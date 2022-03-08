@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import axios from 'axios';
 import avatar from '../assets/avatar.png';
 import { useState } from 'react';
@@ -9,6 +10,20 @@ const ProjectsInGestion = ({
 	getBlockedProjects,
 }) => {
 	const [viewMore, setViewMore] = useState(false);
+
+	const validatedProject = () => {
+		if (
+			confirm(`Êtes-vous sûr de bloqué le projet ${project.name} ?`) === true
+		) {
+			axios.put(`${process.env.REACT_APP_BACK}/admin/projects/${project.id}`);
+			alert(`Projet ${project.name} bloqué`);
+			console.log('projet bloqué');
+			getBlockedProjects();
+			getValidatedProjects();
+		} else {
+			console.log('projet non bloqué');
+		}
+	};
 
 	const iWantView = () => {
 		setViewMore(!viewMore);
@@ -70,7 +85,9 @@ const ProjectsInGestion = ({
 				<div className="elstatus">{elStatus()}</div>
 				<div className="lesbouttons">
 					<div className="onvalide">Ajouter des équipiers</div>
-					<div className="onsupprime">Bloquer le projet</div>
+					<div className="onsupprime" onClick={() => validatedProject()}>
+						Bloquer le projet
+					</div>
 				</div>
 			</div>
 		</div>

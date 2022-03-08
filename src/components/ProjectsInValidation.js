@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import axios from 'axios';
 import avatar from '../assets/avatar.png';
 import { useState } from 'react';
@@ -9,6 +10,37 @@ const ProjectsInGestion = ({
 	getBlockedProjects,
 }) => {
 	const [viewMore, setViewMore] = useState(false);
+
+	const deleteProject = () => {
+		if (
+			confirm(
+				`Êtes-vous sûr de vouloir supprimer le projet ${project.name} ? ATTENTION : Toute suppression est définitive !`
+			) === true
+		) {
+			axios.delete(
+				`${process.env.REACT_APP_BACK}/admin/delete_project/${project.id}`
+			);
+			alert(`Projet ${project.name} supprimé`);
+			console.log('project deleted');
+			getBlockedProjects();
+		} else {
+			console.log('project not deleted');
+		}
+	};
+
+	const validatedProject = () => {
+		if (
+			confirm(`Êtes-vous sûr de valider le projet ${project.name} ?`) === true
+		) {
+			axios.put(`${process.env.REACT_APP_BACK}/admin/projects/${project.id}`);
+			alert(`Projet ${project.name} validé`);
+			console.log('projet débloqué');
+			getBlockedProjects();
+			getValidatedProjects();
+		} else {
+			console.log('projet non débloqué');
+		}
+	};
 
 	const iWantView = () => {
 		setViewMore(!viewMore);
@@ -58,8 +90,12 @@ const ProjectsInGestion = ({
 					{project.region_name}
 				</div>
 				<div className="lesbouttons">
-					<div className="onvalide">Valider le projet</div>
-					<div className="onsupprime">Supprimer le projet</div>
+					<div className="onvalide" onClick={() => validatedProject()}>
+						Valider le projet
+					</div>
+					<div className="onsupprime" onClick={() => deleteProject(project.id)}>
+						Supprimer le projet
+					</div>
 				</div>
 			</div>
 		</div>
