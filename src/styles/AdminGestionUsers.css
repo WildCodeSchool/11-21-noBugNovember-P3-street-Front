@@ -1,6 +1,6 @@
 .gestionUsersContainer {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +28,7 @@
 }
 
 .filtreGestionUsers {
+  height: 50px;
   background-color: var(--main);
   border-radius: 35px;
   width: 30%;
@@ -35,3 +36,16 @@
   color: white;
   cursor: pointer;
 }
+
+.searchBar {
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* .searchtruc {
+  color: red;
+  position: relative;
+  right: 50px;
+} */

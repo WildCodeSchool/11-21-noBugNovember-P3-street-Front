@@ -1,22 +1,22 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 import "../styles/AdminGestionUsers.css";
 // import "../styles/NavbarAdmin.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 import UsersInGestion from "../components/UsersInGestion";
 import NavbarAdmin from "../components/NavbarAdmin";
 
 const AdminGestionUsers = () => {
+  //STATES
   const [validatedUsers, setValidatedUsers] = useState([]);
   const [blockedUsers, setBlockedUsers] = useState([]);
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
-  const [searchTerm, setSearchTerm] = useState();
+  const [searchTerm, setSearchTerm] = useState(undefined);
   const [validatedUsersToFilter, setValidatedUsersToFilter] = useState([]);
-  // const [viewMore, setViewMore] = useState(false);
-  console.log(searchTerm);
-  console.log(blockedUsers);
-  console.log(validatedUsers);
+  const [blockedUsersToFilter, setBlockedUsersToFilter] = useState([]);
 
+  //FUNCTIONS
   const getValidatedUsers = () => {
     axios
       .get(`${process.env.REACT_APP_BACK}/admin/validated_users`)
@@ -24,50 +24,48 @@ const AdminGestionUsers = () => {
       .then((data) => setValidatedUsers(data));
   };
 
-  // const getValidatedUsersToFilter = () => {
-  //   axios
-  //     .get(`${process.env.REACT_APP_BACK}/admin/validated_users`)
-  //     .then((response) => response.data)
-  //     .then((data) => setValidatedUsersToFilter(data));
-  // };
-
   const getBlockedUsers = () => {
     axios
       .get(`${process.env.REACT_APP_BACK}/admin/blocked_users`)
       .then((response) => response.data)
       .then((data) => setBlockedUsers(data));
   };
-  // const handleSearchTerm = (e) => {
-  //   let value = e.target.value;
-  //   let temp;
-  //   setSearchTerm(value);
-  //   if (searchTerm.length > 0) {
-  //     temp = validatedUsers.filter((e) => e.lastname.includes(searchTerm));
-  //   }
-  //   if (temp !== undefined) {
-  //     setValidatedUsersToFilter(temp);
-  //   }
-  // };
-  const filterSearchBar = (e) => {
+
+  const handleSearchTerm = (e) => {
     let value = e.target.value;
-    console.log(value);
-    let temp;
     setSearchTerm(value);
-    console.log(searchTerm);
-    if (searchTerm.length > 0) {
-      temp = validatedUsers.filter((e) => e.lastname.includes(searchTerm));
-    }
-
-    if (temp !== undefined) {
-      setValidatedUsersToFilter(temp);
-    } else {
-      getValidatedUsers();
-    }
   };
 
-  const handleFilter = () => {
+  useEffect(() => {
+    if (isFilter === false) {
+      const filterResult = validatedUsers.filter((e) =>
+        e.lastname.includes(searchTerm)
+      );
+      setValidatedUsersToFilter(filterResult);
+    }
+  }, [searchTerm, validatedUsers]);
+
+  useEffect(() => {
+    if (isFilter === true) {
+      const filterResult = blockedUsers.filter((e) =>
+        e.lastname.includes(searchTerm)
+      );
+      setBlockedUsersToFilter(filterResult);
+    }
+  }, [searchTerm, blockedUsers]);
+
+  const handleFilterFalse = () => {
     setIsFilter(false);
+    setSearchTerm(undefined);
+    // setValidatedUsersToFilter(validatedUsers);
   };
+
+  const handleFilterTrue = () => {
+    setIsFilter(true);
+    setSearchTerm(undefined);
+    // setBlockedUsersToFilter(blockedUsers);
+  };
+
   useEffect(() => {
     getValidatedUsers();
     getBlockedUsers();
@@ -81,41 +79,73 @@ const AdminGestionUsers = () => {
       <div className="adminTitle">
         <h1>Gestion des utilisateurs</h1>
       </div>
-
       <div className="filtreGestionUsers">
-        <div className="activ" onClick={handleFilter}>
+        <div className="activ" onClick={handleFilterFalse}>
           Utilisateurs
         </div>
-        <div className="activ" onClick={() => setIsFilter(true)}>
+        <div className="activ" onClick={handleFilterTrue}>
           En attente de validation
         </div>
-        <div>
-          <input type="text" onChange={filterSearchBar} />
-          {/* <div onClick={filterSearchBar}>FILTRER</div> */}
+        <div className="activ">
+          <input
+            className="searchBar"
+            type="text"
+            onChange={handleSearchTerm}
+            value={searchTerm}
+          />
+          {/* <div className="searchtruc">sdsdsd</div> */}
         </div>
       </div>
       <div className="tableauContainer">
         {isFilter
-          ? blockedUsers.map((el) => (
-              <UsersInGestion
-                user={el}
-                getBlockedUsers={getBlockedUsers}
-                getValidatedUsers={getValidatedUsers}
-              />
-            ))
+          ? searchTerm === undefined
+            ? blockedUsers.map((el) => (
+                <UsersInGestion
+                  user={el}
+                  setValidatedUsers={setValidatedUsers}
+                  getBlockedUsers={getBlockedUsers}
+                  getValidatedUsers={getValidatedUsers}
+                  validatedUsers={validatedUsers}
+                  validatedUsersToFilter={validatedUsersToFilter}
+                  blockedUsers={blockedUsers}
+                  setBlockedUsers={setBlockedUsers}
+                />
+              ))
+            : blockedUsersToFilter.map((el) => (
+                <UsersInGestion
+                  user={el}
+                  getBlockedUsers={getBlockedUsers}
+                  getValidatedUsers={getValidatedUsers}
+                  validatedUsers={validatedUsers}
+                  validatedUsersToFilter={validatedUsersToFilter}
+                  blockedUsers={blockedUsers}
+                  setValidatedUsers={setValidatedUsers}
+                  setBlockedUsers={setBlockedUsers}
+                />
+              ))
           : searchTerm === undefined
           ? validatedUsers.map((el) => (
               <UsersInGestion
                 user={el}
+                validatedUsersToFilter={validatedUsersToFilter}
                 getBlockedUsers={getBlockedUsers}
                 getValidatedUsers={getValidatedUsers}
+                validatedUsers={validatedUsers}
+                blockedUsers={blockedUsers}
+                setValidatedUsers={setValidatedUsers}
+                setBlockedUsers={setBlockedUsers}
               />
             ))
           : validatedUsersToFilter.map((el) => (
               <UsersInGestion
+                validatedUsersToFilter={validatedUsersToFilter}
                 user={el}
                 getBlockedUsers={getBlockedUsers}
                 getValidatedUsers={getValidatedUsers}
+                validatedUsers={validatedUsers}
+                blockedUsers={blockedUsers}
+                setValidatedUsers={setValidatedUsers}
+                setBlockedUsers={setBlockedUsers}
               />
             ))}
       </div>

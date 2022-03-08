@@ -1,26 +1,75 @@
 /* eslint-disable no-restricted-globals */
 import axios from "axios";
 import avatar from "../assets/avatar.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/UsersInGestion.css";
-const UsersInGestion = ({ user, getValidatedUsers, getBlockedUsers }) => {
+const UsersInGestion = ({
+  user,
+  getValidatedUsers,
+  getBlockedUsers,
+  blockedUsers,
+  validatedUsers,
+  setValidatedUsers,
+  setBlockedUsers,
+  // validatedUsersToFilter,
+}) => {
   const [viewMore, setViewMore] = useState(false);
+  const [blockedStatus, setBlockedStatus] = useState([]);
 
   const handleClickViewMore = () => {
     setViewMore(!viewMore);
   };
-  const BlockUnblock = (value) => {
+
+  // const handleBlockUnblock = () => {
+  //   if (user.blocked === 1) {
+  //     setBlockedStatus(0);
+  //   } else {
+  //     setlockedStatus(1);
+  //   }
+  // };
+  // console.log(blockedStatus);
+
+  // useEffect(() => {
+  //   console.log(blockedStatus);
+  //   const blockUnblock = () => {
+  //     axios.put(`${process.env.REACT_APP_BACK}/admin/block_user/${user.id}`, {
+  //       blocked: blockedStatus,
+  //     });
+  //   };
+  //   blockUnblock();
+  //   setValidatedUsers(validatedUsersToFilter);
+  // }, [handleBlockUnblock]);
+
+  const majUsers = () => {
     getValidatedUsers();
     getBlockedUsers();
-    axios
-      .put(`${process.env.REACT_APP_BACK}/admin/block_user/${user.id}`, {
-        blocked: value,
-      })
-      .then(getValidatedUsers())
-      .then(getBlockedUsers());
   };
 
-  const DeleteUserWithoutProject = (id) => {
+  const searchUserStatut = (val) => {
+    if (val === 0) {
+      console.log(blockedUsers.find((element) => element.id === user.id));
+      setValidatedUsers(
+        ...validatedUsers,
+        (blockedUsers.find((element) => element.id === user.id).blocked = 0)
+      );
+    } else if (val === 1) {
+      console.log(validatedUsers.find((element) => element.id === user.id));
+      setBlockedUsers(
+        ...blockedUsers,
+        (validatedUsers.find((element) => element.id === user.id).blocked = 1)
+      );
+    }
+  };
+
+  const blockUnblock = async (value) => {
+    axios.put(`${process.env.REACT_APP_BACK}/admin/block_user/${user.id}`, {
+      blocked: value,
+    });
+    await searchUserStatut(value);
+    majUsers();
+  };
+
+  const deleteUser = (id) => {
     if (
       confirm(
         `Êtes-vous sûr de vouloir supprimer l'utilisateur ${user.firstname} ${user.lastname} ? ATTENTION : Toute suppression est définitive, si l'utilisateur est créateur d'un projet, celui-ci sera aussi supprimé`
@@ -55,12 +104,12 @@ const UsersInGestion = ({ user, getValidatedUsers, getBlockedUsers }) => {
           className={
             user.blocked === 0 ? "boutonGestionBloquer" : "boutonGestionValider"
           }
-          onClick={() => (user.blocked ? BlockUnblock(0) : BlockUnblock(1))}
+          onClick={() => (user.blocked ? blockUnblock(0) : blockUnblock(1))}
         >
           {user.blocked === 0 ? "Bloquer" : "Valider"}
         </div>
         <div
-          onClick={DeleteUserWithoutProject}
+          onClick={deleteUser}
           className={user.blocked ? "boutonDeleteUser" : "viewNone"}
         >
           <img
