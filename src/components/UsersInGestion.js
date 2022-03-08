@@ -11,7 +11,6 @@ const UsersInGestion = ({
   validatedUsers,
   setValidatedUsers,
   setBlockedUsers,
-  // validatedUsersToFilter,
 }) => {
   const [viewMore, setViewMore] = useState(false);
   const [blockedStatus, setBlockedStatus] = useState([]);
@@ -19,26 +18,6 @@ const UsersInGestion = ({
   const handleClickViewMore = () => {
     setViewMore(!viewMore);
   };
-
-  // const handleBlockUnblock = () => {
-  //   if (user.blocked === 1) {
-  //     setBlockedStatus(0);
-  //   } else {
-  //     setlockedStatus(1);
-  //   }
-  // };
-  // console.log(blockedStatus);
-
-  // useEffect(() => {
-  //   console.log(blockedStatus);
-  //   const blockUnblock = () => {
-  //     axios.put(`${process.env.REACT_APP_BACK}/admin/block_user/${user.id}`, {
-  //       blocked: blockedStatus,
-  //     });
-  //   };
-  //   blockUnblock();
-  //   setValidatedUsers(validatedUsersToFilter);
-  // }, [handleBlockUnblock]);
 
   const majUsers = () => {
     getValidatedUsers();
