@@ -17,30 +17,60 @@ const AdminGestionUsers = () => {
 	console.log(blockedUsers);
 	console.log(validatedUsers);
 
-	const getValidatedProjects = () => {
+	const getValidatedUsers = () => {
 		axios
 			.get(`${process.env.REACT_APP_BACK}/admin/validated_users`)
 			.then((response) => response.data)
 			.then((data) => setValidatedUsers(data));
 	};
 
-	const getBlockedProjects = () => {
+	// const getValidatedUsersToFilter = () => {
+	//   axios
+	//     .get(`${process.env.REACT_APP_BACK}/admin/validated_users`)
+	//     .then((response) => response.data)
+	//     .then((data) => setValidatedUsersToFilter(data));
+	// };
+
+	const getBlockedUsers = () => {
 		axios
 			.get(`${process.env.REACT_APP_BACK}/admin/blocked_users`)
 			.then((response) => response.data)
 			.then((data) => setBlockedUsers(data));
 	};
-	const handleSearchTerm = (e) => {
+	// const handleSearchTerm = (e) => {
+	//   let value = e.target.value;
+	//   let temp;
+	//   setSearchTerm(value);
+	//   if (searchTerm.length > 0) {
+	//     temp = validatedUsers.filter((e) => e.lastname.includes(searchTerm));
+	//   }
+	//   if (temp !== undefined) {
+	//     setValidatedUsersToFilter(temp);
+	//   }
+	// };
+	const filterSearchBar = (e) => {
 		let value = e.target.value;
+		console.log(value);
+		let temp;
 		setSearchTerm(value);
+		console.log(searchTerm);
+		if (searchTerm.length > 0) {
+			temp = validatedUsers.filter((e) => e.lastname.includes(searchTerm));
+		}
+
+		if (temp !== undefined) {
+			setValidatedUsersToFilter(temp);
+		} else {
+			getValidatedUsers();
+		}
 	};
 
 	const handleFilter = () => {
 		setIsFilter(false);
 	};
 	useEffect(() => {
-		getValidatedProjects();
-		getBlockedProjects();
+		getValidatedUsers();
+		getBlockedUsers();
 	}, []);
 
 	return (
@@ -54,10 +84,14 @@ const AdminGestionUsers = () => {
 
 			<div className="filtreGestionUsers">
 				<div className="activ" onClick={handleFilter}>
-					Utilisateurs validés
+					Utilisateurs
 				</div>
 				<div className="activ" onClick={() => setIsFilter(true)}>
 					En attente de validation
+				</div>
+				<div>
+					<input type="text" onChange={filterSearchBar} />
+					{/* <div onClick={filterSearchBar}>FILTRER</div> */}
 				</div>
 			</div>
 			<div className="tableauContainer">
@@ -65,15 +99,23 @@ const AdminGestionUsers = () => {
 					? blockedUsers.map((el) => (
 							<UsersInGestion
 								user={el}
-								getBlockedUsers={getBlockedProjects}
-								getValidatedUsers={getValidatedProjects}
+								getBlockedUsers={getBlockedUsers}
+								getValidatedUsers={getValidatedUsers}
 							/>
 					  ))
-					: validatedUsers.map((el) => (
+					: searchTerm === undefined
+					? validatedUsers.map((el) => (
 							<UsersInGestion
 								user={el}
-								getBlockedUsers={getBlockedProjects}
-								getValidatedUsers={getValidatedProjects}
+								getBlockedUsers={getBlockedUsers}
+								getValidatedUsers={getValidatedUsers}
+							/>
+					  ))
+					: validatedUsersToFilter.map((el) => (
+							<UsersInGestion
+								user={el}
+								getBlockedUsers={getBlockedUsers}
+								getValidatedUsers={getValidatedUsers}
 							/>
 					  ))}
 			</div>
