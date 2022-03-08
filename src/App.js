@@ -1,4 +1,5 @@
 import Admin from './screens/Admin';
+import AdminAddMates from './screens/AdminAddMates';
 import AdminGestionUsers from './screens/AdminGestionUsers';
 import AdminGestionProjects from './screens/AdminGestionProjects';
 import Connexion from './screens/Connexion';
@@ -27,6 +28,7 @@ function App() {
 				<Route path="/admin" element={<Admin />} />
 				<Route path="/admin/users" element={<AdminGestionUsers />} />
 				<Route path="/admin/projets" element={<AdminGestionProjects />} />
+				<Route path="/admin/ajout/:id" element={<AdminAddMates />} />
 				<Route path="/connexion" element={<Connexion />} />
 				<Route path="/projets" element={<Project />} />
 				<Route path="/projets/:id" element={<ProjectDetails />} />

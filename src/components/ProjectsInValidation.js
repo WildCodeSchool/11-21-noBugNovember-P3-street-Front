@@ -18,7 +18,7 @@ const ProjectsInGestion = ({
 			) === true
 		) {
 			axios.delete(
-				`${process.env.REACT_APP_BACK}/admin/delete_project/${project.id}`
+				`${process.env.REACT_APP_BACK}/admin/project_delete/${project.id}`
 			);
 			alert(`Projet ${project.name} supprimé`);
 			console.log('project deleted');

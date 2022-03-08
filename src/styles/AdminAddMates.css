@@ -1,0 +1,13 @@
+.adminaddmates {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.lesdetails {
+	display: flex;
+	justify-content: center;
+	border-radius: 25px 25px 25px 25px;
+	border: solid 2px black;
+	width: 75vw;
+}

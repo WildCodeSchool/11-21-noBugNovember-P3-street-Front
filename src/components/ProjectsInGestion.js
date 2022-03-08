@@ -2,6 +2,7 @@
 import axios from 'axios';
 import avatar from '../assets/avatar.png';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/ProjectsInGestion.css';
 
 const ProjectsInGestion = ({
@@ -10,6 +11,7 @@ const ProjectsInGestion = ({
 	getBlockedProjects,
 }) => {
 	const [viewMore, setViewMore] = useState(false);
+	const link = `/admin/ajout/${project.id}`;
 
 	const validatedProject = () => {
 		if (
@@ -84,7 +86,9 @@ const ProjectsInGestion = ({
 				</div>
 				<div className="elstatus">{elStatus()}</div>
 				<div className="lesbouttons">
-					<div className="onvalide">Ajouter des équipiers</div>
+					<Link to={link}>
+						<div className="onvalide">Ajouter des équipiers</div>
+					</Link>
 					<div className="onsupprime" onClick={() => validatedProject()}>
 						Bloquer le projet
 					</div>
