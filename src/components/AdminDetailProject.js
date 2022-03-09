@@ -34,15 +34,20 @@ const AdminDetailProject = (props) => {
 					<UsersForProject
 						index={e.id}
 						id={e.id}
+						projectId={props.dataProject.id}
 						firstname={e.firstname}
 						lastname={e.lastname}
 						avatar={e.avatar}
 						job={e.art_name}
+						usersInProject={props.usersInProject}
 					/>
 				))}
 			</div>
 			<div className="essai2">
-				<AddUsersInProject />
+				<AddUsersInProject
+					projectId={props.dataProject.id}
+					usersInProject={props.usersInProject}
+				/>
 			</div>
 		</div>
 	);

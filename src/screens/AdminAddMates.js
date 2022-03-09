@@ -12,7 +12,7 @@ const AdminAddMates = () => {
 	let { id } = useParams();
 
 	//console.log('detail:', dataProject);
-	console.log('talents:', projectUsers);
+	//console.log('talents:', projectUsers);
 
 	const getProjectDetails = () => {
 		axios
@@ -50,6 +50,8 @@ const AdminAddMates = () => {
 					<AdminDetailProject
 						dataProject={dataProject}
 						projectUsers={projectUsers}
+						getProjectDetails={getProjectDetails}
+						usersInProject={usersInProject}
 					/>
 				</div>
 			</div>

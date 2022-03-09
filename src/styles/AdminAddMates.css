@@ -132,4 +132,17 @@
 
 select {
 	margin-bottom: 10px;
+	height: 30px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.ausecours {
+	display: flex;
+	justify-content: center;
+	/*margin-top: 5px;*/
+	margin-bottom: 20px;
+	border-radius: 10px 10px 10px 10px;
+	color: white;
+	background-color: var(--grey);
+	cursor: pointer;
 }

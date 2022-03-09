@@ -1,7 +1,31 @@
+/* eslint-disable no-restricted-globals */
+import axios from 'axios';
 import '../styles/AdminAddMates.css';
 
 const UsersForProject = (props) => {
-	console.log(props);
+	//console.log(props.id);
+	//console.log(props.projectId);
+
+	const auRevoir = () => {
+		if (
+			confirm(
+				`Êtes-vous sûr de vouloir enlever ${props.firstname} ${props.lastname} du projet ?`
+			) === true
+		) {
+			axios.delete(`${process.env.REACT_APP_BACK}/admin/user_bye_project/`, {
+				data: {
+					users_id: props.id,
+					project_id: props.projectId,
+				},
+			});
+
+			alert(`${props.firstname} ${props.lastname} est retiré(e) du projet`);
+			console.log('project deleted');
+			props.usersInProject();
+		} else {
+			console.log('project not deleted');
+		}
+	};
 
 	return (
 		<div className="essai">
@@ -12,7 +36,9 @@ const UsersForProject = (props) => {
 				{props.firstname} {props.lastname}
 			</div>
 			<div className="sub-domain">{props.job}</div>
-			<div className="merci">Retirer du projet</div>
+			<div className="merci" onClick={() => auRevoir()}>
+				Retirer du projet
+			</div>
 		</div>
 	);
 };
