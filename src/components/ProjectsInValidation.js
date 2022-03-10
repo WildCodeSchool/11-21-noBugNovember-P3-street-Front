@@ -28,6 +28,10 @@ const ProjectsInGestion = ({
 		}
 	};
 
+	const iWantView = () => {
+		setViewMore(!viewMore);
+	};
+
 	const validatedProject = () => {
 		if (
 			confirm(`Êtes-vous sûr de valider le projet ${project.name} ?`) === true
@@ -40,10 +44,6 @@ const ProjectsInGestion = ({
 		} else {
 			console.log('projet non débloqué');
 		}
-	};
-
-	const iWantView = () => {
-		setViewMore(!viewMore);
 	};
 
 	return (

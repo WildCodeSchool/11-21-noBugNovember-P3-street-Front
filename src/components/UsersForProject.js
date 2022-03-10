@@ -5,9 +5,6 @@ import avatar from '../assets/avatar.png';
 import { useEffect, useState } from 'react';
 
 const UsersForProject = (props) => {
-	//console.log(props.id);
-	//console.log(props.projectId);
-
 	const auRevoir = () => {
 		if (
 			confirm(

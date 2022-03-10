@@ -9,17 +9,6 @@ const AddUsersInProject = (props) => {
 	const [search, setSearch] = useState('');
 	const [userId, setUserId] = useState(0);
 
-	console.log(search);
-	//console.log(dataSearch);
-
-	const tapeSearch = (e) => {
-		setSearch(e.target.value);
-	};
-
-	const changeUserId = (e) => {
-		setUserId(e.target.value);
-	};
-
 	const addUserInProjet = () => {
 		axios
 			.post(`${process.env.REACT_APP_BACK}/admin/addUserInProject`, {
@@ -28,6 +17,10 @@ const AddUsersInProject = (props) => {
 			})
 			.then((response) => response.data)
 			.then((data) => props.usersInProject());
+	};
+
+	const changeUserId = (e) => {
+		setUserId(e.target.value);
 	};
 
 	const searchUser = () => {
@@ -42,6 +35,10 @@ const AddUsersInProject = (props) => {
 			setSearch('');
 			setIsSearch(true);
 		}
+	};
+
+	const tapeSearch = (e) => {
+		setSearch(e.target.value);
 	};
 
 	useEffect(() => {}, [isSearch]);
