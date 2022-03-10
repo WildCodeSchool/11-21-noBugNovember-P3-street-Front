@@ -15,6 +15,8 @@ const AdminGestionUsers = () => {
   const [searchTerm, setSearchTerm] = useState(undefined);
   const [validatedUsersToFilter, setValidatedUsersToFilter] = useState([]);
   const [blockedUsersToFilter, setBlockedUsersToFilter] = useState([]);
+  console.log(validatedUsers);
+  console.log(blockedUsers);
 
   //FUNCTIONS
   const getValidatedUsers = () => {

@@ -7,7 +7,6 @@ import "../styles/ProjectDetails.css";
 const ProjectDetails = () => {
   const [projectDetail, setProjectDetail] = useState([]);
   const [projectUsers, setProjectUsers] = useState([]);
-
   const params = useParams();
   console.log("details", projectDetail);
 
@@ -44,7 +43,6 @@ const ProjectDetails = () => {
                 className="projectAvatar"
               />
             ))}
-
             <div className="projectTextContainer">
               <p>{projectDetail.map((el) => el.description)}</p>
               <p>
@@ -57,9 +55,11 @@ const ProjectDetails = () => {
             <div className="usersTitle">
               <h2>Participants au projet :</h2>
             </div>
-            {projectUsers.map((el, index) => (
-              <UsersInProject user={el} key={index} />
-            ))}
+            {projectUsers
+              // .filter((el) => el.firstname.includes(projectDetail.firstname))
+              .map((el, index) => (
+                <UsersInProject user={el} key={index} />
+              ))}
           </div>
         </div>
         <div className="playerContainer">
