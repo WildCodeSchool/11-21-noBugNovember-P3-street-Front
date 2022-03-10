@@ -13,6 +13,7 @@ const UsersInGestion = ({
   setBlockedUsers,
 }) => {
   const [viewMore, setViewMore] = useState(false);
+
   const userStatus = () => {
     if (user.available === 1) {
       return "Disponible";
