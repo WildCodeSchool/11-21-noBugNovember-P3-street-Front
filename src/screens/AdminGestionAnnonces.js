@@ -24,14 +24,8 @@ const AdminGestionAnnonces = () => {
       .then((data) => setAnnonceUser(data));
   };
 
-  const handleFilterFalse = () => {
-    setIsFilter(false);
-    // setSearchTerm(undefined);
-  };
-
-  const handleFilterTrue = () => {
-    setIsFilter(true);
-    // setSearchTerm(undefined);
+  const handleFilter = () => {
+    setIsFilter(!isFilter);
   };
 
   useEffect(() => {
@@ -50,21 +44,33 @@ const AdminGestionAnnonces = () => {
       <div className="filtreGestionUsers">
         <div
           className={isFilter ? "isvalidatedUser" : "isvalidatedUser activ"}
-          onClick={handleFilterFalse}
+          onClick={handleFilter}
         >
           Annonces utilisateurs
         </div>
         <div
           className={isFilter ? "isUser activ" : "isUser"}
-          onClick={handleFilterTrue}
+          onClick={handleFilter}
         >
           Annonces projets
         </div>
       </div>
       <div className="tableauContainer">
-        {annonceProjet.map((el) => (
-          <AnnonceInGestion annonce={el} />
-        ))}
+        {isFilter
+          ? annonceProjet.map((el) => (
+              <AnnonceInGestion
+                annonce={el}
+                isFilter={isFilter}
+                getAnnoncesProjet={getAnnoncesProjet}
+              />
+            ))
+          : annonceUser.map((el) => (
+              <AnnonceInGestion
+                annonce={el}
+                isFilter={isFilter}
+                getAnnoncesUser={getAnnoncesUser}
+              />
+            ))}
       </div>
     </div>
   );
