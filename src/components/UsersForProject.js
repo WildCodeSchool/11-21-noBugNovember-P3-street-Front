@@ -1,6 +1,8 @@
 /* eslint-disable no-restricted-globals */
 import axios from 'axios';
 import '../styles/AdminAddMates.css';
+import avatar from '../assets/avatar.png';
+import { useEffect, useState } from 'react';
 
 const UsersForProject = (props) => {
 	//console.log(props.id);
@@ -30,15 +32,21 @@ const UsersForProject = (props) => {
 	return (
 		<div className="essai">
 			<div className="illustration2">
-				<img src={`${process.env.REACT_APP_BACK}/${props.avatar}`} />
+				<img
+					src={
+						props.avatar !== null
+							? `${process.env.REACT_APP_BACK}/${props.avatar}`
+							: `${avatar}`
+					}
+				/>
+				<div className="merci" onClick={() => auRevoir()}>
+					<i class="fa-solid fa-xmark" />
+				</div>
 			</div>
 			<div className="leprenom">
 				{props.firstname} {props.lastname}
 			</div>
 			<div className="sub-domain">{props.job}</div>
-			<div className="merci" onClick={() => auRevoir()}>
-				Retirer du projet
-			</div>
 		</div>
 	);
 };

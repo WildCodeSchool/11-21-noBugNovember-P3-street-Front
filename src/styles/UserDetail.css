@@ -14,7 +14,7 @@
 	justify-content: flex-start;
 	width: 40%;
 	height: 90vh;
-	background-color: #09ab85;
+	background-color: var(--main);
 	font-family: 'Roboto', sans-serif;
 	border-radius: 40px 40px 40px 40px;
 }

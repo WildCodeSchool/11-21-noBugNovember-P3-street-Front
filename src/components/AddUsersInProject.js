@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../styles/AdminAddMates.css';
 
 const AddUsersInProject = (props) => {
 	const [reveal, setReveal] = useState(false);
@@ -8,7 +9,7 @@ const AddUsersInProject = (props) => {
 	const [search, setSearch] = useState('');
 	const [userId, setUserId] = useState(0);
 
-	//console.log(userId);
+	console.log(search);
 	//console.log(dataSearch);
 
 	const tapeSearch = (e) => {
@@ -31,30 +32,46 @@ const AddUsersInProject = (props) => {
 
 	const searchUser = () => {
 		setIsSearch(false);
-		axios
-			.put(`${process.env.REACT_APP_BACK}/admin/search_users`, { name: search })
-			.then((response) => response.data)
-			.then((data) => setDataSearch(data));
-		setIsSearch(true);
+		if (search !== '') {
+			axios
+				.put(`${process.env.REACT_APP_BACK}/admin/search_users`, {
+					name: search,
+				})
+				.then((response) => response.data)
+				.then((data) => setDataSearch(data));
+			setSearch('');
+			setIsSearch(true);
+		}
 	};
 
 	useEffect(() => {}, [isSearch]);
 
 	return (
 		<div className="newcomponent">
+			<div className="un">Ajouter un talent au projet</div>
 			<div
-				className={reveal === false ? 'ajout' : 'cache'}
+				className={
+					reveal === false && props.decouverte === true ? 'ajout' : 'cache'
+				}
 				onClick={() => setReveal(true)}
 			>
 				Ajouter une personne
 			</div>
 			<div
-				className={reveal ? 'recherche' : 'cache'}
+				className={reveal && props.decouverte === true ? 'recherche' : 'cache'}
 				onChange={(e) => tapeSearch(e)}
 			>
-				<input type="textfield"></input>
+				<input
+					value={search}
+					type="textfield"
+					placeholder="Nom ou prénom"
+				></input>
 			</div>
-			<div className={reveal && isSearch ? 'result' : 'cache'}>
+			<div
+				className={
+					reveal && isSearch && props.decouverte === true ? 'result' : 'cache'
+				}
+			>
 				<select name="listing" onChange={(e) => changeUserId(e)}>
 					<option>Choix ci-dessous</option>
 					{dataSearch.map((e) => (
@@ -68,13 +85,13 @@ const AddUsersInProject = (props) => {
 				</div>
 			</div>
 			<div
-				className={reveal ? 'validation' : 'cache'}
+				className={reveal && props.decouverte === true ? 'validation' : 'cache'}
 				onClick={() => searchUser()}
 			>
 				Rechercher
 			</div>
 			<div
-				className={reveal ? 'annuler' : 'cache'}
+				className={reveal && props.decouverte === true ? 'annuler' : 'cache'}
 				onClick={() => setReveal(false)}
 			>
 				Annuler

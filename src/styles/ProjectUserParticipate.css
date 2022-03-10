@@ -3,7 +3,7 @@
 	border-radius: 20px;
 	width: 450px;
 	height: 150px;
-	background-color: #094fabd0;
+	background-color: var(--second);
 	justify-content: space-between;
 }
 
