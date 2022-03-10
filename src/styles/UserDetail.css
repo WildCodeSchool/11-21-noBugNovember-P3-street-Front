@@ -1,40 +1,5 @@
-.UserDetail {
-	display: flex;
-	position: relative;
-	left: 5%;
-	margin-top: 40px;
-	justify-content: center;
-	width: 90%;
-}
-
-.profil {
-	display: flex;
-	position: relative;
-	flex-direction: column;
-	justify-content: flex-start;
-	width: 40%;
-	height: 90vh;
-	background-color: #09ab85;
-	font-family: 'Roboto', sans-serif;
-	border-radius: 40px 40px 40px 40px;
-}
-
-.projects {
-	display: flex;
-}
-
-.perso {
-	display: flex;
-	justify-content: center;
-	border-radius: 50%;
-	margin-bottom: 10px;
-}
-
-.perso img {
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
-	object-fit: cover;
+.cache {
+	display: none;
 }
 
 .blaze,
@@ -62,12 +27,6 @@
 	font-size: 1.75em;
 	margin: 15px;
 	color: white;
-}
-
-.projects {
-	display: flex;
-	flex-direction: column;
-	width: 60%;
 }
 
 .lefiltre {
@@ -128,6 +87,43 @@
 	transition: 0.5s;
 }
 
-.cache {
-	display: none;
+.perso {
+	display: flex;
+	justify-content: center;
+	border-radius: 50%;
+	margin-bottom: 10px;
+}
+
+.perso img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.profil {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 40%;
+	height: 90vh;
+	background-color: var(--main);
+	font-family: 'Roboto', sans-serif;
+	border-radius: 40px 40px 40px 40px;
+}
+
+.projects {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+.UserDetail {
+	display: flex;
+	position: relative;
+	left: 5%;
+	margin-top: 40px;
+	justify-content: center;
+	width: 90%;
 }
