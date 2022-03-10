@@ -20,7 +20,6 @@ const ProjectDetails = () => {
       .get(`${process.env.REACT_APP_BACK}/all/project_users/${params.id}`)
       .then((response) => response.data)
       .then((data) => setProjectUsers(data));
-    // setNoCreator(projectUsers.filter((el) => el.firstname.includes(projectDetail.firstname));
   };
 
   useEffect(() => {
@@ -57,7 +56,7 @@ const ProjectDetails = () => {
               <h2>Participants au projet :</h2>
             </div>
             {projectUsers
-              // .filter((el) => el.firstname.includes(projectDetail.firstname))
+              
               .map((el, index) => (
                 <UsersInProject user={el} key={index} />
               ))}
