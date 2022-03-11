@@ -16,7 +16,7 @@ const UsersInProject = ({ user }) => {
         ) : (
           <img
             src={`${process.env.REACT_APP_BACK}/${user.avatar}`}
-            alt={user.firstname}
+            /*  alt={user.firstname} */
             className="avatarUsers"
           />
         )}
