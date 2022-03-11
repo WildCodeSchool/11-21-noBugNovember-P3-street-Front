@@ -24,7 +24,7 @@ const Navbar = () => {
         </div>
         <div className="containerConnexion">
           <Link to="/connexion">
-            <div className="connexion">S'inscrire</div>
+            <div className="navbarBtn connexion">Connexion</div>
           </Link>
         </div>
       </div>

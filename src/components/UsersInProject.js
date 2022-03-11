@@ -7,8 +7,7 @@ const UsersInProject = ({ user }) => {
     <div className="usersInProject">
       <Link to={userId}>
         <div className="userName">
-          {user.lastname}
-          {user.firstname}
+          {user.lastname} {user.firstname}
         </div>
 
         {user.avatar === null ? (
