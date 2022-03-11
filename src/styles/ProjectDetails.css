@@ -51,12 +51,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .infosDetailsProjet p {
-  margin: 10px 0px;
+  margin: 0.5vh 0px;
 }
 
+.ouEtQuandDetailsProject {
+  width: 100%;
+  margin: 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 8vh;
+}
+
+.ouDetailsProject {
+  display: flex;
+  justify-content: center;
+}
+.dateDetailsProject {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 .membresDetailsProjet {
   display: flex;
   flex-wrap: wrap;
@@ -67,10 +87,20 @@
   overflow: hidden;
 }
 
+.createurDetailsProjet {
+  display: flex;
+}
+
+.nameCreatorDetailsProjet {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .wrapperAvatarInfos {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 /* //////////////////////////// */
@@ -82,7 +112,7 @@
   padding: 1%;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: transparent;
   color: black;
 }
@@ -116,7 +146,7 @@
   border-radius: 0 0 10px 10px;
 }
 .videoDetailsProjet {
-  height: 40%;
+  height: 75%;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -129,7 +159,7 @@
   justify-content: center;
 }
 .player {
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 
