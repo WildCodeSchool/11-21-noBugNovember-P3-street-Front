@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Connexion.css";
+import Footer from "../components/Footer";
 // import img from '../assets/neige.jpg'
 
 // const sectionStyle = {

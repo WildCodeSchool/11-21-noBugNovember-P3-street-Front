@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UsersInProject from "../components/UsersInProject";
+import Footer from "../components/Footer";
 import "../styles/ProjectDetails.css";
 const ProjectDetails = () => {
   const [projectDetail, setProjectDetail] = useState([]);

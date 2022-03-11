@@ -2,6 +2,7 @@ import "../styles/AdminGestionUsers.css";
 // import "../styles/NavbarAdmin.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 import UsersInGestion from "../components/UsersInGestion";
 import NavbarAdmin from "../components/NavbarAdmin";

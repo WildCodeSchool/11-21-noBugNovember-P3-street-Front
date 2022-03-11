@@ -6,6 +6,7 @@ import "../styles/Project.css";
 import "../styles/SearchContainer.css";
 import SearchDomain from "../components/SearchDomain";
 import SearchSubDomain from "../components/SearchSubDomain";
+import Footer from "../components/Footer";
 
 const Project = () => {
   const [allProjects, setAllProjects] = useState([]);
@@ -210,6 +211,7 @@ const Project = () => {
               <ProjectAnnonceCard annonce={el} key={index} />
             ))}
       </div>
+      <Footer />
     </div>
   );
 };
