@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import axios from "axios";
 import avatar from "../assets/avatar.png";
 import { useState } from "react";
@@ -82,11 +81,17 @@ const UsersInGestion = ({
             /
           </div>
         </div>
-        <div className="contentprojectadmin">
-          <div className="entries">{user.lastname}</div>
-          <div className="entries">{user.firstname}</div>
-          <div className="entries">{user.art_name}</div>
-          <div className="entries">{user.city}</div>
+        <div className="entries">{user.lastname}</div>
+        <div className="entries">{user.firstname}</div>
+        <div className="entries">{user.art_name}</div>
+        <div className="entries">{user.city}</div>
+        <div
+          className={
+            user.blocked === 0 ? "boutonGestionBloquer" : "boutonGestionValider"
+          }
+          onClick={() => (user.blocked ? BlockUnblock(0) : BlockUnblock(1))}
+        >
+          {user.blocked === 0 ? "Bloquer" : "Valider"}
         </div>
       </div>
       {/* <div className={viewMore ? "viewMore" : "viewNone"}> */}

@@ -5,6 +5,7 @@ import UserCard from "../components/UserCard";
 import "../styles/User.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Footer from "../components/Footer";
 
 const Users = () => {
   const [allUsers, setAllUsers] = useState([]); //données de tous les utilisateurs
@@ -271,6 +272,7 @@ const Users = () => {
               />
             ))}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Dashboard from "../components/Dashboard";
 import NavbarAdmin from "../components/NavbarAdmin";
+import Footer from "../components/Footer";
 import Axios from "axios";
 import "../styles/Admin.css";
 // import AdminGestionUsers from "./AdminGestionUsers";
