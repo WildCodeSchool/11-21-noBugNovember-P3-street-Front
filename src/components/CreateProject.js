@@ -199,12 +199,12 @@ const CreateProject = () => {
                             ))}
                     </select>
                     <p>Description</p>
-                    <input className="descriptionProject" type="text" onChange={e =>{
+                    <textarea className="descriptionProject" type="text" onChange={e =>{
                         const {value} = e.target;
                         setNewProject({...newProject, description : value})
                        
                         // console.log(setDescription)
-                    }} ></input>
+                    }} ></textarea>
                 </div>
                 <div className="fourthContainer" >
                     <div className="photoContainer"></div>
