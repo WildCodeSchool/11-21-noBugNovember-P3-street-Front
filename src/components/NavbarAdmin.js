@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/NavbarAdmin.css';
 
 const NavbarAdmin = () => {
@@ -12,24 +13,30 @@ const NavbarAdmin = () => {
 			>
 				<i class="fa-solid fa-angle-right" />
 			</div>
-			<div className={active ? 'gestionhome active' : 'gestionhome'}>
-				<div className="icone">
-					<i class="fa-solid fa-house" />
+			<Link to="/admin">
+				<div className={active ? 'gestionhome active' : 'gestionhome'}>
+					<div className="icone">
+						<i class="fa-solid fa-house" />
+					</div>
+					<div className={active ? 'text active' : 'text'}>Home</div>
 				</div>
-				<div className={active ? 'text active' : 'text'}>Home</div>
-			</div>
-			<div className={active ? 'gestionuser active' : 'gestionuser'}>
-				<div className="icone">
-					<i class="fa-solid fa-user" />
+			</Link>
+			<Link to="/admin/users">
+				<div className={active ? 'gestionuser active' : 'gestionuser'}>
+					<div className="icone">
+						<i class="fa-solid fa-user" />
+					</div>
+					<div className={active ? 'text active' : 'text'}>Utilisateurs</div>
 				</div>
-				<div className={active ? 'text active' : 'text'}>Utilisateurs</div>
-			</div>
-			<div className={active ? 'gestionprojet active' : 'gestionprojet'}>
-				<div className="icone">
-					<i class="fa-solid fa-diagram-project" />
+			</Link>
+			<Link to="/admin/projets">
+				<div className={active ? 'gestionprojet active' : 'gestionprojet'}>
+					<div className="icone">
+						<i class="fa-solid fa-diagram-project" />
+					</div>
+					<div className={active ? 'text active' : 'text'}>Projets</div>
 				</div>
-				<div className={active ? 'text active' : 'text'}>Projets</div>
-			</div>
+			</Link>
 			<div className={active ? 'gestionannonce active' : 'gestionannonce'}>
 				<div className="icone">
 					<i class="fa-solid fa-bullhorn" />

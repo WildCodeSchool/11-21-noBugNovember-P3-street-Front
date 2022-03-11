@@ -1,15 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Connexion.css";
-// import img from '../assets/neige.jpg'
-
-// const sectionStyle = {
-// 	width: "100%",
-// 	height: "100vh",
-// 	backgroundImage: `url(${img})`,
-// 	backgroundPosition: 'center',
-//   	backgroundSize: 'cover',
-//   	backgroundRepeat: 'no-repeat'
-// }
+import { Link } from "react-router-dom";
 
 function Connexion() {
   const adminUser = {
@@ -19,6 +10,7 @@ function Connexion() {
 
   const [user, setUser] = useState({ email: "" });
   const [error, setError] = useState("");
+  
 
   const Login = (details) => {
     console.log(details);
@@ -40,6 +32,7 @@ function Connexion() {
   const Logout = () => {
     setUser({ email: "" });
   };
+
   const [details, setDetails] = useState({ email: "", password: "" });
 
   const submitHandler = (e) => {
@@ -50,13 +43,13 @@ function Connexion() {
 
   return (
     <>
-      <div className="connexion">
-        {user.email !== "" ? (
+       <div className="connexion">
+        {/* {user.email !== "" ? (
           <div className="welcome">
             <h2>Bienvenue chez StreetZer</h2>
             <button onClick={Logout}>LOGOUT</button>
           </div>
-        ) : (
+        ) : (  */}
           <form onSubmit={submitHandler} className="formUsers">
             <div className="form-inner">
               <h2>Login</h2>
@@ -67,6 +60,7 @@ function Connexion() {
                   type="email"
                   name="email"
                   id="email"
+                  placeholder="email"
                   onChange={(e) =>
                     setDetails({ ...details, email: e.target.value })
                   }
@@ -79,6 +73,7 @@ function Connexion() {
                   type="password"
                   name="password"
                   id="password"
+                  placeholder="password"
                   onChange={(e) =>
                     setDetails({ ...details, password: e.target.value })
                   }
@@ -86,24 +81,31 @@ function Connexion() {
                 />
               </div>
               <div className="buttons">
+                {user.email !== "" ?
+                <Link to='/admin'>
                 <div className="connexionButton">
                   <input type="submit" value="Connexion" />
                 </div>
+                </Link>
+                :<div className="connexionButton">
+                <input type="submit" value="Connexion" />
+              </div>
+                }
                 <div className="containerspacerConnexion">
                   <div className="spacerConnexion"></div>
                   <i class="fa-solid fa-bolt bolt-connexion"></i>
                   <div className="spacerConnexion"></div>
                 </div>
-                <div className="new">
+                {/* <div className="new">
                   <h3>Nouveau chez StreetZer ?</h3>
                 </div>
                 <div className="creationButton">
                   <input type="submit" value="Créer un compte" />
-                </div>
+                </div> */}
               </div>
             </div>
           </form>
-        )}
+        {/* )} */}
       </div>
     </>
   );

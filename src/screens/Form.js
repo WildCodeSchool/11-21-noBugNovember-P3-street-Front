@@ -1,29 +1,143 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Form.css';
 import FormSuccess from '../components/FormSucces';
 import validate from '../components/ValidateInfo';
 import useForm from '../components/useForm';
+import axios from 'axios';
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [domain, setDomain] = useState([]);
+  const [subDomain, setSubdomain] = useState([]);
+  const [isFilter, setIsFilter] = useState(false);
+	const [reponse, setReponse] = useState([]);
+  const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
+  const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
+  const [domainId, setDomainId] = useState()
+  const [subDomainId,setSubDomainId] = useState()
+
+  console.log(domain)
+  // console.log(subDomain)
+  // console.log(selectDomain)
+  // console.log(selectSubDomain)
+  // console.log(reponse)
   const submitForm = () => {
     setIsSubmitted(true);
   }
+  
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validate
   );
+  
+  const getSubdomain = () => {
+    axios.get("http://localhost:3030/all/subdomain")
+         .then((res) => (res.data))
+         .then((data) => setSubdomain(data))
+    };
 
-  return (
-    <>
+  const getDomain = () => {
+    axios.get("http://localhost:3030/all/domain")
+         .then((res) => res.data)
+         .then((data) => setDomain(data))
+};
+
+  useEffect(() => {
+    getDomain()
+    getSubdomain()
+  }, []); 
+  
+  useEffect(() => {
+    if (selectDomain !== undefined) {
+      axios
+      .put(`${process.env.REACT_APP_BACK}/all/domain_has_sub_domain`, {
+        domain: selectDomain,
+      })
+      .then((response) => response.data)
+      .then((data) => setReponse(data));
+      setIsFilter(true);
+      // console.log(selectDomain)
+    } else {
+      setIsFilter(false);
+    }
+  }, [selectDomain]);
+  // console.log(values)
+
+const handleDomain = (e) => {
+  let choice = e.target.value
+  setSelectDomain(choice)
+  const getId = domain.filter((el) => el.domain.includes(choice))
+  setDomainId(getId[0].id)
+  handleChange(e)
+};
+const handleSubDomain= (e) => {
+  let choice = e.target.value
+  setSelectSubDomain(choice)
+  const getId = subDomain.filter((el) => el.art_name.includes(choice))
+  setSubDomainId(getId[0].id)
+  handleChange(e)
+}
+
+console.log(values.firstname)
+const submitUser = () => {
+  axios.post(`${process.env.REACT_APP_BACK}/users/submitUser`, {
+    admin: 0,
+    blocked:1,
+    firstname: values.firstname,
+    lastname: values.lastname,
+    password: values.password,
+    email: values.email,
+    phone: values.phone,
+    birthday: '1993-08-10',
+    city: values.city,
+    country: values.country,
+    forget_password:'lol',
+    youtube: values.instagram,
+    instagram: values.instagram,
+    twitter: values.twitter,
+    spotify: values.spotify,
+    description_users: values.description,
+    available: 1,
+    phoneVisibility: 1,
+    emailVisibility: 1,
+    domain_id: domainId,
+    sub_domain_id: subDomainId
+  });
+};
+// const handleAvatar = async (e) => {
+  //   e.preventDefault();
+  //   let formData = new FormData();
+  //   formData.append("file", image.data);
+  //   const response = await fetch("http://localhost:3030/all/image", {
+//     method: "POST",
+//     body: formData,
+//   });
+//   if (response) setStatus(response.statusText);
+// };
+
+// const handleFileChange = (e) => {
+  //   const img = {
+    //     data: e.target.files[0],
+    //   };
+    //   setImage(img);
+    // };
+    
+    
+    
+    return (
+      <>
     <div className='join'>
       <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
     </div>
     <div className='form-container'>
     {!isSubmitted ? (
-        <div className='form-content'>
-          <form onSubmit={handleSubmit} className='form' noValidate>
-        <div className='form-inputs'>
+      <div className='form-content'>
+        {console.log('ID',domainId)}
+        {console.log('ID',subDomainId)}
+          <form onSubmit={handleSubmit} className='form-user' noValidate>
+          <div className='userinfos'>Vos informations</div>
+            <div className='infos-container'>
+        <div className='infos-inputs'>
           <label className='form-label'>Nom</label>
             <input
               className='form-input'
@@ -35,7 +149,7 @@ const Form = () => {
              />
           {errors.lastname && <p>{errors.lastname}</p>}
         </div>
-        <div className='form-inputs'>
+        <div className='infos-inputs'>
           <label className='form-label'>Prénom</label>
           <input
             className='form-input'
@@ -47,7 +161,7 @@ const Form = () => {
           />
           {errors.firstname && <p>{errors.firstname}</p>}
         </div>
-        <div className='form-inputs'>
+        <div className='infos-inputs'>
           <label className='form-label'>Email</label>
           <input
             className='form-input'
@@ -59,31 +173,7 @@ const Form = () => {
           />
           {errors.email && <p>{errors.email}</p>}
           </div>
-        <div className='form-inputs'>
-          <label className='form-label'>Mot de passe</label>
-          <input
-            className='form-input'
-            type='password'
-            name='password'
-            placeholder='Votre mot de passe'
-            value={values.password}
-            onChange={handleChange}
-          />
-          {errors.password && <p>{errors.password}</p>}
-        </div>
-        <div className='form-inputs'>
-          <label className='form-label'>Confirmer mot de passe</label>
-          <input
-            className='form-input'
-            type='password'
-            name='password2'
-            placeholder='Confirmer votre mot de passe'
-            value={values.password2}
-            onChange={handleChange}
-          />
-          {errors.password2 && <p>{errors.password2}</p>}
-        </div>
-        <div className='form-inputs'>
+          <div className='infos-inputs'>
           <label className='form-label'>Téléphone</label>
           <input
             className='form-input'
@@ -94,8 +184,60 @@ const Form = () => {
             onChange={handleChange}
           />
           {errors.phone && <p>{errors.phone}</p>}
+          </div>
         </div>
-        <div className='form-inputs'>
+          <div className='userinfos'>Votre domaine d'activité</div>
+        <div className='userdomain'>
+          <select className="selectDomain" name="domain" value={values.domain} onChange={handleDomain} >
+              <option value='' >Choisissez votre domaine</option>
+              {domain.map((el) => (
+                <option name='domain'>{el.domain}</option>
+              ))}
+            </select>
+            {isFilter ?
+          <select className="selectSubdomain" name="subDomain" value={values.subDomain} onChange={handleSubDomain}>
+              <option value="">Choisissez votre sous-domaine</option>
+              {isFilter ? 
+                reponse.map((el) =>(
+                  <option  >{el.art_name}</option>
+                ))
+                : subDomain.map((el) => (
+                <option>{el.art_name}</option>
+              ))}
+            </select>
+            : ''
+            }
+        </div>
+          <div className='userinfos'>Votre mot de passe</div>
+        <div className='password-container'>
+        <div className='password-inputs'>
+          <label className='form-label'>Mot de passe</label>
+          <input
+            className='form-input'
+            type='password'
+            name='password'
+            placeholder='Votre mot de passe'
+            value={values.password}
+            onChange={handleChange}
+          />
+          {errors.password && <p>{errors.password}</p>}
+          </div>
+        <div className='password-inputs'>
+          <label className='form-label'>Confirmer mot de passe</label>
+          <input
+            className='form-input'
+            type='password'
+            name='password2'
+            placeholder='Confirmer le mot de passe'
+            value={values.password2}
+            onChange={handleChange}
+          />
+          {errors.password2 && <p>{errors.password2}</p>}
+        </div>
+        </div>
+        <div className='userinfos'>Votre localisation</div>
+        <div className='location-container'>
+        <div className='location-inputs'>
           <label className='form-label'>Ville</label>
           <input
             className='form-input'
@@ -106,8 +248,8 @@ const Form = () => {
             onChange={handleChange}
           />
           {errors.city && <p>{errors.city}</p>}
-        </div>
-        <div className='form-inputs'>
+          </div>
+          <div className='location-inputs'>
           <label className='form-label'>Pays</label>
           <input
             className='form-input'
@@ -118,19 +260,22 @@ const Form = () => {
             onChange={handleChange}
           />
           {errors.country && <p>{errors.country}</p>}
+          </div>
         </div>
-        <div className='form-inputs'>
+        <div className='userinfos'>Vos réseaux sociaux</div>
+        <div className='social-container'>
+        <div className='social-inputs'>
           <label className='form-label'>Youtube</label>
           <input
             className='form-input'
             type='text'
-            name='Youtube'
+            name='youtube'
             placeholder='Votre chaîne Youtube'
             value={values.youtube}
             onChange={handleChange}
           />
-        </div>
-        <div className='form-inputs'>
+          </div>
+          <div className='social-inputs'>
           <label className='form-label'>instagram</label>
           <input
             className='form-input'
@@ -140,8 +285,8 @@ const Form = () => {
             value={values.instagram}
             onChange={handleChange}
           />
-        </div>
-        <div className='form-inputs'>
+          </div>
+          <div className='social-inputs'>
           <label className='form-label'>Twitter</label>
           <input
             className='form-input'
@@ -151,8 +296,8 @@ const Form = () => {
             value={values.twitter}
             onChange={handleChange}
           />
-        </div>
-        <div className='form-inputs'>
+          </div>
+          <div className='social-inputs'>
           <label className='form-label'>Spotify / Soundcloud</label>
           <input
             className='form-input'
@@ -162,10 +307,13 @@ const Form = () => {
             value={values.spotify}
             onChange={handleChange}
           />
+          </div>
         </div>
+        <div className='userinfos'>Votre descritpion</div>
+        <div className='description-container'>
         <div className='form-inputs'>
         <label className='form-label'>Description</label>
-        <input
+        <textarea
             className='form-input'
             type='text'
             name='description'
@@ -173,9 +321,10 @@ const Form = () => {
             value={values.description}
             onChange={handleChange}
           />
-          <button className='form-input-btn' type='submit'>
+          <button className='form-input-btn' type='submit' onClick={() => submitUser()}>
           Créer votre profil
           </button>
+        </div>
         </div>
       </form>
         </div>
