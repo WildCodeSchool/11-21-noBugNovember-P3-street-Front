@@ -94,9 +94,9 @@ const ProjectDetails = () => {
             <div className="descriDetailsProjet">
               <p>{projectDetail.map((el) => el.description)}</p>
             </div>
-            {projectUsers.map((el, index) => (
+            {/*      {projectUsers.map((el, index) => (
               <UsersInProject user={el} key={index} />
-            ))}
+            ))} */}
           </div>
         </div>
 
