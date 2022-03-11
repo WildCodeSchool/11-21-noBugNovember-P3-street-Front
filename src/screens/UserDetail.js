@@ -13,22 +13,6 @@ const UserDetail = () => {
 	const [selectProjet, setSelectProjet] = useState(0);
 	let { id } = useParams();
 
-	const choiceProjet = (id) => {
-		setSelectProjet(id);
-	};
-
-	const creatorOfProject = () => {
-		Axios.put(`${process.env.REACT_APP_BACK}/all/project_creator`, { id: id })
-			.then((response) => response.data)
-			.then((data) => setProjet(data));
-	};
-
-	const dataUser = () => {
-		Axios.put(`${process.env.REACT_APP_BACK}/all/user`, { id: id })
-			.then((response) => response.data)
-			.then((data) => setData(data));
-	};
-
 	const disponibilite = () => {
 		if (data.available === 1) {
 			return (
@@ -46,10 +30,26 @@ const UserDetail = () => {
 		}
 	};
 
+	const choiceProjet = (id) => {
+		setSelectProjet(id);
+	};
+
+	const dataUser = () => {
+		Axios.put(`${process.env.REACT_APP_BACK}/all/user`, { id: id })
+			.then((response) => response.data)
+			.then((data) => setData(data));
+	};
+
 	const userHasProjects = () => {
 		Axios.put(`${process.env.REACT_APP_BACK}/all/userhasprojects`, { id: id })
 			.then((response) => response.data)
 			.then((data) => setParticipe(data));
+	};
+
+	const creatorOfProject = () => {
+		Axios.put(`${process.env.REACT_APP_BACK}/all/project_creator`, { id: id })
+			.then((response) => response.data)
+			.then((data) => setProjet(data));
 	};
 
 	useEffect(() => {
@@ -155,3 +155,88 @@ const UserDetail = () => {
 };
 
 export default UserDetail;
+
+/*Stock temporaire
+
+{data.available ? (
+						<i class="fa-solid fa-calendar-check" alt="Disponible !" />
+					) : (
+						<i class="fa-solid fa-calendar-minus bye" alt="Non Disponible" />
+					)}
+
+
+<div className="carte">
+				<div className="photo">
+					<img
+						src={`${process.env.REACT_APP_BACK}/${data.avatar}`}
+						alt={data.firstname}
+					/>
+				</div>
+				<div className="prez">
+					<div className="whatsmyname">
+						{data.firstname} {data.lastname}
+					</div>
+					<div className="metier">{data.art_name}</div>
+					<div className="living">
+						<i className="fa-solid fa-location-dot" /> {data.city} -{' '}
+						{data.country}
+					</div>
+					<div className="aboutme">{data.description_users}</div>
+					<div className="reseaux">
+						{data.twitter !== undefined ||
+						data.youtube !== undefined ||
+						data.instagram !== undefined ||
+						data.spotify !== undefined ? (
+							<Reseaux
+								youtube={data.youtube}
+								twitter={data.twitter}
+								spotify={data.spotify}
+								instagram={data.instagram}
+							/>
+						) : (
+							`Aucun réseaux sociaux de renseignés`
+						)}
+					</div>
+				</div>
+			</div>
+			<div className="listprojects">
+				<div className="creator">
+					{projet !== undefined && projet.length > 0
+						? `Projet lancé par ${data.firstname}`
+						: `${data.firstname} n'a lancé aucun projet`}
+					<br />
+					<div className="lanceur">
+						{projet !== undefined && projet.length > 0
+							? projet.map((p) => (
+									<ProjectUserLaunch
+										name={p.name}
+										logo={p.logo}
+										status={p.status}
+										description={p.description}
+										domain={p.domain}
+										youtube={p.youtubelink}
+									/>
+							  ))
+							: ''}
+					</div>
+				</div>
+
+				<div className="participe">
+					{participe !== undefined && participe.length > 0
+						? `Projet où ${data.firstname} a participé`
+						: `${data.firstname} n'a participé à aucun projet`}
+					<div className="lanceur">
+						{participe !== undefined && participe.length > 0
+							? participe.map((pa) => {
+									<ProjectUserParticipate
+										name={pa.name}
+										status={pa.status}
+										logo={pa.logo}
+										domain={pa.domain}
+									/>;
+							  })
+							: ''}
+					</div>
+				</div>
+			</div>
+*/

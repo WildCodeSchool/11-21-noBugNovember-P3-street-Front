@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import axios from "axios";
 import avatar from "../assets/avatar.png";
 import { useState } from "react";
@@ -18,23 +17,6 @@ const UsersInGestion = ({ user, getValidatedUsers, getBlockedUsers }) => {
       })
       .then(getValidatedUsers())
       .then(getBlockedUsers());
-  };
-
-  const DeleteUserWithoutProject = (id) => {
-    if (
-      confirm(
-        `Êtes-vous sûr de vouloir supprimer l'utilisateur ${user.firstname} ${user.lastname} ? ATTENTION : Toute suppression est définitive, si l'utilisateur est créateur d'un projet, celui-ci sera aussi supprimé`
-      ) === true
-    ) {
-      axios.delete(
-        `${process.env.REACT_APP_BACK}/admin/delete_user/${user.id}`
-      );
-      alert(`Utilisateur ${user.firstname} ${user.lastname} supprimé`);
-      console.log("user deleted");
-      getBlockedUsers();
-    } else {
-      console.log("user not deleted");
-    }
   };
 
   return (
@@ -58,15 +40,6 @@ const UsersInGestion = ({ user, getValidatedUsers, getBlockedUsers }) => {
           onClick={() => (user.blocked ? BlockUnblock(0) : BlockUnblock(1))}
         >
           {user.blocked === 0 ? "Bloquer" : "Valider"}
-        </div>
-        <div
-          onClick={DeleteUserWithoutProject}
-          className={user.blocked ? "boutonDeleteUser" : "viewNone"}
-        >
-          <img
-            src="https://img.icons8.com/windows/32/000000/remove-user-male--v1.png"
-            alt="delete"
-          />
         </div>
       </div>
       <div className={viewMore ? "viewMore" : "viewNone"}>
