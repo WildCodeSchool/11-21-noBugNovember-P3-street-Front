@@ -51,7 +51,7 @@ const Home = () => {
               « Briser l'isolement et libérer le potentiel artistique de chacun
               en favorisant la rencontre d'artistes et de techniciens. »
             </p>
-            <div className="btnNousrejoindre">Nous rejoindre</div>
+            <div className="button btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>
         <h1>Projets terminés récemment</h1>

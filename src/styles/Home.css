@@ -97,14 +97,14 @@
 
 .tousLesProjets {
   width: 100%;
-  height: auto;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .tousLesProjetsBtn {
-  margin: 3vh;
+  margin: 7vh;
   display: flex;
   background-color: var(--second);
   color: whitesmoke;
