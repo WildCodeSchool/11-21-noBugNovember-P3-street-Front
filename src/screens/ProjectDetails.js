@@ -71,14 +71,14 @@ const ProjectDetails = () => {
               <div className="dateDetailsProject">
                 <p>
                   <i class="fa-solid fa-calendar-days"></i>&nbsp;Début :&nbsp;
-                  {projectDetail.map((el) =>
-                    el.estimated_start_date.slice(0, 10)
+                  {projectDetail.map(
+                    (el) => el.estimated_start_date /* .slice(0, 10) */
                   )}
                 </p>
                 <p>
                   <i class="fa-solid fa-flag-checkered"></i> Fin :&nbsp;
-                  {projectDetail.map((el) =>
-                    el.estimated_end_date.slice(0, 10)
+                  {projectDetail.map(
+                    (el) => el.estimated_end_date /* .slice(0, 10) */
                   )}
                 </p>
               </div>
@@ -111,25 +111,6 @@ const ProjectDetails = () => {
         </div>
       </div>
       <div className="blocVisuelDetailsProjet">
-        {/*   <div className="detailsDetailsProjet">
-          <p>Des details</p> <p>Des details</p> <p>Des details</p>
-          <p>Des details</p> <p>Des details</p> <p>Des details</p>
-          <p>
-            Deserunt eiusmod dolore cupidatat cupidatat veniam reprehenderit
-            eiusmod ex. Officia reprehenderit minim non incididunt deserunt anim
-            dolor anim minim. Non veniam anim do in cupidatat. Dolor amet dolore
-            aute excepteur adipisicing consequat nostrud ad occaecat duis nisi.
-            Deserunt eiusmod dolore cupidatat cupidatat veniam reprehenderit
-            eiusmod ex. Officia reprehenderit minim non incididunt deserunt anim
-            dolor anim minim. Non veniam anim do in cupidatat. Dolor amet dolore
-            aute excepteur adipisicing consequat nostrud ad occaecat duis
-            nisi.Reprehenderit aliqua ad qui enim. Ad nisi in enim reprehenderit
-            veniam duis veniam ex. Sunt eu duis non sunt tempor magna aliquip.
-            Lorem dolore sunt Lorem et duis ut. Adipisicing commodo esse esse
-            elit commodo deserunt ipsum adipisicing ea labore non labore
-            occaecat ad.
-          </p>
-        </div> */}
         <div className="videoDetailsProjet">
           <div className="playerContainer">
             <iframe
