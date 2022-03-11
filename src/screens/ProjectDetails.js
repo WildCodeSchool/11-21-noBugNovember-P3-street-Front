@@ -43,7 +43,6 @@ const ProjectDetails = () => {
                 className="projectAvatar"
               />
             ))}
-
             <div className="projectTextContainer">
               <p>{projectDetail.map((el) => el.description)}</p>
               <p>
