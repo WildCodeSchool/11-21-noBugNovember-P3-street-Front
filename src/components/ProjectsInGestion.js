@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import axios from 'axios';
 import avatar from '../assets/avatar.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/ProjectsInGestion.css';
 
@@ -10,8 +10,23 @@ const ProjectsInGestion = ({
 	getValidatedProjects,
 	getBlockedProjects,
 }) => {
+	const [changeStatus, setChangeStatus] = useState(false);
 	const [viewMore, setViewMore] = useState(false);
 	const link = `/admin/ajout/${project.id}`;
+
+	const elStatus = () => {
+		if (project.status === 0) {
+			return "En recherche d'équipiers";
+		} else if (project.status === 1) {
+			return 'Équipe compléte';
+		} else if (project.status === 2) {
+			return 'Projet terminé';
+		}
+	};
+
+	const iWantView = () => {
+		setViewMore(!viewMore);
+	};
 
 	const validatedProject = () => {
 		if (
@@ -27,19 +42,15 @@ const ProjectsInGestion = ({
 		}
 	};
 
-	const iWantView = () => {
-		setViewMore(!viewMore);
+	const updateStatus = (choiceStatus) => {
+		axios
+			.put(`${process.env.REACT_APP_BACK}/admin/update_status/${project.id}`, {
+				status: choiceStatus,
+			})
+			.then(getValidatedProjects(), getBlockedProjects());
 	};
 
-	const elStatus = () => {
-		if (project.status === 0) {
-			return "En recherche d'équipiers";
-		} else if (project.status === 1) {
-			return 'Equipe complete';
-		} else if (project.status === 2) {
-			return 'Projet terminé';
-		}
-	};
+	useEffect(() => {}, [project]);
 
 	return (
 		<div className={viewMore ? 'projectgestion active' : 'projectgestion'}>
@@ -89,6 +100,23 @@ const ProjectsInGestion = ({
 					<Link to={link}>
 						<div className="onvalide">Ajouter des équipiers</div>
 					</Link>
+					<div
+						className="changestatus"
+						onClick={() => setChangeStatus(!changeStatus)}
+					>
+						Changer le status
+						<div className={changeStatus ? 'popup active' : 'popup'}>
+							<div className="recherche" onClick={() => updateStatus(0)}>
+								En recherche d'équipiers
+							</div>
+							<div className="enequipe" onClick={() => updateStatus(1)}>
+								Équipe compléte
+							</div>
+							<div className="finish" onClick={() => updateStatus(2)}>
+								Projet terminé
+							</div>
+						</div>
+					</div>
 					<div className="onsupprime" onClick={() => validatedProject()}>
 						Bloquer le projet
 					</div>

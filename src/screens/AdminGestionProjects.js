@@ -10,10 +10,6 @@ const AdminGestionProjects = () => {
 	const [blockedProjects, setBlockedProjects] = useState([]);
 	const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
 
-	//console.log(searchTerm);
-	console.log(blockedProjects);
-	console.log(validatedProjects);
-
 	const getValidatedProjects = () => {
 		axios
 			.get(`${process.env.REACT_APP_BACK}/admin/validated_projects`)

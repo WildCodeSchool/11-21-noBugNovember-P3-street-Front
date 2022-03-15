@@ -29,11 +29,7 @@ const AdminAddMates = () => {
 			.then((response) => response.data)
 			.then((data) => setProjectUsers(data));
 	};
-	/*
-	const convert = () => {
-		setDataProject(projectDetail[0]);
-	};
-*/
+
 	useEffect(() => {
 		getProjectDetails();
 		usersInProject();
