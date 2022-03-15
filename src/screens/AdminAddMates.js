@@ -55,7 +55,7 @@ const AdminAddMates = () => {
 			</div>
 			<div className={decouverte ? 'essai2 active' : 'essai2'}>
 				<div
-					className={decouverte ? 'button active' : 'button'}
+					className={decouverte ? 'buttonAddMates  active' : 'buttonAddMates '}
 					onClick={() => setDecouverte(!decouverte)}
 				>
 					<i class="fa-solid fa-caret-up" />
