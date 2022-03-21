@@ -1,19 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Form.css";
 import FormSuccess from "../components/FormSucces";
 import validate from "../components/ValidateInfo";
 import useForm from "../components/useForm";
-import Footer from "../components/Footer";
+import axios from "axios";
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [domain, setDomain] = useState([]);
+  const [subDomain, setSubdomain] = useState([]);
+  const [isFilter, setIsFilter] = useState(false);
+  const [reponse, setReponse] = useState([]);
+  const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
+  const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
+  const [domainId, setDomainId] = useState();
+  const [subDomainId, setSubDomainId] = useState();
+
+  console.log(domain);
+  // console.log(subDomain)
+  // console.log(selectDomain)
+  // console.log(selectSubDomain)
+  // console.log(reponse)
   const submitForm = () => {
     setIsSubmitted(true);
   };
+
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validate
   );
+
+  const getSubdomain = () => {
+    axios
+      .get("http://localhost:3030/all/subdomain")
+      .then((res) => res.data)
+      .then((data) => setSubdomain(data));
+  };
+
+  const getDomain = () => {
+    axios
+      .get("http://localhost:3030/all/domain")
+      .then((res) => res.data)
+      .then((data) => setDomain(data));
+  };
 
   useEffect(() => {
     getDomain();
