@@ -55,7 +55,6 @@ const Home = () => {
                 »
               </p>
             </div>
-
             <div className="btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>

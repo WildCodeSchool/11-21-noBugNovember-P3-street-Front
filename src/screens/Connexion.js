@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Connexion.css";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 // import img from '../assets/neige.jpg'
 
@@ -98,9 +99,11 @@ function Connexion() {
                 <div className="new">
                   <h3>Nouveau chez StreetZer ?</h3>
                 </div>
-                <div className="creationButton">
-                  <input type="submit" value="Créer un compte" />
-                </div>
+                <Link to="/add_user">
+                  <div className="creationButton">
+                    <input type="submit" value="Créer un compte" />
+                  </div>
+                </Link>
               </div>
             </div>
           </form>
