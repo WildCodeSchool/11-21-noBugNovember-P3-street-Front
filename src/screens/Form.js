@@ -15,9 +15,6 @@ const Form = () => {
   const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
   const [domainId, setDomainId] = useState()
   const [subDomainId,setSubDomainId] = useState()
-  const [image, setImage] = useState({ data: "" });
-  const [status, setStatus] = useState("");
-  const [photos, setPhotos] = useState();
 
   console.log(domain)
   // console.log(subDomain)
@@ -107,45 +104,30 @@ const submitUser = () => {
     sub_domain_id: subDomainId
   });
 };
+// const handleAvatar = async (e) => {
+  //   e.preventDefault();
+  //   let formData = new FormData();
+  //   formData.append("file", image.data);
+  //   const response = await fetch("http://localhost:3030/all/image", {
+//     method: "POST",
+//     body: formData,
+//   });
+//   if (response) setStatus(response.statusText);
+// };
 
-const handleAvatar = async (e) => {
-    e.preventDefault();
-    let formData = new FormData();
-    formData.append("file", image.data);
-    const response = await fetch("http://localhost:3030/all/image", {
-    method: "POST",
-    body: formData,
-  });
-  if (response) setStatus(response.statusText);
-};
-
-const handleFileChange = (e) => {
-    const img = {
-        data: e.target.files[0],
-      };
-      setImage(img);
-    };
+// const handleFileChange = (e) => {
+  //   const img = {
+    //     data: e.target.files[0],
+    //   };
+    //   setImage(img);
+    // };
+    
     
     return (
       <>
     <div className='join'>
       <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
     </div>
-    <form onSubmit={(e) => handleAvatar(e)}>
-        <div>
-          <label>Upload avatar</label>
-          <input
-            type="file"
-            name="file"
-            onChange={(e) => handleFileChange(e)}
-            required
-          />
-        </div>
-        <div>
-          <button type="submit">Upload</button>
-        </div>
-      </form>
-      {status && <h4>{status}</h4>}
     <div className='form-container'>
     {!isSubmitted ? (
       <div className='form-content'>
@@ -328,20 +310,18 @@ const handleFileChange = (e) => {
         </div>
         <div className='userinfos'>Votre descritpion</div>
         <div className='description-container'>
-        <div className='form-inputs'>
+        <div className='description-inputs'>
         <label className='form-label'>Description</label>
         <textarea
-            className='form-input'
-            type='text'
-            name='description'
-            placeholder='Parlez-nous un peu de vous...'
-            value={values.description}
-            onChange={handleChange}
-          />
+            className="description-input" 
+            type="text" 
+            name="description" 
+            placeholder="Parlez-nous un peu de vous..." 
+            />
+            </div>
           <button className='form-input-btn' type='submit' onClick={() => submitUser()}>
           Créer votre profil
           </button>
-        </div>
         </div>
       </form>
         </div>

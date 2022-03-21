@@ -42,11 +42,19 @@
 .description-container {
   display: flex;
   align-items: center;
+  flex-direction: column;
+  height: 94px;
+  width: 600px;
 }
 
 .infos-container {
   display: flex;
   align-items: center;
+}
+
+.description-input {
+  height: 95px;
+  width: 600px;
 }
 
 .description {
@@ -73,7 +81,7 @@
 .form-user {
   position: absolute;
   display: flex;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-30%, -40%);
   width: 100%;
