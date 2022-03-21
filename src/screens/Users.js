@@ -219,6 +219,7 @@ const Users = () => {
 									spotify={users.spotify}
 									twitter={users.twitter}
 									youtube={users.youtube}
+									tiktok={users.tiktok}
 									description={users.description_users}
 									domain={users.domain}
 									artname={users.art_name}
@@ -266,6 +267,7 @@ const Users = () => {
 								spotify={users.spotify}
 								twitter={users.twitter}
 								youtube={users.youtube}
+								tiktok={users.tiktok}
 								descriptionAnnonce={users.description_annonce}
 								date={users.date}
 							/>

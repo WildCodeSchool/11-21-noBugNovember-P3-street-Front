@@ -43,11 +43,14 @@ const ProjectsInGestion = ({
 	};
 
 	const updateStatus = (choiceStatus) => {
-		axios
-			.put(`${process.env.REACT_APP_BACK}/admin/update_status/${project.id}`, {
+		axios.put(
+			`${process.env.REACT_APP_BACK}/admin/update_status/${project.id}`,
+			{
 				status: choiceStatus,
-			})
-			.then(getValidatedProjects(), getBlockedProjects());
+			}
+		);
+		getValidatedProjects();
+		getBlockedProjects();
 	};
 
 	useEffect(() => {}, [project]);

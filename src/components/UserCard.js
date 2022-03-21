@@ -70,6 +70,15 @@ const UserCard = (props) => {
 						</a>
 					)}
 				</div>
+				<div className="tiktok">
+					{props.tiktok === null ? (
+						''
+					) : (
+						<a href={props.tiktok}>
+							<i className="fa-brands fa-tiktok" />
+						</a>
+					)}
+				</div>
 				{/*<div className="email">
 					{props.emailVisibility ? (
 						<a href={`mailto:${props.email}`}>
