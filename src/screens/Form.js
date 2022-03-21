@@ -123,7 +123,6 @@ const submitUser = () => {
     // };
     
     
-    
     return (
       <>
     <div className='join'>
@@ -311,20 +310,18 @@ const submitUser = () => {
         </div>
         <div className='userinfos'>Votre descritpion</div>
         <div className='description-container'>
-        <div className='form-inputs'>
+        <div className='description-inputs'>
         <label className='form-label'>Description</label>
         <textarea
-            className='form-input'
-            type='text'
-            name='description'
-            placeholder='Parlez-nous un peu de vous...'
-            value={values.description}
-            onChange={handleChange}
-          />
+            className="description-input" 
+            type="text" 
+            name="description" 
+            placeholder="Parlez-nous un peu de vous..." 
+            />
+            </div>
           <button className='form-input-btn' type='submit' onClick={() => submitUser()}>
           Créer votre profil
           </button>
-        </div>
         </div>
       </form>
         </div>
