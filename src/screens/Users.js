@@ -173,7 +173,7 @@ const Users = () => {
           </div>
         </div>
         <div className="selector search" onClick={() => letsGo()}>
-          <i className="fa-solid fa-magnifying-glass" />
+          <i class="fa-solid fa-check" />
         </div>
         <div className="selector cancel" onClick={() => goodBye()}>
           <i className="fa-solid fa-xmark"></i>
@@ -272,7 +272,6 @@ const Users = () => {
               />
             ))}
       </div>
-      <Footer />
     </div>
   );
 };
