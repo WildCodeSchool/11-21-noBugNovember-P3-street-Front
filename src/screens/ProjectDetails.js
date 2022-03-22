@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import UsersInProject from "../components/UsersInProject";
 import Footer from "../components/Footer";
@@ -41,8 +42,11 @@ const ProjectDetails = () => {
     getCreatorProject();
   }, []);
 
+  const creatorId = `/talents/${projectDetail.id}`;
+
   console.log("creatorProject", creatorProject);
   console.log("projectDetail", projectDetail[0]);
+
   return (
     <div className="projectDetailsContainer">
       <div className="blocInfosDetailsProjet">
@@ -60,11 +64,12 @@ const ProjectDetails = () => {
             <div className="createurDetailsProjet">
               {/*     <Link to={creatorId}> */}
               <p>by&nbsp;</p>
-              <p className="nameCreatorDetailsProjet">
-                {projectDetail.map((el) => el.firstname)}&nbsp;
-                {projectDetail.map((el) => el.lastname)}
-              </p>
-              {/*   </Link> */}
+              <Link to={creatorId}>
+                <p className="nameCreatorDetailsProjet">
+                  {projectDetail.map((el) => el.firstname)}&nbsp;
+                  {projectDetail.map((el) => el.lastname)}
+                </p>
+              </Link>
             </div>
             <div className="ouEtQuandDetailsProject">
               <div className="dateDetailsProject">

@@ -6,9 +6,9 @@ const UsersInProject = ({ user }) => {
   return (
     <div className="usersInProject">
       <Link to={userId}>
-        <div className="userName">
+        {/*       <div className="userName">
           {user.lastname} {user.firstname}
-        </div>
+        </div> */}
 
         {user.avatar === null ? (
           <img src={avatar} alt={user.firstname} className="avatarUsers" />
