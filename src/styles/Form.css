@@ -1,7 +1,7 @@
 .join {
   display: flex;
-  justify-content: center;
-  margin-top: 3%;
+  margin-left: 26.5%;
+  margin-top: 2%;
 }
 
 .form-container {
@@ -90,7 +90,7 @@ textarea {
   display: flex;
   align-items: baseline;
   flex-direction: column;
-  padding-top: 10%;
+  padding-top: 6%;
 }
   
 .form h1 {
@@ -177,7 +177,7 @@ textarea {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-top: 15px;
-  
+
 }
   
 .form-input-btn:hover {

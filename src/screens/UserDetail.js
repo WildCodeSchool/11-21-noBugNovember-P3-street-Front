@@ -102,7 +102,7 @@ const UserDetail = () => {
 						}
 						onClick={() => choiceProjet(0)}
 					>
-						Projet lancée par {data.firstname}
+						Projet(s) lancé(s) par {data.firstname}
 					</div>
 					<div
 						className={
@@ -112,7 +112,7 @@ const UserDetail = () => {
 						}
 						onClick={() => choiceProjet(1)}
 					>
-						Projet où {data.firstname} à participer
+						Projet(s) où {data.firstname} a participé
 					</div>
 				</div>
 				<div className="result">
@@ -130,7 +130,7 @@ const UserDetail = () => {
 											youtube={p.youtubelink}
 										/>
 								  ))
-								: `Aucun projet par ${data.firstname}`}
+								: `Aucun projet lancé par ${data.firstname}`}
 						</div>
 					</div>
 					<div className={selectProjet === 1 ? 'participe' : 'cache'}>

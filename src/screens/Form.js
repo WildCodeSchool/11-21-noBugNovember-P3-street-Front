@@ -125,16 +125,18 @@ const submitUser = () => {
     <div className='join'>
       <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
     </div>
+    
     <div className='form-container'>
     {!isSubmitted ? (
       <div className='form-content'>
+        (*) = Informations obligatoires
         {console.log('ID',domainId)}
         {console.log('ID',subDomainId)}
           <form onSubmit={handleSubmit} className='form-user' noValidate>
           <div className='userinfos'>Vos informations</div>
             <div className='infos-container'>
         <div className='infos-inputs'>
-          <label className='form-label'>Nom</label>
+          <label className='form-label'>Nom (*)</label>
             <input
               className='form-input'
               type='text'
@@ -146,7 +148,7 @@ const submitUser = () => {
           {errors.lastname && <p>{errors.lastname}</p>}
         </div>
         <div className='infos-inputs'>
-          <label className='form-label'>Prénom</label>
+          <label className='form-label'>Prénom (*)</label>
           <input
             className='form-input'
             type='text'
@@ -158,7 +160,7 @@ const submitUser = () => {
           {errors.firstname && <p>{errors.firstname}</p>}
         </div>
         <div className='infos-inputs'>
-          <label className='form-label'>Email</label>
+          <label className='form-label'>Email (*)</label>
           <input
             className='form-input'
             type='email'
@@ -182,7 +184,7 @@ const submitUser = () => {
           {errors.phone && <p>{errors.phone}</p>}
           </div>
           <div className='infos-inputs'>
-          <label className='form-label'>Date de naissance</label>
+          <label className='form-label'>Date de naissance (*)</label>
           <input
             className='form-input'
             type='date'
@@ -194,7 +196,7 @@ const submitUser = () => {
           {errors.birthday && <p>{errors.birthday}</p>}
           </div>
         </div>
-          <div className='userinfos'>Votre domaine d'activité</div>
+          <div className='userinfos'>Votre domaine d'activité (*)</div>
         <div className='userdomain'>
           <select className="selectDomain" name="domain" value={values.domain} onChange={handleDomain} >
               <option value='' >Choisissez votre domaine</option>
@@ -219,7 +221,7 @@ const submitUser = () => {
           <div className='userinfos'>Votre mot de passe</div>
         <div className='password-container'>
         <div className='password-inputs'>
-          <label className='form-label'>Mot de passe</label>
+          <label className='form-label'>Mot de passe (*)</label>
           <input
             className='form-input'
             type='password'
@@ -231,7 +233,7 @@ const submitUser = () => {
           {errors.password && <p>{errors.password}</p>}
           </div>
         <div className='password-inputs'>
-          <label className='form-label'>Confirmer mot de passe</label>
+          <label className='form-label'>Confirmer mot de passe (*)</label>
           <input
             className='form-input'
             type='password'
@@ -246,7 +248,7 @@ const submitUser = () => {
         <div className='userinfos'>Votre localisation</div>
         <div className='location-container'>
         <div className='location-inputs'>
-          <label className='form-label'>Ville</label>
+          <label className='form-label'>Ville (*)</label>
           <input
             className='form-input'
             type='text'
@@ -258,7 +260,7 @@ const submitUser = () => {
           {errors.city && <p>{errors.city}</p>}
           </div>
           <div className='location-inputs'>
-          <label className='form-label'>Pays</label>
+          <label className='form-label'>Pays (*)</label>
           <input
             className='form-input'
             type='text'
