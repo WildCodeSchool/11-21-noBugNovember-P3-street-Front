@@ -31,13 +31,13 @@ const Form = () => {
   );
   
   const getSubdomain = () => {
-    axios.get("http://localhost:3030/all/subdomain")
+    axios.get(`${process.env.REACT_APP_BACK}/all/subdomain`)
          .then((res) => (res.data))
          .then((data) => setSubdomain(data))
     };
 
   const getDomain = () => {
-    axios.get("http://localhost:3030/all/domain")
+    axios.get(`${process.env.REACT_APP_BACK}/all/domain`)
          .then((res) => res.data)
          .then((data) => setDomain(data))
 };

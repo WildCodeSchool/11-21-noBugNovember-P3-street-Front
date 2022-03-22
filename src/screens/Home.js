@@ -38,20 +38,24 @@ const Home = () => {
       <div className="sections">
         <div className="homePresentation">
           <div className="framePresentation">
-            <p>
-              Présentation de <b>STREETZER</b>
-            </p>
-            <p>« Le facilitateur d’émergences de projets artistiques » </p>
-            <p>
-              <b>STREETZER</b> est une plateforme de mise en relations
-              artistiques afin de Co-créer des projets afin de révéler les
-              talents de demain.
-            </p>
-            <p>
-              « Briser l'isolement et libérer le potentiel artistique de chacun
-              en favorisant la rencontre d'artistes et de techniciens. »
-            </p>
-            <div className="button btnNousrejoindre">Nous rejoindre</div>
+            <div className="framePresentationallP">
+              <p>
+                Présentation de <b>STREETZER</b>
+              </p>
+              <br></br>
+              <p>« Le facilitateur d’émergences de projets artistiques » </p>
+              <p>
+                <b>STREETZER</b> est une plateforme de mise en relations
+                artistiques afin de Co-créer des projets afin de révéler les
+                talents de demain.
+              </p>
+              <p>
+                « Briser l'isolement et libérer le potentiel artistique de
+                chacun en favorisant la rencontre d'artistes et de techniciens.
+                »
+              </p>
+            </div>
+            <div className="btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>
         <h1>Projets terminés récemment</h1>
