@@ -69,7 +69,7 @@ const AddUsersInProject = (props) => {
 					reveal && isSearch && props.decouverte === true ? 'result' : 'cache'
 				}
 			>
-				<select name="listing" onChange={(e) => changeUserId(e)}>
+				<select className="select-mates" name="listing" onChange={(e) => changeUserId(e)}>
 					<option>Choix ci-dessous</option>
 					{dataSearch.map((e) => (
 						<option value={e.id}>

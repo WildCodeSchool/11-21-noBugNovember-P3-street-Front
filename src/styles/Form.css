@@ -7,12 +7,12 @@
 .form-container {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .userdomain {
   display: flex;
   align-items: center;
+  padding-left: 1%;
 }
 
 .userinfos {
@@ -36,25 +36,29 @@
 
 .social-container {
   display: flex;
-  align-items: center;
 }
 
 .description-container {
-  display: flex;
+  display: inline-block;
   align-items: center;
   flex-direction: column;
-  height: 94px;
+  height: 95px;
   width: 600px;
+  padding-left: 1%;
 }
 
 .infos-container {
   display: flex;
-  align-items: center;
 }
 
 .description-input {
-  height: 95px;
-  width: 600px;
+  height: 60px;
+  width: 530px;
+  padding-left: 1%;
+}
+
+.description-inputs {
+  display: inline-block;
 }
 
 .description {
@@ -77,17 +81,16 @@
   margin-top: 80px;
   color: #fff;
 }
+
+textarea {
+  resize: none;
+}
   
 .form-user {
-  position: absolute;
   display: flex;
-  top: 70%;
-  left: 50%;
-  transform: translate(-30%, -40%);
-  width: 100%;
   align-items: baseline;
-  justify-content: center;
   flex-direction: column;
+  padding-top: 10%;
 }
   
 .form h1 {
@@ -99,9 +102,10 @@
 }
   
 .infos-inputs {
-  display: block;
+  display: flex;
   margin-bottom: 1rem;
-  padding-left: 2%;
+  padding-left: 1%;
+  flex-direction: column;
 }
 
 .password-inputs {
@@ -119,9 +123,21 @@
 .social-inputs {
   display: block;
   margin-bottom: 1rem;
-  padding-left: 2%;
+  padding-left: 1%;
 }
   
+.location-inputs p {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: #f00e0e;
+}
+
+.password-inputs p {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: #f00e0e;
+}
+
 .infos-inputs p {
   font-size: 0.8rem;
   margin-top: 0.5rem;
@@ -129,7 +145,7 @@
 }
   
 .form-label {
-  display: inline-block;
+  display: block;
   font-size: 0.8rem;
   margin-bottom: 6px;
   color: var(--darkgrey);
@@ -149,20 +165,19 @@
   color: var(--darkgrey);
   font-size: 13px;
 }
-  
+
 .form-input-btn {
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 45px;
-  border-radius: 2px;
+  width: 30%;
+  border-radius: 3px;
   background-color: var(--second);
-  outline: none;
-  border: none;
   color: #fff;
   font-size: 1rem;
-  padding-top: 12px;
-  margin-top: 30px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 15px;
+  
 }
   
 .form-input-btn:hover {
@@ -172,6 +187,7 @@
 .selectDomain {
   width: 165px;
   height: 40px;
+  margin-right: 2%;
 }
 
 .selectSubdomain {

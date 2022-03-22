@@ -74,6 +74,7 @@ const handleSubDomain= (e) => {
   handleChange(e)
 }
 
+
 const submitUser = () => {
   axios.post(`${process.env.REACT_APP_BACK}/users/submitUser`, {
     admin: 0,
@@ -184,7 +185,7 @@ const submitUser = () => {
           <label className='form-label'>Date de naissance</label>
           <input
             className='form-input'
-            type='tel'
+            type='date'
             name='birthday'
             placeholder='Année/Mois/Jour'
             value={values.birthday}
