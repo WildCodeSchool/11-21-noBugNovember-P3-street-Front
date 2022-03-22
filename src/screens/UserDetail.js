@@ -13,6 +13,8 @@ const UserDetail = () => {
 	const [selectProjet, setSelectProjet] = useState(0);
 	let { id } = useParams();
 
+	console.log(data);
+
 	const choiceProjet = (id) => {
 		setSelectProjet(id);
 	};
@@ -82,12 +84,14 @@ const UserDetail = () => {
 					{data.twitter !== undefined ||
 					data.youtube !== undefined ||
 					data.instagram !== undefined ||
-					data.spotify !== undefined ? (
+					data.spotify !== undefined ||
+					data.tiktok !== undefined ? (
 						<Reseaux
 							youtube={data.youtube}
 							twitter={data.twitter}
 							spotify={data.spotify}
 							instagram={data.instagram}
+							tiktok={data.tiktok}
 						/>
 					) : (
 						`Aucun réseaux sociaux de renseignés`

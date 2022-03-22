@@ -49,6 +49,7 @@ const ProjectsInGestion = ({
 				status: choiceStatus,
 			}
 		);
+		alert(`Status mise à jour`);
 		getValidatedProjects();
 		getBlockedProjects();
 	};
