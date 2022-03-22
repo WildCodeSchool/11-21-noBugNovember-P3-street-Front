@@ -94,7 +94,7 @@ const UserDetail = () => {
 							tiktok={data.tiktok}
 						/>
 					) : (
-						`Aucun réseaux sociaux de renseignés`
+						`Aucun réseaux sociaux renseignés`
 					)}
 				</div>
 			</div>
