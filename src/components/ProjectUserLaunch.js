@@ -14,7 +14,7 @@ const ProjectUserLaunch = (props) => {
 		} else if (props.status === 2) {
 			setStatus('Projet terminé');
 		}
-	}, [props.status]);
+	}, []);
 
 	return (
 		<div className="isLaunch">
