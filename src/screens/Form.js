@@ -17,10 +17,6 @@ const Form = () => {
   const [subDomainId,setSubDomainId] = useState()
 
   console.log(domain)
-  // console.log(subDomain)
-  // console.log(selectDomain)
-  // console.log(selectSubDomain)
-  // console.log(reponse)
   const submitForm = () => {
     setIsSubmitted(true);
   }
@@ -78,7 +74,6 @@ const handleSubDomain= (e) => {
   handleChange(e)
 }
 
-console.log(values.firstname)
 const submitUser = () => {
   axios.post(`${process.env.REACT_APP_BACK}/users/submitUser`, {
     admin: 0,
@@ -88,7 +83,7 @@ const submitUser = () => {
     password: values.password,
     email: values.email,
     phone: values.phone,
-    birthday: '1993-08-10',
+    birthday: values.birthday,
     city: values.city,
     country: values.country,
     forget_password:'lol',
@@ -96,6 +91,7 @@ const submitUser = () => {
     instagram: values.instagram,
     twitter: values.twitter,
     spotify: values.spotify,
+    tiktok: values.tiktok,
     description_users: values.description,
     available: 1,
     phoneVisibility: 1,
@@ -183,6 +179,18 @@ const submitUser = () => {
             onChange={handleChange}
           />
           {errors.phone && <p>{errors.phone}</p>}
+          </div>
+          <div className='infos-inputs'>
+          <label className='form-label'>Date de naissance</label>
+          <input
+            className='form-input'
+            type='tel'
+            name='birthday'
+            placeholder='Année/Mois/Jour'
+            value={values.birthday}
+            onChange={handleChange}
+          />
+          {errors.birthday && <p>{errors.birthday}</p>}
           </div>
         </div>
           <div className='userinfos'>Votre domaine d'activité</div>
@@ -304,6 +312,17 @@ const submitUser = () => {
             name='spotify'
             placeholder='Votre Spotify / Soundcloud'
             value={values.spotify}
+            onChange={handleChange}
+          />
+          </div>
+          <div className='social-inputs'>
+          <label className='form-label'>Tiktok</label>
+          <input
+            className='form-input'
+            type='text'
+            name='tiktok'
+            placeholder='Votre Tiktok'
+            value={values.tiktok}
             onChange={handleChange}
           />
           </div>

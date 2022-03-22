@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Connexion.css";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
 
 function Connexion() {
   const adminUser = {
@@ -78,9 +77,11 @@ function Connexion() {
                 />
               </div>
               <div className="buttons">
+              <Link to="/admin">
                 <div className="connexionButton">
                   <input type="submit" value="Connexion" />
                 </div>
+                </Link>
                 <div className="containerspacerConnexion">
                   <div className="spacerConnexion"></div>
                   <i class="fa-solid fa-bolt bolt-connexion"></i>
