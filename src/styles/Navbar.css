@@ -12,7 +12,19 @@
 }
 
 .containerLogo {
-  width: 180px;
+  padding: 15px;
+  width: 195px;
+  max-width: 15vw;
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+.containerLogo a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .holderLink {

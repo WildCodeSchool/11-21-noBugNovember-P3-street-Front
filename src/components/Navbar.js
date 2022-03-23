@@ -39,10 +39,11 @@ const Navbar = () => {
     <>
       <div className="navbar_container">
         <Link to="/">
-          <div className="containerLogo">
+          <div className="containerLogo" onClick={handleToggleAccueil}>
             <img className="holderLogo" src={Logo} alt="Logo" />
           </div>
         </Link>
+
         <div className="Link">
           <Link to="/">
             <div
