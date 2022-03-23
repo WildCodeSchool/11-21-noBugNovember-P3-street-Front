@@ -6,69 +6,144 @@ import "../styles/AdminGestionAnnonces.css";
 
 const AdminGestionAnnonces = () => {
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
-  const [annonceProjet, setAnnonceProjet] = useState([]);
-  const [annonceUser, setAnnonceUser] = useState([]);
-  console.log("PROJET", annonceProjet);
-  console.log("USER", annonceUser);
+  const [isValidated, setIsValidated] = useState(true);
+  const [validatedAnnonceProjet, setValidatedAnnonceProjet] = useState([]);
+  const [validatedAnnonceUser, setValidatedAnnonceUser] = useState([]);
+  const [nonValidatedAnnonceUser, setNonValidatedAnnonceUser] = useState([]);
+  const [nonValidatedAnnonceProjet, setNonValidatedAnnonceProjet] = useState(
+    []
+  );
+  const [updateBlock, setUpdateBlock] = useState(false);
+  console.log("PROJET", validatedAnnonceProjet);
+  console.log("USER", validatedAnnonceUser);
+  console.log("NOT USER", nonValidatedAnnonceUser);
+  console.log("NOT PROJET", nonValidatedAnnonceProjet);
 
-  const getAnnoncesProjet = () => {
+  const getValidatedAnnoncesProjet = () => {
     axios
       .get(`${process.env.REACT_APP_BACK}/all/annonces_all_projects`)
       .then((res) => res.data)
-      .then((data) => setAnnonceProjet(data));
+      .then((data) => setValidatedAnnonceProjet(data));
   };
-  const getAnnoncesUser = () => {
+
+  const getNonValidatedAnnoncesProjet = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/annonces_projects_blocked`)
+      .then((res) => res.data)
+      .then((data) => setNonValidatedAnnonceProjet(data));
+  };
+
+  const getValidatedAnnoncesUser = () => {
     axios
       .get(`${process.env.REACT_APP_BACK}/all/annonces_all_users`)
       .then((res) => res.data)
-      .then((data) => setAnnonceUser(data));
+      .then((data) => setValidatedAnnonceUser(data));
   };
 
-  const handleFilter = () => {
-    setIsFilter(!isFilter);
+  const getNonValidatedAnnoncesUser = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/annonces_users_blocked`)
+      .then((res) => res.data)
+      .then((data) => setNonValidatedAnnonceUser(data));
+  };
+
+  const handleProjectFilter = () => {
+    setIsFilter(true);
+    setIsValidated(true);
+    getValidatedAnnoncesProjet();
+  };
+
+  const handleUserFilter = () => {
+    setIsFilter(false);
+    setIsValidated(true);
+    getValidatedAnnoncesUser();
   };
 
   useEffect(() => {
-    getAnnoncesProjet();
-    getAnnoncesUser();
-  }, []);
+    getValidatedAnnoncesProjet();
+    getValidatedAnnoncesUser();
+    getNonValidatedAnnoncesProjet();
+    getNonValidatedAnnoncesUser();
+  }, [updateBlock]);
 
   return (
-    <div className="gestionUsersContainer">
+    <div className="gestionAnnonceContainer">
       <div className="adminnavbar">
         <NavbarAdmin />
       </div>
       <div className="adminTitle">
         <h1>Gestion des annonces</h1>
       </div>
-      <div className="filtreGestionUsers">
+      <div className="filtreGestionAnnonce">
         <div
-          className={isFilter ? "isvalidatedUser" : "isvalidatedUser activ"}
-          onClick={handleFilter}
+          className={isFilter ? "isAnnonceUser" : "isAnnonceUser activ"}
+          onClick={handleUserFilter}
         >
           Annonces utilisateurs
         </div>
         <div
-          className={isFilter ? "isUser activ" : "isUser"}
-          onClick={handleFilter}
+          className={isFilter ? "isAnnonceProject activ" : "isAnnonceProject"}
+          onClick={handleProjectFilter}
         >
           Annonces projets
         </div>
       </div>
+      <div className="filtreValidate">
+        <div
+          className={isValidated ? "validated activ" : "validated"}
+          onClick={() => setIsValidated(true)}
+        >
+          Annonces
+        </div>
+        <div
+          className={isValidated ? "nonValidated" : "nonValidated activ"}
+          onClick={() => setIsValidated(false)}
+        >
+          en attente de validation
+        </div>
+      </div>
       <div className="tableauContainer">
         {isFilter
-          ? annonceProjet.map((el) => (
+          ? isValidated
+            ? validatedAnnonceProjet.map((el) => (
+                <AnnonceInGestion
+                  key={el.id}
+                  annonce={el}
+                  isFilter={isFilter}
+                  updateBlock={updateBlock}
+                  setUpdateBlock={setUpdateBlock}
+                  isValidated={isValidated}
+                />
+              ))
+            : nonValidatedAnnonceProjet.map((el) => (
+                <AnnonceInGestion
+                  key={el.id}
+                  annonce={el}
+                  isFilter={isFilter}
+                  updateBlock={updateBlock}
+                  setUpdateBlock={setUpdateBlock}
+                  isValidated={isValidated}
+                />
+              ))
+          : isValidated
+          ? validatedAnnonceUser.map((el) => (
               <AnnonceInGestion
+                key={el.id}
                 annonce={el}
                 isFilter={isFilter}
-                getAnnoncesProjet={getAnnoncesProjet}
+                updateBlock={updateBlock}
+                setUpdateBlock={setUpdateBlock}
+                isValidated={isValidated}
               />
             ))
-          : annonceUser.map((el) => (
+          : nonValidatedAnnonceUser.map((el) => (
               <AnnonceInGestion
+                key={el.id}
                 annonce={el}
                 isFilter={isFilter}
-                getAnnoncesUser={getAnnoncesUser}
+                updateBlock={updateBlock}
+                setUpdateBlock={setUpdateBlock}
+                isValidated={isValidated}
               />
             ))}
       </div>

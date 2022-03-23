@@ -4,8 +4,9 @@ import "react-calendar/dist/Calendar.css";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const CreateProject = () => {
+const AdminProjectEdition = () => {
   const [domaines, setDomaine] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -17,9 +18,20 @@ const CreateProject = () => {
   const [image, setImage] = useState({ data: "" });
   const [status, setStatus] = useState("");
   const [idrRegions, setIdrRegions] = useState(0);
-
+  const [projectDetail, setProjectDetail] = useState([]);
+  const params = useParams();
   const mySelect = useRef();
   const secondSelect = useRef();
+  console.log(projectDetail);
+
+  const getProjectDetails = () => {
+    axios
+      .get(
+        `${process.env.REACT_APP_BACK}/admin/project_details_edit/${params.id}`
+      )
+      .then((response) => response.data)
+      .then((data) => setProjectDetail(data));
+  };
 
   const [newProject, setNewProject] = useState({
     name: "",
@@ -29,18 +41,6 @@ const CreateProject = () => {
     startDate: "",
     endDate: "",
   });
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3030/all/domain")
-      .then((res) => console.log(res) || setDomaine(res.data));
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3030/all/regions")
-      .then((res) => setRegions(res.data));
-  }, []);
 
   const postProject = async (e) => {
     console.log("postEnter");
@@ -167,22 +167,16 @@ const CreateProject = () => {
     setImage(img);
   };
 
+  useEffect(() => {
+    getProjectDetails();
+  }, []);
+
   return (
     <>
       <div className="titleContainer">
         <h2>Créez votre projet</h2>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>Upload profile picture</label>
-          <input
-            type="file"
-            name="file"
-            onChange={(e) => handleFileChange(e)}
-            required
-          />
-        </div>
-
         {status && <h4>{status}</h4>}
         <div className="firstContainer">
           <div className="secondContainer">
@@ -192,13 +186,15 @@ const CreateProject = () => {
                 className="name"
                 type="text"
                 placeholder="Streetzer"
+                value={projectDetail.name}
                 onChange={(e) => {
                   const { value } = e.target;
                   setNewProject({ ...newProject, name: value });
 
                   // console.log(value)
                 }}
-              ></input>
+              />
+              {projectDetail.name}
 
               <p>Domaine</p>
               <select className="selectDomaine" name="Domaine" ref={mySelect}>
@@ -319,4 +315,4 @@ const CreateProject = () => {
   );
 };
 
-export default CreateProject;
+export default AdminProjectEdition;
