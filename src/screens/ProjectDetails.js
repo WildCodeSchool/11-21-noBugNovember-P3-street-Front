@@ -62,7 +62,6 @@ const ProjectDetails = () => {
               <h3>{projectDetail.map((el) => el.name)}</h3>
             </div>
             <div className="createurDetailsProjet">
-              {/*     <Link to={creatorId}> */}
               <p>by&nbsp;</p>
               <Link to={creatorId}>
                 <p className="nameCreatorDetailsProjet">
@@ -98,9 +97,6 @@ const ProjectDetails = () => {
             <div className="descriDetailsProjet">
               <p>{projectDetail.map((el) => el.description)}</p>
             </div>
-            {/*      {projectUsers.map((el, index) => (
-              <UsersInProject user={el} key={index} />
-            ))} */}
           </div>
         </div>
 
