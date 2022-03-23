@@ -41,7 +41,7 @@ const UserCardAnnonce = (props) => {
 				<div className="dispo">
 					<i className="fa-solid fa-calendar-day" /> {props.date}
 				</div>
-				<div className="phone">
+				{/* {<div className="phone">
 					{props.phoneVisibility ? (
 						<a href={`tel:${props.phone}`}>
 							<i className="fa-solid fa-phone-flip" />
@@ -58,7 +58,7 @@ const UserCardAnnonce = (props) => {
 					) : (
 						''
 					)}
-				</div>
+				</div>} */}
 			</div>
 		</div>
 	);
