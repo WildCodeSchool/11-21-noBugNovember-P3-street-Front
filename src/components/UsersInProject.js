@@ -3,9 +3,14 @@ import avatar from "../assets/avatar.png";
 import { Link } from "react-router-dom";
 const UsersInProject = ({ user }) => {
   const userId = `/talents/${user.id}`;
+  let concatPrenom = user.firstname;
+  let concatNom = user.lastname;
+
+  const concatFirstLast = concatPrenom.concat(" ", concatNom);
+  console.log(concatFirstLast);
   return (
-    <div className="usersInProject">
-      <Link to={userId}>
+    <Link to={userId}>
+      <div data-before={concatFirstLast} className="usersInProject">
         {/*       <div className="userName">
           {user.lastname} {user.firstname}
         </div> */}
@@ -19,8 +24,8 @@ const UsersInProject = ({ user }) => {
             className="avatarUsers"
           />
         )}
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
