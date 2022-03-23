@@ -122,13 +122,12 @@ const submitUser = () => {
     
     return (
       <>
-    <div className='join'>
-      <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
-    </div>
-    
     <div className='form-container'>
     {!isSubmitted ? (
       <div className='form-content'>
+        <div className='join'>
+          <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
+        </div>
         (*) = Informations obligatoires
         {console.log('ID',domainId)}
         {console.log('ID',subDomainId)}
@@ -172,18 +171,6 @@ const submitUser = () => {
           {errors.email && <p>{errors.email}</p>}
           </div>
           <div className='infos-inputs'>
-          <label className='form-label'>Téléphone</label>
-          <input
-            className='form-input'
-            type='tel'
-            name='phone'
-            placeholder='Votre numéro de téléphone'
-            value={values.phone}
-            onChange={handleChange}
-          />
-          {errors.phone && <p>{errors.phone}</p>}
-          </div>
-          <div className='infos-inputs'>
           <label className='form-label'>Date de naissance (*)</label>
           <input
             className='form-input'
@@ -194,6 +181,18 @@ const submitUser = () => {
             onChange={handleChange}
           />
           {errors.birthday && <p>{errors.birthday}</p>}
+          </div>
+          <div className='infos-inputs'>
+          <label className='form-label'>Téléphone</label>
+          <input
+            className='form-input'
+            type='tel'
+            name='phone'
+            placeholder='Votre numéro de téléphone'
+            value={values.phone}
+            onChange={handleChange}
+          />
+          {errors.phone && <p>{errors.phone}</p>}
           </div>
         </div>
           <div className='userinfos'>Votre domaine d'activité (*)</div>
