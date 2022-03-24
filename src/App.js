@@ -30,7 +30,7 @@ function App() {
 				<Route path="/admin/projets" element={<AdminGestionProjects />} />
 				<Route path="/admin/ajout/:id" element={<AdminAddMates />} />
 				<Route path="/connexion" element={<Connexion />} />
-				<Route path="/projets" element={<Project />} />
+			 	<Route path="/projets" element={<Project />} />
 				<Route path="/projets/:id" element={<ProjectDetails />} />
 				<Route path="/talents" element={<Users />} />
 				<Route path="/talents/:id" element={<UserDetail />} />
