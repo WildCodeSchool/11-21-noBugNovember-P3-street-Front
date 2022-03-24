@@ -14,6 +14,8 @@ import Project from "./screens/Project";
 import ProjectDetails from "./screens/ProjectDetails";
 import Users from "./screens/Users";
 import UserDetail from "./screens/UserDetail";
+import CreateAnnonceUser from "./components/CreateAnnonceUser";
+import CreateAnnonceProject from "./components/CreateAnnonceProject";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
@@ -42,6 +44,7 @@ function App() {
         <Route path="/admin/users" element={<AdminGestionUsers />} />
         <Route path="/admin/projets" element={<AdminGestionProjects />} />
         <Route path="/admin/annonces" element={<AdminGestionAnnonces />} />
+        <Route path="/add_annonces_user" element={<CreateAnnonceUser />} />
         <Route path="/admin/ajout/:id" element={<AdminAddMates />} />
         <Route
           path="/connexion"
@@ -60,6 +63,10 @@ function App() {
         />
         <Route path="/projets" element={<Project />} />
         <Route path="/projets/:id" element={<ProjectDetails />} />
+        <Route
+          path="/add_annonces_project"
+          element={<CreateAnnonceProject />}
+        />
         <Route path="/talents" element={<Users />} />
         <Route path="/talents/:id" element={<UserDetail />} />
       </Routes>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import AnnonceInGestion from "../components/AnnonceInGestion";
 import NavbarAdmin from "../components/NavbarAdmin";
 import "../styles/AdminGestionAnnonces.css";
@@ -143,6 +144,23 @@ const AdminGestionAnnonces = () => {
               />
             ))}
       </div>
+      {isFilter ? (
+        <Link to="/add_annonces_project">
+          <button className="addAnnonce">
+            <p>
+              <i class="fa-solid fa-plus"></i> Ajouter une annonce projet
+            </p>
+          </button>
+        </Link>
+      ) : (
+        <Link to="/add_annonces_user">
+          <button className="addAnnonce">
+            <p>
+              <i class="fa-solid fa-plus"></i> Ajouter une annonce utilisateur
+            </p>
+          </button>
+        </Link>
+      )}
     </div>
   );
 };
