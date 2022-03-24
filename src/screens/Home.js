@@ -9,19 +9,6 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <div>
-      {/*       <div className="holderCarousel">
-        <Splide>
-          <SplideSlide>
-            <img className="holderImg" src={photo2} alt="images" />
-          </SplideSlide>
-          <SplideSlide>
-            <img className="holderImg" src={guitarneon} alt="images" />
-          </SplideSlide>
-          <SplideSlide>
-            <img className="holderImg" src={hommeregard} alt="images" />
-          </SplideSlide>
-        </Splide>
-      </div> */}
       <div className="homeBanner">
         <div className="overlayBanner">
           <h1>
@@ -33,6 +20,7 @@ const Home = () => {
             <em>- Elder Camara</em>
           </h1>
         </div>
+
         <img className="holderImg" src={test2} alt="images" />
       </div>
       <div className="sections">
@@ -80,10 +68,12 @@ const Home = () => {
           />
         </div>
         <div className=" tousLesProjets">
-          <div className="tousLesProjetsBtn">
-            Tous les projets sur Youtube &#160;
-            <i class="fa-brands fa-youtube"></i>
-          </div>
+          <a href="http://www.youtube.com" target="_blank">
+            <div className="tousLesProjetsBtn">
+              Tous les projets sur Youtube &#160;
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+          </a>
         </div>
         <div className="containerSpacer">
           <div className="spacerHome"></div>

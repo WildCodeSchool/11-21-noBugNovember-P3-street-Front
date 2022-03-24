@@ -9,6 +9,7 @@ button {
 .connexion {
   height: 94vh;
   display: flex;
+  flex-direction: ;
   align-items: center;
   justify-content: center;
 }
@@ -78,6 +79,7 @@ button {
 }
 
 .formUsers .form-inner input[type="submit"],
+.form-inner input[type="button"],
 .welcome button {
   display: flex;
   padding: 10px 15px;
@@ -112,7 +114,9 @@ button {
   margin-bottom: 30px;
 }
 
-.connexionButton {
+.connexionButton:hover input,
+.creationButton:hover input {
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .new h3 {
