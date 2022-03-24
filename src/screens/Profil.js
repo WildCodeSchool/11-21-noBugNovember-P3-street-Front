@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import validate from '../components/ValidateInfo';
 import useForm from '../components/useForm';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const Profil = () => {
@@ -40,7 +41,7 @@ const Profil = () => {
 };
 
   const getProfil = () => {
-    axios.get(`${process.env.REACT_APP_BACK}/users`)
+    axios.get(`${process.env.REACT_APP_BACK}/profil`)
          .then((res) => res.data)
          .then((data) => setProfil(data))
   };
@@ -301,6 +302,11 @@ const handleSubDomain= (e) => {
             placeholder="Parlez-nous un peu de vous..." 
             />
             </div>
+            <Link to="/update_profil">
+									<div className='form-input-btn'>
+										<input type="submit" value="Modifier votre compte" />
+									</div>
+						</Link>
         </div>
       </form>
         </div>

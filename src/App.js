@@ -17,6 +17,7 @@ import UserDetail from './screens/UserDetail';
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
+import UpdateProfil from './screens/UpdateProfil';
 
 function App() {
 	const [isAdmin, setIsAdmin] = useState(false);
@@ -62,6 +63,7 @@ function App() {
 				<Route path="/talents" element={<Users />} />
 				<Route path="/talents/:id" element={<UserDetail />} />
 				<Route path="/profil/:id" element={<Profil />} />
+				<Route path="/update_profil" element={<UpdateProfil />} />
 			</Routes>
 		</div>
 	);

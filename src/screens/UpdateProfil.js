@@ -1,9 +1,9 @@
-import '..styles/UpdateProfil.css';
 import React, { useEffect, useState } from 'react';
 import validate from '../components/ValidateInfo';
 import useForm from '../components/useForm';
 import axios from 'axios';
-import FormSuccess from '../components/FormSucces';
+import { Link } from 'react-router-dom';
+import '../styles/UpdateProfil.css'
 
 
 const UpdateProfil = () => {
@@ -11,6 +11,7 @@ const UpdateProfil = () => {
     const [domain, setDomain] = useState([]);
     const [subDomain, setSubdomain] = useState([]);
     const [isFilter, setIsFilter] = useState(false);
+    const [profil, setProfil] = useState([]);
     const [reponse, setReponse] = useState([]);
     const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
     const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
@@ -39,9 +40,16 @@ const UpdateProfil = () => {
          .then((data) => setDomain(data))
 };
 
+  const getProfil = () => {
+    axios.get(`${process.env.REACT_APP_BACK}/profil`)
+         .then((res) => res.data)
+         .then((data) => setProfil(data))
+  };
+
   useEffect(() => {
     getDomain()
     getSubdomain()
+    getProfil()
   }, []); 
   
   useEffect(() => {
@@ -75,40 +83,12 @@ const handleSubDomain= (e) => {
   handleChange(e)
 }
 
-
-const submitUser = () => {
-  axios.post(`${process.env.REACT_APP_BACK}/users/submitUser`, {
-    admin: 0,
-    blocked:1,
-    firstname: values.firstname,
-    lastname: values.lastname,
-    password: values.password,
-    email: values.email,
-    phone: values.phone,
-    birthday: values.birthday,
-    city: values.city,
-    country: values.country,
-    forget_password:'lol',
-    youtube: values.instagram,
-    instagram: values.instagram,
-    twitter: values.twitter,
-    spotify: values.spotify,
-    tiktok: values.tiktok,
-    description_users: values.description,
-    available: 1,
-    phoneVisibility: 1,
-    emailVisibility: 1,
-    domain_id: domainId,
-    sub_domain_id: subDomainId
-  });
-};
-    
     return (
       <>
     <div className='form-container'>
       <div className='form-content'>
         <div className='join'>
-          <h1>Modifiez votre profil !</h1>
+          <h1>Bienvenue chez Streezer !</h1>
         </div>
         (*) = Informations obligatoires
         {console.log('ID',domainId)}
@@ -322,16 +302,17 @@ const submitUser = () => {
             placeholder="Parlez-nous un peu de vous..." 
             />
             </div>
-          <button className='form-input-btn' type='submit' onClick={() => submitUser()}>
-           Enregistrer
-          </button>
+            <Link to="/update_profil">
+									<div className='form-input-btn'>
+										<input type="submit" value="Enregistrer" />
+									</div>
+						</Link>
         </div>
       </form>
         </div>
-        </div>
+      </div> 
     </>
         );
 };
-
 
 export default UpdateProfil
