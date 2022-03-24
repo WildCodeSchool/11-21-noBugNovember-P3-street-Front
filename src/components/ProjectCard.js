@@ -7,8 +7,8 @@ const ProjectCard = ({ project }) => {
   const dateProject = project.estimated_start_date.slice(0, 10);
 
   return (
-    <div className="projectContainer">
-      <Link to={projectId}>
+    <Link to={projectId}>
+      <div className="projectContainer">
         <div className="head">
           <div className="avatar">
             <img src={`${process.env.REACT_APP_BACK}/${project.logo}`} alt="" />
@@ -29,8 +29,8 @@ const ProjectCard = ({ project }) => {
             {dateProject}
           </div>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 export default ProjectCard;
