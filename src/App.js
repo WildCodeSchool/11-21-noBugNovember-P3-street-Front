@@ -7,6 +7,7 @@ import Connexion from './screens/Connexion';
 import CreateProject from './components/CreateProject';
 import Footer from './components/Footer';
 import Form from './screens/Form.js';
+import Profil from './screens/Profil.js';
 import Home from './screens/Home';
 import Navbar from './components/Navbar';
 import Project from './screens/Project';
@@ -60,6 +61,7 @@ function App() {
 				<Route path="/projets/:id" element={<ProjectDetails />} />
 				<Route path="/talents" element={<Users />} />
 				<Route path="/talents/:id" element={<UserDetail />} />
+				<Route path="/profil/:id" element={<Profil />} />
 			</Routes>
 		</div>
 	);
