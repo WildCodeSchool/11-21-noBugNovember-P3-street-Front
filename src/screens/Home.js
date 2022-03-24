@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <div>
+      {/* ====================================== DEBUT - HOME BANNER ====================================== */}
       <div className="homeBanner">
         <div className="overlayBanner">
           <h1>
@@ -23,7 +24,11 @@ const Home = () => {
 
         <img className="holderImg" src={test2} alt="images" />
       </div>
+      {/* ====================================== FIN - HOME BANNER ======================================== */}
+
       <div className="sections">
+        {/* ====================================== DEBUT - PRESENTATION ====================================== */}
+
         <div className="homePresentation">
           <div className="framePresentation">
             <div className="framePresentationallP">
@@ -46,6 +51,11 @@ const Home = () => {
             <div className="btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>
+
+        {/* ====================================== FIN - PRESENTATION ======================================== */}
+
+        {/* ====================================== DEBUT - PROJETS TERMINES ====================================== */}
+
         <h1>Projets terminés récemment</h1>
         <div className="homeDoneProjects">
           <UserCard
@@ -75,11 +85,16 @@ const Home = () => {
             </div>
           </a>
         </div>
+
+        {/* ====================================== FIN - PROJETS TERMINES ======================================== */}
+
         <div className="containerSpacer">
           <div className="spacerHome"></div>
           <i class="fa-solid fa-bolt"></i>
           <div className="spacerHome"></div>
         </div>
+
+        {/* ====================================== DEBUT - COMMENTAIRES ====================================== */}
         <div className="sections comments">
           <h1>Des gens parlent de nous !</h1>
           <div className="containerComments">
@@ -133,11 +148,16 @@ const Home = () => {
         <div className="containerSeeComments">
           <div className="seeComments">Voir les commentaires</div>
         </div>
+
+        {/* ====================================== FIN - COMMENTAIRES ======================================== */}
+
         <div className="containerSpacer">
           <div className="spacerHome"></div>
           <i class="fa-solid fa-bolt"></i>
           <div className="spacerHome"></div>
         </div>
+
+        {/* ====================================== DEBUT - SELECTEURS PROJECTS TALENTS ====================================== */}
 
         <h1>À vous de jouer !</h1>
         <div className="sections searchTalentProjectContainer">
@@ -154,62 +174,12 @@ const Home = () => {
             <div className="">Vous cherchez un projet ?</div>
           </div>
         </div>
-        {/*         <div className="footer">
-          <div className="containerCol">
-            <div className="colFooter col1">
-              <div className="colFooterHeader">
-                <i class="fa-solid fa-music"></i> Streetzer
-              </div>
-              <div className="colFooterInfosParaph">
-                Ullamco mollit amet adipisicing aliquip do culpa labore esse
-                consequat voluptate magna.
-              </div>
-            </div>
-            <div className="colFooter col2">
-              <div className="colFooterHeader">Streetzer</div>
-              <div className="colFooterInfosContainer">
-                <div className="colFooterInfos">Blog</div>
-                <div className="colFooterInfos">Youtube Premium</div>
-              </div>
-            </div>
-            <div className="colFooter col3">
-              <div className="colFooterHeader">Partners</div>
-              <div className="colFooterInfosContainer">
-                <div className="colFooterInfos">Advertise</div>
-                <div className="colFooterInfos">Creators</div>
-                <div className="colFooterInfos">Developers</div>
-                <div className="colFooterInfos">Press</div>
-                <div className="colFooterInfos">Preferred Lineups</div>
-              </div>
-            </div>
-            <div className="colFooter col4">
-              <div className="colFooterHeader">Resources</div>
-              <div className="colFooterInfosContainer">
-                <div className="colFooterInfos">Policies & Safety</div>
-                <div className="colFooterInfos">Copyright</div>
-                <div className="colFooterInfos">Brand Guidelines</div>
-                <div className="colFooterInfos">Help Center</div>
-                <div className="colFooterInfos">Privacy</div>
-              </div>
-            </div>
-            <div className="colFooter col5">
-              <div className="colFooterHeader">Connect</div>
-              <div className="colFooterInfosContainer">
-                <div className="colFooterInfos">
-                  <i class="fa-brands fa-twitter"></i> Twitter
-                </div>
-                <div className="colFooterInfos">
-                  <i class="fa-brands fa-instagram"></i> Instagram
-                </div>
-                <div className="colFooterInfos">
-                  <i class="fa-brands fa-facebook-square"></i> Facebook
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bottomFooter">© 2022 Streetzer</div>
-        </div> */}
+
+        {/* ====================================== FIN - SELECTEURS PROJECTS TALENTS ======================================== */}
+
+        {/* ====================================== DEBUT - FOOTER ====================================== */}
         <Footer />
+        {/* ====================================== FIN - FOOTER ======================================== */}
       </div>
     </div>
   );
