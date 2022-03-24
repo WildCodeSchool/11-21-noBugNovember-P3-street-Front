@@ -6,15 +6,15 @@ import useForm from '../components/useForm';
 import axios from 'axios';
 
 const Form = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [domain, setDomain] = useState([]);
-  const [subDomain, setSubdomain] = useState([]);
-  const [isFilter, setIsFilter] = useState(false);
+	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [domain, setDomain] = useState([]);
+	const [subDomain, setSubdomain] = useState([]);
+	const [isFilter, setIsFilter] = useState(false);
 	const [reponse, setReponse] = useState([]);
-  const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
-  const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
-  const [domainId, setDomainId] = useState()
-  const [subDomainId,setSubDomainId] = useState()
+	const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
+	const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
+	const [domainId, setDomainId] = useState();
+	const [subDomainId, setSubDomainId] = useState();
 
   console.log(domain)
   const submitForm = () => {
@@ -25,18 +25,20 @@ const Form = () => {
     submitForm,
     validate
   );
-  
-  const getSubdomain = () => {
-    axios.get(`${process.env.REACT_APP_BACK}/all/subdomain`)
-         .then((res) => (res.data))
-         .then((data) => setSubdomain(data))
-    };
 
-  const getDomain = () => {
-    axios.get(`${process.env.REACT_APP_BACK}/all/domain`)
-         .then((res) => res.data)
-         .then((data) => setDomain(data))
-};
+	const getSubdomain = () => {
+		axios
+			.get(`${process.env.REACT_APP_BACK}/all/subdomain`)
+			.then((res) => res.data)
+			.then((data) => setSubdomain(data));
+	};
+
+	const getDomain = () => {
+		axios
+			.get(`${process.env.REACT_APP_BACK}/all/domain`)
+			.then((res) => res.data)
+			.then((data) => setDomain(data));
+	};
 
   useEffect(() => {
     getDomain()
