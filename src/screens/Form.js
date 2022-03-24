@@ -16,7 +16,7 @@ const Form = () => {
   const [domainId, setDomainId] = useState();
   const [subDomainId, setSubDomainId] = useState();
 
-  console.log(domain);
+  //console.log(domain);
   // console.log(subDomain)
   // console.log(selectDomain)
   // console.log(selectSubDomain)
@@ -106,6 +106,23 @@ const Form = () => {
       sub_domain_id: subDomainId,
     });
   };
+  // const handleAvatar = async (e) => {
+  //   e.preventDefault();
+  //   let formData = new FormData();
+  //   formData.append("file", image.data);
+  //   const response = await fetch("http://localhost:3030/all/image", {
+  //     method: "POST",
+  //     body: formData,
+  //   });
+  //   if (response) setStatus(response.statusText);
+  // };
+
+  // const handleFileChange = (e) => {
+  //   const img = {
+  //     data: e.target.files[0],
+  //   };
+  //   setImage(img);
+  // };
 
   return (
     <>
@@ -115,8 +132,6 @@ const Form = () => {
       <div className="form-container">
         {!isSubmitted ? (
           <div className="form-content">
-            {console.log("ID", domainId)}
-            {console.log("ID", subDomainId)}
             <form onSubmit={handleSubmit} className="form-user" noValidate>
               <div className="userinfos">Vos informations</div>
               <div className="infos-container">
