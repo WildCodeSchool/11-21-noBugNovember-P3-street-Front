@@ -4,61 +4,49 @@ import "react-calendar/dist/Calendar.css";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const CreateProject = () => {
+const AdminProjectEdition = () => {
+  const [projectDetail, setProjectDetail] = useState([]);
   const [domaines, setDomaine] = useState([]);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
   const [regions, setRegions] = useState([]);
-  const [startDate, setStartDate] = useState([]);
-  const [endDate, setEndDate] = useState([]);
-  const [data, setData] = useState("");
-  const [photos, setPhotos] = useState();
   const [image, setImage] = useState({ data: "" });
   const [status, setStatus] = useState("");
-  const [idrRegions, setIdrRegions] = useState(0);
-
+  const params = useParams();
   const mySelect = useRef();
   const secondSelect = useRef();
+  console.log(projectDetail);
 
-  const [newProject, setNewProject] = useState({
-    name: "",
-    domaines: "",
-    description: "",
-    regions: "",
-    startDate: "",
-    endDate: "",
-  });
+  console.log(projectDetail.date_end);
+  const getProjectDetails = () => {
+    axios
+      .get(
+        `${process.env.REACT_APP_BACK}/admin/project_details_edit/${params.id}`
+      )
+      .then((response) => response.data)
+      .then((data) => setProjectDetail(data));
+  };
 
-  useEffect(() => {
+  const getDomains = () => {
     axios
       .get("http://localhost:3030/all/domain")
       .then((res) => console.log(res) || setDomaine(res.data));
-  }, []);
+  };
 
-  useEffect(() => {
+  const getRegions = () => {
     axios
       .get("http://localhost:3030/all/regions")
       .then((res) => setRegions(res.data));
-  }, []);
-
-  const postProject = async (e) => {
-    console.log("postEnter");
-    await setNewProject({
-      ...newProject,
-      domaines: mySelect.current.value,
-      regions: secondSelect.current.value,
-    });
-    createProject(e);
-    console.log("leaveEnter");
   };
+
+  const [newProject, setNewProject] = useState({});
+  console.log(newProject);
 
   let idDomaine;
   let idRegions;
 
-  const createProject = (e) => {
+  const editProject = (e) => {
     e.preventDefault();
-    console.log("createProject", mySelect.current.value.toLowerCase());
     switch (mySelect.current.value.toLowerCase()) {
       case "arts-visuels":
         idDomaine = 1;
@@ -127,17 +115,14 @@ const CreateProject = () => {
       default:
         console.log("region not found");
     }
+
     axios
-      .post("http://localhost:3030/users/createproject", {
+      .put(`http://localhost:3030/admin/edit_project/${params.id}`, {
         name: newProject.name,
         estimated_start_date: newProject.startDate,
         estimated_end_date: newProject.endDate,
         description: newProject.description,
-        team_completed: 0,
-        status: 0,
         domain_id: idDomaine,
-        users_id: 1,
-        blocked: 1,
         region_id: idRegions,
       })
       .then(function (response) {
@@ -146,7 +131,7 @@ const CreateProject = () => {
       .catch(function (error) {
         console.log(error);
       });
-    console.log("leaveProject");
+    setNewProject({});
   };
 
   const handleSubmit = async (e) => {
@@ -167,22 +152,19 @@ const CreateProject = () => {
     setImage(img);
   };
 
+  useEffect(() => {
+    getProjectDetails();
+    getDomains();
+    getRegions();
+  }, []);
+
   return (
     <>
       <div className="titleContainer">
+        {/* {console.log(projectDetail)} */}
         <h2>Créez votre projet</h2>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>Upload profile picture</label>
-          <input
-            type="file"
-            name="file"
-            onChange={(e) => handleFileChange(e)}
-            required
-          />
-        </div>
-
         {status && <h4>{status}</h4>}
         <div className="firstContainer">
           <div className="secondContainer">
@@ -192,17 +174,27 @@ const CreateProject = () => {
                 className="name"
                 type="text"
                 placeholder="Streetzer"
+                value={projectDetail.name}
                 onChange={(e) => {
-                  const { value } = e.target;
-                  setNewProject({ ...newProject, name: value });
-
-                  // console.log(value)
+                  setProjectDetail({ name: e.target.value });
+                  setNewProject({ ...newProject, name: e.target.value });
                 }}
-              ></input>
+              />
 
               <p>Domaine</p>
-              <select className="selectDomaine" name="Domaine" ref={mySelect}>
-                <option value="">Choisissez votre domaine</option>
+              <select
+                className="selectDomaine"
+                name="Domaine"
+                ref={mySelect}
+                onChange={(e) => {
+                  // setProjectDetail({ domain: e.target.value });
+                  setNewProject({
+                    ...newProject,
+                    domain: e.target.value,
+                  });
+                }}
+              >
+                <option value="">{projectDetail.domain}</option>
                 {domaines !== [] &&
                   domaines.map((domaine) => (
                     <option key={domaine.id} value={domaine.domain}>
@@ -214,13 +206,12 @@ const CreateProject = () => {
               <textarea
                 className="descriptionProject"
                 type="text"
+                value={projectDetail.description}
                 onChange={(e) => {
-                  const { value } = e.target;
-                  setNewProject({ ...newProject, description: value });
-
-                  // console.log(setDescription)
+                  setProjectDetail({ description: e.target.value });
+                  setNewProject({ ...newProject, description: e.target.value });
                 }}
-              ></textarea>
+              />
             </div>
             <div className="fourthContainer">
               <div className="photoContainer"></div>
@@ -248,8 +239,14 @@ const CreateProject = () => {
                   className="selectRegion"
                   name="regions"
                   ref={secondSelect}
+                  onChange={(e) => {
+                    setNewProject({
+                      ...newProject,
+                      region: e.target.value,
+                    });
+                  }}
                 >
-                  <option value="">Choisissez votre région</option>
+                  <option value="">{projectDetail.region_name}</option>
                   {regions !== [] &&
                     regions.map((region) => (
                       <option key={region.id} value={region.region_name}>
@@ -271,7 +268,7 @@ const CreateProject = () => {
                     id="date"
                     label="Date de début"
                     type="date"
-                    defaultValue="2022-02-28"
+                    defaultValue={projectDetail.date_start}
                     sx={{ width: 220 }}
                     InputLabelProps={{
                       shrink: true,
@@ -291,22 +288,23 @@ const CreateProject = () => {
                     id="date"
                     label="Date de fin"
                     type="date"
-                    defaultValue="2022-02-28"
+                    defaultValue={projectDetail.date_end}
                     sx={{ width: 220 }}
                     InputLabelProps={{
                       shrink: true,
                     }}
                   />
                 </Stack>
+                {console.log(projectDetail.date_end)}
               </div>
               <div className="seventhContainer">
                 <div className="holderButton">
                   <div className="holderButton">
                     <button
                       className="secondButton"
-                      onClick={(e) => postProject(e)}
+                      onClick={(e) => editProject(e)}
                     >
-                      Publier le projet
+                      Modifier le projet
                     </button>
                   </div>
                 </div>
@@ -319,4 +317,4 @@ const CreateProject = () => {
   );
 };
 
-export default CreateProject;
+export default AdminProjectEdition;
