@@ -93,3 +93,27 @@
 .activ {
   background-color: var(--main-dark);
 }
+
+.addAnnonce {
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: var(--main);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.addAnnonce:hover {
+  background-color: var(--main-dark);
+}
+
+.buttonAddAnnonceContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}

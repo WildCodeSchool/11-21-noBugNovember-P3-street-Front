@@ -6,22 +6,3 @@
   margin-left: 20%;
   margin-top: 5%;
 }
-.addAnnonce {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 15px;
-  border-radius: 8px;
-  background-color: var(--main);
-  background-size: 200%;
-  background-position: 0%;
-  transition: 0.4s;
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-  border: none;
-}
-
-.addAnnonce:hover {
-  background-color: var(--main-dark);
-}

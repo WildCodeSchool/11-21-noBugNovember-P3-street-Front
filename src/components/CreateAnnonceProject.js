@@ -3,12 +3,13 @@ import "../styles/CreateAnnonce.css";
 import axios from "axios";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdminReturnButton from "./AdminReturnButton";
 import NavbarAdmin from "./NavbarAdmin";
 
 const CreateAnnonceProject = () => {
   const [newAnnonce, setNewAnnonce] = useState({});
+  const [subDomains, setSubDomains] = useState([]);
   const path = "/admin/annonces";
   console.log(newAnnonce);
 
@@ -33,6 +34,16 @@ const CreateAnnonceProject = () => {
       console.log("nope");
     }
   };
+  const getSubDomains = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/subdomain`)
+      .then((response) => response.data)
+      .then((data) => setSubDomains(data));
+  };
+
+  useEffect(() => {
+    getSubDomains();
+  }, []);
 
   return (
     <>
@@ -46,17 +57,21 @@ const CreateAnnonceProject = () => {
       <form>
         <div className="firstContainer">
           <div className="secondContainer">
-            <p>Votre rôle</p>
-            <input
-              className="role"
-              type="text"
-              placeholder=""
+            <select
+              className="selectAnnonce"
+              name="Annonce"
               onChange={(e) => {
-                const { value } = e.target;
-                setNewAnnonce({ ...newAnnonce, role: value });
+                setNewAnnonce({ ...newAnnonce, role: e.target.value });
               }}
-            />
-
+            >
+              <option value="">Choisissez votre role</option>
+              {subDomains !== [] &&
+                subDomains.map((subDomain) => (
+                  <option key={subDomain.id} value={subDomain.domain}>
+                    {subDomain.art_name}
+                  </option>
+                ))}
+            </select>
             <p>Description</p>
             <textarea
               className="descriptionAnnonce"
