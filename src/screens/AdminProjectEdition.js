@@ -39,12 +39,12 @@ const AdminProjectEdition = () => {
   };
 
   const [newProject, setNewProject] = useState({
-    name: "",
-    domain: "",
-    description: "",
-    region: "",
-    startDate: "",
-    endDate: "",
+    // name: "",
+    // domain: "",
+    // description: "",
+    // region: "",
+    // startDate: "",
+    // endDate: "",
   });
   console.log(newProject);
 
@@ -52,6 +52,7 @@ const AdminProjectEdition = () => {
   let idRegions;
 
   const editProject = (e) => {
+    e.preventDefault();
     switch (newProject.domain.toLowerCase()) {
       case "arts-visuels":
         idDomaine = 1;
@@ -272,7 +273,7 @@ const AdminProjectEdition = () => {
                     id="date"
                     label="Date de début"
                     type="date"
-                    defaultValue={projectDetail.date_start}
+                    defaultValue={projectDetail.estimated_start_date}
                     sx={{ width: 220 }}
                     InputLabelProps={{
                       shrink: true,
@@ -292,7 +293,7 @@ const AdminProjectEdition = () => {
                     id="date"
                     label="Date de fin"
                     type="date"
-                    defaultValue="2022-02-28"
+                    defaultValue={projectDetail.estimated_end_date}
                     sx={{ width: 220 }}
                     InputLabelProps={{
                       shrink: true,
