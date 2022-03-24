@@ -128,7 +128,7 @@ const CreateProject = () => {
         console.log("region not found");
     }
     axios
-      .post("http://localhost:3030/createproject", {
+      .post("http://localhost:3030/users/createproject", {
         name: newProject.name,
         estimated_start_date: newProject.startDate,
         estimated_end_date: newProject.endDate,
