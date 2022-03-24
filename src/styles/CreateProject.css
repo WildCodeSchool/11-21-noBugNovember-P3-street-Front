@@ -39,6 +39,7 @@ input {
   width: 550px;
   height: 130px;
   margin: 0;
+  resize: none;
 }
 
 .region {

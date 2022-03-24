@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/CreateProject.css";
 import "react-calendar/dist/Calendar.css";
@@ -5,6 +6,8 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import NavbarAdmin from "../components/NavbarAdmin";
+import AdminReturnButton from "../components/AdminReturnButton";
 
 const AdminProjectEdition = () => {
   const [projectDetail, setProjectDetail] = useState([]);
@@ -15,9 +18,7 @@ const AdminProjectEdition = () => {
   const params = useParams();
   const mySelect = useRef();
   const secondSelect = useRef();
-  console.log(projectDetail);
-
-  console.log(projectDetail.date_end);
+  const path = "/admin/projets";
   const getProjectDetails = () => {
     axios
       .get(
@@ -47,90 +48,94 @@ const AdminProjectEdition = () => {
 
   const editProject = (e) => {
     e.preventDefault();
-    switch (mySelect.current.value.toLowerCase()) {
-      case "arts-visuels":
-        idDomaine = 1;
-        break;
-      case "musique":
-        idDomaine = 2;
-        break;
-      case "littérature et poésie":
-        idDomaine = 3;
-        break;
-      case "arts de la scène":
-        idDomaine = 4;
-        break;
-      case "cinéma":
-        idDomaine = 5;
-        break;
-      case "arts médiatiques":
-        idDomaine = 6;
-        break;
-      default:
-        console.log("domaine not found");
-    }
-    switch (secondSelect.current.value.toLowerCase()) {
-      case "auvergne-rhône-alpes":
-        idRegions = 1;
-        break;
-      case "bourgogne-franche-comté":
-        idRegions = 2;
-        break;
-      case "bretagne":
-        console.log("login");
-        // setIdrRegions(3);
-        idRegions = 3;
-        break;
-      case "centre-val de loire":
-        idRegions = 4;
-        break;
-      case "corse":
-        idRegions = 5;
-        break;
-      case "grand est":
-        idRegions = 6;
-        break;
-      case "hauts-de-france":
-        idRegions = 7;
-        break;
-      case "ile-de-france":
-        idRegions = 8;
-        break;
-      case "normandie":
-        idRegions = 9;
-        break;
+    if (confirm(`Êtes-vous sûr de vouloir modifier ce projet?`) === true) {
+      switch (mySelect.current.value.toLowerCase()) {
+        case "arts-visuels":
+          idDomaine = 1;
+          break;
+        case "musique":
+          idDomaine = 2;
+          break;
+        case "littérature et poésie":
+          idDomaine = 3;
+          break;
+        case "arts de la scène":
+          idDomaine = 4;
+          break;
+        case "cinéma":
+          idDomaine = 5;
+          break;
+        case "arts médiatiques":
+          idDomaine = 6;
+          break;
+        default:
+          console.log("domaine not found");
+      }
+      switch (secondSelect.current.value.toLowerCase()) {
+        case "auvergne-rhône-alpes":
+          idRegions = 1;
+          break;
+        case "bourgogne-franche-comté":
+          idRegions = 2;
+          break;
+        case "bretagne":
+          console.log("login");
+          // setIdrRegions(3);
+          idRegions = 3;
+          break;
+        case "centre-val de loire":
+          idRegions = 4;
+          break;
+        case "corse":
+          idRegions = 5;
+          break;
+        case "grand est":
+          idRegions = 6;
+          break;
+        case "hauts-de-france":
+          idRegions = 7;
+          break;
+        case "ile-de-france":
+          idRegions = 8;
+          break;
+        case "normandie":
+          idRegions = 9;
+          break;
 
-      case "nouvelle-aquitaine":
-        idRegions = 10;
-        break;
-      case "occitanie":
-        idRegions = 11;
-        break;
-      case "pays de la loire":
-        idRegions = 12;
-        break;
-      case "provence-alpes-côte d’azur":
-        idRegions = 13;
-        break;
-      default:
-        console.log("region not found");
-    }
+        case "nouvelle-aquitaine":
+          idRegions = 10;
+          break;
+        case "occitanie":
+          idRegions = 11;
+          break;
+        case "pays de la loire":
+          idRegions = 12;
+          break;
+        case "provence-alpes-côte d’azur":
+          idRegions = 13;
+          break;
+        default:
+          console.log("region not found");
+      }
 
-    axios
-      .put(`http://localhost:3030/admin/edit_project/${params.id}`, {
-        name: newProject.name,
-        estimated_start_date: newProject.startDate,
-        estimated_end_date: newProject.endDate,
-        description: newProject.description,
-        domain_id: idDomaine,
-        region_id: idRegions,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      axios
+        .put(`${process.env.REACT_APP_BACK}/admin/edit_project/${params.id}`, {
+          name: newProject.name,
+          estimated_start_date: newProject.startDate,
+          estimated_end_date: newProject.endDate,
+          description: newProject.description,
+          domain_id: idDomaine,
+          region_id: idRegions,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
+      console.log("nope");
+    }
     setNewProject({});
   };
 
@@ -160,9 +165,12 @@ const AdminProjectEdition = () => {
 
   return (
     <>
+      <div className="adminnavbar">
+        <NavbarAdmin />
+      </div>
+      <AdminReturnButton route={path} />
       <div className="titleContainer">
-        {/* {console.log(projectDetail)} */}
-        <h2>Créez votre projet</h2>
+        <h2>Modifier le projet</h2>
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
         {status && <h4>{status}</h4>}
@@ -187,7 +195,6 @@ const AdminProjectEdition = () => {
                 name="Domaine"
                 ref={mySelect}
                 onChange={(e) => {
-                  // setProjectDetail({ domain: e.target.value });
                   setNewProject({
                     ...newProject,
                     domain: e.target.value,

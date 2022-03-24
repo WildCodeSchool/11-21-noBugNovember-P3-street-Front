@@ -135,9 +135,13 @@
   align-items: center;
   width: 150px;
   height: 100%;
-  background-color: var(--red);
+  background-color: var(--red-light);
   color: white;
   cursor: pointer;
+  transition: 0.4s;
+}
+.onsupprimeUser:hover {
+  background-color: var(--red-dark);
 }
 .troisiemeligneUser {
   display: none;

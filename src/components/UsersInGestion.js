@@ -89,7 +89,7 @@ const UsersInGestion = ({
           <div className="entries">{user.city}</div>
         </div>
       </div>
-      {/* <div className={viewMore ? "viewMore" : "viewNone"}> */}
+
       <div className={viewMore ? "secondeligne active" : "secondeligne"}>
         <div className="cestlelogo">
           {user.avatar === null ? (
@@ -143,7 +143,6 @@ const UsersInGestion = ({
           </div>
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 };

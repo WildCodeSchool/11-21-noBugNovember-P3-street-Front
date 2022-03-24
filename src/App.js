@@ -19,6 +19,8 @@ import CreateAnnonceProject from "./components/CreateAnnonceProject";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
+import AdminUserAnnonceEdition from "./screens/AdminUserAnnonceEdition";
+import AdminProjectAnnonceEdition from "./screens/AdminProjectAnnonceEdition";
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -45,6 +47,10 @@ function App() {
         <Route path="/admin/projets" element={<AdminGestionProjects />} />
         <Route path="/admin/annonces" element={<AdminGestionAnnonces />} />
         <Route path="/add_annonces_user" element={<CreateAnnonceUser />} />
+        <Route
+          path="/edit_user_annonce/:id"
+          element={<AdminUserAnnonceEdition />}
+        />
         <Route path="/admin/ajout/:id" element={<AdminAddMates />} />
         <Route
           path="/connexion"
@@ -66,6 +72,10 @@ function App() {
         <Route
           path="/add_annonces_project"
           element={<CreateAnnonceProject />}
+        />
+        <Route
+          path="/edit_project_annonce/:id"
+          element={<AdminProjectAnnonceEdition />}
         />
         <Route path="/talents" element={<Users />} />
         <Route path="/talents/:id" element={<UserDetail />} />
