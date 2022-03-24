@@ -13,11 +13,7 @@ const AdminGestionAnnonces = () => {
   const [nonValidatedAnnonceProjet, setNonValidatedAnnonceProjet] = useState(
     []
   );
-  const [updateBlock, setUpdateBlock] = useState(false);
-  console.log("PROJET", validatedAnnonceProjet);
-  console.log("USER", validatedAnnonceUser);
-  console.log("NOT USER", nonValidatedAnnonceUser);
-  console.log("NOT PROJET", nonValidatedAnnonceProjet);
+  const [update, setUpdate] = useState(false);
 
   const getValidatedAnnoncesProjet = () => {
     axios
@@ -64,7 +60,7 @@ const AdminGestionAnnonces = () => {
     getValidatedAnnoncesUser();
     getNonValidatedAnnoncesProjet();
     getNonValidatedAnnoncesUser();
-  }, [updateBlock]);
+  }, [update]);
 
   return (
     <div className="gestionAnnonceContainer">
@@ -110,8 +106,8 @@ const AdminGestionAnnonces = () => {
                   key={el.id}
                   annonce={el}
                   isFilter={isFilter}
-                  updateBlock={updateBlock}
-                  setUpdateBlock={setUpdateBlock}
+                  update={update}
+                  setUpdate={setUpdate}
                   isValidated={isValidated}
                 />
               ))
@@ -120,8 +116,8 @@ const AdminGestionAnnonces = () => {
                   key={el.id}
                   annonce={el}
                   isFilter={isFilter}
-                  updateBlock={updateBlock}
-                  setUpdateBlock={setUpdateBlock}
+                  update={update}
+                  setUpdate={setUpdate}
                   isValidated={isValidated}
                 />
               ))
@@ -131,8 +127,8 @@ const AdminGestionAnnonces = () => {
                 key={el.id}
                 annonce={el}
                 isFilter={isFilter}
-                updateBlock={updateBlock}
-                setUpdateBlock={setUpdateBlock}
+                update={update}
+                setUpdate={setUpdate}
                 isValidated={isValidated}
               />
             ))
@@ -141,8 +137,8 @@ const AdminGestionAnnonces = () => {
                 key={el.id}
                 annonce={el}
                 isFilter={isFilter}
-                updateBlock={updateBlock}
-                setUpdateBlock={setUpdateBlock}
+                update={update}
+                setUpdate={setUpdate}
                 isValidated={isValidated}
               />
             ))}

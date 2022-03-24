@@ -17,6 +17,7 @@ const AdminProjectEdition = () => {
   const secondSelect = useRef();
   console.log(projectDetail);
 
+  console.log(projectDetail.date_end);
   const getProjectDetails = () => {
     axios
       .get(
@@ -38,14 +39,7 @@ const AdminProjectEdition = () => {
       .then((res) => setRegions(res.data));
   };
 
-  const [newProject, setNewProject] = useState({
-    // name: "",
-    // domain: "",
-    // description: "",
-    // region: "",
-    // startDate: "",
-    // endDate: "",
-  });
+  const [newProject, setNewProject] = useState({});
   console.log(newProject);
 
   let idDomaine;
@@ -53,7 +47,7 @@ const AdminProjectEdition = () => {
 
   const editProject = (e) => {
     e.preventDefault();
-    switch (newProject.domain.toLowerCase()) {
+    switch (mySelect.current.value.toLowerCase()) {
       case "arts-visuels":
         idDomaine = 1;
         break;
@@ -75,7 +69,7 @@ const AdminProjectEdition = () => {
       default:
         console.log("domaine not found");
     }
-    switch (newProject.region.toLowerCase()) {
+    switch (secondSelect.current.value.toLowerCase()) {
       case "auvergne-rhône-alpes":
         idRegions = 1;
         break;
@@ -137,6 +131,7 @@ const AdminProjectEdition = () => {
       .catch(function (error) {
         console.log(error);
       });
+    setNewProject({});
   };
 
   const handleSubmit = async (e) => {
@@ -273,7 +268,7 @@ const AdminProjectEdition = () => {
                     id="date"
                     label="Date de début"
                     type="date"
-                    defaultValue={projectDetail.estimated_start_date}
+                    defaultValue={projectDetail.date_start}
                     sx={{ width: 220 }}
                     InputLabelProps={{
                       shrink: true,
@@ -293,13 +288,14 @@ const AdminProjectEdition = () => {
                     id="date"
                     label="Date de fin"
                     type="date"
-                    defaultValue={projectDetail.estimated_end_date}
+                    defaultValue={projectDetail.date_end}
                     sx={{ width: 220 }}
                     InputLabelProps={{
                       shrink: true,
                     }}
                   />
                 </Stack>
+                {console.log(projectDetail.date_end)}
               </div>
               <div className="seventhContainer">
                 <div className="holderButton">

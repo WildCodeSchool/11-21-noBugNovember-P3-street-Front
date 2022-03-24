@@ -12,8 +12,8 @@ const AnnonceInGestion = ({
   getNonValidatedAnnoncesUser,
   getValidatedAnnoncesProjet,
   getNonValidatedAnnoncesProjet,
-  updateBlock,
-  setUpdateBlock,
+  update,
+  setUpdate,
   isValidated,
 }) => {
   const [viewMore, setViewMore] = useState(false);
@@ -29,8 +29,7 @@ const AnnonceInGestion = ({
           `${process.env.REACT_APP_BACK}/admin/projects_annonces_delete/${annonce.id}`
         );
         alert(`Annonce supprimée`);
-        getValidatedAnnoncesProjet();
-        getNonValidatedAnnoncesProjet();
+        setUpdate(!update);
         console.log("annonce deleted");
       } else {
         console.log("user not deleted");
@@ -45,8 +44,7 @@ const AnnonceInGestion = ({
           `${process.env.REACT_APP_BACK}/admin/users_annonces_delete/${annonce.id}`
         );
         alert(`Annonce supprimée`);
-        getValidatedAnnoncesUser();
-        getNonValidatedAnnoncesUser();
+        setUpdate(!update);
         console.log("annonce deleted");
       } else {
         console.log("user not deleted");
@@ -72,7 +70,7 @@ const AnnonceInGestion = ({
             blocked: value,
           }
         );
-    setUpdateBlock(!updateBlock);
+    setUpdate(!update);
   };
 
   return (
