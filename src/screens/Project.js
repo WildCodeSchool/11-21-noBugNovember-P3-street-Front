@@ -6,6 +6,7 @@ import "../styles/Project.css";
 import "../styles/SearchContainer.css";
 import SearchDomain from "../components/SearchDomain";
 import SearchSubDomain from "../components/SearchSubDomain";
+import Footer from "../components/Footer";
 
 const Project = () => {
   const [allProjects, setAllProjects] = useState([]);
@@ -22,7 +23,7 @@ const Project = () => {
   const [selectStatus, setSelectStatus] = useState();
   //    console.log("status", selectStatus);
   // console.log("view", selectView);
-  console.log("domain", selectDomain)
+  console.log("domain", selectDomain);
 
   const arreteTout = (id) => {
     setIsFilter(false);
@@ -187,7 +188,7 @@ const Project = () => {
           ""
         )}
         <div className="selector search" onClick={() => letsGo()}>
-          <i className="fa-solid fa-magnifying-glass" />
+          <i class="fa-solid fa-check" />
         </div>
         <div className="selector cancel" onClick={() => goodBye()}>
           <i className="fa-solid fa-xmark"></i>
@@ -210,6 +211,7 @@ const Project = () => {
               <ProjectAnnonceCard annonce={el} key={index} />
             ))}
       </div>
+      <Footer />
     </div>
   );
 };

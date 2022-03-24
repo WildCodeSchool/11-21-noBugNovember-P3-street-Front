@@ -9,19 +9,6 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <div>
-      {/*       <div className="holderCarousel">
-        <Splide>
-          <SplideSlide>
-            <img className="holderImg" src={photo2} alt="images" />
-          </SplideSlide>
-          <SplideSlide>
-            <img className="holderImg" src={guitarneon} alt="images" />
-          </SplideSlide>
-          <SplideSlide>
-            <img className="holderImg" src={hommeregard} alt="images" />
-          </SplideSlide>
-        </Splide>
-      </div> */}
       <div className="homeBanner">
         <div className="overlayBanner">
           <h1>
@@ -33,25 +20,30 @@ const Home = () => {
             <em>- Elder Camara</em>
           </h1>
         </div>
+
         <img className="holderImg" src={test2} alt="images" />
       </div>
       <div className="sections">
         <div className="homePresentation">
           <div className="framePresentation">
-            <p>
-              Présentation de <b>STREETZER</b>
-            </p>
-            <p>« Le facilitateur d’émergences de projets artistiques » </p>
-            <p>
-              <b>STREETZER</b> est une plateforme de mise en relations
-              artistiques afin de Co-créer des projets afin de révéler les
-              talents de demain.
-            </p>
-            <p>
-              « Briser l'isolement et libérer le potentiel artistique de chacun
-              en favorisant la rencontre d'artistes et de techniciens. »
-            </p>
-            <div className="button btnNousrejoindre">Nous rejoindre</div>
+            <div className="framePresentationallP">
+              <p>
+                Présentation de <b>STREETZER</b>
+              </p>
+              <br></br>
+              <p>« Le facilitateur d’émergences de projets artistiques » </p>
+              <p>
+                <b>STREETZER</b> est une plateforme de mise en relations
+                artistiques afin de Co-créer des projets afin de révéler les
+                talents de demain.
+              </p>
+              <p>
+                « Briser l'isolement et libérer le potentiel artistique de
+                chacun en favorisant la rencontre d'artistes et de techniciens.
+                »
+              </p>
+            </div>
+            <div className="btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>
         <h1>Projets terminés récemment</h1>
@@ -76,10 +68,12 @@ const Home = () => {
           />
         </div>
         <div className=" tousLesProjets">
-          <div className="tousLesProjetsBtn">
-            Tous les projets sur Youtube &#160;
-            <i class="fa-brands fa-youtube"></i>
-          </div>
+          <a href="http://www.youtube.com" target="_blank">
+            <div className="tousLesProjetsBtn">
+              Tous les projets sur Youtube &#160;
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+          </a>
         </div>
         <div className="containerSpacer">
           <div className="spacerHome"></div>

@@ -2,6 +2,8 @@ import SearchDomain from "../components/SearchDomain";
 import SearchSubDomain from "../components/SearchSubDomain";
 import UserCardAnnonce from "../components/UserCardAnnonce";
 import UserCard from "../components/UserCard";
+
+import Footer from "../components/Footer";
 import "../styles/User.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -172,7 +174,7 @@ const Users = () => {
           </div>
         </div>
         <div className="selector search" onClick={() => letsGo()}>
-          <i className="fa-solid fa-magnifying-glass" />
+          <i class="fa-solid fa-check" />
         </div>
         <div className="selector cancel" onClick={() => goodBye()}>
           <i className="fa-solid fa-xmark"></i>
@@ -197,6 +199,7 @@ const Users = () => {
                   spotify={users.spotify}
                   twitter={users.twitter}
                   youtube={users.youtube}
+                  tiktok={users.tiktok}
                   description={users.description_users}
                   domain={users.domain}
                   artname={users.art_name}
@@ -219,6 +222,7 @@ const Users = () => {
                   spotify={users.spotify}
                   twitter={users.twitter}
                   youtube={users.youtube}
+                  tiktok={users.tiktok}
                   description={users.description_users}
                   domain={users.domain}
                   artname={users.art_name}
@@ -244,6 +248,7 @@ const Users = () => {
                 spotify={users.spotify}
                 twitter={users.twitter}
                 youtube={users.youtube}
+                tiktok={users.tiktok}
                 descriptionAnnonce={users.description_annonce}
                 date={users.date}
               />
@@ -266,11 +271,13 @@ const Users = () => {
                 spotify={users.spotify}
                 twitter={users.twitter}
                 youtube={users.youtube}
+                tiktok={users.tiktok}
                 descriptionAnnonce={users.description_annonce}
                 date={users.date}
               />
             ))}
       </div>
+      <Footer />
     </div>
   );
 };

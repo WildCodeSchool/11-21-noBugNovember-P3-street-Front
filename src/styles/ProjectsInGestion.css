@@ -1,37 +1,3 @@
-.projectgestion {
-	display: flex;
-	position: relative;
-	flex-direction: column;
-	align-items: flex-start;
-	width: 100%;
-	height: 50px;
-	border-radius: 25px 0px 0px 25px;
-	margin: 10px;
-	background-color: var(--second);
-	transition: 0.5s;
-}
-
-.projectgestion.active {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	width: 100%;
-	height: 220px;
-	border-radius: 25px 0px 0px 25px;
-	margin: 10px;
-}
-
-.premiereligne {
-	display: flex;
-	align-items: flex-start;
-	width: 100%;
-	height: 50px;
-}
-
-.descrip {
-	padding: 10px;
-}
-
 .buttomreveal {
 	display: flex;
 	position: relative;
@@ -47,51 +13,6 @@
 	cursor: pointer;
 }
 
-.premierebarre {
-	position: absolute;
-	font-weight: bold;
-	left: 13px;
-	transition: 0.5s;
-}
-
-.secondebarre {
-	position: absolute;
-	font-weight: bold;
-	right: 13px;
-	transition: 0.5s;
-}
-
-.premierebarre.active {
-	position: absolute;
-	left: 18px;
-}
-
-.secondebarre.active {
-	position: absolute;
-	right: 18px;
-}
-
-.contentprojectadmin {
-	display: flex;
-	color: white;
-	width: 100%;
-	height: 100%;
-	align-items: center;
-	justify-content: space-around;
-}
-
-.secondeligne {
-	display: none;
-	transition: 0.5;
-}
-
-.secondeligne.active {
-	display: flex;
-	width: 100%;
-	padding: 5px;
-	color: white;
-}
-
 .cestlelogo {
 	display: flex;
 }
@@ -103,33 +24,36 @@
 	border-radius: 50%;
 }
 
-.troisiemeligne {
-	display: none;
-}
-
-.troisiemeligne.active {
-	position: absolute;
-	display: flex;
-	width: 100%;
-	height: 40px;
-	padding-left: 10px;
-	justify-content: space-between;
-	align-items: center;
-	bottom: 0;
-	color: white;
-}
-
-.onvalide {
+.changestatus {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	width: 150px;
 	height: 100%;
-	background-color: var(--main);
+	background-color: var(--grey);
 	color: white;
-	border-radius: 30px 0px 0px 0px;
+	border-radius: 0px 0px 0px 0px;
 	cursor: pointer;
+}
+
+.contentprojectadmin {
+	display: flex;
+	color: white;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.descrip {
+	padding: 10px;
+}
+
+.lesbouttons {
+	display: flex;
+	height: 100%;
 }
 
 .ondegage {
@@ -155,7 +79,127 @@
 	cursor: pointer;
 }
 
-.lesbouttons {
+.onvalide {
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 150px;
 	height: 100%;
+	background-color: var(--main);
+	color: white;
+	border-radius: 30px 0px 0px 0px;
+	cursor: pointer;
+}
+
+.popup {
+	position: absolute;
+	display: none;
+	top: 0;
+}
+
+.popup.active {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: -60px;
+	width: 220%;
+	/*border: solid 1px black;*/
+	background-color: var(--main);
+	border-radius: 20px 20px 20px 20px;
+}
+
+.premiereligne {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+	height: 50px;
+}
+
+.premierebarre {
+	position: absolute;
+	font-weight: bold;
+	left: 13px;
+	transition: 0.5s;
+}
+
+.premierebarre.active {
+	position: absolute;
+	left: 18px;
+}
+
+.projectgestion {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px 0px 0px 25px;
+	margin: 10px;
+	background-color: var(--second);
+	transition: 0.5s;
+}
+
+.projectgestion.active {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	height: 220px;
+	border-radius: 25px 0px 0px 25px;
+	margin: 10px;
+}
+
+.troisiemeligne {
+	display: flex;
+	opacity: 0;
+	transition: 0.2s;
+}
+
+.troisiemeligne.active {
+	position: absolute;
+	opacity: 1;
+	display: flex;
+	width: 100%;
+	height: 40px;
+	padding-left: 10px;
+	justify-content: space-between;
+	align-items: center;
+	bottom: 0;
+	color: white;
+}
+
+.recherche:hover,
+.enequipe:hover,
+.finish:hover {
+	border: solid 1px white;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.secondebarre {
+	position: absolute;
+	font-weight: bold;
+	right: 13px;
+	transition: 0.5s;
+}
+
+.secondebarre.active {
+	position: absolute;
+	right: 18px;
+}
+
+.secondeligne {
+	display: flex;
+	opacity: 0;
+	transition: 0.2s;
+}
+
+.secondeligne.active {
+	display: flex;
+	width: 100%;
+	padding: 5px;
+	opacity: 1;
+	color: white;
 }

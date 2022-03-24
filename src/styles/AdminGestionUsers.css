@@ -1,6 +1,6 @@
 .gestionUsersContainer {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,20 +18,57 @@
   flex-direction: column;
   padding: 1%;
 }
-.activ {
-  padding: 1%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .filtreGestionUsers {
-  background-color: var(--main);
-  border-radius: 35px;
-  width: 30%;
   display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 40%;
   color: white;
   cursor: pointer;
 }
+
+.isvalidatedUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px 0px 0px 15px;
+}
+.isvalidatedUser.activ {
+  background-color: var(--main-dark);
+}
+.isUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  /* border-radius: 0px 15px 15px 0px; */
+}
+.isFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 15px 15px 0px;
+}
+.isUser.activ {
+  background-color: var(--main-dark);
+}
+.searchBar {
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* .searchtruc {
+  color: red;
+  position: relative;
+  right: 50px;
+} */

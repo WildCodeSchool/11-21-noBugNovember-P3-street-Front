@@ -39,6 +39,15 @@ const Reseaux = (props) => {
 					</a>
 				)}
 			</div>
+			<div className="toktok">
+				{props.spotify === null ? (
+					''
+				) : (
+					<a href={props.tiktok}>
+						<i className="fa-brands fa-tiktok" />
+					</a>
+				)}
+			</div>
 		</div>
 	);
 };
