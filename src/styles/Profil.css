@@ -165,20 +165,20 @@
     font-size: 13px;
   }
   
-  .form-input-btn {
+  .profil-input-btn {
     display: flex;
     justify-content: center;
     width: 30%;
     border-radius: 3px;
     background-color: var(--second);
-    color: #fff;
+    color: white;
     font-size: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-top: 15px;
   }
     
-  .form-input-btn:hover {
+  .profil-input-btn:hover {
     cursor: pointer;
   }
   

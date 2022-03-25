@@ -9,7 +9,6 @@ button {
 .connexion {
   height: 94vh;
   display: flex;
-  flex-direction: ;
   align-items: center;
   justify-content: center;
 }
@@ -127,9 +126,6 @@ button {
   justify-content: center;
   align-content: center;
   font-weight: normal;
-}
-
-.creationButton {
 }
 
 .buttons {

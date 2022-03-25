@@ -165,7 +165,7 @@
     font-size: 13px;
   }
   
-  .form-input-btn {
+  .update-input-btn {
     display: flex;
     justify-content: center;
     width: 30%;
@@ -179,7 +179,7 @@
   
   }
     
-  .form-input-btn:hover {
+  .update-input-btn:hover {
     cursor: pointer;
   }
   

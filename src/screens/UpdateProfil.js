@@ -88,7 +88,7 @@ const handleSubDomain= (e) => {
     <div className='form-container'>
       <div className='form-content'>
         <div className='join'>
-          <h1>Bienvenue chez Streezer !</h1>
+          <h1>Bienvenue chez Streezer - Modification de votre profil !</h1>
         </div>
         (*) = Informations obligatoires
         {console.log('ID',domainId)}
@@ -303,9 +303,9 @@ const handleSubDomain= (e) => {
             />
             </div>
             <Link to="/update_profil">
-									<div className='form-input-btn'>
-										<input type="submit" value="Enregistrer" />
-									</div>
+            <button className='update-input-btn' type='submit'>
+          Enregistrer
+          </button>
 						</Link>
         </div>
       </form>

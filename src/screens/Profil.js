@@ -41,7 +41,7 @@ const Profil = () => {
 };
 
   const getProfil = () => {
-    axios.get(`${process.env.REACT_APP_BACK}/profil`)
+    axios.get(`${process.env.REACT_APP_BACK}/users/profil`)
          .then((res) => res.data)
          .then((data) => setProfil(data))
   };
@@ -303,9 +303,9 @@ const handleSubDomain= (e) => {
             />
             </div>
             <Link to="/update_profil">
-									<div className='form-input-btn'>
-										<input type="submit" value="Modifier votre compte" />
-									</div>
+            <button className='profil-input-btn' type='submit'>
+          Modifier votre profil
+          </button>
 						</Link>
         </div>
       </form>
