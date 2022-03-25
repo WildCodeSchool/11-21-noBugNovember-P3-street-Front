@@ -11,7 +11,6 @@
   justify-content: center;
   margin: 10px;
   font-family: "Roboto", sans-serif;
-  font-size: 1.4em;
   color: white;
   text-align: center;
 }
@@ -19,6 +18,8 @@
 .description3 {
   margin-left: 5px;
   margin-right: 5px;
+  height: 100%;
+  padding: 20px 0px;
 }
 
 .dispo2 {
@@ -33,6 +34,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 5vh;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -52,7 +54,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 1.25em;
+
   width: 250px;
   padding: 10px;
   background-color: #094fabd0;
@@ -78,7 +80,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 1.25em;
+
   width: 250px;
   padding: 10px;
   background-color: #094fabd0;
@@ -108,9 +110,9 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 40%;
-  height: 90vh;
+  /* height: max-content; */
   background-color: var(--main);
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   border-radius: 40px 40px 40px 40px;
 }
 
@@ -123,8 +125,9 @@
 .UserDetail {
   display: flex;
   position: relative;
-  left: 5%;
-  margin-top: 40px;
   justify-content: center;
-  width: 90%;
+  /* width: 90%; */
+  /* width: 40%; */
+  min-height: 94vh;
+  padding: 2% 5%;
 }
