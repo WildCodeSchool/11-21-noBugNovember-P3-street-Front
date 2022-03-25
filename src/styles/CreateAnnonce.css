@@ -1,0 +1,99 @@
+.firstContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 15%;
+  left: 30%;
+  margin-top: 60px;
+}
+
+.titleContainer {
+  display: flex;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: 3px;
+}
+.role {
+  background-color: white;
+  border: 1px solid black;
+  width: 200px;
+  height: 30px;
+}
+
+.descriptionAnnonce {
+  width: 550px;
+  height: 130px;
+  margin: 0;
+  resize: none;
+}
+
+.fourthContainer {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  left: 145%;
+  bottom: 80%;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  left: -3%;
+  bottom: -37%;
+  width: 114%;
+}
+
+.holderButton {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  top: 115%;
+  left: 32%;
+  width: 100%;
+}
+
+.firstButton {
+  height: 30px;
+  width: 180px;
+}
+
+.date {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sixthContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.css-1lwbda4-MuiStack-root {
+  /* margin-block: 10px;
+      margin-inline: 0; */
+  margin: 10px 0;
+}
+
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgb(0 0 0) !important;
+  font-size: 19px !important;
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-color: rgb(0 0 0) !important;
+}
+
+.secondButton {
+  height: 35px;
+  width: 150px;
+  background-color: rgba(9, 171, 133, 1);
+  color: white;
+}
