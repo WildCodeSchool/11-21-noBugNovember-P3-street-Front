@@ -1,7 +1,6 @@
 .cache {
   display: none;
 }
-
 .blaze,
 .onejob,
 .living,
@@ -14,14 +13,12 @@
   color: white;
   text-align: center;
 }
-
 .description3 {
   margin-left: 5px;
   margin-right: 5px;
   height: 100%;
   padding: 20px 0px;
 }
-
 .dispo2 {
   display: flex;
   justify-content: center;
@@ -29,7 +26,6 @@
   margin: 15px;
   color: white;
 }
-
 .lefiltre {
   display: flex;
   justify-content: center;
@@ -38,7 +34,6 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 .lanceur {
   margin: 50px auto 0;
   padding: 0 20px;
@@ -48,13 +43,11 @@
   grid-gap: 45px;
   justify-content: center;
 }
-
 .lancerbyuser {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-
   width: 250px;
   padding: 10px;
   background-color: #094fabd0;
@@ -63,24 +56,20 @@
   appearance: none;
   transition: 0.5s;
 }
-
 .lancerbyuser:hover,
 .participatebyuser:hover {
   background-color: #094fab;
   cursor: pointer;
 }
-
 .lancerbyuser.active,
 .participatebyuser.active {
   background-color: #094fab;
 }
-
 .participatebyuser {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-
   width: 250px;
   padding: 10px;
   background-color: #094fabd0;
@@ -89,45 +78,36 @@
   appearance: none;
   transition: 0.5s;
 }
-
 .perso {
   display: flex;
   justify-content: center;
   border-radius: 50%;
   margin-bottom: 10px;
 }
-
 .perso img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
 }
-
 .profil {
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: flex-start;
   width: 40%;
-  /* height: max-content; */
   background-color: var(--main);
-  /* font-family: "Roboto", sans-serif; */
   border-radius: 40px 40px 40px 40px;
 }
-
 .projects {
   display: flex;
   flex-direction: column;
   width: 60%;
 }
-
 .UserDetail {
   display: flex;
   position: relative;
   justify-content: center;
-  /* width: 90%; */
-  /* width: 40%; */
   min-height: 94vh;
   padding: 2% 5%;
 }
