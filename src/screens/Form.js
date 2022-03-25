@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import '../styles/Form.css';
-import FormSuccess from '../components/FormSucces';
-import validate from '../components/ValidateInfo';
-import useForm from '../components/useForm';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import "../styles/Form.css";
+import FormSuccess from "../components/FormSucces";
+import validate from "../components/ValidateInfo";
+import useForm from "../components/useForm";
+import axios from "axios";
 
 const Form = () => {
-	const [isSubmitted, setIsSubmitted] = useState(false);
-	const [domain, setDomain] = useState([]);
-	const [subDomain, setSubdomain] = useState([]);
-	const [isFilter, setIsFilter] = useState(false);
-	const [reponse, setReponse] = useState([]);
-	const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
-	const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
-	const [domainId, setDomainId] = useState();
-	const [subDomainId, setSubDomainId] = useState();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [domain, setDomain] = useState([]);
+  const [subDomain, setSubdomain] = useState([]);
+  const [isFilter, setIsFilter] = useState(false);
+  const [reponse, setReponse] = useState([]);
+  const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
+  const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
+  const [domainId, setDomainId] = useState();
+  const [subDomainId, setSubDomainId] = useState();
 
   console.log(domain)
   const submitForm = () => {
@@ -26,33 +26,33 @@ const Form = () => {
     validate
   );
 
-	const getSubdomain = () => {
-		axios
-			.get(`${process.env.REACT_APP_BACK}/all/subdomain`)
-			.then((res) => res.data)
-			.then((data) => setSubdomain(data));
-	};
+  const getSubdomain = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/subdomain`)
+      .then((res) => res.data)
+      .then((data) => setSubdomain(data));
+  };
 
-	const getDomain = () => {
-		axios
-			.get(`${process.env.REACT_APP_BACK}/all/domain`)
-			.then((res) => res.data)
-			.then((data) => setDomain(data));
-	};
+  const getDomain = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/domain`)
+      .then((res) => res.data)
+      .then((data) => setDomain(data));
+  };
 
   useEffect(() => {
-    getDomain()
-    getSubdomain()
-  }, []); 
-  
+    getDomain();
+    getSubdomain();
+  }, []);
+
   useEffect(() => {
     if (selectDomain !== undefined) {
       axios
-      .put(`${process.env.REACT_APP_BACK}/all/domain_has_sub_domain`, {
-        domain: selectDomain,
-      })
-      .then((response) => response.data)
-      .then((data) => setReponse(data));
+        .put(`${process.env.REACT_APP_BACK}/all/domain_has_sub_domain`, {
+          domain: selectDomain,
+        })
+        .then((response) => response.data)
+        .then((data) => setReponse(data));
       setIsFilter(true);
       // console.log(selectDomain)
     } else {
@@ -61,67 +61,48 @@ const Form = () => {
   }, [selectDomain]);
   // console.log(values)
 
-const handleDomain = (e) => {
-  let choice = e.target.value
-  setSelectDomain(choice)
-  const getId = domain.filter((el) => el.domain.includes(choice))
-  setDomainId(getId[0].id)
-  handleChange(e)
-};
-const handleSubDomain= (e) => {
-  let choice = e.target.value
-  setSelectSubDomain(choice)
-  const getId = subDomain.filter((el) => el.art_name.includes(choice))
-  setSubDomainId(getId[0].id)
-  handleChange(e)
-}
+  const handleDomain = (e) => {
+    let choice = e.target.value;
+    setSelectDomain(choice);
+    const getId = domain.filter((el) => el.domain.includes(choice));
+    setDomainId(getId[0].id);
+    handleChange(e);
+  };
+  const handleSubDomain = (e) => {
+    let choice = e.target.value;
+    setSelectSubDomain(choice);
+    const getId = subDomain.filter((el) => el.art_name.includes(choice));
+    setSubDomainId(getId[0].id);
+    handleChange(e);
+  };
 
+  console.log(values.firstname);
+  const submitUser = () => {
+    axios.post(`${process.env.REACT_APP_BACK}/users/submitUser`, {
+      admin: 0,
+      blocked: 1,
+      firstname: values.firstname,
+      lastname: values.lastname,
+      password: values.password,
+      email: values.email,
+      phone: values.phone,
+      birthday: "1993-08-10",
+      city: values.city,
+      country: values.country,
+      forget_password: "lol",
+      youtube: values.instagram,
+      instagram: values.instagram,
+      twitter: values.twitter,
+      spotify: values.spotify,
+      description_users: values.description,
+      available: 1,
+      phoneVisibility: 1,
+      emailVisibility: 1,
+      domain_id: domainId,
+      sub_domain_id: subDomainId,
+    });
+  };
 
-const submitUser = () => {
-  axios.post(`${process.env.REACT_APP_BACK}/users/submitUser`, {
-    admin: 0,
-    blocked:1,
-    firstname: values.firstname,
-    lastname: values.lastname,
-    password: values.password,
-    email: values.email,
-    phone: values.phone,
-    birthday: values.birthday,
-    city: values.city,
-    country: values.country,
-    forget_password:'lol',
-    youtube: values.instagram,
-    instagram: values.instagram,
-    twitter: values.twitter,
-    spotify: values.spotify,
-    tiktok: values.tiktok,
-    description_users: values.description,
-    available: 1,
-    phoneVisibility: 1,
-    emailVisibility: 1,
-    domain_id: domainId,
-    sub_domain_id: subDomainId
-  });
-};
-// const handleAvatar = async (e) => {
-  //   e.preventDefault();
-  //   let formData = new FormData();
-  //   formData.append("file", image.data);
-  //   const response = await fetch("http://localhost:3030/all/image", {
-//     method: "POST",
-//     body: formData,
-//   });
-//   if (response) setStatus(response.statusText);
-// };
-
-// const handleFileChange = (e) => {
-  //   const img = {
-    //     data: e.target.files[0],
-    //   };
-    //   setImage(img);
-    // };
-    
-    
     return (
       <>
     <div className='form-container'>
@@ -354,8 +335,9 @@ const submitUser = () => {
           }
       </div> 
     </>
+	
         );
-};
-    
+
+	};	  
 
 export default Form;
