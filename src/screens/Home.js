@@ -1,12 +1,29 @@
 import { Link } from "react-router-dom";
-import guitarneon from "../assets/front.jpg";
-import Assmaph from "../assets/Assmaph.jpg";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import ProjectCard from "../components/ProjectCard";
 import test2 from "../assets/test2.jpg";
 import "../styles/Home.css";
-import UserCard from "../components/UserCard";
 import Footer from "../components/Footer";
 
 const Home = () => {
+  /* ====================================== DEBUT - RECUPERATION DONNEES ====================================== */
+
+  const [last3projects, setLast3projects] = useState([]); //Stockage des données de l'axios
+
+  const searchLast3Projects = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/last3projects`) //Récupération des données de la requete respondante a la route
+      .then((response) => response.data) //Récupération de la partie "data" uniquement
+      .then((data) => setLast3projects(data)); //Envoie des datas dans last3projects
+  };
+
+  /* ====================================== FIN - RECUPERATION DONNEES ====================================== */
+
+  useEffect(() => {
+    searchLast3Projects(); //Collecte des données des 3 projets les plus récents au chargement de la page
+  }, []);
+
   return (
     <div>
       {/* ====================================== DEBUT - HOME BANNER ====================================== */}
@@ -58,27 +75,13 @@ const Home = () => {
 
         <h1>Projets terminés récemment</h1>
         <div className="homeDoneProjects">
-          <UserCard
-            avatar={null}
-            firstname="Break Free"
-            artname="Street Art"
-            description="« Un vent de liberté souffle dans la ville de Toulouse avec ce projet Street Art. Un besoin vital de se libérer et reprendre le contrôle de nos vies. »"
-          />
-          <UserCard
-            avatar={null}
-            firstname="King Monsters"
-            artname="Musique"
-            description="Nina est une nouvelle artiste chanteuse – Interprète, à l’univers plutôt sombre. King Monsters est son premier tube qu’elle partage sur la plateforme. "
-          />
-          <UserCard
-            avatar={null}
-            firstname="Back to Dust"
-            artname="Court métrage"
-            description="Ethan étant malade, épuisé et cerné par la vie, voit son état se dégrader de jours en jours, sans amélioration. Ne lui restant plus beaucoup de temps."
-          />
+          {/* Génération des cartes ProjectCard via les données de last3projects */}
+          {last3projects.map((el, index) => (
+            <ProjectCard project={el} key={index} />
+          ))}
         </div>
         <div className=" tousLesProjets">
-          <a href="http://www.youtube.com" target="_blank">
+          <a href="http://www.youtube.com" target="_blank" rel="noreferrer">
             <div className="tousLesProjetsBtn">
               Tous les projets sur Youtube &#160;
               <i class="fa-brands fa-youtube"></i>
