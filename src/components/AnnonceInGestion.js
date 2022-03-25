@@ -1,17 +1,23 @@
 /* eslint-disable no-restricted-globals */
 import axios from "axios";
 import avatar from "../assets/avatar.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/ProjectsInGestion.css";
 
 const AnnonceInGestion = ({
   annonce,
   isFilter,
-  getAnnoncesUser,
-  getAnnoncesProjet,
+  getValidatedAnnoncesUser,
+  getNonValidatedAnnoncesUser,
+  getValidatedAnnoncesProjet,
+  getNonValidatedAnnoncesProjet,
+  update,
+  setUpdate,
+  isValidated,
 }) => {
   const [viewMore, setViewMore] = useState(false);
+
   const deleteAnnonce = (id) => {
     if (isFilter === true) {
       if (
@@ -23,7 +29,7 @@ const AnnonceInGestion = ({
           `${process.env.REACT_APP_BACK}/admin/projects_annonces_delete/${annonce.id}`
         );
         alert(`Annonce supprimée`);
-        getAnnoncesProjet();
+        setUpdate(!update);
         console.log("annonce deleted");
       } else {
         console.log("user not deleted");
@@ -38,7 +44,7 @@ const AnnonceInGestion = ({
           `${process.env.REACT_APP_BACK}/admin/users_annonces_delete/${annonce.id}`
         );
         alert(`Annonce supprimée`);
-        getAnnoncesUser();
+        setUpdate(!update);
         console.log("annonce deleted");
       } else {
         console.log("user not deleted");
@@ -48,6 +54,23 @@ const AnnonceInGestion = ({
 
   const iWantView = () => {
     setViewMore(!viewMore);
+  };
+
+  const blockUnblock = (value) => {
+    annonce.name
+      ? axios.put(
+          `${process.env.REACT_APP_BACK}/admin/annonce_project/${annonce.id}`,
+          {
+            blocked: value,
+          }
+        )
+      : axios.put(
+          `${process.env.REACT_APP_BACK}/admin/annonce_user/${annonce.id}`,
+          {
+            blocked: value,
+          }
+        );
+    setUpdate(!update);
   };
 
   return (
@@ -108,9 +131,21 @@ const AnnonceInGestion = ({
         </div>
         <div className="elstatus"></div>
         <div className="lesbouttons">
-          <div className="onsupprime" onClick={deleteAnnonce}>
-            Supprimer l'annonce
+          <div
+            className={annonce.blocked === 0 ? "onsupprime" : "onvalideUser"}
+            onClick={() =>
+              annonce.blocked ? blockUnblock(0) : blockUnblock(1)
+            }
+          >
+            {annonce.blocked === 0 ? "Bloquer" : "Valider"}
           </div>
+          {isValidated ? (
+            ""
+          ) : (
+            <div className="onsupprime" onClick={deleteAnnonce}>
+              Supprimer l'annonce
+            </div>
+          )}
         </div>
       </div>
     </div>

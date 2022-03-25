@@ -1,161 +1,111 @@
-.projectgestion {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  height: 50px;
-  border-radius: 25px 0px 0px 25px;
-  margin: 10px;
-  background-color: var(--second);
-  transition: 0.5s;
-}
-
-.projectgestion.active {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  height: 220px;
-  border-radius: 25px 0px 0px 25px;
-  margin: 10px;
-}
-
-.premiereligne {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  height: 50px;
-}
-
-.descrip {
-  padding: 10px;
-}
-
-.buttomreveal {
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  margin-left: 3px;
-  margin-top: 3px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: solid 2px white;
-  color: white;
-  cursor: pointer;
-}
-
-.premierebarre {
-  position: absolute;
-  font-weight: bold;
-  left: 13px;
-  transition: 0.5s;
-}
-
-.secondebarre {
-  position: absolute;
-  font-weight: bold;
-  right: 13px;
-  transition: 0.5s;
-}
-
-.premierebarre.active {
-  position: absolute;
-  left: 18px;
-}
-
-.secondebarre.active {
-  position: absolute;
-  right: 18px;
-}
-
-.contentprojectadmin {
-  display: flex;
-  color: white;
-  width: 100%;
+.gestionAnnonceContainer {
+  width: 100vw;
   height: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
 }
-
-.secondeligne {
-  display: none;
-  transition: 0.5;
-}
-
-.secondeligne.active {
-  display: flex;
-  width: 100%;
-  padding: 5px;
-  color: white;
-}
-
-.cestlelogo {
-  display: flex;
-}
-
-.cestlelogo img {
-  height: 100px;
-  width: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.troisiemeligne {
-  display: none;
-}
-
-.troisiemeligne.active {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  height: 40px;
-  padding-left: 10px;
-  justify-content: space-between;
-  align-items: center;
-  bottom: 0;
-  color: white;
-}
-
-.onvalide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.adminTitle {
   text-align: center;
-  width: 150px;
-  height: 100%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+.tableauContainer {
+  margin-top: 2%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1%;
+}
+.filtreGestionAnnonce {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+}
+
+.isAnnonceUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--main);
-  color: white;
-  border-radius: 30px 0px 0px 0px;
-  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px 0px 0px 15px;
 }
 
-.ondegage {
+.isAnnonceProject {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 15px 15px 0px;
+}
+.isFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 15px 15px 0px;
+}
+.searchBar {
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.filtreValidate {
+  margin-top: 10px;
+  display: flex;
+  cursor: pointer;
+  width: 35%;
+}
+
+.validated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px 0px 0px 15px;
+  padding: 0.5%;
+}
+
+.nonValidated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 15px 15px 0px;
+  padding: 0.5%;
+}
+.activ {
+  background-color: var(--main-dark);
+}
+
+.addAnnonce {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 100%;
-  background-color: var(--red);
-  color: white;
-  border-radius: 30px 0px 0px 0px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: var(--main);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #fff;
+  font-weight: 700;
   cursor: pointer;
-}
-
-.onsupprime {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-  height: 100%;
-  background-color: var(--red);
-  color: white;
-  cursor: pointer;
-}
-
-.lesbouttons {
-  display: flex;
-  height: 100%;
+  border: none;
 }
