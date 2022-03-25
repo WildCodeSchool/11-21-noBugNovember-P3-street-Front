@@ -57,6 +57,7 @@ const CreateAnnonceProject = () => {
       <form>
         <div className="firstContainer">
           <div className="secondContainer">
+            <p>Vous recherchez :</p>
             <select
               className="selectAnnonce"
               name="Annonce"
@@ -64,7 +65,7 @@ const CreateAnnonceProject = () => {
                 setNewAnnonce({ ...newAnnonce, role: e.target.value });
               }}
             >
-              <option value="">Choisissez votre role</option>
+              <option value="">Choisissez le role</option>
               {subDomains !== [] &&
                 subDomains.map((subDomain) => (
                   <option key={subDomain.id} value={subDomain.domain}>

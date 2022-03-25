@@ -64,6 +64,7 @@ const AdminProjectAnnonceEdition = () => {
       <form>
         <div className="firstContainer">
           <div className="secondContainer">
+            <p>Vous recherchez :</p>
             <select
               className="selectDomaine"
               name="Domaine"
