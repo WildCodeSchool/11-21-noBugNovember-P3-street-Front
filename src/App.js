@@ -1,3 +1,6 @@
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import "./App.css";
 import Admin from "./screens/Admin";
 import AdminAddMates from "./screens/AdminAddMates";
 import AdminGestionAnnonces from "./screens/AdminGestionAnnonces";
@@ -6,7 +9,6 @@ import AdminGestionProjects from "./screens/AdminGestionProjects";
 import AdminProjectEdition from "./screens/AdminProjectEdition";
 import Connexion from "./screens/Connexion";
 import CreateProject from "./components/CreateProject";
-import Footer from "./components/Footer";
 import Form from "./screens/Form.js";
 import Home from "./screens/Home";
 import Navbar from "./components/Navbar";
@@ -16,9 +18,6 @@ import Users from "./screens/Users";
 import UserDetail from "./screens/UserDetail";
 import CreateAnnonceUser from "./components/CreateAnnonceUser";
 import CreateAnnonceProject from "./components/CreateAnnonceProject";
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import "./App.css";
 import UpdateProfil from './screens/UpdateProfil';
 import Profil from "./screens/Profil";
 
