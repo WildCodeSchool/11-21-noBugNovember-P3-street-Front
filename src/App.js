@@ -11,6 +11,7 @@ import Home from './screens/Home';
 import Navbar from './components/Navbar';
 import Project from './screens/Project';
 import ProjectDetails from './screens/ProjectDetails';
+import Protected from './components/Protected';
 import Users from './screens/Users';
 import UserDetail from './screens/UserDetail';
 import { Routes, Route } from 'react-router-dom';
@@ -23,20 +24,26 @@ function App() {
 	const [idUser, setIdUser] = useState(0);
 	const [isConnect, setIsConnect] = useState(false);
 
-	console.log(isAdmin);
-	console.log(name);
+	console.log(idUser);
 	console.log(isConnect);
 
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Navbar />
+				<Navbar isConnect={isConnect} name={name} />
 			</header>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/add_projects" element={<CreateProject />} />
 				<Route path="/add_user" element={<Form />} />
-				<Route path="/admin" element={<Admin isAdmin={isAdmin} />} />
+				<Route
+					path="/admin"
+					element={
+						<Protected>
+							<Admin isAdmin={isAdmin} />
+						</Protected>
+					}
+				/>
 				<Route path="/admin/users" element={<AdminGestionUsers />} />
 				<Route path="/admin/projets" element={<AdminGestionProjects />} />
 				<Route path="/admin/annonces" element={<AdminGestionAnnonces />} />

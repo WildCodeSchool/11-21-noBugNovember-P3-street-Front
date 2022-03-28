@@ -1,29 +1,44 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import sha256 from 'crypto-js/sha256';
+import jwt_decode from 'jwt-decode';
 import '../styles/Connexion.css';
 import Footer from '../components/Footer';
 
 function Connexion(props) {
 	const [user, setUser] = useState({ email: '' });
-	const [reponse, setReponse] = useState();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errorConnect, setErrorConnect] = useState(false);
 	const [isOut, setIsOut] = useState(false);
+	const [forLoad, setForLoad] = useState(0);
+
+	let navigate = useNavigate();
 
 	const connect = () => {
 		setErrorConnect(false);
 		setIsOut(false);
 		if (props.idUser === 0) {
 			axios
-				.put(`${process.env.REACT_APP_BACK}/users/connect`, {
+				.post(`${process.env.REACT_APP_BACK}/auth/login`, {
 					email: email,
 					password: sha256(password).toString(),
 				})
-				.then((response) => response.data)
-				.then((data) => setReponse(data))
+				.then((res) => {
+					//console.log('ress poulet :', res);
+					props.setIsConnect(true);
+					localStorage.setItem('token', res.headers['x-access-token']);
+					console.log(localStorage.getItem('token'));
+					let decoded = jwt_decode(localStorage.getItem('token'));
+					console.log(decoded);
+					props.setName(decoded.name);
+					props.setIdUser(decoded.id);
+					//timer();
+					//navigate('/');
+					// console.log("token", localStorage.getItem("token"))
+				})
+				.then(() => props.setIsConnect(true))
 				.catch((err) => {
 					if (err.response) {
 						setErrorConnect(true);
@@ -37,38 +52,34 @@ function Connexion(props) {
 	};
 
 	const disconnect = () => {
-		setEmail('');
-		setPassword('');
-		setReponse();
-		props.setIdUser(0);
-		props.setName();
+		localStorage.clear();
 		props.setIsConnect(false);
-		props.setIsAdmin(false);
+	};
+
+	const timer = async () => {
+		for (let i = 0; i < 101; i++) {
+			await new Promise((resolve) => setTimeout(resolve, 30));
+			setForLoad(i);
+		}
+		navigate('/');
 	};
 
 	useEffect(() => {
-		if (reponse !== undefined) {
-			props.setIsConnect(true);
-			props.setIdUser(reponse[0].id);
-			props.setName(reponse[0].firstname);
-			if (reponse[0].admin === 1) props.setIsAdmin(true);
+		if (props.isConnect) {
+			timer();
 		}
-	}, [reponse]);
+	}, [props.isConnect]);
 
 	return (
 		<>
 			<div className="connexion">
-				{props.idUser !== 0 ? (
+				{props.isConnect || localStorage.getItem('token') !== null ? (
 					<div className="welcome">
+						{() => timer()}
 						<h2>Bienvenue chez StreetZer</h2>
-						{props.isAdmin ? (
-							<Link to="/admin">
-								<button>Page d'administration</button>
-							</Link>
-						) : (
-							''
-						)}
-						<button onClick={() => disconnect()}>LOGOUT</button>
+						<h3>Vous êtes bien connecté {props.name}</h3>
+						<h3>Redirection vers la page d'accueil</h3>
+						<progress value={forLoad} max="100" className="barre"></progress>
 					</div>
 				) : (
 					<form className="formUsers">

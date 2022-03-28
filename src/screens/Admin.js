@@ -89,7 +89,7 @@ const Admin = (props) => {
 
 	return (
 		<div className="admin">
-			{props.isAdmin ? (
+			{localStorage.getItem('token') ? (
 				<section>
 					<div className="welcomeadmin">Page d'administration de Streetzer</div>
 					<div className="contentadmin">
