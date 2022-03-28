@@ -10,7 +10,7 @@ const Protected = (props) => {
 		const token = localStorage.getItem('token');
 		axios({
 			method: 'POST',
-			url: `${process.env.REACT_APP_BACK}/auth/protected`,
+			url: `${process.env.REACT_APP_BACK}/auth/protected_admin`,
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
