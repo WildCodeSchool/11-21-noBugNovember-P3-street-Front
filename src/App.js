@@ -3,7 +3,10 @@ import AdminAddMates from './screens/AdminAddMates';
 import AdminGestionAnnonces from './screens/AdminGestionAnnonces';
 import AdminGestionUsers from './screens/AdminGestionUsers';
 import AdminGestionProjects from './screens/AdminGestionProjects';
+import AdminProjectEdition from './screens/AdminProjectEdition';
 import Connexion from './screens/Connexion';
+import CreateAnnonceProject from './components/CreateAnnonceProject';
+import CreateAnnonceUser from './components/CreateAnnonceUser';
 import CreateProject from './components/CreateProject';
 import Footer from './components/Footer';
 import Form from './screens/Form.js';
@@ -25,9 +28,6 @@ function App() {
 	const [name, setName] = useState();
 	const [idUser, setIdUser] = useState(0);
 	const [isConnect, setIsConnect] = useState(false);
-
-	console.log(idUser);
-	console.log(isConnect);
 
 	useEffect(() => {
 		if (localStorage.getItem('token') !== null) {
@@ -56,6 +56,22 @@ function App() {
 						</Protected>
 					}
 				/>
+				<Route
+					path="/add_annonces_project"
+					element={
+						<Protected>
+							<CreateAnnonceProject />
+						</Protected>
+					}
+				/>
+				<Route
+					path="/add_annonces_user"
+					element={
+						<Protected>
+							<CreateAnnonceUser />
+						</Protected>
+					}
+				/>
 				<Route path="/add_user" element={<Form />} />
 				<Route
 					path="/admin"
@@ -66,10 +82,10 @@ function App() {
 					}
 				/>
 				<Route
-					path="/admin/users"
+					path="/admin/annonces"
 					element={
 						<ProtectedAdmin>
-							<AdminGestionUsers />
+							<AdminGestionAnnonces />
 						</ProtectedAdmin>
 					}
 				/>
@@ -82,13 +98,14 @@ function App() {
 					}
 				/>
 				<Route
-					path="/admin/annonces"
+					path="/admin/users"
 					element={
 						<ProtectedAdmin>
-							<AdminGestionAnnonces />
+							<AdminGestionUsers />
 						</ProtectedAdmin>
 					}
 				/>
+
 				<Route
 					path="/admin/ajout/:id"
 					element={
@@ -110,6 +127,14 @@ function App() {
 							isConnect={isConnect}
 							setIsConnect={setIsConnect}
 						/>
+					}
+				/>
+				<Route
+					path="/edit_project/:id"
+					element={
+						<ProtectedAdmin>
+							<AdminProjectEdition />
+						</ProtectedAdmin>
 					}
 				/>
 				<Route path="/projets" element={<Project />} />

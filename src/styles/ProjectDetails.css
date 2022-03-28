@@ -171,10 +171,41 @@
   align-items: center;
   overflow: hidden;
   margin: 0% 1% 0% 0%;
+  height: -webkit-fill-available;
 }
 
 .usersInProject img {
   height: 10vh;
+}
+
+.usersInProject:hover {
+  -webkit-filter: brightness(100%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 0.2s ease;
+}
+
+.usersInProject:hover::before {
+  width: 5vw;
+  min-width: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 5, 1, 0.35) 0%,
+    rgba(0, 3, 0, 0.5) 25%,
+    rgba(0, 3, 0, 0.5) 75%,
+    rgba(0, 3, 0, 0.3) 90%,
+    rgba(0, 5, 1, 0) 100%
+  );
+  position: absolute;
+  content: attr(data-before);
+  text-align: center;
+  height: -webkit-fill-available;
 }
 
 .usersTitle {

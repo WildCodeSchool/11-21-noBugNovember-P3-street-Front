@@ -1,27 +1,32 @@
 import { Link } from "react-router-dom";
-import guitarneon from "../assets/front.jpg";
-import Assmaph from "../assets/Assmaph.jpg";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import ProjectCard from "../components/ProjectCard";
 import test2 from "../assets/test2.jpg";
 import "../styles/Home.css";
-import UserCard from "../components/UserCard";
 import Footer from "../components/Footer";
 
 const Home = () => {
+  /* ====================================== DEBUT - RECUPERATION DONNEES ====================================== */
+
+  const [last3projects, setLast3projects] = useState([]); //Stockage des données de l'axios
+
+  const searchLast3Projects = () => {
+    axios
+      .get(`${process.env.REACT_APP_BACK}/all/last3projects`) //Récupération des données de la requete respondante a la route
+      .then((response) => response.data) //Récupération de la partie "data" uniquement
+      .then((data) => setLast3projects(data)); //Envoie des datas dans last3projects
+  };
+
+  /* ====================================== FIN - RECUPERATION DONNEES ====================================== */
+
+  useEffect(() => {
+    searchLast3Projects(); //Collecte des données des 3 projets les plus récents au chargement de la page
+  }, []);
+
   return (
     <div>
-      {/*       <div className="holderCarousel">
-        <Splide>
-          <SplideSlide>
-            <img className="holderImg" src={photo2} alt="images" />
-          </SplideSlide>
-          <SplideSlide>
-            <img className="holderImg" src={guitarneon} alt="images" />
-          </SplideSlide>
-          <SplideSlide>
-            <img className="holderImg" src={hommeregard} alt="images" />
-          </SplideSlide>
-        </Splide>
-      </div> */}
+      {/* ====================================== DEBUT - HOME BANNER ====================================== */}
       <div className="homeBanner">
         <div className="overlayBanner">
           <h1>
@@ -33,9 +38,14 @@ const Home = () => {
             <em>- Elder Camara</em>
           </h1>
         </div>
+
         <img className="holderImg" src={test2} alt="images" />
       </div>
+      {/* ====================================== FIN - HOME BANNER ======================================== */}
+
       <div className="sections">
+        {/* ====================================== DEBUT - PRESENTATION ====================================== */}
+
         <div className="homePresentation">
           <div className="framePresentation">
             <div className="framePresentationallP">
@@ -58,38 +68,36 @@ const Home = () => {
             <div className="btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>
+
+        {/* ====================================== FIN - PRESENTATION ======================================== */}
+
+        {/* ====================================== DEBUT - PROJETS TERMINES ====================================== */}
+
         <h1>Projets terminés récemment</h1>
         <div className="homeDoneProjects">
-          <UserCard
-            avatar={null}
-            firstname="Break Free"
-            artname="Street Art"
-            description="« Un vent de liberté souffle dans la ville de Toulouse avec ce projet Street Art. Un besoin vital de se libérer et reprendre le contrôle de nos vies. »"
-          />
-          <UserCard
-            avatar={null}
-            firstname="King Monsters"
-            artname="Musique"
-            description="Nina est une nouvelle artiste chanteuse – Interprète, à l’univers plutôt sombre. King Monsters est son premier tube qu’elle partage sur la plateforme. "
-          />
-          <UserCard
-            avatar={null}
-            firstname="Back to Dust"
-            artname="Court métrage"
-            description="Ethan étant malade, épuisé et cerné par la vie, voit son état se dégrader de jours en jours, sans amélioration. Ne lui restant plus beaucoup de temps."
-          />
+          {/* Génération des cartes ProjectCard via les données de last3projects */}
+          {last3projects.map((el, index) => (
+            <ProjectCard project={el} key={index} />
+          ))}
         </div>
         <div className=" tousLesProjets">
-          <div className="tousLesProjetsBtn">
-            Tous les projets sur Youtube &#160;
-            <i class="fa-brands fa-youtube"></i>
-          </div>
+          <a href="http://www.youtube.com" target="_blank" rel="noreferrer">
+            <div className="tousLesProjetsBtn">
+              Tous les projets sur Youtube &#160;
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+          </a>
         </div>
+
+        {/* ====================================== FIN - PROJETS TERMINES ======================================== */}
+
         <div className="containerSpacer">
           <div className="spacerHome"></div>
           <i class="fa-solid fa-bolt"></i>
           <div className="spacerHome"></div>
         </div>
+
+        {/* ====================================== DEBUT - COMMENTAIRES ====================================== */}
         <div className="sections comments">
           <h1>Des gens parlent de nous !</h1>
           <div className="containerComments">
@@ -143,11 +151,16 @@ const Home = () => {
         <div className="containerSeeComments">
           <div className="seeComments">Voir les commentaires</div>
         </div>
+
+        {/* ====================================== FIN - COMMENTAIRES ======================================== */}
+
         <div className="containerSpacer">
           <div className="spacerHome"></div>
           <i class="fa-solid fa-bolt"></i>
           <div className="spacerHome"></div>
         </div>
+
+        {/* ====================================== DEBUT - SELECTEURS PROJECTS TALENTS ====================================== */}
 
         <h1>À vous de jouer !</h1>
         <div className="sections searchTalentProjectContainer">
@@ -164,62 +177,12 @@ const Home = () => {
             <div className="">Vous cherchez un projet ?</div>
           </div>
         </div>
-        {/*         <div className="footer">
-          <div className="containerCol">
-            <div className="colFooter col1">
-              <div className="colFooterHeader">
-                <i class="fa-solid fa-music"></i> Streetzer
-              </div>
-              <div className="colFooterInfosParaph">
-                Ullamco mollit amet adipisicing aliquip do culpa labore esse
-                consequat voluptate magna.
-              </div>
-            </div>
-            <div className="colFooter col2">
-              <div className="colFooterHeader">Streetzer</div>
-              <div className="colFooterInfosContainer">
-                <div className="colFooterInfos">Blog</div>
-                <div className="colFooterInfos">Youtube Premium</div>
-              </div>
-            </div>
-            <div className="colFooter col3">
-              <div className="colFooterHeader">Partners</div>
-              <div className="colFooterInfosContainer">
-                <div className="colFooterInfos">Advertise</div>
-                <div className="colFooterInfos">Creators</div>
-                <div className="colFooterInfos">Developers</div>
-                <div className="colFooterInfos">Press</div>
-                <div className="colFooterInfos">Preferred Lineups</div>
-              </div>
-            </div>
-            <div className="colFooter col4">
-              <div className="colFooterHeader">Resources</div>
-              <div className="colFooterInfosContainer">
-                <div className="colFooterInfos">Policies & Safety</div>
-                <div className="colFooterInfos">Copyright</div>
-                <div className="colFooterInfos">Brand Guidelines</div>
-                <div className="colFooterInfos">Help Center</div>
-                <div className="colFooterInfos">Privacy</div>
-              </div>
-            </div>
-            <div className="colFooter col5">
-              <div className="colFooterHeader">Connect</div>
-              <div className="colFooterInfosContainer">
-                <div className="colFooterInfos">
-                  <i class="fa-brands fa-twitter"></i> Twitter
-                </div>
-                <div className="colFooterInfos">
-                  <i class="fa-brands fa-instagram"></i> Instagram
-                </div>
-                <div className="colFooterInfos">
-                  <i class="fa-brands fa-facebook-square"></i> Facebook
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bottomFooter">© 2022 Streetzer</div>
-        </div> */}
+
+        {/* ====================================== FIN - SELECTEURS PROJECTS TALENTS ======================================== */}
+
+        {/* ====================================== DEBUT - FOOTER ====================================== */}
         <Footer />
+        {/* ====================================== FIN - FOOTER ======================================== */}
       </div>
     </div>
   );

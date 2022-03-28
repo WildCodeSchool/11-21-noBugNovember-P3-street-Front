@@ -7,6 +7,36 @@ import { Link } from 'react-router-dom';
 
 const Navbar = (props) => {
 	const [isAdmin, setIsAdmin] = useState(false);
+	const [isNavBarAccueilBtnActive, setIsNavBarAccueilBtnActive] =
+		useState(false);
+	const [isNavBarProjetsBtnActive, setIsNavBarProjetsBtnActive] =
+		useState(false);
+	const [isNavBarTalentsBtnActive, setIsNavBarTalentsBtnActive] =
+		useState(false);
+
+	const handleToggleAccueil = () => {
+		setIsNavBarAccueilBtnActive(true);
+		setIsNavBarProjetsBtnActive(false);
+		setIsNavBarTalentsBtnActive(false);
+	};
+
+	const handleToggleProjets = () => {
+		setIsNavBarAccueilBtnActive(false);
+		setIsNavBarProjetsBtnActive(true);
+		setIsNavBarTalentsBtnActive(false);
+	};
+
+	const handleToggleTalents = () => {
+		setIsNavBarAccueilBtnActive(false);
+		setIsNavBarProjetsBtnActive(false);
+		setIsNavBarTalentsBtnActive(true);
+	};
+
+	const handleToggleConnexion = () => {
+		setIsNavBarAccueilBtnActive(false);
+		setIsNavBarProjetsBtnActive(false);
+		setIsNavBarTalentsBtnActive(false);
+	};
 
 	const verify = () => {
 		const token = localStorage.getItem('token');
@@ -39,13 +69,40 @@ const Navbar = (props) => {
 				</Link>
 				<div className="Link">
 					<Link to="/">
-						<div className="navbarBtn accueil "> Accueil</div>
+						<div
+							className={
+								isNavBarAccueilBtnActive
+									? 'navbarBtn holderLink navbarBtnActive'
+									: 'navbarBtn holderLink '
+							}
+							onClick={handleToggleAccueil}
+						>
+							Accueil
+						</div>
 					</Link>
 					<Link to="/projets">
-						<div className="navbarBtn holderLink "> Projets</div>
+						<div
+							className={
+								isNavBarProjetsBtnActive
+									? 'navbarBtn holderLink navbarBtnActive'
+									: 'navbarBtn holderLink '
+							}
+							onClick={handleToggleProjets}
+						>
+							Projets
+						</div>
 					</Link>
 					<Link to="/talents">
-						<div className="navbarBtn holderLink "> Talents</div>
+						<div
+							className={
+								isNavBarTalentsBtnActive
+									? 'navbarBtn holderLink navbarBtnActive'
+									: 'navbarBtn holderLink '
+							}
+							onClick={handleToggleTalents}
+						>
+							Talents
+						</div>
 					</Link>
 					{isAdmin ? (
 						<Link to="/admin">
