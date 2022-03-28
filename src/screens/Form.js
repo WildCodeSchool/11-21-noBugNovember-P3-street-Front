@@ -127,7 +127,7 @@ const Form = () => {
   return (
     <>
       <div className="join">
-        <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
+        <h2>Rejoignez-nous en créant votre profil juste en dessous !</h2>
       </div>
       <div className="form-container">
         {!isSubmitted ? (
