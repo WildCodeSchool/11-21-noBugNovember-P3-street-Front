@@ -4,6 +4,7 @@ import validate from '../components/ValidateInfo';
 import useForm from '../components/useForm';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 
 const Profil = () => {
@@ -17,13 +18,14 @@ const Profil = () => {
     const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
     const [domainId, setDomainId] = useState()
     const [subDomainId,setSubDomainId] = useState()
+    const params = useParams();
 
   console.log(domain)
   const submitForm = () => {
     setIsSubmitted(true);
   }
   
-  const { handleChange, handleSubmit, values, errors } = useForm(
+  const { handleChange, handleSubmit, errors } = useForm(
     submitForm,
     validate
   );
@@ -41,10 +43,12 @@ const Profil = () => {
 };
 
   const getProfil = () => {
-    axios.get(`${process.env.REACT_APP_BACK}/users/profil`)
+    axios.get(`${process.env.REACT_APP_BACK}/users/profil/${params.id}`)
          .then((res) => res.data)
-         .then((data) => setProfil(data))
+         .then((data) => setProfil(data)) 
   };
+
+  console.log(profil)
 
   useEffect(() => {
     getDomain()
@@ -103,7 +107,7 @@ const handleSubDomain= (e) => {
               type='text'
               name='lastname'
               placeholder='Votre nom'
-              value={values.lastname}
+              value={profil.lastname}
               onChange={handleChange}
              />
           {errors.lastname && <p>{errors.lastname}</p>}
@@ -115,7 +119,7 @@ const handleSubDomain= (e) => {
             type='text'
             name='firstname'
             placeholder='Votre prénom'
-            value={values.firstname}
+            value={profil.firstname}
             onChange={handleChange}
           />
           {errors.firstname && <p>{errors.firstname}</p>}
@@ -127,7 +131,7 @@ const handleSubDomain= (e) => {
             type='email'
             name='email'
             placeholder='Votre adresse email'
-            value={values.email}
+            value={profil.email}
             onChange={handleChange}
           />
           {errors.email && <p>{errors.email}</p>}
@@ -139,7 +143,7 @@ const handleSubDomain= (e) => {
             type='date'
             name='birthday'
             placeholder='Année/Mois/Jour'
-            value={values.birthday}
+            value={profil.birthday}
             onChange={handleChange}
           />
           {errors.birthday && <p>{errors.birthday}</p>}
@@ -151,7 +155,7 @@ const handleSubDomain= (e) => {
             type='tel'
             name='phone'
             placeholder='Votre numéro de téléphone'
-            value={values.phone}
+            value={profil.phone}
             onChange={handleChange}
           />
           {errors.phone && <p>{errors.phone}</p>}
@@ -159,14 +163,14 @@ const handleSubDomain= (e) => {
         </div>
           <div className='userinfos'>Votre domaine d'activité (*)</div>
         <div className='userdomain'>
-          <select className="selectDomain" name="domain" value={values.domain} onChange={handleDomain} >
+          <select className="selectDomain" name="domain" value={profil.domain} onChange={handleDomain} >
               <option value='' >Choisissez votre domaine</option>
               {domain.map((el) => (
                 <option name='domain'>{el.domain}</option>
               ))}
             </select>
             {isFilter ?
-          <select className="selectSubdomain" name="subDomain" value={values.subDomain} onChange={handleSubDomain}>
+          <select className="selectSubdomain" name="subDomain" value={profil.subDomain} onChange={handleSubDomain}>
               <option value="">Choisissez votre sous-domaine</option>
               {isFilter ? 
                 reponse.map((el) =>(
@@ -188,7 +192,7 @@ const handleSubDomain= (e) => {
             type='password'
             name='password'
             placeholder='Votre mot de passe'
-            value={values.password}
+            value={profil.password}
             onChange={handleChange}
           />
           {errors.password && <p>{errors.password}</p>}
@@ -200,7 +204,7 @@ const handleSubDomain= (e) => {
             type='password'
             name='password2'
             placeholder='Confirmer le mot de passe'
-            value={values.password2}
+            value={profil.password2}
             onChange={handleChange}
           />
           {errors.password2 && <p>{errors.password2}</p>}
@@ -215,7 +219,7 @@ const handleSubDomain= (e) => {
             type='text'
             name='city'
             placeholder='Votre ville'
-            value={values.city}
+            value={profil.city}
             onChange={handleChange}
           />
           {errors.city && <p>{errors.city}</p>}
@@ -227,7 +231,7 @@ const handleSubDomain= (e) => {
             type='text'
             name='country'
             placeholder='Votre pays'
-            value={values.country}
+            value={profil.country}
             onChange={handleChange}
           />
           {errors.country && <p>{errors.country}</p>}
@@ -242,7 +246,7 @@ const handleSubDomain= (e) => {
             type='text'
             name='youtube'
             placeholder='Votre chaîne Youtube'
-            value={values.youtube}
+            value={profil.youtube}
             onChange={handleChange}
           />
           </div>
@@ -253,7 +257,7 @@ const handleSubDomain= (e) => {
             type='text'
             name='instagram'
             placeholder='Votre Instagram'
-            value={values.instagram}
+            value={profil.instagram}
             onChange={handleChange}
           />
           </div>
@@ -264,7 +268,7 @@ const handleSubDomain= (e) => {
             type='text'
             name='twitter'
             placeholder='Votre Twitter'
-            value={values.twitter}
+            value={profil.twitter}
             onChange={handleChange}
           />
           </div>
@@ -275,7 +279,7 @@ const handleSubDomain= (e) => {
             type='text'
             name='spotify'
             placeholder='Votre Spotify / Soundcloud'
-            value={values.spotify}
+            value={profil.spotify}
             onChange={handleChange}
           />
           </div>
@@ -286,7 +290,7 @@ const handleSubDomain= (e) => {
             type='text'
             name='tiktok'
             placeholder='Votre Tiktok'
-            value={values.tiktok}
+            value={profil.tiktok}
             onChange={handleChange}
           />
           </div>
@@ -300,13 +304,15 @@ const handleSubDomain= (e) => {
             type="text" 
             name="description" 
             placeholder="Parlez-nous un peu de vous..." 
+            value={profil.description_users}
+            onChange={handleChange}
             />
             </div>
-            <Link to="/update_profil">
+            <Link to="update_profil/:id">
             <button className='profil-input-btn' type='submit'>
           Modifier votre profil
           </button>
-						</Link>
+            </Link>
         </div>
       </form>
         </div>

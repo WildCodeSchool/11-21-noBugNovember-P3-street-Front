@@ -70,8 +70,8 @@ function App() {
         />
         <Route path="/talents" element={<Users />} />
         <Route path="/talents/:id" element={<UserDetail />} />
-        <Route path="/update_profil" element={<UpdateProfil />} />
-        <Route path="/profil" element={<Profil />} />
+        <Route path="/update_profil/:id" element={<UpdateProfil />} />
+        <Route path="/profil/:id" element={<Profil />} />
       </Routes>
     </div>
   );
