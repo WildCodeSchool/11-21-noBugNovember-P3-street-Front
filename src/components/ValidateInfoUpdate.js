@@ -1,4 +1,4 @@
-export default function validateInfo(profil) {
+export default function validateInfoUpdate(profil) {
     let errorsUpdate = {};
   
     if (!profil.lastname.trim()) {

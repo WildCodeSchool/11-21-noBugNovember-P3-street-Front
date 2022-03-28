@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import validate from '../components/ValidateInfo';
 import useForm from '../components/useForm';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
 
@@ -308,11 +307,9 @@ const handleSubDomain= (e) => {
             onChange={handleChange}
             />
             </div>
-            <Link to="update_profil/:id">
             <button className='profil-input-btn' type='submit'>
           Modifier votre profil
           </button>
-            </Link>
         </div>
       </form>
         </div>

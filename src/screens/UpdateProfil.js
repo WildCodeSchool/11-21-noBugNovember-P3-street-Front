@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import validate from '../components/ValidateInfo';
+import validateInfoUpdate from '../components/ValidateInfoUpdate';
 import useForm from '../components/useForm';
 import axios from 'axios';
 import '../styles/UpdateProfil.css'
@@ -12,6 +12,7 @@ const UpdateProfil = () => {
     const [subDomain, setSubdomain] = useState([]);
     const [isFilter, setIsFilter] = useState(false);
     const [profil, setProfil] = useState([]);
+    const [newProfil, setNewProfil] = useState({});
     const [reponse, setReponse] = useState([]);
     const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
     const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
@@ -24,12 +25,11 @@ const UpdateProfil = () => {
     setIsSubmitted(true);
   }
   
-  const { handleChange, handleSubmit, errosUpdate } = useForm(
+  const { handleChange, handleSubmit, errorsUpdate } = useForm(
     submitForm,
-    validate
+    validateInfoUpdate
   );
 
-  const [newProfil, setNewProfil] = useState({});
   console.log(newProfil);
   
   const getSubdomain = () => {
@@ -49,10 +49,10 @@ const UpdateProfil = () => {
          .then((res) => res.data)
          .then((data) => setProfil(data))
   };
+  console.log(profil)
 
   const UpdateProfilUser = () => {
-    axios
-        .put(`${process.env.REACT_APP_BACK}/users/update_profil}${params.id}`, {
+    axios.put(`${process.env.REACT_APP_BACK}/users/update_profil}${params.id}`, {
           lastname: newProfil.lastname,
           firstname: newProfil.firstname,
           password: newProfil.password,
@@ -140,8 +140,9 @@ return (
           placeholder='Votre nom'
           value={profil.lastname}
           onChange={handleChange}
-         />
-      {errosUpdate.lastname && <p>{errosUpdate.lastname}</p>}
+         />  
+      {errorsUpdate.lastname && <p>{errorsUpdate.lastname}</p>}
+      
     </div>
     <div className='infos-inputs'>
       <label className='form-label'>Prénom (*)</label>
@@ -153,7 +154,7 @@ return (
         value={profil.firstname}
         onChange={handleChange}
       />
-      {errosUpdate.firstname && <p>{errosUpdate.firstname}</p>}
+      {errorsUpdate.firstname && <p>{errorsUpdate.firstname}</p>}
     </div>
     <div className='infos-inputs'>
       <label className='form-label'>Email (*)</label>
@@ -165,7 +166,7 @@ return (
         value={profil.email}
         onChange={handleChange}
       />
-      {errosUpdate.email && <p>{errosUpdate.email}</p>}
+      {errorsUpdate.email && <p>{errorsUpdate.email}</p>}
       </div>
       <div className='infos-inputs'>
       <label className='form-label'>Date de naissance (*)</label>
@@ -177,7 +178,7 @@ return (
         value={profil.birthday}
         onChange={handleChange}
       />
-      {errosUpdate.birthday && <p>{errosUpdate.birthday}</p>}
+      {errorsUpdate.birthday && <p>{errorsUpdate.birthday}</p>}
       </div>
       <div className='infos-inputs'>
       <label className='form-label'>Téléphone</label>
@@ -189,7 +190,7 @@ return (
         value={profil.phone}
         onChange={handleChange}
       />
-      {errosUpdate.phone && <p>{errosUpdate.phone}</p>}
+      {errorsUpdate.phone && <p>{errorsUpdate.phone}</p>}
       </div>
     </div>
       <div className='userinfos'>Votre domaine d'activité (*)</div>
@@ -226,7 +227,7 @@ return (
         value={profil.password}
         onChange={handleChange}
       />
-      {errosUpdate.password && <p>{errosUpdate.password}</p>}
+      {errorsUpdate.password && <p>{errorsUpdate.password}</p>}
       </div>
     <div className='password-inputs'>
       <label className='form-label'>Confirmer mot de passe (*)</label>
@@ -238,7 +239,7 @@ return (
         value={profil.password2}
         onChange={handleChange}
       />
-      {errosUpdate.password2 && <p>{errosUpdate.password2}</p>}
+      {errorsUpdate.password2 && <p>{errorsUpdate.password2}</p>}
     </div>
     </div>
     <div className='userinfos'>Votre localisation</div>
@@ -253,7 +254,7 @@ return (
         value={profil.city}
         onChange={handleChange}
       />
-      {errosUpdate.city && <p>{errosUpdate.city}</p>}
+      {errorsUpdate.city && <p>{errorsUpdate.city}</p>}
       </div>
       <div className='location-inputs'>
       <label className='form-label'>Pays (*)</label>
@@ -265,7 +266,7 @@ return (
         value={profil.country}
         onChange={handleChange}
       />
-      {errosUpdate.country && <p>{errosUpdate.country}</p>}
+      {errorsUpdate.country && <p>{errorsUpdate.country}</p>}
       </div>
     </div>
     <div className='userinfos'>Vos réseaux sociaux</div>
