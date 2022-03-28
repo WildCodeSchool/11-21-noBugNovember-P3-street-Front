@@ -8,6 +8,7 @@ import CreateProject from './components/CreateProject';
 import Footer from './components/Footer';
 import Form from './screens/Form.js';
 import Home from './screens/Home';
+import jwt_decode from 'jwt-decode';
 import Navbar from './components/Navbar';
 import Project from './screens/Project';
 import ProjectDetails from './screens/ProjectDetails';
@@ -15,7 +16,7 @@ import Protected from './components/Protected';
 import Users from './screens/Users';
 import UserDetail from './screens/UserDetail';
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -26,6 +27,15 @@ function App() {
 
 	console.log(idUser);
 	console.log(isConnect);
+
+	useEffect(() => {
+		if (localStorage.getItem('token') !== null) {
+			setIsConnect(true);
+			let decoded = jwt_decode(localStorage.getItem('token'));
+			setName(decoded.name);
+			setIdUser(decoded.id);
+		}
+	}, []);
 
 	return (
 		<div className="App">
@@ -40,7 +50,7 @@ function App() {
 					path="/admin"
 					element={
 						<Protected>
-							<Admin isAdmin={isAdmin} />
+							<Admin />
 						</Protected>
 					}
 				/>

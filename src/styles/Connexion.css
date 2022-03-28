@@ -14,14 +14,23 @@ progress {
 	width: 100%;
 	background-color: var(--main);
 	/* box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); */
-	/* border-radius: 15px 15px 15px 15px; */
-}
-/*
-progress::after {
-	overflow: hidden;
 	border-radius: 15px 15px 15px 15px;
 }
-*/
+
+::-moz-progress-bar {
+	border-radius: 15px 15px 15px 15px;
+}
+
+::-webkit-progress-bar {
+	background-color: var(--main);
+	border-radius: 15px 15px 15px 15px;
+}
+
+::-webkit-progress-value {
+	background-color: var(--second);
+	border-radius: 15px 15px 15px 15px;
+}
+
 .connexion {
 	position: relative;
 	height: 94vh;

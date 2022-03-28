@@ -29,9 +29,7 @@ function Connexion(props) {
 					//console.log('ress poulet :', res);
 					props.setIsConnect(true);
 					localStorage.setItem('token', res.headers['x-access-token']);
-					console.log(localStorage.getItem('token'));
 					let decoded = jwt_decode(localStorage.getItem('token'));
-					console.log(decoded);
 					props.setName(decoded.name);
 					props.setIdUser(decoded.id);
 					//timer();
@@ -68,14 +66,13 @@ function Connexion(props) {
 		if (props.isConnect) {
 			timer();
 		}
-	}, [props.isConnect]);
+	}, [props.isConnect, localStorage.getItem('token')]);
 
 	return (
 		<>
 			<div className="connexion">
 				{props.isConnect || localStorage.getItem('token') !== null ? (
 					<div className="welcome">
-						{() => timer()}
 						<h2>Bienvenue chez StreetZer</h2>
 						<h3>Vous êtes bien connecté {props.name}</h3>
 						<h3>Redirection vers la page d'accueil</h3>
