@@ -1,9 +1,34 @@
 input,
 button {
-  appearance: none;
-  background: none;
-  border: none;
-  outline: none;
+	appearance: none;
+	background: none;
+	border: none;
+	outline: none;
+}
+
+progress {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	height: 30px;
+	width: 100%;
+	background-color: var(--main);
+	/* box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); */
+	border-radius: 15px 15px 15px 15px;
+}
+
+::-moz-progress-bar {
+	border-radius: 15px 15px 15px 15px;
+}
+
+::-webkit-progress-bar {
+	background-color: var(--main);
+	border-radius: 15px 15px 15px 15px;
+}
+
+::-webkit-progress-value {
+	background-color: var(--second);
+	border-radius: 15px 15px 15px 15px;
 }
 
 .connexion {
@@ -14,147 +39,150 @@ button {
 }
 
 .formUsers {
-  display: block;
-  position: relative;
-  width: 20vw;
+	display: block;
+	position: relative;
+	width: 20vw;
 }
 
 .formUsers:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  z-index: 2;
-  background-color: var(--main);
+	content: '';
+	display: block;
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	right: -5px;
+	bottom: -5px;
+	z-index: 2;
+	background-color: var(--main);
 }
 
 .formUsers .form-inner {
-  position: relative;
-  display: block;
-  background-color: #fff;
-  padding: 30px;
-  z-index: 3;
+	position: relative;
+	display: block;
+	background-color: #fff;
+	padding: 30px;
+	z-index: 3;
 }
 
 .formUsers .form-inner h2 {
-  color: var(--main);
-  font-weight: normal;
-  margin: 2vh 0vh;
+	color: var(--main);
+	font-weight: normal;
+	margin: 2vh 0vh;
 }
 
 .formUsers .form-inner .form-group {
-  display: block;
-  width: 100%;
-  margin: 2vh 0vh 2vh 0vh;
+	display: block;
+	width: 100%;
+	margin: 2vh 0vh 2vh 0vh;
 }
 
 .form-inner .form-group label {
-  display: block;
-  color: var(--main);
-  font-size: small;
-  margin-bottom: 0.5vh;
-  transition: 0.4s;
+	display: block;
+	color: var(--main);
+	font-size: small;
+	margin-bottom: 0.5vh;
+	transition: 0.4s;
 }
 
 .form-inner .form-group:focus-within label {
-  color: #fe4880;
+	color: #fe4880;
 }
 
 .formUsers .form-inner .form-group input {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  transition: 0.4s;
-  border: none;
+	display: block;
+	width: 100%;
+	padding: 10px 15px;
+	background-color: #f8f8f8;
+	border-radius: 8px;
+	transition: 0.4s;
+	border: none;
 }
 
 .formUsers .form-inner .form-group input:focus {
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
 
-.formUsers .form-inner input[type="submit"],
-.form-inner input[type="button"],
+.formUsers .form-inner input[type='submit'],
+.form-inner input[type='button'],
 .welcome button {
-  display: flex;
-  padding: 10px 15px;
-  border-radius: 8px;
-  background-color: var(--main);
-  background-size: 200%;
-  background-position: 0%;
-  transition: 0.4s;
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-  border: none;
+	display: flex;
+	padding: 10px 15px;
+	border-radius: 8px;
+	background-color: var(--main);
+	background-size: 200%;
+	background-position: 0%;
+	transition: 0.4s;
+	color: #fff;
+	font-weight: 700;
+	cursor: pointer;
+	border: none;
 }
 
-.formUsers .form-inner input[type="submit"]:hover,
+.formUsers .form-inner input[type='submit']:hover,
 .welcome button:hover {
-  background-position: 100% 0%;
+	background-position: 100% 0%;
 }
 
 .welcome {
-  width: 100%;
-  max-width: 1080px;
-  background-color: #fff;
-  padding: 15px 30px;
-  padding-bottom: 15%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: 1080px;
+	background-color: #fff;
+	padding: 15px 30px;
+	padding-bottom: 15%;
+	border-radius: 0px 0px 15px 15px;
 }
 
 .welcome h2 {
-  color: #094fabd0;
-  font-size: 28px;
-  font-weight: 500;
-  margin-bottom: 30px;
+	color: #094fabd0;
+	font-size: 28px;
+	font-weight: 500;
+	margin-bottom: 30px;
 }
 
 .connexionButton:hover input,
 .creationButton:hover input {
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
-
-.new h3 {
-  width: 100%;
-  display: flex;
-  margin-bottom: 15px;
-  color: var(--main);
-  justify-content: center;
-  align-content: center;
-  font-weight: normal;
+*/ .new h3 {
+	width: 100%;
+	display: flex;
+	margin-bottom: 15px;
+	color: var(--main);
+	justify-content: center;
+	align-content: center;
+	font-weight: normal;
 }
-
 .buttons {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
 }
 .sectionStyle {
-  z-index: 1;
+	z-index: 1;
 }
 
 .error {
-  color: red;
-  margin: 2vh 1vh;
+	color: red;
+	margin: 2vh 1vh;
 }
 
 .containerspacerConnexion {
-  margin: 4vh 0vh;
-  display: flex;
-  height: 2px;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
+	margin: 4vh 0vh;
+	display: flex;
+	height: 2px;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
 }
 .spacerConnexion {
-  display: flex;
-  justify-content: center;
-  width: 40%;
-  background-color: var(--main);
-  height: 2px;
+	display: flex;
+	justify-content: center;
+	width: 40%;
+	background-color: var(--main);
+	height: 2px;
 }
