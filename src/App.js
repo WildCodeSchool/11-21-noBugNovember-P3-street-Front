@@ -22,6 +22,8 @@ import UserDetail from './screens/UserDetail';
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './App.css';
+import UpdateProfil from './screens/UpdateProfil';
+import Profil from './screens/Profil';
 
 function App() {
 	const [isAdmin, setIsAdmin] = useState(false);
@@ -138,9 +140,13 @@ function App() {
 					}
 				/>
 				<Route path="/projets" element={<Project />} />
+				{/* <Route path="/edit_annonce_project/:id" element={}/>
+				<Route path="/edit_annonce_users/:id" element={}/> */}
 				<Route path="/projets/:id" element={<ProjectDetails />} />
 				<Route path="/talents" element={<Users />} />
 				<Route path="/talents/:id" element={<UserDetail />} />
+				<Route path="/update_profil/:id" element={<UpdateProfil />} />
+       			<Route path="/profil/:id" element={<Profil />} />
 			</Routes>
 		</div>
 	);

@@ -6,7 +6,7 @@ const AdminDetailProject = (props) => {
 		if (props.dataProject.status === 0) {
 			return "En recherche d'équipiers";
 		} else if (props.dataProject.status === 1) {
-			return 'Equipe complete';
+			return 'Equipe complète';
 		} else {
 			return 'Projet terminé';
 		}
@@ -22,10 +22,10 @@ const AdminDetailProject = (props) => {
 						{props.dataProject.lastname}
 					</div>
 					<div className="date_start">
-						Date estimé de lancement : {props.dataProject.date_start}
+						Date estimée de lancement : {props.dataProject.date_start}
 					</div>
 					<div className="date-end">
-						Date estimé de fin :{' '}
+						Date estimée de fin :{' '}
 						{props.dataProject.date_end !== null
 							? props.dataProject.date_end
 							: 'Non indiqué'}
