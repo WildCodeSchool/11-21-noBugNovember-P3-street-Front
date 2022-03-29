@@ -128,7 +128,7 @@ const CreateProject = () => {
         console.log('region not found')
     }
     axios
-      .post('http://localhost:3030/createproject', {
+      .post('http://localhost:3030/users/createproject', {
         name: newProject.name,
         estimated_start_date: newProject.startDate,
         estimated_end_date: newProject.endDate,
@@ -151,6 +151,7 @@ const CreateProject = () => {
   }
 
   const handleSubmit = async (e) => {
+    console.log('chcoken')
     e.preventDefault()
     let formData = new FormData()
     formData.append('file', image.data)
@@ -161,7 +162,7 @@ const CreateProject = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log('chicken', res) || setImgProfile(res.data)
+        console.log(res) || setImgProfile(res.data)
       })
   }
 
@@ -174,6 +175,7 @@ const CreateProject = () => {
 
   return (
     <>
+      {console.log(imgProfile)}
       <div className='titleContainer'>
         <h2>Créez votre projet</h2>
       </div>
@@ -228,7 +230,12 @@ const CreateProject = () => {
           </div>
           <div className='fourthContainer'>
             <div className='photoContainer'>
-              <img src={imgProfile} alt='profile' width={115} height={115} />
+              <img
+                src={imgProfile}
+                alt='profile'
+                width='115px'
+                height='115px'
+              />
             </div>
             <div className='buttonContainer'>
               <form onSubmit={(e) => handleSubmit(e)}>
@@ -241,9 +248,7 @@ const CreateProject = () => {
                     required
                   />
                 </div>
-                <div>
-                  <button type='submit'>Upload</button>
-                </div>
+                <input type='submit' value='upload' />
               </form>
             </div>
           </div>
