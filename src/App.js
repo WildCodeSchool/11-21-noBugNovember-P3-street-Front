@@ -23,8 +23,9 @@ import jwt_decode from "jwt-decode";
 import "./App.css";
 import AdminUserAnnonceEdition from "./screens/AdminUserAnnonceEdition";
 import AdminProjectAnnonceEdition from "./screens/AdminProjectAnnonceEdition";
-import UpdateProfil from "./screens/UpdateProfil";
+
 import Profil from "./screens/Profil";
+import ProfilEdition from "./screens/ProfilEdition";
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -154,10 +155,18 @@ function App() {
         <Route path="/talents" element={<Users />} />
         <Route path="/talents/:id" element={<UserDetail />} />
         <Route
-          path="/update_profil/:id"
+          path="/profil"
           element={
             <Protected>
-              <UpdateProfil />
+              <Profil idUser={idUser} />
+            </Protected>
+          }
+        />
+        <Route
+          path="/update_profil"
+          element={
+            <Protected>
+              <ProfilEdition idUser={idUser} />
             </Protected>
           }
         />
