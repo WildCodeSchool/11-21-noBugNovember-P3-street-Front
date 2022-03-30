@@ -31,11 +31,10 @@ progress {
 }
 
 .connexion {
-	position: relative;
-	height: 94vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  height: 94vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .formUsers {
@@ -156,10 +155,6 @@ progress {
 	align-content: center;
 	font-weight: normal;
 }
-/*
-.creationButton {
-}
-*/
 .buttons {
 	display: flex;
 	flex-direction: column;
