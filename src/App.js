@@ -43,11 +43,12 @@ function App() {
       setIdUser(0);
     }
   }, []);
+  console.log(idUser);
 
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar isConnect={isConnect} name={name} />
+        <Navbar isConnect={isConnect} name={name} idUser={idUser} />
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -152,8 +153,22 @@ function App() {
         <Route path="/projets/:id" element={<ProjectDetails />} />
         <Route path="/talents" element={<Users />} />
         <Route path="/talents/:id" element={<UserDetail />} />
-        <Route path="/update_profil/:id" element={<UpdateProfil />} />
-        <Route path="/profil/:id" element={<Profil />} />
+        <Route
+          path="/update_profil/:id"
+          element={
+            <Protected>
+              <UpdateProfil />
+            </Protected>
+          }
+        />
+        <Route
+          path="/profil"
+          element={
+            <Protected>
+              <Profil idUser={idUser} />
+            </Protected>
+          }
+        />
       </Routes>
     </div>
   );
