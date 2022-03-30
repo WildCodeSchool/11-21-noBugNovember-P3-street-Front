@@ -75,6 +75,7 @@ const Navbar = (props) => {
   };
   const disconnect = () => {
     localStorage.clear();
+    window.location.reload();
   };
   useEffect(() => {
     verify();
@@ -141,45 +142,48 @@ const Navbar = (props) => {
           ) : (
             ""
           )}
-        </div>
-        <div className="containerConnexion">
+          <div className="containerSpacerNavBar">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div className="containerConnexion">
+            {props.isConnect ? (
+              <Link to="/profil">
+                <div
+                  className={
+                    isNavBarConnexionBtnActive
+                      ? "navbarBtn holderLink navbarBtnActive"
+                      : "navbarBtn holderLink "
+                  }
+                  onClick={handleToggleConnexion}
+                >
+                  {props.name}
+                </div>
+              </Link>
+            ) : (
+              <Link to="/connexion">
+                <div
+                  className={
+                    isNavBarConnexionBtnActive
+                      ? "navbarBtn holderLink navbarBtnActive"
+                      : "navbarBtn holderLink "
+                  }
+                >
+                  Connexion
+                </div>
+              </Link>
+            )}
+          </div>
           {props.isConnect ? (
-            <Link to="/profil">
-              <div
-                className={
-                  isNavBarConnexionBtnActive
-                    ? "navbarBtn holderLink navbarBtnActive"
-                    : "navbarBtn holderLink "
-                }
-                onClick={handleToggleConnexion}
-              >
-                {props.name}
-              </div>
-            </Link>
+            <div className="disconnectButton" onClick={disconnect}>
+              <img
+                src="https://img.icons8.com/ios-glyphs/30/000000/logout-rounded-down.png"
+                alt="déconnexion"
+              />
+            </div>
           ) : (
-            <Link to="/connexion">
-              <div
-                className={
-                  isNavBarConnexionBtnActive
-                    ? "navbarBtn holderLink navbarBtnActive"
-                    : "navbarBtn holderLink "
-                }
-              >
-                Connexion
-              </div>
-            </Link>
+            ""
           )}
         </div>
-        {props.isConnect ? (
-          <div className="disconnectButton" onClick={disconnect}>
-            <img
-              src="https://img.icons8.com/ios-glyphs/30/000000/logout-rounded-down.png"
-              alt="déconnexion"
-            />
-          </div>
-        ) : (
-          ""
-        )}
       </div>
     </>
   );

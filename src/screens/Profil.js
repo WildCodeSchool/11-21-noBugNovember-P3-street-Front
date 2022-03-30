@@ -12,7 +12,7 @@ const Profil = ({ idUser }) => {
   const [isFilter, setIsFilter] = useState(false);
   const [profil, setProfil] = useState([]);
   const [reponse, setReponse] = useState([]);
-  const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
+  const [pDomain, setpDomain] = useState(); //Choix utilisateur domaines
   const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
   const [domainId, setDomainId] = useState();
   const [subDomainId, setSubDomainId] = useState();
@@ -52,10 +52,10 @@ const Profil = ({ idUser }) => {
   }, []);
 
   useEffect(() => {
-    if (selectDomain !== undefined) {
+    if (pDomain !== undefined) {
       axios
         .put(`${process.env.REACT_APP_BACK}/all/domain_has_sub_domain`, {
-          domain: selectDomain,
+          domain: pDomain,
         })
         .then((response) => response.data)
         .then((data) => setReponse(data));
@@ -63,11 +63,11 @@ const Profil = ({ idUser }) => {
     } else {
       setIsFilter(false);
     }
-  }, [selectDomain]);
+  }, [pDomain]);
 
   const handleDomain = (e) => {
     let choice = e.target.value;
-    setSelectDomain(choice);
+    setpDomain(choice);
     const getId = domain.filter((el) => el.domain.includes(choice));
     setDomainId(getId[0].id);
     handleChange(e);
@@ -85,202 +85,93 @@ const Profil = ({ idUser }) => {
       <div className="form-container">
         <div className="form-content">
           <div className="join">
-            <h1>Modifie ton profil {profil.firstname}</h1>
+            <h1>Votre profil {profil.firstname}</h1>
           </div>
-          (*) = Informations obligatoires
-          {console.log("ID", domainId)}
-          {console.log("ID", subDomainId)}
           <form onSubmit={handleSubmit} className="form-user" noValidate>
             <div className="userinfos">Vos informations</div>
             <div className="infos-container">
               <div className="infos-inputs">
-                <label className="form-label">Nom (*)</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="lastname"
-                  placeholder="Votre nom"
-                  value={profil.lastname}
-                  onChange={handleChange}
-                />
-                {errors.lastname && <p>{errors.lastname}</p>}
+                <label className="form-label">Nom</label>
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="infos-inputs">
-                <label className="form-label">Prénom (*)</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="firstname"
-                  placeholder="Votre prénom"
-                  value={profil.firstname}
-                  onChange={handleChange}
-                />
-                {errors.firstname && <p>{errors.firstname}</p>}
+                <label className="form-label">Prénom</label>
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="infos-inputs">
-                <label className="form-label">Email (*)</label>
-                <input
-                  className="form-input"
-                  type="email"
-                  name="email"
-                  placeholder="Votre adresse email"
-                  value={profil.email}
-                  onChange={handleChange}
-                />
-                {errors.email && <p>{errors.email}</p>}
+                <label className="form-label">Email</label>
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="infos-inputs">
-                <label className="form-label">Date de naissance (*)</label>
-                <input
-                  className="form-input"
-                  type="date"
-                  name="birthday"
-                  placeholder="Année/Mois/Jour"
-                  value={profil.birthday}
-                  onChange={handleChange}
-                />
-                {errors.birthday && <p>{errors.birthday}</p>}
+                <label className="form-label">Date de naissance</label>
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Téléphone</label>
-                <input
-                  className="form-input"
-                  type="tel"
-                  name="phone"
-                  placeholder="Votre numéro de téléphone"
-                  value={profil.phone}
-                  onChange={handleChange}
-                />
-                {errors.phone && <p>{errors.phone}</p>}
+                <span className="form-input">Nomdefamille</span>
               </div>
             </div>
-            <div className="userinfos">Votre domaine d'activité (*)</div>
-            <div className="userdomain">
-              <select
-                className="selectDomain"
-                name="domain"
-                value={profil.domain}
-                onChange={handleDomain}
-              >
-                <option value="">Choisissez votre domaine</option>
-                {domain.map((el) => (
-                  <option name="domain">{el.domain}</option>
-                ))}
-              </select>
-
-              <select
-                className="selectDomain"
-                name="subDomain"
-                value={profil.art_name}
-                onChange={handleSubDomain}
-              >
-                <option value="">Choisissez votre sous-domaine</option>
-                {isFilter
-                  ? reponse.map((el) => <option>{el.art_name}</option>)
-                  : subDomain.map((el) => <option>{el.art_name}</option>)}
-              </select>
+            <div className="userinfos">Votre domaine d'activité</div>
+            <div className="location-container">
+              <div className="location-inputs">
+                <span className="form-input">Domain</span>
+              </div>
+              <div className="location-inputs">
+                <span className="form-input">SubDomain</span>
+              </div>
             </div>
             <div className="userinfos">Votre localisation</div>
             <div className="location-container">
               <div className="location-inputs">
-                <label className="form-label">Ville (*)</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="city"
-                  placeholder="Votre ville"
-                  value={profil.city}
-                  onChange={handleChange}
-                />
-                {errors.city && <p>{errors.city}</p>}
+                <label className="form-label">Ville</label>
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="location-inputs">
-                <label className="form-label">Pays (*)</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="country"
-                  placeholder="Votre pays"
-                  value={profil.country}
-                  onChange={handleChange}
-                />
-                {errors.country && <p>{errors.country}</p>}
+                <label className="form-label">Pays</label>
+                <span className="form-input">Nomdefamille</span>
               </div>
             </div>
             <div className="userinfos">Vos réseaux sociaux</div>
             <div className="social-container">
               <div className="social-inputs">
                 <label className="form-label">Youtube</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="youtube"
-                  placeholder="Votre chaîne Youtube"
-                  value={profil.youtube}
-                  onChange={handleChange}
-                />
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="social-inputs">
-                <label className="form-label">instagram</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="instagram"
-                  placeholder="Votre Instagram"
-                  value={profil.instagram}
-                  onChange={handleChange}
-                />
+                <label className="form-label">Instagram</label>
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="social-inputs">
                 <label className="form-label">Twitter</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="twitter"
-                  placeholder="Votre Twitter"
-                  value={profil.twitter}
-                  onChange={handleChange}
-                />
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="social-inputs">
                 <label className="form-label">Spotify / Soundcloud</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="spotify"
-                  placeholder="Votre Spotify / Soundcloud"
-                  value={profil.spotify}
-                  onChange={handleChange}
-                />
+                <span className="form-input">Nomdefamille</span>
               </div>
               <div className="social-inputs">
                 <label className="form-label">Tiktok</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="tiktok"
-                  placeholder="Votre Tiktok"
-                  value={profil.tiktok}
-                  onChange={handleChange}
-                />
+                <span className="form-input">Nomdefamille</span>
               </div>
             </div>
             <div className="userinfos">Votre descritpion</div>
             <div className="description-container">
               <div className="description-inputs">
-                <label className="form-label">Description</label>
-                <textarea
-                  className="description-input"
-                  type="text"
-                  name="description"
-                  placeholder="Parlez-nous un peu de vous..."
-                  value={profil.description_users}
-                  onChange={handleChange}
-                />
+                <p className="description-input">
+                  Magna magna minim ullamco nulla non officia amet eu labore
+                  ullamco ex id. Aliqua cupidatat qui velit ea enim occaecat.
+                  Anim fugiat nulla eiusmod veniam proident nostrud ea cillum
+                  nulla est exercitation. Cupidatat non est consequat aliqua.
+                  Elit sit elit mollit eiusmod aute exercitation sunt ea sunt
+                  est. Non fugiat irure adipisicing aliquip minim id in sint
+                  esse dolor ullamco pariatur quis duis.
+                </p>
               </div>
-              <button className="profil-input-btn" type="submit">
-                Modifier votre profil
-              </button>
+              <div className="btnProfilWrapper">
+                <div className="profil-input-btn" type="submit">
+                  Modifier votre profil
+                </div>
+              </div>
             </div>
           </form>
         </div>

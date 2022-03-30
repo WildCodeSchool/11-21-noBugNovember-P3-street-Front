@@ -48,9 +48,8 @@
 .Link {
   display: flex;
   justify-content: flex-end;
-  width: 76vw;
+  width: 100vw;
   height: 100%;
-  margin: auto;
 }
 .Link a {
   display: flex;
@@ -89,5 +88,17 @@
   align-items: center;
   justify-content: center;
   margin-right: 1.5%;
+  cursor: pointer;
+}
+
+.containerSpacerNavBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3%;
+}
+
+.containerSpacerNavBar:hover {
+  color: yellow;
   cursor: pointer;
 }
