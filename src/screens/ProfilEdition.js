@@ -1,15 +1,11 @@
 /* eslint-disable no-restricted-globals */
 import "../styles/Profil.css";
 import React, { useEffect, useState } from "react";
-import validate from "../components/ValidateInfo";
-import useForm from "../components/useForm";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import AdminReturnButton from "../components/AdminReturnButton";
 
 const ProfilEdition = ({ idUser }) => {
   const [profil, setProfil] = useState([]);
-  const [domainId, setDomainId] = useState();
-  const [subDomainId, setSubDomainId] = useState();
   const [editProfil, setEditProfil] = useState({});
 
   const getProfil = () => {
@@ -56,8 +52,6 @@ const ProfilEdition = ({ idUser }) => {
             <h1>Modifie ton profil {profil.firstname}</h1>
           </div>
           (*) = Informations obligatoires
-          {console.log("ID", domainId)}
-          {console.log("ID", subDomainId)}
           <form onSubmit="" className="form-user" noValidate>
             <div className="userinfos">Vos informations</div>
             <div className="infos-container">
@@ -329,13 +323,15 @@ const ProfilEdition = ({ idUser }) => {
                   }
                 />
               </div>
-              <button
-                className="profil-input-btn"
-                type="submit"
-                onClick={annonceEdition}
-              >
-                Modifier votre profil
-              </button>
+              <div className="btnProfilWrapper">
+                <div
+                  className="profil-input-btn"
+                  type="submit"
+                  onClick={annonceEdition}
+                >
+                  Modifier votre profil
+                </div>
+              </div>
             </div>
           </form>
         </div>
