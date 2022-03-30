@@ -131,6 +131,7 @@ function App() {
 						/>
 					}
 				/>
+				<Route path="/profil/:id" element={<Profil />} />
 				<Route
 					path="/edit_project/:id"
 					element={
@@ -146,7 +147,7 @@ function App() {
 				<Route path="/talents" element={<Users />} />
 				<Route path="/talents/:id" element={<UserDetail />} />
 				<Route path="/update_profil/:id" element={<UpdateProfil />} />
-       			<Route path="/profil/:id" element={<Profil />} />
+				<Route path="*" element={<Home />} />
 			</Routes>
 		</div>
 	);
