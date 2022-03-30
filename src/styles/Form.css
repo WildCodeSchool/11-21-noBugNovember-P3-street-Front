@@ -4,43 +4,36 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
 .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80%;
 }
-
 .userdomain {
   display: flex;
   align-items: center;
   padding-left: 2%;
 }
-
 .userinfos {
   display: flex;
   color: var(--main);
   margin-bottom: 1%;
   margin-top: 1%;
 }
-
 .password-container {
   display: flex;
   align-items: center;
 }
-
 .location-container {
   display: flex;
   width: 500px;
   flex-direction: row;
   align-items: center;
 }
-
 .social-container {
   display: flex;
 }
-
 .description-container {
   display: inline-block;
   align-items: center;
@@ -49,11 +42,9 @@
   width: 600px;
   padding-bottom: 20px;
 }
-
 .infos-container {
   display: flex;
 }
-
 .description-input {
   height: 60px;
   width: 530px;
@@ -63,12 +54,10 @@
 .description-inputs {
   display: inline-block;
 }
-
 .description {
   margin-bottom: 20px;
   color: var(--darkgrey);
 }
-
 .form-img-2 {
   width: 100%;
   height: 79%;
@@ -77,27 +66,18 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .form-success {
   text-align: center;
   font-size: 24px;
   margin-top: 80px;
   color: #fff;
 }
-
 .form-user {
-  /* position: absolute; */
   display: flex;
-  /* top: 70%; */
-  /* left: 50%; */
-  /* transform: translate(-30%, -40%); */
-  /* width: 100%; */
-  /* align-items: baseline; */
   justify-content: center;
   flex-direction: column;
   padding-top: 6%;
 }
-
 .form h1 {
   font-size: 2rem;
   text-align: center;
@@ -105,45 +85,38 @@
   margin-bottom: 3rem;
   color: #fff;
 }
-
 .infos-inputs {
   display: flex;
   margin-bottom: 1rem;
   padding-left: 1%;
   flex-direction: column;
 }
-
 .password-inputs {
   display: block;
   margin-bottom: 1rem;
   padding-left: 2%;
 }
-
 .location-inputs {
   display: block;
   margin-bottom: 1rem;
   padding-left: 2%;
 }
-
 .social-inputs {
   display: block;
   margin-bottom: 1rem;
   padding-left: 1%;
 }
-
 .infos-inputs p {
   font-size: 0.8rem;
   margin-top: 0.5rem;
   color: #f00e0e;
 }
-
 .form-label {
   display: block;
   font-size: 0.8rem;
   margin-bottom: 6px;
   color: var(--darkgrey);
 }
-
 .form-input {
   display: block;
   border: none;
@@ -153,12 +126,10 @@
   height: 40px;
   background-color: white;
 }
-
 .form-input::placeholder {
   color: var(--darkgrey);
   font-size: 13px;
 }
-
 .form-input-btn {
   display: flex;
   justify-content: center;
@@ -170,11 +141,9 @@
   padding: 12px;
   margin: 20px;
 }
-
 .form-input-btn:hover {
   cursor: pointer;
 }
-
 .selectDomain {
   width: 200pxpx;
   height: 40px;
@@ -182,7 +151,6 @@
   border: 0px solid;
   padding: 10px;
 }
-
 .selectSubdomain {
   width: 165px;
   height: 40px;

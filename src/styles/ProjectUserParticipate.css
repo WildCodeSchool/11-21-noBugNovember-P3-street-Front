@@ -1,17 +1,16 @@
 .isParticipate a {
-	display: flex;
-	border-radius: 20px;
-	width: 450px;
-	height: 150px;
-	background-color: var(--second);
-	justify-content: space-between;
+  display: flex;
+  border-radius: 20px;
+  width: 450px;
+  height: 150px;
+  background-color: var(--second);
+  justify-content: space-between;
 }
-
 .restes {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	justify-content: center;
-	color: white;
-	text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  color: white;
+  text-align: center;
 }

@@ -21,11 +21,11 @@ const ProjectCard = ({ project }) => {
         <div className="desc">{project.description}</div>
         <div className="content">
           <div className="quandOu localisation">
-            <i className="fa-solid fa-location-dot"></i>
+            <i className="fa-solid fa-location-dot"></i>&nbsp;
             {project.localisation}
           </div>
           <div className="quandOu projecTtime">
-            <i class="fa-solid fa-calendar-days"></i>
+            <i class="fa-solid fa-calendar-days"></i>&nbsp;
             {dateProject}
           </div>
         </div>
