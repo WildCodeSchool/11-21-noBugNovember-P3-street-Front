@@ -141,6 +141,7 @@ function App() {
 				<Route path="/projets/:id" element={<ProjectDetails />} />
 				<Route path="/talents" element={<Users />} />
 				<Route path="/talents/:id" element={<UserDetail />} />
+				<Route path="*" element={<Home />} />
 			</Routes>
 		</div>
 	);
