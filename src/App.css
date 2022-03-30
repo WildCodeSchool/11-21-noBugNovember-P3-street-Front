@@ -1,36 +1,36 @@
 :root {
-	--main: #09ab85;
-	--main-dark: #086e56;
-	--second: #094fabd0;
-	--second-dark: #094fab;
-	--grey: #939993;
-	--darkgrey: #5b665b;
-	--white: whitesmoke;
-	--red: darkred;
-	--cta: #9b9ee1;
-	--shadowColor: #2b0e4545;
-	--fontTitle: 'IvyJournal' 400;
-	--fontBody: 'Ivyjournal', sans-serif;
-	backface-visibility: hidden;
+  --main: #09ab85;
+  --main-dark: #086e56;
+  --second: #094fabd0;
+  --second-dark: #094fab;
+  --grey: #939993;
+  --darkgrey: #5b665b;
+  --white: whitesmoke;
+  --red: #c4302b;
+  --cta: #9b9ee1;
+  --shadowColor: #2b0e4545;
+  --fontTitle: "IvyJournal" 400;
+  --fontBody: "Ivyjournal", sans-serif;
+  backface-visibility: hidden;
 }
 
 .App {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body::-webkit-scrollbar {
-	width: 0.8vw; /* width of the entire scrollbar */
-	padding: 1px;
+  width: 0.8vw; /* width of the entire scrollbar */
+  padding: 1px;
 }
 
 body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: darkgrey; /* color of the scroll thumb */
-	border-radius: 20px; /* roundness of the scroll thumb */
-	border: 1px solid lightgrey;
+  background-color: darkgrey; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 1px solid lightgrey;
 }

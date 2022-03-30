@@ -75,6 +75,7 @@
   max-width: 200px;
   max-height: 96px;
   outline: 1vw solid whitesmoke;
+  border-radius: 0.5vw;
 }
 .homeDoneProjects {
   width: 100%;
@@ -102,7 +103,7 @@
 .tousLesProjetsBtn {
   margin: 3vh;
   display: flex;
-  background-color: var(--second);
+  background-color: var(--red);
   color: whitesmoke;
   width: 20vw;
   height: 8vh;

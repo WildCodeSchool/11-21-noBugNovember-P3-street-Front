@@ -64,8 +64,12 @@ const Home = () => {
                 chacun en favorisant la rencontre d'artistes et de techniciens.
                 »
               </p>
+            </div>{" "}
+            <div className="btnNousrejoindre">
+              <Link to="/connexion">
+                <div className="">Nous rejoindre</div>
+              </Link>
             </div>
-            <div className="btnNousrejoindre">Nous rejoindre</div>
           </div>
         </div>
 
