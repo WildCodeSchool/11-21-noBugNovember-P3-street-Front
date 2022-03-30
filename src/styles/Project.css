@@ -6,7 +6,6 @@
   flex-direction: row;
   height: 100%;
 }
-
 .allStatus {
   display: flex;
   width: 15vw;
@@ -17,11 +16,9 @@
   transition: 0.5s;
   align-items: center;
 }
-
 .allStatus.active {
   background-color: var(--main-dark);
 }
-
 .allStatus:hover {
   background-color: var(--darkgrey);
 }
