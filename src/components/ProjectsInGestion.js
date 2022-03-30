@@ -18,7 +18,7 @@ const ProjectsInGestion = ({
 		if (project.status === 0) {
 			return "En recherche d'équipiers";
 		} else if (project.status === 1) {
-			return 'Équipe compléte';
+			return 'Équipe complète';
 		} else if (project.status === 2) {
 			return 'Projet terminé';
 		}

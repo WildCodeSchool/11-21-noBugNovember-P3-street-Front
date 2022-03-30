@@ -1,58 +1,68 @@
-import React, { useEffect, useState } from "react";
-import "../styles/Form.css";
-import FormSuccess from "../components/FormSucces";
-import validate from "../components/ValidateInfo";
-import useForm from "../components/useForm";
-import axios from "axios";
+import '../styles/Profil.css'
+import React, { useEffect, useState } from 'react';
+import validate from '../components/ValidateInfo';
+import useForm from '../components/useForm';
+import axios from 'axios';
+import { useParams } from "react-router-dom";
 
-const Form = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [domain, setDomain] = useState([]);
-  const [subDomain, setSubdomain] = useState([]);
-  const [isFilter, setIsFilter] = useState(false);
-  const [reponse, setReponse] = useState([]);
-  const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
-  const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
-  const [domainId, setDomainId] = useState();
-  const [subDomainId, setSubDomainId] = useState();
+
+const Profil = () => {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [domain, setDomain] = useState([]);
+    const [subDomain, setSubdomain] = useState([]);
+    const [isFilter, setIsFilter] = useState(false);
+    const [profil, setProfil] = useState([]);
+    const [reponse, setReponse] = useState([]);
+    const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
+    const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
+    const [domainId, setDomainId] = useState()
+    const [subDomainId,setSubDomainId] = useState()
+    const params = useParams();
 
   console.log(domain)
   const submitForm = () => {
     setIsSubmitted(true);
   }
   
-  const { handleChange, handleSubmit, values, errors } = useForm(
+  const { handleChange, handleSubmit, errors } = useForm(
     submitForm,
     validate
   );
-
+  
   const getSubdomain = () => {
-    axios
-      .get(`${process.env.REACT_APP_BACK}/all/subdomain`)
-      .then((res) => res.data)
-      .then((data) => setSubdomain(data));
-  };
+    axios.get(`${process.env.REACT_APP_BACK}/all/subdomain`)
+         .then((res) => (res.data))
+         .then((data) => setSubdomain(data))
+    };
 
   const getDomain = () => {
-    axios
-      .get(`${process.env.REACT_APP_BACK}/all/domain`)
-      .then((res) => res.data)
-      .then((data) => setDomain(data));
+    axios.get(`${process.env.REACT_APP_BACK}/all/domain`)
+         .then((res) => res.data)
+         .then((data) => setDomain(data))
+};
+
+  const getProfil = () => {
+    axios.get(`${process.env.REACT_APP_BACK}/users/profil/${params.id}`)
+         .then((res) => res.data)
+         .then((data) => setProfil(data)) 
   };
 
-  useEffect(() => {
-    getDomain();
-    getSubdomain();
-  }, []);
+  console.log(profil)
 
+  useEffect(() => {
+    getDomain()
+    getSubdomain()
+    getProfil()
+  }, []); 
+  
   useEffect(() => {
     if (selectDomain !== undefined) {
       axios
-        .put(`${process.env.REACT_APP_BACK}/all/domain_has_sub_domain`, {
-          domain: selectDomain,
-        })
-        .then((response) => response.data)
-        .then((data) => setReponse(data));
+      .put(`${process.env.REACT_APP_BACK}/all/domain_has_sub_domain`, {
+        domain: selectDomain,
+      })
+      .then((response) => response.data)
+      .then((data) => setReponse(data));
       setIsFilter(true);
       // console.log(selectDomain)
     } else {
@@ -61,55 +71,27 @@ const Form = () => {
   }, [selectDomain]);
   // console.log(values)
 
-  const handleDomain = (e) => {
-    let choice = e.target.value;
-    setSelectDomain(choice);
-    const getId = domain.filter((el) => el.domain.includes(choice));
-    setDomainId(getId[0].id);
-    handleChange(e);
-  };
-  const handleSubDomain = (e) => {
-    let choice = e.target.value;
-    setSelectSubDomain(choice);
-    const getId = subDomain.filter((el) => el.art_name.includes(choice));
-    setSubDomainId(getId[0].id);
-    handleChange(e);
-  };
-
-  console.log(values.firstname);
-  const submitUser = () => {
-    axios.post(`${process.env.REACT_APP_BACK}/users/submitUser`, {
-      admin: 0,
-      blocked: 1,
-      firstname: values.firstname,
-      lastname: values.lastname,
-      password: values.password,
-      email: values.email,
-      phone: values.phone,
-      birthday: "1993-08-10",
-      city: values.city,
-      country: values.country,
-      forget_password: "lol",
-      youtube: values.instagram,
-      instagram: values.instagram,
-      twitter: values.twitter,
-      spotify: values.spotify,
-      description_users: values.description,
-      available: 1,
-      phoneVisibility: 1,
-      emailVisibility: 1,
-      domain_id: domainId,
-      sub_domain_id: subDomainId,
-    });
-  };
+const handleDomain = (e) => {
+  let choice = e.target.value
+  setSelectDomain(choice)
+  const getId = domain.filter((el) => el.domain.includes(choice))
+  setDomainId(getId[0].id)
+  handleChange(e)
+};
+const handleSubDomain= (e) => {
+  let choice = e.target.value
+  setSelectSubDomain(choice)
+  const getId = subDomain.filter((el) => el.art_name.includes(choice))
+  setSubDomainId(getId[0].id)
+  handleChange(e)
+}
 
     return (
       <>
     <div className='form-container'>
-    {!isSubmitted ? (
       <div className='form-content'>
         <div className='join'>
-          <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
+          <h1>Bienvenue chez Streezer !</h1>
         </div>
         (*) = Informations obligatoires
         {console.log('ID',domainId)}
@@ -124,7 +106,7 @@ const Form = () => {
               type='text'
               name='lastname'
               placeholder='Votre nom'
-              value={values.lastname}
+              value={profil.lastname}
               onChange={handleChange}
              />
           {errors.lastname && <p>{errors.lastname}</p>}
@@ -136,7 +118,7 @@ const Form = () => {
             type='text'
             name='firstname'
             placeholder='Votre prénom'
-            value={values.firstname}
+            value={profil.firstname}
             onChange={handleChange}
           />
           {errors.firstname && <p>{errors.firstname}</p>}
@@ -148,7 +130,7 @@ const Form = () => {
             type='email'
             name='email'
             placeholder='Votre adresse email'
-            value={values.email}
+            value={profil.email}
             onChange={handleChange}
           />
           {errors.email && <p>{errors.email}</p>}
@@ -160,7 +142,7 @@ const Form = () => {
             type='date'
             name='birthday'
             placeholder='Année/Mois/Jour'
-            value={values.birthday}
+            value={profil.birthday}
             onChange={handleChange}
           />
           {errors.birthday && <p>{errors.birthday}</p>}
@@ -172,7 +154,7 @@ const Form = () => {
             type='tel'
             name='phone'
             placeholder='Votre numéro de téléphone'
-            value={values.phone}
+            value={profil.phone}
             onChange={handleChange}
           />
           {errors.phone && <p>{errors.phone}</p>}
@@ -180,14 +162,14 @@ const Form = () => {
         </div>
           <div className='userinfos'>Votre domaine d'activité (*)</div>
         <div className='userdomain'>
-          <select className="selectDomain" name="domain" value={values.domain} onChange={handleDomain} >
+          <select className="selectDomain" name="domain" value={profil.domain} onChange={handleDomain} >
               <option value='' >Choisissez votre domaine</option>
               {domain.map((el) => (
                 <option name='domain'>{el.domain}</option>
               ))}
             </select>
             {isFilter ?
-          <select className="selectSubdomain" name="subDomain" value={values.subDomain} onChange={handleSubDomain}>
+          <select className="selectSubdomain" name="subDomain" value={profil.subDomain} onChange={handleSubDomain}>
               <option value="">Choisissez votre sous-domaine</option>
               {isFilter ? 
                 reponse.map((el) =>(
@@ -209,7 +191,7 @@ const Form = () => {
             type='password'
             name='password'
             placeholder='Votre mot de passe'
-            value={values.password}
+            value={profil.password}
             onChange={handleChange}
           />
           {errors.password && <p>{errors.password}</p>}
@@ -221,7 +203,7 @@ const Form = () => {
             type='password'
             name='password2'
             placeholder='Confirmer le mot de passe'
-            value={values.password2}
+            value={profil.password2}
             onChange={handleChange}
           />
           {errors.password2 && <p>{errors.password2}</p>}
@@ -236,7 +218,7 @@ const Form = () => {
             type='text'
             name='city'
             placeholder='Votre ville'
-            value={values.city}
+            value={profil.city}
             onChange={handleChange}
           />
           {errors.city && <p>{errors.city}</p>}
@@ -248,7 +230,7 @@ const Form = () => {
             type='text'
             name='country'
             placeholder='Votre pays'
-            value={values.country}
+            value={profil.country}
             onChange={handleChange}
           />
           {errors.country && <p>{errors.country}</p>}
@@ -263,7 +245,7 @@ const Form = () => {
             type='text'
             name='youtube'
             placeholder='Votre chaîne Youtube'
-            value={values.youtube}
+            value={profil.youtube}
             onChange={handleChange}
           />
           </div>
@@ -274,7 +256,7 @@ const Form = () => {
             type='text'
             name='instagram'
             placeholder='Votre Instagram'
-            value={values.instagram}
+            value={profil.instagram}
             onChange={handleChange}
           />
           </div>
@@ -285,7 +267,7 @@ const Form = () => {
             type='text'
             name='twitter'
             placeholder='Votre Twitter'
-            value={values.twitter}
+            value={profil.twitter}
             onChange={handleChange}
           />
           </div>
@@ -296,7 +278,7 @@ const Form = () => {
             type='text'
             name='spotify'
             placeholder='Votre Spotify / Soundcloud'
-            value={values.spotify}
+            value={profil.spotify}
             onChange={handleChange}
           />
           </div>
@@ -307,7 +289,7 @@ const Form = () => {
             type='text'
             name='tiktok'
             placeholder='Votre Tiktok'
-            value={values.tiktok}
+            value={profil.tiktok}
             onChange={handleChange}
           />
           </div>
@@ -321,23 +303,19 @@ const Form = () => {
             type="text" 
             name="description" 
             placeholder="Parlez-nous un peu de vous..." 
+            value={profil.description_users}
+            onChange={handleChange}
             />
             </div>
-          <button className='form-input-btn' type='submit' onClick={() => submitUser()}>
-          Créer votre profil
+            <button className='profil-input-btn' type='submit'>
+          Modifier votre profil
           </button>
         </div>
       </form>
         </div>
-        ) : (
-          <FormSuccess /> 
-        )
-          }
       </div> 
     </>
-	
         );
+};
 
-	};	  
-
-export default Form;
+export default Profil

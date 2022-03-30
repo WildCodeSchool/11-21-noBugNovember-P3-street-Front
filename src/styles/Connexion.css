@@ -5,10 +5,33 @@ button {
   border: none;
   outline: none;
 }
+
+progress {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  height: 30px;
+  width: 100%;
+  background-color: var(--main);
+  border-radius: 15px 15px 15px 15px;
+}
+
+::-moz-progress-bar {
+  border-radius: 15px 15px 15px 15px;
+}
+
+::-webkit-progress-bar {
+  background-color: var(--main);
+  border-radius: 15px 15px 15px 15px;
+}
+
+::-webkit-progress-value {
+  background-color: var(--second);
+  border-radius: 15px 15px 15px 15px;
+}
 .connexion {
   height: 94vh;
   display: flex;
-  flex-direction: ;
   align-items: center;
   justify-content: center;
 }
@@ -67,6 +90,7 @@ button {
 .formUsers .form-inner .form-group input:focus {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
+
 .formUsers .form-inner input[type="submit"],
 .form-inner input[type="button"],
 .welcome button {
@@ -82,16 +106,22 @@ button {
   cursor: pointer;
   border: none;
 }
+
 .formUsers .form-inner input[type="submit"]:hover,
 .welcome button:hover {
   background-position: 100% 0%;
 }
 .welcome {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 1080px;
   background-color: #fff;
   padding: 15px 30px;
   padding-bottom: 15%;
+  border-radius: 0px 0px 15px 15px;
 }
 .welcome h2 {
   color: #094fabd0;
