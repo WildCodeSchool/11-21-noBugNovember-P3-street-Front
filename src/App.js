@@ -169,6 +169,7 @@ function App() {
             </Protected>
           }
         />
+        <Route path="*" element={<Home />} />
       </Routes>
     </div>
   );
