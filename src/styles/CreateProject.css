@@ -15,12 +15,12 @@
   top: 15%;
   left: 30%;
 }
-input {
+/* input {
   border: 1px solid black;
   border-radius: 3px;
   outline: none;
   box-shadow: 3px;
-}
+} */
 .name {
   width: 300px;
   height: 30px;
@@ -34,6 +34,7 @@ input {
   width: 550px;
   height: 130px;
   margin: 0;
+  resize: none;
 }
 .region {
   width: 150px;

@@ -78,6 +78,7 @@
   width: 100%;
   border-radius: 15px 0px 0px 15px;
   padding: 0.5%;
+  color: whitesmoke;
 }
 
 .nonValidated {
@@ -89,15 +90,13 @@
   width: 100%;
   border-radius: 0px 15px 15px 0px;
   padding: 0.5%;
+  color: whitesmoke;
 }
 .activ {
   background-color: var(--main-dark);
 }
 
 .addAnnonce {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 10px 15px;
   border-radius: 8px;
   background-color: var(--main);
@@ -108,4 +107,15 @@
   font-weight: 700;
   cursor: pointer;
   border: none;
+}
+
+.addAnnonce:hover {
+  background-color: var(--main-dark);
+}
+
+.buttonAddAnnonceContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
 }

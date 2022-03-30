@@ -33,6 +33,11 @@
   color: white;
   border-radius: 0px 0px 0px 0px;
   cursor: pointer;
+  transition: 0.4s;
+}
+
+.changestatus:hover {
+  background-color: var(--darkgrey);
 }
 .contentprojectadmin {
   display: flex;
@@ -55,7 +60,14 @@
   align-items: center;
   width: 150px;
   height: 100%;
-  background-color: var(--red);
+  background-color: var(--red-light);
+  color: white;
+  border-radius: 30px 0px 0px 0px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.ondegage {
+  background-color: var(--red-dark);
   color: white;
   border-radius: 30px 0px 0px 0px;
   cursor: pointer;
@@ -66,10 +78,31 @@
   align-items: center;
   width: 150px;
   height: 100%;
-  background-color: var(--red);
+  background-color: var(--red-light);
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.onsupprime:hover {
+  background-color: var(--red-dark);
+}
+.onmodifie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--grey);
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.onmodifie:hover {
+  background-color: var(--darkgrey);
   color: white;
   cursor: pointer;
 }
+
 .onvalide {
   display: flex;
   justify-content: center;
@@ -81,6 +114,10 @@
   color: white;
   border-radius: 30px 0px 0px 0px;
   cursor: pointer;
+  transition: 0.4s;
+}
+.onvalide:hover {
+  background-color: var(--main-dark);
 }
 .popup {
   position: absolute;
@@ -94,8 +131,6 @@
   justify-content: center;
   top: -60px;
   width: 220%;
-  /*border: solid 1px black;
-	*/
   background-color: var(--main);
   border-radius: 20px 20px 20px 20px;
 }
