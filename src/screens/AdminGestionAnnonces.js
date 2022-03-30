@@ -96,7 +96,7 @@ const AdminGestionAnnonces = () => {
           className={isValidated ? "nonValidated" : "nonValidated activ"}
           onClick={() => setIsValidated(false)}
         >
-          en attente de validation
+          En attente de validation
         </div>
       </div>
       <div className="tableauContainer">
