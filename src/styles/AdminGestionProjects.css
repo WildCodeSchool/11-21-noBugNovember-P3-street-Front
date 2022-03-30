@@ -53,3 +53,15 @@
 .isproject.active {
   background-color: var(--second-dark);
 }
+
+.nameproject {
+  width: 25%;
+}
+
+.start_date {
+  width: 30%;
+}
+
+.initiateur {
+  width: 30%;
+}

@@ -3,6 +3,9 @@
   margin-top: 2%;
 }
 
+.form-content {
+  width: 50%;
+}
 .form-container {
   display: flex;
   justify-content: center;
@@ -13,6 +16,7 @@
   display: flex;
   align-items: center;
   padding-left: 1%;
+  width: 100%;
 }
 
 .userinfos {
@@ -29,13 +33,14 @@
 
 .location-container {
   display: flex;
-  width: 500px;
+  width: 100%;
   flex-direction: row;
   align-items: center;
 }
 
 .social-container {
   display: flex;
+  width: 100%;
 }
 
 .description-container {
@@ -43,18 +48,20 @@
   align-items: center;
   flex-direction: column;
   height: 95px;
-  width: 600px;
+  width: 100%;
   padding-left: 1%;
 }
 
 .infos-container {
   display: flex;
+  width: 100%;
 }
 
 .description-input {
   height: 60px;
-  width: 530px;
+  width: 100%;
   padding-left: 1%;
+  font-size: small;
 }
 
 .description-inputs {
@@ -93,6 +100,13 @@ textarea {
   padding-top: 6%;
 }
 
+.form-user span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: small;
+}
+
 .form h1 {
   font-size: 2rem;
   text-align: center;
@@ -106,6 +120,7 @@ textarea {
   margin-bottom: 1rem;
   padding-left: 1%;
   flex-direction: column;
+  width: 100%;
 }
 
 .password-inputs {
@@ -117,13 +132,16 @@ textarea {
 .location-inputs {
   display: block;
   margin-bottom: 1rem;
-  padding-left: 2%;
+  padding-left: 1%;
+  min-width: 165px;
+  width: 25%;
 }
 
 .social-inputs {
   display: block;
   margin-bottom: 1rem;
   padding-left: 1%;
+  width: 100%;
 }
 
 .location-inputs p {
@@ -177,19 +195,33 @@ textarea {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-top: 15px;
+  text-decoration: none;
+}
+
+.profil-input-btn:hover {
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .profil-input-btn:hover {
   cursor: pointer;
 }
 
-.selectDomain {
-  width: 165px;
+.pDomain {
+  min-width: 165px;
+  width: 25%;
   height: 40px;
-  margin-right: 2%;
+  margin-right: 1%;
+  background-color: white;
+  padding-left: 10px;
 }
 
 .selectSubdomain {
   width: 165px;
   height: 40px;
+}
+
+.btnProfilWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
