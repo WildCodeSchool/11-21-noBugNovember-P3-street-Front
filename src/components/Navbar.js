@@ -13,12 +13,15 @@ const Navbar = (props) => {
     useState(false);
   const [isNavBarTalentsBtnActive, setIsNavBarTalentsBtnActive] =
     useState(false);
+  const [isNavBarConnexionBtnActive, setIsNavBarConnexionBtnActive] =
+    useState(false);
   const [isNavBarAdminBtnActive, setIsNavBarAdminBtnActive] = useState(false);
 
   const handleToggleAccueil = () => {
     setIsNavBarAccueilBtnActive(true);
     setIsNavBarProjetsBtnActive(false);
     setIsNavBarTalentsBtnActive(false);
+    setIsNavBarConnexionBtnActive(false);
     setIsNavBarAdminBtnActive(false);
   };
 
@@ -26,13 +29,7 @@ const Navbar = (props) => {
     setIsNavBarAccueilBtnActive(false);
     setIsNavBarProjetsBtnActive(true);
     setIsNavBarTalentsBtnActive(false);
-    setIsNavBarAdminBtnActive(false);
-  };
-
-  const handleToggleTalents = () => {
-    setIsNavBarAccueilBtnActive(false);
-    setIsNavBarProjetsBtnActive(false);
-    setIsNavBarTalentsBtnActive(true);
+    setIsNavBarConnexionBtnActive(false);
     setIsNavBarAdminBtnActive(false);
   };
 
@@ -40,13 +37,23 @@ const Navbar = (props) => {
     setIsNavBarAccueilBtnActive(false);
     setIsNavBarProjetsBtnActive(false);
     setIsNavBarTalentsBtnActive(false);
+    setIsNavBarConnexionBtnActive(false);
     setIsNavBarAdminBtnActive(true);
+  };
+
+  const handleToggleTalents = () => {
+    setIsNavBarAccueilBtnActive(false);
+    setIsNavBarProjetsBtnActive(false);
+    setIsNavBarTalentsBtnActive(true);
+    setIsNavBarConnexionBtnActive(false);
+    setIsNavBarAdminBtnActive(false);
   };
 
   const handleToggleConnexion = () => {
     setIsNavBarAccueilBtnActive(false);
     setIsNavBarProjetsBtnActive(false);
     setIsNavBarTalentsBtnActive(false);
+    setIsNavBarConnexionBtnActive(true);
     setIsNavBarAdminBtnActive(false);
   };
 
@@ -66,7 +73,9 @@ const Navbar = (props) => {
         setIsAdmin(false);
       });
   };
-
+  const disconnect = () => {
+    localStorage.clear();
+  };
   useEffect(() => {
     verify();
   }, [props.isConnect]);
@@ -116,7 +125,6 @@ const Navbar = (props) => {
               Talents
             </div>
           </Link>
-
           {isAdmin ? (
             <Link to="/admin">
               <div
@@ -136,13 +144,42 @@ const Navbar = (props) => {
         </div>
         <div className="containerConnexion">
           {props.isConnect ? (
-            <div className="navbarBtn connexion">{props.name}</div>
+            <Link to="/profil">
+              <div
+                className={
+                  isNavBarConnexionBtnActive
+                    ? "navbarBtn holderLink navbarBtnActive"
+                    : "navbarBtn holderLink "
+                }
+                onClick={handleToggleConnexion}
+              >
+                {props.name}
+              </div>
+            </Link>
           ) : (
             <Link to="/connexion">
-              <div className="navbarBtn connexion">Connexion</div>
+              <div
+                className={
+                  isNavBarConnexionBtnActive
+                    ? "navbarBtn holderLink navbarBtnActive"
+                    : "navbarBtn holderLink "
+                }
+              >
+                Connexion
+              </div>
             </Link>
           )}
         </div>
+        {props.isConnect ? (
+          <div className="disconnectButton" onClick={disconnect}>
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/000000/logout-rounded-down.png"
+              alt="déconnexion"
+            />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

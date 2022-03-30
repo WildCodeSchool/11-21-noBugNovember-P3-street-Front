@@ -25,8 +25,7 @@
 }
 .holderLink {
 }
-.accueil {
-}
+
 .button {
   align-self: start;
   text-align: center;
@@ -79,13 +78,16 @@
 .containerConnexion a {
   display: flex;
   height: 100%;
-  /* width: 5vw; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
   min-width: 70px;
 }
-.containerConnexion:hover {
-  background-color: whitesmoke;
+
+.disconnectButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5%;
   cursor: pointer;
 }

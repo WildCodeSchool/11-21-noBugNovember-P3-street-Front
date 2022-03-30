@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import "../styles/Profil.css";
 import React, { useEffect, useState } from "react";
 import validate from "../components/ValidateInfo";
@@ -5,7 +6,7 @@ import useForm from "../components/useForm";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const Profil = ({ idUser }) => {
+const ProfilEdition = ({ idUser }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [domain, setDomain] = useState([]);
   const [subDomain, setSubdomain] = useState([]);
@@ -16,13 +17,15 @@ const Profil = ({ idUser }) => {
   const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
   const [domainId, setDomainId] = useState();
   const [subDomainId, setSubDomainId] = useState();
+  const [editProfil, setEditProfil] = useState({});
 
   console.log(idUser);
   const submitForm = () => {
     setIsSubmitted(true);
   };
 
-  const { handleChange, handleSubmit, errors } = useForm(submitForm, validate);
+  //   const { handleChange, handleSubmit, errors } = useForm(submitForm, validate);
+  //   const { handleSubmit, errors } = useForm(submitForm, validate);
 
   const getSubdomain = () => {
     axios
@@ -43,6 +46,33 @@ const Profil = ({ idUser }) => {
       .get(`${process.env.REACT_APP_BACK}/users/profil/${idUser}`)
       .then((res) => res.data)
       .then((data) => setProfil(data));
+  };
+
+  const annonceEdition = (e) => {
+    e.preventDefault();
+    if (confirm(`Êtes-vous sûr de vouloir modifier ce projet?`) === true) {
+      axios.put(`${process.env.REACT_APP_BACK}/admin/update_profil/${idUser}`, {
+        firstname: editProfil.firstname,
+        lastname: editProfil.lastname,
+        description_users: editProfil.description,
+        birthday: editProfil.birthday,
+        date: editProfil.date,
+        phone: editProfil.phone,
+        domain_id: editProfil.domain,
+        sub_domain_id: editProfil.art_name,
+        art_name: editProfil.subDomain,
+        youtube: editProfil.youtube,
+        instagram: editProfil.instagram,
+        twitter: editProfil.twitter,
+        spotify: editProfil.spotify,
+        tiktok: editProfil.tiktok,
+        email: editProfil.email,
+        city: editProfil.city,
+        country: editProfil.country,
+      });
+    } else {
+      console.log("nope");
+    }
   };
 
   useEffect(() => {
@@ -70,16 +100,17 @@ const Profil = ({ idUser }) => {
     setSelectDomain(choice);
     const getId = domain.filter((el) => el.domain.includes(choice));
     setDomainId(getId[0].id);
-    handleChange(e);
+    setEditProfil({ ...editProfil, domain: domainId });
   };
+  console.log(editProfil);
   const handleSubDomain = (e) => {
     let choice = e.target.value;
     setSelectSubDomain(choice);
     const getId = subDomain.filter((el) => el.art_name.includes(choice));
     setSubDomainId(getId[0].id);
-    handleChange(e);
+    setEditProfil({ ...editProfil, art_name: subDomainId });
   };
-  console.log(profil);
+
   return (
     <>
       <div className="form-container">
@@ -90,7 +121,7 @@ const Profil = ({ idUser }) => {
           (*) = Informations obligatoires
           {console.log("ID", domainId)}
           {console.log("ID", subDomainId)}
-          <form onSubmit={handleSubmit} className="form-user" noValidate>
+          <form onSubmit="" className="form-user" noValidate>
             <div className="userinfos">Vos informations</div>
             <div className="infos-container">
               <div className="infos-inputs">
@@ -101,9 +132,9 @@ const Profil = ({ idUser }) => {
                   name="lastname"
                   placeholder="Votre nom"
                   value={profil.lastname}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
-                {errors.lastname && <p>{errors.lastname}</p>}
+                {/* {errors.lastname && <p>{errors.lastname}</p>} */}
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Prénom (*)</label>
@@ -113,9 +144,9 @@ const Profil = ({ idUser }) => {
                   name="firstname"
                   placeholder="Votre prénom"
                   value={profil.firstname}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
-                {errors.firstname && <p>{errors.firstname}</p>}
+                {/* {errors.firstname && <p>{errors.firstname}</p>} */}
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Email (*)</label>
@@ -125,9 +156,9 @@ const Profil = ({ idUser }) => {
                   name="email"
                   placeholder="Votre adresse email"
                   value={profil.email}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
-                {errors.email && <p>{errors.email}</p>}
+                {/* {errors.email && <p>{errors.email}</p>} */}
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Date de naissance (*)</label>
@@ -137,9 +168,9 @@ const Profil = ({ idUser }) => {
                   name="birthday"
                   placeholder="Année/Mois/Jour"
                   value={profil.birthday}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
-                {errors.birthday && <p>{errors.birthday}</p>}
+                {/* {errors.birthday && <p>{errors.birthday}</p>} */}
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Téléphone</label>
@@ -149,9 +180,9 @@ const Profil = ({ idUser }) => {
                   name="phone"
                   placeholder="Votre numéro de téléphone"
                   value={profil.phone}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
-                {errors.phone && <p>{errors.phone}</p>}
+                {/* {errors.phone && <p>{errors.phone}</p>} */}
               </div>
             </div>
             <div className="userinfos">Votre domaine d'activité (*)</div>
@@ -159,10 +190,9 @@ const Profil = ({ idUser }) => {
               <select
                 className="selectDomain"
                 name="domain"
-                value={profil.domain}
                 onChange={handleDomain}
               >
-                <option value="">Choisissez votre domaine</option>
+                <option value="">{profil.domain}</option>
                 {domain.map((el) => (
                   <option name="domain">{el.domain}</option>
                 ))}
@@ -171,10 +201,9 @@ const Profil = ({ idUser }) => {
               <select
                 className="selectDomain"
                 name="subDomain"
-                value={profil.art_name}
                 onChange={handleSubDomain}
               >
-                <option value="">Choisissez votre sous-domaine</option>
+                <option value="">{profil.art_name}</option>
                 {isFilter
                   ? reponse.map((el) => <option>{el.art_name}</option>)
                   : subDomain.map((el) => <option>{el.art_name}</option>)}
@@ -190,9 +219,9 @@ const Profil = ({ idUser }) => {
                   name="city"
                   placeholder="Votre ville"
                   value={profil.city}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
-                {errors.city && <p>{errors.city}</p>}
+                {/* {errors.city && <p>{errors.city}</p>} */}
               </div>
               <div className="location-inputs">
                 <label className="form-label">Pays (*)</label>
@@ -202,9 +231,9 @@ const Profil = ({ idUser }) => {
                   name="country"
                   placeholder="Votre pays"
                   value={profil.country}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
-                {errors.country && <p>{errors.country}</p>}
+                {/* {errors.country && <p>{errors.country}</p>} */}
               </div>
             </div>
             <div className="userinfos">Vos réseaux sociaux</div>
@@ -217,7 +246,7 @@ const Profil = ({ idUser }) => {
                   name="youtube"
                   placeholder="Votre chaîne Youtube"
                   value={profil.youtube}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
               </div>
               <div className="social-inputs">
@@ -228,9 +257,10 @@ const Profil = ({ idUser }) => {
                   name="instagram"
                   placeholder="Votre Instagram"
                   value={profil.instagram}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
               </div>
+
               <div className="social-inputs">
                 <label className="form-label">Twitter</label>
                 <input
@@ -239,7 +269,7 @@ const Profil = ({ idUser }) => {
                   name="twitter"
                   placeholder="Votre Twitter"
                   value={profil.twitter}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
               </div>
               <div className="social-inputs">
@@ -250,7 +280,7 @@ const Profil = ({ idUser }) => {
                   name="spotify"
                   placeholder="Votre Spotify / Soundcloud"
                   value={profil.spotify}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
               </div>
               <div className="social-inputs">
@@ -261,7 +291,7 @@ const Profil = ({ idUser }) => {
                   name="tiktok"
                   placeholder="Votre Tiktok"
                   value={profil.tiktok}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
               </div>
             </div>
@@ -275,10 +305,14 @@ const Profil = ({ idUser }) => {
                   name="description"
                   placeholder="Parlez-nous un peu de vous..."
                   value={profil.description_users}
-                  onChange={handleChange}
+                  //   onChange={handleChange}
                 />
               </div>
-              <button className="profil-input-btn" type="submit">
+              <button
+                className="profil-input-btn"
+                type="submit"
+                onClick={annonceEdition}
+              >
                 Modifier votre profil
               </button>
             </div>
@@ -289,4 +323,4 @@ const Profil = ({ idUser }) => {
   );
 };
 
-export default Profil;
+export default ProfilEdition;

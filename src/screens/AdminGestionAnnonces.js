@@ -144,23 +144,25 @@ const AdminGestionAnnonces = () => {
               />
             ))}
       </div>
-      {isFilter ? (
-        <Link to="/add_annonces_project">
-          <button className="addAnnonce">
-            <p>
-              <i class="fa-solid fa-plus"></i> Ajouter une annonce projet
-            </p>
-          </button>
-        </Link>
-      ) : (
-        <Link to="/add_annonces_user">
-          <button className="addAnnonce">
-            <p>
-              <i class="fa-solid fa-plus"></i> Ajouter une annonce utilisateur
-            </p>
-          </button>
-        </Link>
-      )}
+      <div className="buttonAddAnnonceContainer">
+        {isFilter ? (
+          <Link to="/add_annonces_project">
+            <button className="addAnnonce">
+              <p>
+                <i class="fa-solid fa-plus"></i> Ajouter une annonce projet
+              </p>
+            </button>
+          </Link>
+        ) : (
+          <Link to="/add_annonces_user">
+            <button className="addAnnonce">
+              <p>
+                <i class="fa-solid fa-plus"></i> Ajouter une annonce utilisateur
+              </p>
+            </button>
+          </Link>
+        )}
+      </div>
     </div>
   );
 };

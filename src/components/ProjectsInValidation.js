@@ -95,7 +95,7 @@ const ProjectsInGestion = ({
             Valider le projet
           </div>
           <Link to={projectId}>
-            <div className="onsupprime">Modifier le projet</div>
+            <div className="onmodifie">Modifier le projet</div>
           </Link>
           <div className="onsupprime" onClick={() => deleteProject(project.id)}>
             Supprimer le projet
