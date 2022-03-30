@@ -56,7 +56,7 @@ function App() {
           path="/add_projects"
           element={
             <Protected>
-              <CreateProject />
+              <CreateProject idUser={idUser} />
             </Protected>
           }
         />

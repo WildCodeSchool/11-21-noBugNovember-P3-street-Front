@@ -16,9 +16,8 @@ const Profil = ({ idUser }) => {
   const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
   const [domainId, setDomainId] = useState();
   const [subDomainId, setSubDomainId] = useState();
-  const params = useParams();
 
-  console.log(params.id);
+  console.log(idUser);
   const submitForm = () => {
     setIsSubmitted(true);
   };
@@ -45,7 +44,6 @@ const Profil = ({ idUser }) => {
       .then((res) => res.data)
       .then((data) => setProfil(data));
   };
-  console.log(profil);
 
   useEffect(() => {
     getDomain();
@@ -87,7 +85,7 @@ const Profil = ({ idUser }) => {
       <div className="form-container">
         <div className="form-content">
           <div className="join">
-            <h1>Bienvenue sur ton profil {profil.firstname}</h1>
+            <h1>Modifie ton profil {profil.firstname}</h1>
           </div>
           (*) = Informations obligatoires
           {console.log("ID", domainId)}

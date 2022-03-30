@@ -73,7 +73,7 @@ const Navbar = (props) => {
         setIsAdmin(false);
       });
   };
-
+  const disconnect = () => {};
   useEffect(() => {
     verify();
   }, [props.isConnect]);
@@ -169,6 +169,19 @@ const Navbar = (props) => {
             </Link>
           )}
         </div>
+        {props.isConnect ? (
+          <div
+            className="disconnectButton"
+            onClick={() => localStorage.clear()}
+          >
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/000000/logout-rounded-down.png"
+              alt="déconnexion"
+            />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
