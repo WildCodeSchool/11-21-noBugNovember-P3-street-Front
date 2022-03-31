@@ -106,16 +106,25 @@ const Profil = ({ idUser }) => {
                 <p className="description-input">{profil.description_users}</p>
               </div>
               <div className="btnProfilWrapper">
-                <Link to="/add_annonces_user">
-                  <div className="profil-input-btn" type="submit">
-                    Publier une annonce
-                  </div>
-                </Link>
-                <Link to="/add_projects">
-                  <div className="profil-input-btn" type="submit">
-                    Créer un projet
-                  </div>
-                </Link>
+                <div className="btnPublierCreer">
+                  <Link to="/add_annonces_user">
+                    <div
+                      className="profil-input-btn btnPublierCreerSubmit"
+                      type="submit"
+                    >
+                      Publier une annonce
+                    </div>
+                  </Link>
+                  <Link to="/add_projects">
+                    <div
+                      className="profil-input-btn btnPublierCreerSubmit"
+                      type="submit"
+                    >
+                      Créer un projet
+                    </div>
+                  </Link>{" "}
+                </div>
+
                 <Link to="/update_profil">
                   <div className="profil-input-btn" type="submit">
                     Modifier votre profil
