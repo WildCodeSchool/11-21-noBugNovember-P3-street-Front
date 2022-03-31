@@ -133,3 +133,23 @@ input {
   border: 1px solid black;
   border-radius: 3px;
 }
+
+.submitProject {
+  background-color: rgba(9, 171, 133, 1);
+  color: white;
+  height: 35px;
+  width: 150px;
+  position: absolute;
+  right: -5%;
+  top: 160%;
+  border: none;
+}
+
+.photoChoice {
+  background-color: rgba(9, 171, 133, 1);
+  position: absolute;
+  top: 100%;
+  left: -34%;
+  border: none;
+  color: white;
+}

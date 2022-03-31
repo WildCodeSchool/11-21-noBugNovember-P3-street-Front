@@ -231,7 +231,7 @@ const CreateProject = () => {
           <div className='fourthContainer'>
             <div className='photoContainer'>
               <img
-                src={imgProfile}
+                src={`${process.env.REACT_APP_BACK}/${imgProfile}`}
                 alt='profile'
                 width='115px'
                 height='115px'
@@ -240,15 +240,20 @@ const CreateProject = () => {
             <div className='buttonContainer'>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
-                  <label>Upload profile picture</label>
+                  <label>Insérer votre photo de projet</label>
                   <input
+                    className='photoChoice'
                     type='file'
                     name='file'
                     onChange={(e) => handleFileChange(e)}
                     required
                   />
                 </div>
-                <input type='submit' value='upload' />
+                <input
+                  className='submitProject'
+                  type='submit'
+                  value='Appliquer'
+                />
               </form>
             </div>
           </div>
