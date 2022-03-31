@@ -4,8 +4,9 @@ import "react-calendar/dist/Calendar.css";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
+import AdminReturnButton from "./AdminReturnButton";
 
-const CreateProject = (idUser) => {
+const CreateProject = ({ idUser }) => {
   const [domaines, setDomaine] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -18,9 +19,9 @@ const CreateProject = (idUser) => {
   const [status, setStatus] = useState("");
   const [idrRegions, setIdrRegions] = useState(0);
   const [imgProfile, setImgProfile] = useState("");
-
   const mySelect = useRef();
   const secondSelect = useRef();
+  const path = "/profil";
 
   const [newProject, setNewProject] = useState({
     name: "",
@@ -179,17 +180,7 @@ const CreateProject = (idUser) => {
       <div className="titleContainer">
         <h2>Créez votre projet</h2>
       </div>
-      {/* <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>Upload profile picture</label>
-          <input
-            type="file"
-            name="file"
-            onChange={(e) => handleFileChange(e)}
-            required
-          />
-        </div> */}
-
+      <AdminReturnButton route={path} />
       <div className="firstContainer">
         <div className="secondContainer">
           <div className="thirdContainer">

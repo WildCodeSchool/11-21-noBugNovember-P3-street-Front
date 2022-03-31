@@ -23,7 +23,6 @@ import jwt_decode from "jwt-decode";
 import "./App.css";
 import AdminUserAnnonceEdition from "./screens/AdminUserAnnonceEdition";
 import AdminProjectAnnonceEdition from "./screens/AdminProjectAnnonceEdition";
-
 import Profil from "./screens/Profil";
 import ProfilEdition from "./screens/ProfilEdition";
 
@@ -65,7 +64,7 @@ function App() {
           path="/add_annonces_project"
           element={
             <Protected>
-              <CreateAnnonceProject />
+              <CreateAnnonceProject idUser={idUser} />
             </Protected>
           }
         />
@@ -73,7 +72,7 @@ function App() {
           path="/add_annonces_user"
           element={
             <Protected>
-              <CreateAnnonceUser />
+              <CreateAnnonceUser idUser={idUser} />
             </Protected>
           }
         />

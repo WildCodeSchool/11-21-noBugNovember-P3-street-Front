@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ProjectUserLaunch from "../components/ProjectUserLaunch";
 import ProjectUserParticipate from "../components/ProjectUserParticipate";
 import Reseaux from "../components/Reseaux";
-import Axios from "axios";
+import axios from "axios";
 import "../styles/UserDetail.css";
 
 const UserDetail = () => {
@@ -20,13 +20,15 @@ const UserDetail = () => {
   };
 
   const creatorOfProject = () => {
-    Axios.put(`${process.env.REACT_APP_BACK}/all/project_creator`, { id: id })
+    axios
+      .put(`${process.env.REACT_APP_BACK}/all/project_creator`, { id: id })
       .then((response) => response.data)
       .then((data) => setProjet(data));
   };
 
   const dataUser = () => {
-    Axios.put(`${process.env.REACT_APP_BACK}/all/user`, { id: id })
+    axios
+      .put(`${process.env.REACT_APP_BACK}/all/user`, { id: id })
       .then((response) => response.data)
       .then((data) => setData(data));
   };
@@ -49,7 +51,8 @@ const UserDetail = () => {
   };
 
   const userHasProjects = () => {
-    Axios.put(`${process.env.REACT_APP_BACK}/all/userhasprojects`, { id: id })
+    axios
+      .put(`${process.env.REACT_APP_BACK}/all/userhasprojects`, { id: id })
       .then((response) => response.data)
       .then((data) => setParticipe(data));
   };
