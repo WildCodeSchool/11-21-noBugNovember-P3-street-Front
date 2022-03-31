@@ -1,38 +1,28 @@
 /* eslint-disable no-restricted-globals */
-import "../styles/CreateAnnonce.css";
 import axios from "axios";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { useEffect, useState } from "react";
-import AdminReturnButton from "./AdminReturnButton";
-import NavbarAdmin from "./NavbarAdmin";
-
-const CreateAnnonceProject = () => {
-  const [newAnnonce, setNewAnnonce] = useState({});
+import { useParams } from "react-router-dom";
+import AdminReturnButton from "../components/AdminReturnButton";
+import NavbarAdmin from "../components/NavbarAdmin";
+const AdminProjectAnnonceEdition = () => {
+  const [annonceDetails, setAnnonceDetails] = useState([]);
+  const [editAnnonce, setEditAnnonce] = useState({});
   const [subDomains, setSubDomains] = useState([]);
+  const params = useParams();
   const path = "/admin/annonces";
-  console.log(newAnnonce);
+  console.log(editAnnonce);
+  console.log(annonceDetails);
+  console.log(subDomains);
 
-  const createAnnonce = (e) => {
-    e.preventDefault();
-    if (confirm(`Êtes-vous sûr de vouloir créer cette annonce?`) === true) {
-      axios
-        .post(`${process.env.REACT_APP_BACK}/users/submitAnnonceProject`, {
-          role: newAnnonce.role,
-          description: newAnnonce.description,
-          date: newAnnonce.date,
-          project_id: 1,
-          blocked: 1,
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    } else {
-      console.log("nope");
-    }
+  const getAnnonceDetails = () => {
+    axios
+      .get(
+        `${process.env.REACT_APP_BACK}/admin/annonceprojet_details_edit/${params.id}`
+      )
+      .then((response) => response.data)
+      .then((data) => setAnnonceDetails(data));
   };
   const getSubDomains = () => {
     axios
@@ -41,7 +31,24 @@ const CreateAnnonceProject = () => {
       .then((data) => setSubDomains(data));
   };
 
+  const annonceEdition = (e) => {
+    e.preventDefault();
+    if (confirm(`Êtes-vous sûr de vouloir modifier ce projet?`) === true) {
+      axios.put(
+        `${process.env.REACT_APP_BACK}/admin/edit_annonce_project/${params.id}`,
+        {
+          role: editAnnonce.role,
+          description: editAnnonce.description_annonce,
+          date: editAnnonce.date,
+        }
+      );
+    } else {
+      console.log("nope");
+    }
+  };
+
   useEffect(() => {
+    getAnnonceDetails();
     getSubDomains();
   }, []);
 
@@ -52,20 +59,20 @@ const CreateAnnonceProject = () => {
       </div>
       <AdminReturnButton route={path} />
       <div className="titleContainer">
-        <h2>Créer votre annonce projet</h2>
+        <h2>Modifier l'annonce du projet "{annonceDetails.name}"</h2>
       </div>
       <form>
         <div className="firstContainer">
           <div className="secondContainer">
             <p>Vous recherchez :</p>
             <select
-              className="selectAnnonce"
-              name="Annonce"
+              className="selectDomaine"
+              name="Domaine"
               onChange={(e) => {
-                setNewAnnonce({ ...newAnnonce, role: e.target.value });
+                setEditAnnonce({ ...editAnnonce, role: e.target.value });
               }}
             >
-              <option value="">Choisissez le role</option>
+              <option value="">{annonceDetails.role}</option>
               {subDomains !== [] &&
                 subDomains.map((subDomain) => (
                   <option key={subDomain.id} value={subDomain.domain}>
@@ -77,9 +84,16 @@ const CreateAnnonceProject = () => {
             <textarea
               className="descriptionAnnonce"
               type="text"
+              value={
+                editAnnonce.description_annonce
+                  ? editAnnonce.description_annonce
+                  : annonceDetails.description
+              }
               onChange={(e) => {
-                const { value } = e.target;
-                setNewAnnonce({ ...newAnnonce, description: value });
+                setEditAnnonce({
+                  ...editAnnonce,
+                  description_annonce: e.target.value,
+                });
               }}
             />
 
@@ -90,13 +104,15 @@ const CreateAnnonceProject = () => {
                   noValidate
                   spacing={3}
                   onChange={(e) => {
-                    const { value } = e.target;
-                    setNewAnnonce({ ...newAnnonce, date: value });
+                    setEditAnnonce({
+                      ...editAnnonce,
+                      date: e.target.value,
+                    });
                   }}
                 >
                   <TextField
                     id="date"
-                    label="Date"
+                    label="Date de disponibilité"
                     type="date"
                     defaultValue=""
                     sx={{ width: 220 }}
@@ -111,9 +127,9 @@ const CreateAnnonceProject = () => {
                   <div className="holderButton">
                     <button
                       className="secondButton"
-                      onClick={(e) => createAnnonce(e)}
+                      onClick={(e) => annonceEdition(e)}
                     >
-                      Publier l'annonce
+                      Modifier l'annonce
                     </button>
                   </div>
                 </div>
@@ -126,4 +142,4 @@ const CreateAnnonceProject = () => {
   );
 };
 
-export default CreateAnnonceProject;
+export default AdminProjectAnnonceEdition;

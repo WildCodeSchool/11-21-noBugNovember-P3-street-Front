@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import axios from 'axios'
 
-const CreateProject = () => {
+const CreateProject = (idUser) => {
   const [domaines, setDomaine] = useState([])
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
@@ -136,7 +136,7 @@ const CreateProject = () => {
         team_completed: 0,
         status: 0,
         domain_id: idDomaine,
-        users_id: 1,
+        users_id: idUser,
         blocked: 1,
         region_id: idRegions,
         logo: imgProfile,
@@ -231,7 +231,7 @@ const CreateProject = () => {
           <div className='fourthContainer'>
             <div className='photoContainer'>
               <img
-                src={imgProfile}
+                src={`${process.env.REACT_APP_BACK}/${imgProfile}`}
                 alt='profile'
                 width='115px'
                 height='115px'
@@ -240,15 +240,20 @@ const CreateProject = () => {
             <div className='buttonContainer'>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
-                  <label>Upload profile picture</label>
+                  <label>Insérer votre photo de projet</label>
                   <input
+                    className='photoChoice'
                     type='file'
                     name='file'
                     onChange={(e) => handleFileChange(e)}
                     required
                   />
                 </div>
-                <input type='submit' value='upload' />
+                <input
+                  className='submitProject'
+                  type='submit'
+                  value='Appliquer'
+                />
               </form>
             </div>
           </div>
