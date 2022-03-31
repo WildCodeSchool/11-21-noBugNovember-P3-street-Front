@@ -33,9 +33,9 @@
 
 .location-container {
   display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
+  width: 50%;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .social-container {
@@ -54,7 +54,8 @@
 
 .infos-container {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  width: 50%;
 }
 
 .description-input {
@@ -134,7 +135,7 @@ textarea {
   margin-bottom: 1rem;
   padding-left: 1%;
   min-width: 165px;
-  width: 25%;
+  width: 100%;
 }
 
 .social-inputs {
@@ -224,4 +225,10 @@ textarea {
   display: flex;
   width: 100%;
   justify-content: flex-end;
+}
+
+.infoDoubleContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }

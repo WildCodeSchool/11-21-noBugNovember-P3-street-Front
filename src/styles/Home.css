@@ -220,7 +220,7 @@
   background-color: var(--main);
   height: 2px;
 }
-.fa-bolt {
+.containerSpacer > .fa-bolt {
   display: flex;
   width: 25px;
   height: 25px;
