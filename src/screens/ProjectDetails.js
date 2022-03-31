@@ -5,13 +5,16 @@ import { useParams } from "react-router-dom";
 import UsersInProject from "../components/UsersInProject";
 import Footer from "../components/Footer";
 import "../styles/ProjectDetails.css";
-
 const ProjectDetails = () => {
   const [projectDetail, setProjectDetail] = useState([]);
   const [projectUsers, setProjectUsers] = useState([]);
   const [creatorId, setCreatorId] = useState();
   const params = useParams();
 
+  const createLink = () => {
+    let donnees = projectDetail.map((e) => e.idUser);
+    setCreatorId(`/talents/${[donnees]}`);
+  };
   console.log(projectDetail);
   const getProjectDetails = () => {
     axios
@@ -19,16 +22,12 @@ const ProjectDetails = () => {
       .then((response) => response.data)
       .then((data) => setProjectDetail(data));
   };
+
   const usersInProject = () => {
     axios
       .get(`${process.env.REACT_APP_BACK}/all/project_users/${params.id}`)
       .then((response) => response.data)
       .then((data) => setProjectUsers(data));
-  };
-
-  const createLink = () => {
-    let donnees = projectDetail.map((e) => e.idUser);
-    setCreatorId(`/talents/${[donnees]}`);
   };
 
   useEffect(() => {
@@ -39,6 +38,8 @@ const ProjectDetails = () => {
   useEffect(() => {
     createLink();
   }, [projectDetail]);
+
+  console.log("user ID", creatorId);
 
   return (
     <div className="projectDetailsContainer">
@@ -71,14 +72,14 @@ const ProjectDetails = () => {
                 </p>
                 <p>
                   <i class="fa-solid fa-flag-checkered"></i> Fin :&nbsp;
-                  {projectDetail.map((el) => el.date_end /* .slice(0, 10) */)}
+                  {projectDetail.map((el) => el.end_date /* .slice(0, 10) */)}
                 </p>
               </div>
               <div className="ouDetailsProject">
                 <p>
                   <i className="fa-solid fa-location-dot" />
                   &nbsp;
-                  {projectDetail.map((el) => el.region_name)}
+                  {projectDetail.map((el) => el.localisation)}
                 </p>
               </div>
             </div>
@@ -90,9 +91,16 @@ const ProjectDetails = () => {
         </div>
 
         <div className="membresDetailsProjet">
-          {projectUsers.map((el, index) => (
-            <UsersInProject user={el} key={index} />
-          ))}
+          {/*      {creatorProject
+            // .filter((el) => el.firstname.includes(projectDetail.firstname))
+            .map((el, index) => (
+              <UsersInProject user={el} key={index} />
+            ))} */}
+          {projectUsers
+            // .filter((el) => el.firstname.includes(projectDetail.firstname))
+            .map((el, index) => (
+              <UsersInProject user={el} key={index} />
+            ))}
         </div>
       </div>
       <div className="blocVisuelDetailsProjet">
