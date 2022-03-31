@@ -87,10 +87,13 @@ const AnnonceInGestion = ({
             {annonce.role ? annonce.role : annonce.art_name}
           </div>
           <div className="entries">
-            Initié par :{annonce.name ? annonce.name : annonce.firstname}{" "}
+            Initié par :&nbsp;{annonce.name ? annonce.name : annonce.firstname}
+            &nbsp;
             {annonce.name ? annonce.name : annonce.lastname}
           </div>
-          <div className="entries">{annonce.date}</div>
+          <div className="entries">
+            <i class="fa-solid fa-calendar-days"></i>&nbsp;{annonce.date}
+          </div>
         </div>
       </div>
       <div className={viewMore ? "secondeligne active" : "secondeligne"}>
