@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import UsersInProject from "../components/UsersInProject";
-
+import Footer from "../components/Footer";
 import "../styles/ProjectDetails.css";
+
 const ProjectDetails = () => {
   const [projectDetail, setProjectDetail] = useState([]);
   const [projectUsers, setProjectUsers] = useState([]);
-  const [creatorProject, setCreatorProject] = useState([]);
+  const [creatorId, setCreatorId] = useState();
   const params = useParams();
 
   console.log(projectDetail);
@@ -25,23 +26,19 @@ const ProjectDetails = () => {
       .then((data) => setProjectUsers(data));
   };
 
-  const getCreatorProject = () => {
-    axios
-      .get(`${process.env.REACT_APP_BACK}/all/creatorproject/${params.id}`)
-      .then((response) => response.data)
-      .then((data) => setCreatorProject(data));
+  const createLink = () => {
+    let donnees = projectDetail.map((e) => e.idUser);
+    setCreatorId(`/talents/${[donnees]}`);
   };
 
   useEffect(() => {
     getProjectDetails();
     usersInProject();
-    getCreatorProject();
   }, []);
 
-  const creatorId = `/talents/${projectDetail.id}`;
-
-  console.log("creatorProject", creatorProject);
-  console.log("projectDetail", projectDetail[0]);
+  useEffect(() => {
+    createLink();
+  }, [projectDetail]);
 
   return (
     <div className="projectDetailsContainer">
@@ -59,7 +56,7 @@ const ProjectDetails = () => {
             </div>
             <div className="createurDetailsProjet">
               <p>by&nbsp;</p>
-              <Link to={creatorId}>
+              <Link to={creatorId !== undefined ? creatorId : "/"}>
                 <p className="nameCreatorDetailsProjet">
                   {projectDetail.map((el) => el.firstname)}&nbsp;
                   {projectDetail.map((el) => el.lastname)}
