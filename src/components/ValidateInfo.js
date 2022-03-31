@@ -4,8 +4,13 @@ export default function validateInfo(values) {
     if (!values.lastname.trim()) {
       errors.lastname = 'Nom requis';
     }
+
     if (!values.firstname.trim()) {
       errors.firstname = 'Prénom requis';
+    }
+
+    if (!values.birthday.trim()) {
+      errors.birthday = 'Date de naissance requise';
     }
   
     if (!values.email.trim()) {

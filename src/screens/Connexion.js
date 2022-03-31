@@ -38,6 +38,7 @@ function Connexion(props) {
         })
         .then(() => props.setIsConnect(true))
         .catch((err) => {
+          console.log(err.response)
           if (err.response) {
             setErrorConnect(true)
           } else if (err.request) {
@@ -84,7 +85,9 @@ function Connexion(props) {
               <h2>Login</h2>
               {errorConnect && (
                 <p className='inputText' id='gridCo4'>
-                  ⚠ Mauvais nom d'utilisateur ou mot de passe
+                  ⚠ Mauvais nom d'utilisateur ou mot de passe <br />
+                  Si vous venez de créer votre compte, celui-ci doit être validé
+                  par un administrateur
                 </p>
               )}
               {isOut && (

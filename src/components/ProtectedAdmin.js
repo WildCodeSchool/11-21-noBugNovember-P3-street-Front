@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Protected = (props) => {
-  const [acces, setAcces] = useState(false)
+  const [access, setAccess] = useState(false)
   const navigate = useNavigate()
   const protectedRoute = () => {
     const token = localStorage.getItem('token')
@@ -16,17 +16,17 @@ const Protected = (props) => {
       },
     })
       .then((res) => {
-        setAcces(res.data.acces)
+        setAccess(res.data.acces)
       })
       .catch((err) => {
-        setAcces(false)
+        setAccess(false)
         navigate('/')
       })
   }
   useEffect(() => {
     protectedRoute()
   })
-  return <>{acces ? props.children : null}</>
+  return <>{access ? props.children : null}</>
 }
 
 export default Protected

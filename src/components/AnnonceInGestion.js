@@ -17,7 +17,8 @@ const AnnonceInGestion = ({
   isValidated,
 }) => {
   const [viewMore, setViewMore] = useState(false);
-
+  const annonceUser = `/edit_user_annonce/${annonce.id}`;
+  const annonceProject = `/edit_project_annonce/${annonce.id}`;
   const deleteAnnonce = (id) => {
     if (isFilter === true) {
       if (
@@ -139,6 +140,15 @@ const AnnonceInGestion = ({
           >
             {annonce.blocked === 0 ? "Bloquer" : "Valider"}
           </div>
+          {isFilter ? (
+            <Link to={annonceProject}>
+              <div className="onmodifie">Modifier l'annonce</div>
+            </Link>
+          ) : (
+            <Link to={annonceUser}>
+              <div className="onmodifie">Modifier l'annonce</div>
+            </Link>
+          )}
           {isValidated ? (
             ""
           ) : (

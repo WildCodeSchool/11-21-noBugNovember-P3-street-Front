@@ -16,11 +16,7 @@ const Form = () => {
   const [domainId, setDomainId] = useState();
   const [subDomainId, setSubDomainId] = useState();
 
-  //console.log(domain);
-  // console.log(subDomain)
-  // console.log(selectDomain)
-  // console.log(selectSubDomain)
-  // console.log(reponse)
+  console.log(domain);
   const submitForm = () => {
     setIsSubmitted(true);
   };
@@ -58,12 +54,10 @@ const Form = () => {
         .then((response) => response.data)
         .then((data) => setReponse(data));
       setIsFilter(true);
-      // console.log(selectDomain)
     } else {
       setIsFilter(false);
     }
   }, [selectDomain]);
-  // console.log(values)
 
   const handleDomain = (e) => {
     let choice = e.target.value;
@@ -106,37 +100,23 @@ const Form = () => {
       sub_domain_id: subDomainId,
     });
   };
-  // const handleAvatar = async (e) => {
-  //   e.preventDefault();
-  //   let formData = new FormData();
-  //   formData.append("file", image.data);
-  //   const response = await fetch("http://localhost:3030/all/image", {
-  //     method: "POST",
-  //     body: formData,
-  //   });
-  //   if (response) setStatus(response.statusText);
-  // };
-
-  // const handleFileChange = (e) => {
-  //   const img = {
-  //     data: e.target.files[0],
-  //   };
-  //   setImage(img);
-  // };
 
   return (
     <>
-      <div className="join">
-        <h2>Rejoignez-nous en créant votre profil juste en dessous !</h2>
-      </div>
       <div className="form-container">
         {!isSubmitted ? (
           <div className="form-content">
+            <div className="join">
+              <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
+            </div>
+            (*) = Informations obligatoires
+            {console.log("ID", domainId)}
+            {console.log("ID", subDomainId)}
             <form onSubmit={handleSubmit} className="form-user" noValidate>
               <div className="userinfos">Vos informations</div>
               <div className="infos-container">
                 <div className="infos-inputs">
-                  <label className="form-label">Nom</label>
+                  <label className="form-label">Nom (*)</label>
                   <input
                     className="form-input"
                     type="text"
@@ -148,7 +128,7 @@ const Form = () => {
                   {errors.lastname && <p>{errors.lastname}</p>}
                 </div>
                 <div className="infos-inputs">
-                  <label className="form-label">Prénom</label>
+                  <label className="form-label">Prénom (*)</label>
                   <input
                     className="form-input"
                     type="text"
@@ -160,7 +140,7 @@ const Form = () => {
                   {errors.firstname && <p>{errors.firstname}</p>}
                 </div>
                 <div className="infos-inputs">
-                  <label className="form-label">Email</label>
+                  <label className="form-label">Email (*)</label>
                   <input
                     className="form-input"
                     type="email"
@@ -170,6 +150,18 @@ const Form = () => {
                     onChange={handleChange}
                   />
                   {errors.email && <p>{errors.email}</p>}
+                </div>
+                <div className="infos-inputs">
+                  <label className="form-label">Date de naissance (*)</label>
+                  <input
+                    className="form-input"
+                    type="date"
+                    name="birthday"
+                    placeholder="Année/Mois/Jour"
+                    value={values.birthday}
+                    onChange={handleChange}
+                  />
+                  {errors.birthday && <p>{errors.birthday}</p>}
                 </div>
                 <div className="infos-inputs">
                   <label className="form-label">Téléphone</label>
@@ -184,7 +176,7 @@ const Form = () => {
                   {errors.phone && <p>{errors.phone}</p>}
                 </div>
               </div>
-              <div className="userinfos">Votre domaine d'activité</div>
+              <div className="userinfos">Votre domaine d'activité (*)</div>
               <div className="userdomain">
                 <select
                   className="selectDomain"
@@ -216,7 +208,7 @@ const Form = () => {
               <div className="userinfos">Votre mot de passe</div>
               <div className="password-container">
                 <div className="password-inputs">
-                  <label className="form-label">Mot de passe</label>
+                  <label className="form-label">Mot de passe (*)</label>
                   <input
                     className="form-input"
                     type="password"
@@ -228,7 +220,9 @@ const Form = () => {
                   {errors.password && <p>{errors.password}</p>}
                 </div>
                 <div className="password-inputs">
-                  <label className="form-label">Confirmer mot de passe</label>
+                  <label className="form-label">
+                    Confirmer mot de passe (*)
+                  </label>
                   <input
                     className="form-input"
                     type="password"
@@ -243,7 +237,7 @@ const Form = () => {
               <div className="userinfos">Votre localisation</div>
               <div className="location-container">
                 <div className="location-inputs">
-                  <label className="form-label">Ville</label>
+                  <label className="form-label">Ville (*)</label>
                   <input
                     className="form-input"
                     type="text"
@@ -255,7 +249,7 @@ const Form = () => {
                   {errors.city && <p>{errors.city}</p>}
                 </div>
                 <div className="location-inputs">
-                  <label className="form-label">Pays</label>
+                  <label className="form-label">Pays (*)</label>
                   <input
                     className="form-input"
                     type="text"
@@ -310,6 +304,17 @@ const Form = () => {
                     name="spotify"
                     placeholder="Votre Spotify / Soundcloud"
                     value={values.spotify}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="social-inputs">
+                  <label className="form-label">Tiktok</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    name="tiktok"
+                    placeholder="Votre Tiktok"
+                    value={values.tiktok}
                     onChange={handleChange}
                   />
                 </div>

@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import axios from 'axios'
 
-const CreateProject = () => {
+const CreateProject = (idUser) => {
   const [domaines, setDomaine] = useState([])
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
@@ -136,7 +136,7 @@ const CreateProject = () => {
         team_completed: 0,
         status: 0,
         domain_id: idDomaine,
-        users_id: 1,
+        users_id: idUser,
         blocked: 1,
         region_id: idRegions,
         logo: imgProfile,
