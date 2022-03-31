@@ -61,7 +61,7 @@ const CreateProject = (idUser) => {
   const createProject = (e) => {
     e.preventDefault();
     console.log("createProject", mySelect.current.value.toLowerCase());
-    if (confirm(`Êtes-vous sûr de vouloir créer cette annonce?`) === true) {
+    if (confirm(`Êtes-vous sûr de vouloir créer ce projet?`) === true) {
       switch (mySelect.current.value.toLowerCase()) {
         case "arts-visuels":
           idDomaine = 1;
