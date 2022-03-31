@@ -109,35 +109,35 @@ const Form = () => {
             <div className="join">
               <h1>Rejoignez-nous en créant votre profil juste en dessous !</h1>
             </div>
-            (*) = Informations obligatoires
-            {console.log("ID", domainId)}
-            {console.log("ID", subDomainId)}
+            {/*   (*) = Informations obligatoires */}
             <form onSubmit={handleSubmit} className="form-user" noValidate>
               <div className="userinfos">Vos informations</div>
               <div className="infos-container">
-                <div className="infos-inputs">
-                  <label className="form-label">Nom (*)</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    name="lastname"
-                    placeholder="Votre nom"
-                    value={values.lastname}
-                    onChange={handleChange}
-                  />
-                  {errors.lastname && <p>{errors.lastname}</p>}
-                </div>
-                <div className="infos-inputs">
-                  <label className="form-label">Prénom (*)</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    name="firstname"
-                    placeholder="Votre prénom"
-                    value={values.firstname}
-                    onChange={handleChange}
-                  />
-                  {errors.firstname && <p>{errors.firstname}</p>}
+                <div className="nomPrenomContainer infoDoubleContainer">
+                  <div className="infos-inputs">
+                    <label className="form-label">Nom (*)</label>
+                    <input
+                      className="form-input"
+                      type="text"
+                      name="lastname"
+                      placeholder="Votre nom"
+                      value={values.lastname}
+                      onChange={handleChange}
+                    />
+                    {errors.lastname && <p>{errors.lastname}</p>}
+                  </div>
+                  <div className="infos-inputs">
+                    <label className="form-label">Prénom (*)</label>
+                    <input
+                      className="form-input"
+                      type="text"
+                      name="firstname"
+                      placeholder="Votre prénom"
+                      value={values.firstname}
+                      onChange={handleChange}
+                    />
+                    {errors.firstname && <p>{errors.firstname}</p>}
+                  </div>
                 </div>
                 <div className="infos-inputs">
                   <label className="form-label">Email (*)</label>

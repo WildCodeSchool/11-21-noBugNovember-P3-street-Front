@@ -3,6 +3,7 @@ import "../styles/Profil.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminReturnButton from "../components/AdminReturnButton";
+import { Link } from "react-router-dom";
 
 const ProfilEdition = ({ idUser }) => {
   const [profil, setProfil] = useState([]);
@@ -51,46 +52,91 @@ const ProfilEdition = ({ idUser }) => {
           <div className="join">
             <h1>Modifie ton profil {profil.firstname}</h1>
           </div>
-          (*) = Informations obligatoires
+          {/*   (*) = Informations obligatoires */}
           <form onSubmit="" className="form-user" noValidate>
             <div className="userinfos">Vos informations</div>
             <div className="infos-container">
-              <div className="infos-inputs">
-                <label className="form-label">Nom (*)</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="lastname"
-                  placeholder="Votre nom"
-                  value={
-                    editProfil.lastname !== undefined
-                      ? editProfil.lastname
-                      : profil.lastname
-                  }
-                  onChange={(e) =>
-                    setEditProfil({ ...editProfil, lastname: e.target.value })
-                  }
-                />
+              <div className="nomPrenomContainer infoDoubleContainer">
+                <div className="infos-inputs">
+                  <label className="form-label">Nom (*)</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    name="lastname"
+                    placeholder="Votre nom"
+                    value={
+                      editProfil.lastname !== undefined
+                        ? editProfil.lastname
+                        : profil.lastname
+                    }
+                    onChange={(e) =>
+                      setEditProfil({ ...editProfil, lastname: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="infos-inputs">
+                  <label className="form-label">Prénom (*)</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    name="firstname"
+                    placeholder="Votre prénom"
+                    value={
+                      editProfil.firstname !== undefined
+                        ? editProfil.firstname
+                        : profil.firstname
+                    }
+                    onChange={(e) =>
+                      setEditProfil({
+                        ...editProfil,
+                        firstname: e.target.value,
+                      })
+                    }
+                  />
+                </div>
               </div>
-              <div className="infos-inputs">
-                <label className="form-label">Prénom (*)</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="firstname"
-                  placeholder="Votre prénom"
-                  value={
-                    editProfil.firstname !== undefined
-                      ? editProfil.firstname
-                      : profil.firstname
-                  }
-                  onChange={(e) =>
-                    setEditProfil({
-                      ...editProfil,
-                      firstname: e.target.value,
-                    })
-                  }
-                />
+              <div className="dateTelContainer infoDoubleContainer">
+                {" "}
+                <div className="infos-inputs">
+                  <label className="form-label">Date de naissance (*)</label>
+                  <input
+                    className="form-input"
+                    type="date"
+                    name="birthday"
+                    placeholder="Année/Mois/Jour"
+                    value={
+                      editProfil.birthday !== undefined
+                        ? editProfil.birthday
+                        : profil.birthday
+                    }
+                    onChange={(e) =>
+                      setEditProfil({
+                        ...editProfil,
+                        birthday: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="infos-inputs">
+                  <label className="form-label">Téléphone</label>
+                  <input
+                    className="form-input"
+                    type="tel"
+                    name="phone"
+                    placeholder="Votre numéro de téléphone"
+                    value={
+                      editProfil.phone !== undefined
+                        ? editProfil.phone
+                        : profil.phone
+                    }
+                    onChange={(e) =>
+                      setEditProfil({
+                        ...editProfil,
+                        phone: e.target.value,
+                      })
+                    }
+                  />
+                </div>
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Email (*)</label>
@@ -112,89 +158,59 @@ const ProfilEdition = ({ idUser }) => {
                   }
                 />
               </div>
-              <div className="infos-inputs">
-                <label className="form-label">Date de naissance (*)</label>
-                <input
-                  className="form-input"
-                  type="date"
-                  name="birthday"
-                  placeholder="Année/Mois/Jour"
-                  value={
-                    editProfil.birthday !== undefined
-                      ? editProfil.birthday
-                      : profil.birthday
-                  }
-                  onChange={(e) =>
-                    setEditProfil({
-                      ...editProfil,
-                      birthday: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="infos-inputs">
-                <label className="form-label">Téléphone</label>
-                <input
-                  className="form-input"
-                  type="tel"
-                  name="phone"
-                  placeholder="Votre numéro de téléphone"
-                  value={
-                    editProfil.phone !== undefined
-                      ? editProfil.phone
-                      : profil.phone
-                  }
-                  onChange={(e) =>
-                    setEditProfil({
-                      ...editProfil,
-                      phone: e.target.value,
-                    })
-                  }
-                />
+
+              <div className="dateTelContainer infoDoubleContainer">
+                <div className="location-inputs">
+                  <label className="form-label">Ville (*)</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    name="city"
+                    placeholder="Votre ville"
+                    value={
+                      editProfil.city !== undefined
+                        ? editProfil.city
+                        : profil.city
+                    }
+                    onChange={(e) =>
+                      setEditProfil({
+                        ...editProfil,
+                        city: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="location-inputs">
+                  <label className="form-label">Pays (*)</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    name="country"
+                    placeholder="Votre pays"
+                    value={
+                      editProfil.country !== undefined
+                        ? editProfil.country
+                        : profil.country
+                    }
+                    onChange={(e) =>
+                      setEditProfil({
+                        ...editProfil,
+                        country: e.target.value,
+                      })
+                    }
+                  />
+                </div>
               </div>
             </div>
-
-            <div className="userinfos">Votre localisation</div>
             <div className="location-container">
-              <div className="location-inputs">
-                <label className="form-label">Ville (*)</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="city"
-                  placeholder="Votre ville"
-                  value={
-                    editProfil.city !== undefined
-                      ? editProfil.city
-                      : profil.city
-                  }
-                  onChange={(e) =>
-                    setEditProfil({
-                      ...editProfil,
-                      city: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="location-inputs">
-                <label className="form-label">Pays (*)</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="country"
-                  placeholder="Votre pays"
-                  value={
-                    editProfil.country !== undefined
-                      ? editProfil.country
-                      : profil.country
-                  }
-                  onChange={(e) =>
-                    setEditProfil({
-                      ...editProfil,
-                      country: e.target.value,
-                    })
-                  }
-                />
+              <div className="userinfos">Votre domaine d'activité</div>
+              <div className="domainSubDomainContainer infoDoubleContainer">
+                <div className="location-inputs">
+                  <span className="form-input">{profil.domain}</span>
+                </div>
+                <div className="location-inputs">
+                  <span className="form-input">{profil.art_name}</span>
+                </div>
               </div>
             </div>
             <div className="userinfos">Vos réseaux sociaux</div>
@@ -220,7 +236,7 @@ const ProfilEdition = ({ idUser }) => {
                 />
               </div>
               <div className="social-inputs">
-                <label className="form-label">instagram</label>
+                <label className="form-label">Instagram</label>
                 <input
                   className="form-input"
                   type="text"
@@ -301,10 +317,10 @@ const ProfilEdition = ({ idUser }) => {
                 />
               </div>
             </div>
-            <div className="userinfos">Votre descritpion</div>
+            <div className="userinfos">Votre description</div>
             <div className="description-container">
               <div className="description-inputs">
-                <label className="form-label">Description</label>
+                {/*     <label className="form-label">Description</label> */}
                 <textarea
                   className="description-input"
                   type="text"
@@ -323,13 +339,16 @@ const ProfilEdition = ({ idUser }) => {
                   }
                 />
               </div>
-              <div className="btnProfilWrapper">
+              <div className="btnProfilWrapperModif">
+                <Link to="/profil">
+                  <div className="profil-input-btn cancelBtn">Annuler</div>
+                </Link>
                 <div
                   className="profil-input-btn"
                   type="submit"
                   onClick={annonceEdition}
                 >
-                  Modifier votre profil
+                  Enregistrer
                 </div>
               </div>
             </div>
