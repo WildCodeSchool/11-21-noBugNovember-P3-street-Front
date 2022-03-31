@@ -144,7 +144,7 @@ const AdminGestionAnnonces = () => {
               />
             ))}
       </div>
-      <div className="buttonAddAnnonceContainer">
+      {/* <div className="buttonAddAnnonceContainer">
         {isFilter ? (
           <Link to="/add_annonces_project">
             <button className="addAnnonce">
@@ -162,7 +162,7 @@ const AdminGestionAnnonces = () => {
             </button>
           </Link>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
