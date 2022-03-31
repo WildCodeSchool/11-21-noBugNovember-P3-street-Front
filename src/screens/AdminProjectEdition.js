@@ -313,7 +313,7 @@ const AdminProjectEdition = () => {
                 allowfullscreen
                 className="player"
               ></iframe>
-              <p>Ajouter un lien youtube</p>
+              <label>Ajouter un lien youtube : </label>
               <input
                 type="text"
                 onChange={(e) =>

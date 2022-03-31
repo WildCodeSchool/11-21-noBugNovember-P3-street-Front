@@ -4,6 +4,8 @@ import axios from "axios";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import AdminReturnButton from "./AdminReturnButton";
 import NavbarAdmin from "./NavbarAdmin";
 
@@ -13,11 +15,12 @@ const CreateAnnonceUser = ({ idUser }) => {
     date: "",
   });
   const path = "/profil";
-  console.log(newAnnonce);
+
+  let navigate = useNavigate();
 
   const createAnnonce = (e) => {
     e.preventDefault();
-    if (confirm(`Êtes-vous sûr de vouloir créer cette annonce?`) === true) {
+    if (confirm(`Êtes-vous sûr de vouloir créer cette annonce ?`) === true) {
       axios
         .post(`${process.env.REACT_APP_BACK}/users/submitAnnonceUser`, {
           description_annonce: newAnnonce.description,
@@ -26,10 +29,13 @@ const CreateAnnonceUser = ({ idUser }) => {
           blocked: 1,
         })
         .then(function (response) {
-          console.log(response);
+          alert(
+            `Annonce publié. Celle-ci doit être validé par l'administration de Streetzer.`
+          );
+          navigate("/profil");
         })
         .catch(function (error) {
-          console.log(error);
+          alert(`Erreur lors de l'enregistrement de l'annonce.`);
         });
     } else {
       console.log("nope");
@@ -38,6 +44,7 @@ const CreateAnnonceUser = ({ idUser }) => {
 
   return (
     <>
+      <div className="adminnavbar">{/* <NavbarAdmin /> */}</div>
       <AdminReturnButton route={path} />
       <div className="titleContainer">
         <h2>Créer votre annonce utilisateur</h2>
