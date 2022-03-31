@@ -28,47 +28,55 @@ const Profil = ({ idUser }) => {
           <form onSubmit="" className="form-user" noValidate>
             <div className="userinfos">Vos informations</div>
             <div className="infos-container">
-              <div className="infos-inputs">
-                <label className="form-label">Nom</label>
-                <span className="form-input">{profil.lastname}</span>
+              <div className="nomPrenomContainer infoDoubleContainer">
+                <div className="infos-inputs">
+                  <label className="form-label">Nom</label>
+                  <span className="form-input">{profil.lastname}</span>
+                </div>
+                <div className="infos-inputs">
+                  <label className="form-label">Prénom</label>
+                  <span className="form-input">{profil.firstname}</span>
+                </div>
               </div>
-              <div className="infos-inputs">
-                <label className="form-label">Prénom</label>
-                <span className="form-input">{profil.firstname}</span>
+
+              <div className="dateTelContainer infoDoubleContainer">
+                <div className="infos-inputs">
+                  <label className="form-label">Date de naissance</label>
+                  <span className="form-input">{profil.birthday}</span>
+                </div>
+                <div className="infos-inputs">
+                  <label className="form-label">Téléphone</label>
+                  <span className="form-input">{profil.phone}</span>
+                </div>
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Email</label>
                 <span className="form-input">{profil.email}</span>
               </div>
-              <div className="infos-inputs">
-                <label className="form-label">Date de naissance</label>
-                <span className="form-input">{profil.birthday}</span>
-              </div>
-              <div className="infos-inputs">
-                <label className="form-label">Téléphone</label>
-                <span className="form-input">{profil.phone}</span>
+              <div className="dateTelContainer infoDoubleContainer">
+                <div className="location-inputs">
+                  <label className="form-label">Ville</label>
+                  <span className="form-input">{profil.city}</span>
+                </div>
+                <div className="location-inputs">
+                  <label className="form-label">Pays</label>
+                  <span className="form-input">{profil.country}</span>
+                </div>
               </div>
             </div>
-            <div className="userinfos">Votre domaine d'activité</div>
+
             <div className="location-container">
-              <div className="location-inputs">
-                <span className="form-input">{profil.domain}</span>
-              </div>
-              <div className="location-inputs">
-                <span className="form-input">{profil.art_name}</span>
-              </div>
-            </div>
-            <div className="userinfos">Votre localisation</div>
-            <div className="location-container">
-              <div className="location-inputs">
-                <label className="form-label">Ville</label>
-                <span className="form-input">{profil.city}</span>
-              </div>
-              <div className="location-inputs">
-                <label className="form-label">Pays</label>
-                <span className="form-input">{profil.country}</span>
+              <div className="userinfos">Votre domaine d'activité</div>
+              <div className="domainSubDomainContainer infoDoubleContainer">
+                <div className="location-inputs">
+                  <span className="form-input">{profil.domain}</span>
+                </div>
+                <div className="location-inputs">
+                  <span className="form-input">{profil.art_name}</span>
+                </div>
               </div>
             </div>
+
             <div className="userinfos">Vos réseaux sociaux</div>
             <div className="social-container">
               <div className="social-inputs">
@@ -98,6 +106,16 @@ const Profil = ({ idUser }) => {
                 <p className="description-input">{profil.description_users}</p>
               </div>
               <div className="btnProfilWrapper">
+                <Link to="/add_annonces_user">
+                  <div className="profil-input-btn" type="submit">
+                    Publier une annonce
+                  </div>
+                </Link>
+                <Link to="/add_projects">
+                  <div className="profil-input-btn" type="submit">
+                    Créer un projet
+                  </div>
+                </Link>
                 <Link to="/update_profil">
                   <div className="profil-input-btn" type="submit">
                     Modifier votre profil

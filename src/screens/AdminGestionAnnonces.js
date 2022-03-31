@@ -69,7 +69,7 @@ const AdminGestionAnnonces = () => {
         <NavbarAdmin />
       </div>
       <div className="adminTitle">
-        <h1>Gestion des annonces</h1>
+        <h2>Gestion des annonces</h2>
       </div>
       <div className="filtreGestionAnnonce">
         <div
@@ -90,13 +90,13 @@ const AdminGestionAnnonces = () => {
           className={isValidated ? "validated activ" : "validated"}
           onClick={() => setIsValidated(true)}
         >
-          Annonces
+          Validées
         </div>
         <div
           className={isValidated ? "nonValidated" : "nonValidated activ"}
           onClick={() => setIsValidated(false)}
         >
-          En attente de validation
+          En attente
         </div>
       </div>
       <div className="tableauContainer">
@@ -144,7 +144,7 @@ const AdminGestionAnnonces = () => {
               />
             ))}
       </div>
-      <div className="buttonAddAnnonceContainer">
+      {/* <div className="buttonAddAnnonceContainer">
         {isFilter ? (
           <Link to="/add_annonces_project">
             <button className="addAnnonce">
@@ -162,7 +162,7 @@ const AdminGestionAnnonces = () => {
             </button>
           </Link>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
