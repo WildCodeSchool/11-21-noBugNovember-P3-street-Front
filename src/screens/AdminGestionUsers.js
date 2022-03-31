@@ -77,7 +77,7 @@ const AdminGestionUsers = () => {
         <NavbarAdmin />
       </div>
       <div className="adminTitle">
-        <h1>Gestion des utilisateurs</h1>
+        <h2>Gestion des utilisateurs</h2>
       </div>
       <div className="filtreGestionUsers">
         <div

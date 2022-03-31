@@ -76,10 +76,7 @@ const UsersInGestion = ({
       <div className="premiereligne">
         <div className="buttomreveal" onClick={handleClickViewMore}>
           <div className={viewMore ? "premierebarre active" : "premierebarre"}>
-            \
-          </div>
-          <div className={viewMore ? "secondebarre active" : "secondebarre"}>
-            /
+            <i class="fa-solid fa-bolt"></i>
           </div>
         </div>
         <div className="contentprojectadmin">

@@ -90,47 +90,57 @@ const Profil = ({ idUser }) => {
           <form onSubmit={handleSubmit} className="form-user" noValidate>
             <div className="userinfos">Vos informations</div>
             <div className="infos-container">
-              <div className="infos-inputs">
-                <label className="form-label">Nom</label>
-                <span className="form-input">Nomdefamille</span>
+              <div className="nomPrenomContainer infoDoubleContainer">
+                <div className="infos-inputs">
+                  <label className="form-label">Nom</label>
+                  <span className="form-input">Nomdefamille</span>
+                </div>
+                <div className="infos-inputs">
+                  <label className="form-label">Prénom</label>
+                  <span className="form-input">Nomdefamille</span>
+                </div>
               </div>
-              <div className="infos-inputs">
-                <label className="form-label">Prénom</label>
-                <span className="form-input">Nomdefamille</span>
+
+              <div className="dateTelContainer infoDoubleContainer">
+                <div className="infos-inputs">
+                  <label className="form-label">Date de naissance</label>
+                  <span className="form-input">Nomdefamille</span>
+                </div>
+                <div className="infos-inputs">
+                  <label className="form-label">Téléphone</label>
+                  <span className="form-input">Nomdefamille</span>
+                </div>
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Email</label>
-                <span className="form-input">Nomdefamille</span>
+                <span className="form-input">
+                  peutetrequecechampesttropgrandmaiscestplusjolie@jesuisnul.com
+                </span>
               </div>
-              <div className="infos-inputs">
-                <label className="form-label">Date de naissance</label>
-                <span className="form-input">Nomdefamille</span>
-              </div>
-              <div className="infos-inputs">
-                <label className="form-label">Téléphone</label>
-                <span className="form-input">Nomdefamille</span>
+              <div className="dateTelContainer infoDoubleContainer">
+                <div className="location-inputs">
+                  <label className="form-label">Ville</label>
+                  <span className="form-input">Nomdefamille</span>
+                </div>
+                <div className="location-inputs">
+                  <label className="form-label">Pays</label>
+                  <span className="form-input">Nomdefamille</span>
+                </div>
               </div>
             </div>
-            <div className="userinfos">Votre domaine d'activité</div>
+
             <div className="location-container">
-              <div className="location-inputs">
-                <span className="form-input">Domain</span>
-              </div>
-              <div className="location-inputs">
-                <span className="form-input">SubDomain</span>
-              </div>
-            </div>
-            <div className="userinfos">Votre localisation</div>
-            <div className="location-container">
-              <div className="location-inputs">
-                <label className="form-label">Ville</label>
-                <span className="form-input">Nomdefamille</span>
-              </div>
-              <div className="location-inputs">
-                <label className="form-label">Pays</label>
-                <span className="form-input">Nomdefamille</span>
+              <div className="userinfos">Votre domaine d'activité</div>
+              <div className="domainSubDomainContainer infoDoubleContainer">
+                <div className="location-inputs">
+                  <span className="form-input">Domain</span>
+                </div>
+                <div className="location-inputs">
+                  <span className="form-input">SubDomain</span>
+                </div>
               </div>
             </div>
+
             <div className="userinfos">Vos réseaux sociaux</div>
             <div className="social-container">
               <div className="social-inputs">

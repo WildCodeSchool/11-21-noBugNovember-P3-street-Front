@@ -79,10 +79,7 @@ const AnnonceInGestion = ({
       <div className="premiereligne">
         <div className="buttomreveal" onClick={() => iWantView()}>
           <div className={viewMore ? "premierebarre active" : "premierebarre"}>
-            \
-          </div>
-          <div className={viewMore ? "secondebarre active" : "secondebarre"}>
-            /
+            <i class="fa-solid fa-bolt"></i>
           </div>
         </div>
         <div className="contentprojectadmin">
