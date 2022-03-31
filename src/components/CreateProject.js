@@ -1,9 +1,11 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/CreateProject.css";
 import "react-calendar/dist/Calendar.css";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
+import AdminReturnButton from "./AdminReturnButton";
 
 const CreateProject = (idUser) => {
   const [domaines, setDomaine] = useState([]);
@@ -59,94 +61,99 @@ const CreateProject = (idUser) => {
   const createProject = (e) => {
     e.preventDefault();
     console.log("createProject", mySelect.current.value.toLowerCase());
-    switch (mySelect.current.value.toLowerCase()) {
-      case "arts-visuels":
-        idDomaine = 1;
-        break;
-      case "musique":
-        idDomaine = 2;
-        break;
-      case "littérature et poésie":
-        idDomaine = 3;
-        break;
-      case "arts de la scène":
-        idDomaine = 4;
-        break;
-      case "cinéma":
-        idDomaine = 5;
-        break;
-      case "arts médiatiques":
-        idDomaine = 6;
-        break;
-      default:
-        console.log("domaine not found");
-    }
-    switch (secondSelect.current.value.toLowerCase()) {
-      case "auvergne-rhône-alpes":
-        idRegions = 1;
-        break;
-      case "bourgogne-franche-comté":
-        idRegions = 2;
-        break;
-      case "bretagne":
-        console.log("login");
-        // setIdrRegions(3);
-        idRegions = 3;
-        break;
-      case "centre-val de loire":
-        idRegions = 4;
-        break;
-      case "corse":
-        idRegions = 5;
-        break;
-      case "grand est":
-        idRegions = 6;
-        break;
-      case "hauts-de-france":
-        idRegions = 7;
-        break;
-      case "ile-de-france":
-        idRegions = 8;
-        break;
-      case "normandie":
-        idRegions = 9;
-        break;
+    if (confirm(`Êtes-vous sûr de vouloir créer cette annonce?`) === true) {
+      switch (mySelect.current.value.toLowerCase()) {
+        case "arts-visuels":
+          idDomaine = 1;
+          break;
+        case "musique":
+          idDomaine = 2;
+          break;
+        case "littérature et poésie":
+          idDomaine = 3;
+          break;
+        case "arts de la scène":
+          idDomaine = 4;
+          break;
+        case "cinéma":
+          idDomaine = 5;
+          break;
+        case "arts médiatiques":
+          idDomaine = 6;
+          break;
+        default:
+          console.log("domaine not found");
+      }
+      switch (secondSelect.current.value.toLowerCase()) {
+        case "auvergne-rhône-alpes":
+          idRegions = 1;
+          break;
+        case "bourgogne-franche-comté":
+          idRegions = 2;
+          break;
+        case "bretagne":
+          console.log("login");
+          // setIdrRegions(3);
+          idRegions = 3;
+          break;
+        case "centre-val de loire":
+          idRegions = 4;
+          break;
+        case "corse":
+          idRegions = 5;
+          break;
+        case "grand est":
+          idRegions = 6;
+          break;
+        case "hauts-de-france":
+          idRegions = 7;
+          break;
+        case "ile-de-france":
+          idRegions = 8;
+          break;
+        case "normandie":
+          idRegions = 9;
+          break;
 
-      case "nouvelle-aquitaine":
-        idRegions = 10;
-        break;
-      case "occitanie":
-        idRegions = 11;
-        break;
-      case "pays de la loire":
-        idRegions = 12;
-        break;
-      case "provence-alpes-côte d’azur":
-        idRegions = 13;
-        break;
-      default:
-        console.log("region not found");
+        case "nouvelle-aquitaine":
+          idRegions = 10;
+          break;
+        case "occitanie":
+          idRegions = 11;
+          break;
+        case "pays de la loire":
+          idRegions = 12;
+          break;
+        case "provence-alpes-côte d’azur":
+          idRegions = 13;
+          break;
+        default:
+          console.log("region not found");
+      }
+      axios
+        .post("http://localhost:3030/users/createproject", {
+          name: newProject.name,
+          estimated_start_date: newProject.startDate,
+          estimated_end_date: newProject.endDate,
+          description: newProject.description,
+          team_completed: 0,
+          status: 0,
+          domain_id: idDomaine,
+          users_id: idUser,
+          blocked: 1,
+          region_id: idRegions,
+          logo: imgProfile,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
-    axios
-      .post("http://localhost:3030/users/createproject", {
-        name: newProject.name,
-        estimated_start_date: newProject.startDate,
-        estimated_end_date: newProject.endDate,
-        description: newProject.description,
-        team_completed: 0,
-        status: 0,
-        domain_id: idDomaine,
-        users_id: idUser,
-        blocked: 1,
-        region_id: idRegions,
-        logo: imgProfile,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    alert(
+      "Votre projet a bien été soumis, il sera examiné par un administrateur afin d'être validé"
+    );
     console.log("leaveProject");
   };
 
