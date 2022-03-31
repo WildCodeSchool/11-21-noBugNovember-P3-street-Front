@@ -100,7 +100,7 @@ const Profil = ({ idUser }) => {
                 <span className="form-input">{profil.tiktok}</span>
               </div>
             </div>
-            <div className="userinfos">Votre descritpion</div>
+            <div className="userinfos">Votre description</div>
             <div className="description-container">
               <div className="description-inputs">
                 <p className="description-input">{profil.description_users}</p>
@@ -122,7 +122,7 @@ const Profil = ({ idUser }) => {
                     >
                       Créer un projet
                     </div>
-                  </Link>{" "}
+                  </Link>
                 </div>
 
                 <Link to="/update_profil">

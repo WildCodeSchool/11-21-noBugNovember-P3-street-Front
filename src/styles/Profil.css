@@ -59,15 +59,16 @@
 }
 
 .description-input {
-  height: 60px;
+  min-height: 120px;
   width: 100%;
-  padding-left: 1%;
-  font-size: small;
+  padding: 1%;
+  background: white;
 }
 
 .description-inputs {
   display: inline-block;
-
+  width: 100%;
+/*   min-height: 200px; */
 }
 
 .description {
@@ -179,6 +180,7 @@ textarea {
   border-radius: 2px;
   height: 40px;
   background-color: white;
+  width: 100%;
 }
 
 .form-input::placeholder {
@@ -235,6 +237,38 @@ width: 20%;
 margin-left: 20px;
 }
 
+.btnProfilWrapperModif {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.btnProfilWrapperModif > div {
+  
+  width: 30%;
+  margin-left: 20px;
+  
+}
+.btnProfilWrapperModif > a {
+  
+  width: 30%;
+  margin-left: 20px;
+  
+}
+
+.cancelBtn {
+  background-color: transparent;
+  border: 1px solid var(--main);
+  color: var(--main);
+ 
+}
+
+.cancelBtn:hover {
+
+  outline: 1px solid var(--main);
+box-shadow: none;
+font-weight: bold;
+}
 
 .infoDoubleContainer {
   display: flex;
