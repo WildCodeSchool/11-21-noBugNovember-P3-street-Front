@@ -22,7 +22,7 @@ const ProjectCard = ({ project }) => {
         <div className="content">
           <div className="quandOu localisation">
             <i className="fa-solid fa-location-dot"></i>&nbsp;
-            {project.localisation}
+            {project.region_name}
           </div>
           <div className="quandOu projecTtime">
             <i class="fa-solid fa-calendar-days"></i>&nbsp;
