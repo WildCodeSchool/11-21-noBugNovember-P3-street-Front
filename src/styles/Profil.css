@@ -47,7 +47,7 @@
   display: inline-block;
   align-items: center;
   flex-direction: column;
-  height: 95px;
+  height: 100px;
   width: 100%;
   padding-left: 1%;
 }
@@ -67,6 +67,7 @@
 
 .description-inputs {
   display: inline-block;
+
 }
 
 .description {
@@ -141,7 +142,7 @@ textarea {
 .social-inputs {
   display: block;
   margin-bottom: 1rem;
-  padding-left: 1%;
+  padding-left: 0.5%;
   width: 100%;
 }
 
@@ -188,15 +189,16 @@ textarea {
 .profil-input-btn {
   display: flex;
   justify-content: center;
-  width: 30%;
+  width: 100%;
   border-radius: 3px;
-  background-color: var(--second);
+  background-color: var(--main);
   color: white;
   font-size: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-top: 15px;
   text-decoration: none;
+  min-width: 200px;
 }
 
 .profil-input-btn:hover {
@@ -224,11 +226,39 @@ textarea {
 .btnProfilWrapper {
   display: flex;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
+
+.btnProfilWrapper > a{
+min-width:200px;
+width: 20%;
+margin-left: 20px;
+}
+
 
 .infoDoubleContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
+}
+
+.btnPublierCreer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.btnPublierCreer > a {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  margin-right: 20px;
+  min-width: 200px;
+/*   background-color: red; */
+}
+
+
+.btnPublierCreerSubmit {
+
+  background-color: var(--second);
 }
