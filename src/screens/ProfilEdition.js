@@ -1,45 +1,12 @@
 /* eslint-disable no-restricted-globals */
 import "../styles/Profil.css";
 import React, { useEffect, useState } from "react";
-import validate from "../components/ValidateInfo";
-import useForm from "../components/useForm";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import AdminReturnButton from "../components/AdminReturnButton";
 
 const ProfilEdition = ({ idUser }) => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [domain, setDomain] = useState([]);
-  const [subDomain, setSubdomain] = useState([]);
-  const [isFilter, setIsFilter] = useState(false);
   const [profil, setProfil] = useState([]);
-  const [reponse, setReponse] = useState([]);
-  const [selectDomain, setSelectDomain] = useState(); //Choix utilisateur domaines
-  const [selectSubDomain, setSelectSubDomain] = useState(); //Choix utilisateuur sous-domaines
-  const [domainId, setDomainId] = useState();
-  const [subDomainId, setSubDomainId] = useState();
   const [editProfil, setEditProfil] = useState({});
-
-  console.log(idUser);
-  const submitForm = () => {
-    setIsSubmitted(true);
-  };
-
-  //   const { handleChange, handleSubmit, errors } = useForm(submitForm, validate);
-  //   const { handleSubmit, errors } = useForm(submitForm, validate);
-
-  const getSubdomain = () => {
-    axios
-      .get(`${process.env.REACT_APP_BACK}/all/subdomain`)
-      .then((res) => res.data)
-      .then((data) => setSubdomain(data));
-  };
-
-  const getDomain = () => {
-    axios
-      .get(`${process.env.REACT_APP_BACK}/all/domain`)
-      .then((res) => res.data)
-      .then((data) => setDomain(data));
-  };
 
   const getProfil = () => {
     axios
@@ -50,17 +17,14 @@ const ProfilEdition = ({ idUser }) => {
 
   const annonceEdition = (e) => {
     e.preventDefault();
-    if (confirm(`Êtes-vous sûr de vouloir modifier ce projet?`) === true) {
-      axios.put(`${process.env.REACT_APP_BACK}/admin/update_profil/${idUser}`, {
+    if (confirm(`Êtes-vous sûr de vouloir modifier votre profil?`) === true) {
+      axios.put(`${process.env.REACT_APP_BACK}/users/update_profil/${idUser}`, {
         firstname: editProfil.firstname,
         lastname: editProfil.lastname,
         description_users: editProfil.description,
         birthday: editProfil.birthday,
         date: editProfil.date,
         phone: editProfil.phone,
-        domain_id: editProfil.domain,
-        sub_domain_id: editProfil.art_name,
-        art_name: editProfil.subDomain,
         youtube: editProfil.youtube,
         instagram: editProfil.instagram,
         twitter: editProfil.twitter,
@@ -70,46 +34,15 @@ const ProfilEdition = ({ idUser }) => {
         city: editProfil.city,
         country: editProfil.country,
       });
+      alert("Profil modifié !");
     } else {
       console.log("nope");
     }
   };
 
   useEffect(() => {
-    getDomain();
-    getSubdomain();
     getProfil();
   }, []);
-
-  useEffect(() => {
-    if (selectDomain !== undefined) {
-      axios
-        .put(`${process.env.REACT_APP_BACK}/all/domain_has_sub_domain`, {
-          domain: selectDomain,
-        })
-        .then((response) => response.data)
-        .then((data) => setReponse(data));
-      setIsFilter(true);
-    } else {
-      setIsFilter(false);
-    }
-  }, [selectDomain]);
-
-  const handleDomain = (e) => {
-    let choice = e.target.value;
-    setSelectDomain(choice);
-    const getId = domain.filter((el) => el.domain.includes(choice));
-    setDomainId(getId[0].id);
-    setEditProfil({ ...editProfil, domain: domainId });
-  };
-  console.log(editProfil);
-  const handleSubDomain = (e) => {
-    let choice = e.target.value;
-    setSelectSubDomain(choice);
-    const getId = subDomain.filter((el) => el.art_name.includes(choice));
-    setSubDomainId(getId[0].id);
-    setEditProfil({ ...editProfil, art_name: subDomainId });
-  };
 
   return (
     <>
@@ -119,8 +52,6 @@ const ProfilEdition = ({ idUser }) => {
             <h1>Modifie ton profil {profil.firstname}</h1>
           </div>
           (*) = Informations obligatoires
-          {console.log("ID", domainId)}
-          {console.log("ID", subDomainId)}
           <form onSubmit="" className="form-user" noValidate>
             <div className="userinfos">Vos informations</div>
             <div className="infos-container">
@@ -131,10 +62,15 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="lastname"
                   placeholder="Votre nom"
-                  value={profil.lastname}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.lastname !== undefined
+                      ? editProfil.lastname
+                      : profil.lastname
+                  }
+                  onChange={(e) =>
+                    setEditProfil({ ...editProfil, lastname: e.target.value })
+                  }
                 />
-                {/* {errors.lastname && <p>{errors.lastname}</p>} */}
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Prénom (*)</label>
@@ -143,10 +79,18 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="firstname"
                   placeholder="Votre prénom"
-                  value={profil.firstname}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.firstname !== undefined
+                      ? editProfil.firstname
+                      : profil.firstname
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      firstname: e.target.value,
+                    })
+                  }
                 />
-                {/* {errors.firstname && <p>{errors.firstname}</p>} */}
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Email (*)</label>
@@ -155,10 +99,18 @@ const ProfilEdition = ({ idUser }) => {
                   type="email"
                   name="email"
                   placeholder="Votre adresse email"
-                  value={profil.email}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.email !== undefined
+                      ? editProfil.email
+                      : profil.email
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      email: e.target.value,
+                    })
+                  }
                 />
-                {/* {errors.email && <p>{errors.email}</p>} */}
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Date de naissance (*)</label>
@@ -167,10 +119,18 @@ const ProfilEdition = ({ idUser }) => {
                   type="date"
                   name="birthday"
                   placeholder="Année/Mois/Jour"
-                  value={profil.birthday}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.birthday !== undefined
+                      ? editProfil.birthday
+                      : profil.birthday
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      birthday: e.target.value,
+                    })
+                  }
                 />
-                {/* {errors.birthday && <p>{errors.birthday}</p>} */}
               </div>
               <div className="infos-inputs">
                 <label className="form-label">Téléphone</label>
@@ -179,36 +139,21 @@ const ProfilEdition = ({ idUser }) => {
                   type="tel"
                   name="phone"
                   placeholder="Votre numéro de téléphone"
-                  value={profil.phone}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.phone !== undefined
+                      ? editProfil.phone
+                      : profil.phone
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      phone: e.target.value,
+                    })
+                  }
                 />
-                {/* {errors.phone && <p>{errors.phone}</p>} */}
               </div>
             </div>
-            <div className="userinfos">Votre domaine d'activité (*)</div>
-            <div className="userdomain">
-              <select
-                className="selectDomain"
-                name="domain"
-                onChange={handleDomain}
-              >
-                <option value="">{profil.domain}</option>
-                {domain.map((el) => (
-                  <option name="domain">{el.domain}</option>
-                ))}
-              </select>
 
-              <select
-                className="selectDomain"
-                name="subDomain"
-                onChange={handleSubDomain}
-              >
-                <option value="">{profil.art_name}</option>
-                {isFilter
-                  ? reponse.map((el) => <option>{el.art_name}</option>)
-                  : subDomain.map((el) => <option>{el.art_name}</option>)}
-              </select>
-            </div>
             <div className="userinfos">Votre localisation</div>
             <div className="location-container">
               <div className="location-inputs">
@@ -218,10 +163,18 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="city"
                   placeholder="Votre ville"
-                  value={profil.city}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.city !== undefined
+                      ? editProfil.city
+                      : profil.city
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      city: e.target.value,
+                    })
+                  }
                 />
-                {/* {errors.city && <p>{errors.city}</p>} */}
               </div>
               <div className="location-inputs">
                 <label className="form-label">Pays (*)</label>
@@ -230,10 +183,18 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="country"
                   placeholder="Votre pays"
-                  value={profil.country}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.country !== undefined
+                      ? editProfil.country
+                      : profil.country
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      country: e.target.value,
+                    })
+                  }
                 />
-                {/* {errors.country && <p>{errors.country}</p>} */}
               </div>
             </div>
             <div className="userinfos">Vos réseaux sociaux</div>
@@ -245,8 +206,17 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="youtube"
                   placeholder="Votre chaîne Youtube"
-                  value={profil.youtube}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.youtube !== undefined
+                      ? editProfil.youtube
+                      : profil.youtube
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      youtube: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div className="social-inputs">
@@ -256,8 +226,17 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="instagram"
                   placeholder="Votre Instagram"
-                  value={profil.instagram}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.instagram !== undefined
+                      ? editProfil.instagram
+                      : profil.instagram
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      instagram: e.target.value,
+                    })
+                  }
                 />
               </div>
 
@@ -268,8 +247,17 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="twitter"
                   placeholder="Votre Twitter"
-                  value={profil.twitter}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.twitter !== undefined
+                      ? editProfil.twitter
+                      : profil.twitter
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      twitter: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div className="social-inputs">
@@ -279,8 +267,17 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="spotify"
                   placeholder="Votre Spotify / Soundcloud"
-                  value={profil.spotify}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.spotify !== undefined
+                      ? editProfil.spotify
+                      : profil.spotify
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      spotify: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div className="social-inputs">
@@ -290,8 +287,17 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="tiktok"
                   placeholder="Votre Tiktok"
-                  value={profil.tiktok}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.tiktok !== undefined
+                      ? editProfil.tiktok
+                      : profil.tiktok
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      tiktok: e.target.value,
+                    })
+                  }
                 />
               </div>
             </div>
@@ -304,17 +310,28 @@ const ProfilEdition = ({ idUser }) => {
                   type="text"
                   name="description"
                   placeholder="Parlez-nous un peu de vous..."
-                  value={profil.description_users}
-                  //   onChange={handleChange}
+                  value={
+                    editProfil.description !== undefined
+                      ? editProfil.description
+                      : profil.description_users
+                  }
+                  onChange={(e) =>
+                    setEditProfil({
+                      ...editProfil,
+                      description: e.target.value,
+                    })
+                  }
                 />
               </div>
-              <button
-                className="profil-input-btn"
-                type="submit"
-                onClick={annonceEdition}
-              >
-                Modifier votre profil
-              </button>
+              <div className="btnProfilWrapper">
+                <div
+                  className="profil-input-btn"
+                  type="submit"
+                  onClick={annonceEdition}
+                >
+                  Modifier votre profil
+                </div>
+              </div>
             </div>
           </form>
         </div>
