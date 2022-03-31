@@ -25,6 +25,8 @@
   width: 40%;
   color: white;
   cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .isAnnonceUser {

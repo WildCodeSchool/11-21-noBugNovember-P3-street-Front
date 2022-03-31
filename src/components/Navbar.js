@@ -4,6 +4,7 @@ import Logo from "../assets/Logo.png";
 import Protected from "../components/Protected";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import exitwhite from "../assets/exitwhite.png";
 
 const Navbar = (props) => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -175,10 +176,8 @@ const Navbar = (props) => {
           </div>
           {props.isConnect ? (
             <div className="disconnectButton" onClick={disconnect}>
-              <img
-                src="https://img.icons8.com/ios-glyphs/30/000000/logout-rounded-down.png"
-                alt="déconnexion"
-              />
+              {/* <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i> */}
+              <img src={exitwhite} className="exitwhite" />
             </div>
           ) : (
             ""

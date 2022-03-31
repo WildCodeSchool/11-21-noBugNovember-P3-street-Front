@@ -7,12 +7,12 @@ import { useState } from "react";
 import AdminReturnButton from "./AdminReturnButton";
 import NavbarAdmin from "./NavbarAdmin";
 
-const CreateAnnonceUser = () => {
+const CreateAnnonceUser = ({ idUser }) => {
   const [newAnnonce, setNewAnnonce] = useState({
     description: "",
     date: "",
   });
-  const path = "/admin/annonces";
+  const path = "/profil";
   console.log(newAnnonce);
 
   const createAnnonce = (e) => {
@@ -22,7 +22,7 @@ const CreateAnnonceUser = () => {
         .post(`${process.env.REACT_APP_BACK}/users/submitAnnonceUser`, {
           description_annonce: newAnnonce.description,
           date: newAnnonce.date,
-          users_id: 1,
+          users_id: idUser,
           blocked: 1,
         })
         .then(function (response) {
@@ -38,9 +38,7 @@ const CreateAnnonceUser = () => {
 
   return (
     <>
-      <div className="adminnavbar">
-        <NavbarAdmin />
-      </div>
+      <div className="adminnavbar">{/* <NavbarAdmin /> */}</div>
       <AdminReturnButton route={path} />
       <div className="titleContainer">
         <h2>Créer votre annonce utilisateur</h2>
