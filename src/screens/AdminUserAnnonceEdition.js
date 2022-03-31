@@ -67,7 +67,6 @@ const AdminUserAnnonceEdition = () => {
                   : annonceDetails.description_annonce
               }
               onChange={(e) => {
-                // setAnnonceDetails({ description_annonce: e.target.value });
                 setEditAnnonce({
                   ...editAnnonce,
                   description_annonce: e.target.value,
