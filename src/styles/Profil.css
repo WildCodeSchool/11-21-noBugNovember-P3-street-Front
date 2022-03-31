@@ -188,7 +188,7 @@ textarea {
 .profil-input-btn {
   display: flex;
   justify-content: center;
-  width: 30%;
+  width: 100%;
   border-radius: 3px;
   background-color: var(--second);
   color: white;
@@ -226,6 +226,12 @@ textarea {
   width: 100%;
   justify-content: flex-end;
 }
+
+.btnProfilWrapper > a{
+min-width:200px;
+width: 20%;
+}
+
 
 .infoDoubleContainer {
   display: flex;
