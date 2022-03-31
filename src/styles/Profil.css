@@ -21,7 +21,7 @@
 
 .userinfos {
   display: flex;
-  color: var(--main);
+  color: var(--main-dark);
   margin-bottom: 1%;
   margin-top: 1%;
 }
@@ -98,7 +98,7 @@ textarea {
   display: flex;
   align-items: baseline;
   flex-direction: column;
-  padding-top: 6%;
+/*   padding-top: 6%; */
 }
 
 .form-user span {

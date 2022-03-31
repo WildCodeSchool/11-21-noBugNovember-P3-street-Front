@@ -10,8 +10,8 @@
 }
 .adminTitle {
   text-align: center;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .tableauContainer {
   margin-top: 2%;
@@ -24,10 +24,12 @@
 .filtreGestionProjects {
   display: flex;
   justify-content: center;
-  height: 30px;
+  height: 40px;
   width: 40%;
   color: white;
   cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .isvalidated {
   display: flex;
@@ -36,7 +38,7 @@
   background-color: var(--second);
   height: 100%;
   width: 100%;
-  border-radius: 15px 0px 0px 15px;
+/*   border-radius: 15px 0px 0px 15px; */
 }
 .isvalidated.active {
   background-color: var(--second-dark);
@@ -48,7 +50,7 @@
   background-color: var(--second);
   height: 100%;
   width: 100%;
-  border-radius: 0px 15px 15px 0px;
+ /*  border-radius: 0px 15px 15px 0px; */
 }
 .isproject.active {
   background-color: var(--second-dark);

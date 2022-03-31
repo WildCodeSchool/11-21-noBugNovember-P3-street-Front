@@ -76,7 +76,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding-top: 6%;
+/*   padding-top: 6%; */
 }
 .form h1 {
   font-size: 2rem;
