@@ -4,6 +4,7 @@ import FormSuccess from "../components/FormSucces";
 import validate from "../components/ValidateInfo";
 import useForm from "../components/useForm";
 import axios from "axios";
+import sha256 from "crypto-js/sha256";
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -81,17 +82,18 @@ const Form = () => {
       blocked: 1,
       firstname: values.firstname,
       lastname: values.lastname,
-      password: values.password,
+      password: sha256(values.password).toString(),
       email: values.email,
       phone: values.phone,
-      birthday: "1993-08-10",
+      birthday: values.birthday,
       city: values.city,
       country: values.country,
       forget_password: "lol",
-      youtube: values.instagram,
+      youtube: values.youtube,
       instagram: values.instagram,
       twitter: values.twitter,
       spotify: values.spotify,
+      tiktok: values.tiktok,
       description_users: values.description,
       available: 1,
       phoneVisibility: 1,
