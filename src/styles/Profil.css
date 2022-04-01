@@ -108,6 +108,7 @@ textarea {
   align-items: center;
   justify-content: flex-start;
   font-size: small;
+  overflow: hidden;
 }
 
 .form h1 {
@@ -144,8 +145,13 @@ textarea {
   display: block;
   margin-bottom: 1rem;
   padding-left: 0.5%;
-  width: 100%;
+  width: 20%;
+
 }
+ .social-inputs > span {
+  font-size:75%;
+  white-space: nowrap;
+} 
 
 .location-inputs p {
   font-size: 0.8rem;
@@ -315,10 +321,16 @@ font-weight: bold;
 
 }
 
-.avatarProfil {
-  width: 50%;
-/*   height: 50%; */
+.containieravatarProfil {
+  width: 200px;
+  height: 200px;
+
   border-radius: 50% ;
+  overflow: hidden;
+}
+.avatarProfil {
+object-fit: cover;
+width: 100%;
 }
 .AjoutAvatar {
   display: flex;

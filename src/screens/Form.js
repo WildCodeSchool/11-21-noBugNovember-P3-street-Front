@@ -111,69 +111,75 @@ const Form = () => {
             </div>
             {/*   (*) = Informations obligatoires */}
             <form onSubmit={handleSubmit} className="form-user" noValidate>
-              <div className="userinfos">Vos informations</div>
-              <div className="infos-container">
-                <div className="nomPrenomContainer infoDoubleContainer">
-                  <div className="infos-inputs">
-                    <label className="form-label">Nom (*)</label>
-                    <input
-                      className="form-input"
-                      type="text"
-                      name="lastname"
-                      placeholder="Votre nom"
-                      value={values.lastname}
-                      onChange={handleChange}
-                    />
-                    {errors.lastname && <p>{errors.lastname}</p>}
+              <div className="colsInfos">
+                <div className="colLeftInfos">
+                  <div className="userinfos">Vos informations</div>
+                  <div className="infos-container">
+                    <div className="nomPrenomContainer infoDoubleContainer">
+                      <div className="infos-inputs">
+                        <label className="form-label">Nom (*)</label>
+                        <input
+                          className="form-input"
+                          type="text"
+                          name="lastname"
+                          placeholder="Votre nom"
+                          value={values.lastname}
+                          onChange={handleChange}
+                        />
+                        {errors.lastname && <p>{errors.lastname}</p>}
+                      </div>
+                      <div className="infos-inputs">
+                        <label className="form-label">Prénom (*)</label>
+                        <input
+                          className="form-input"
+                          type="text"
+                          name="firstname"
+                          placeholder="Votre prénom"
+                          value={values.firstname}
+                          onChange={handleChange}
+                        />
+                        {errors.firstname && <p>{errors.firstname}</p>}
+                      </div>
+                    </div>
+                    <div className="infos-inputs">
+                      <label className="form-label">Email (*)</label>
+                      <input
+                        className="form-input"
+                        type="email"
+                        name="email"
+                        placeholder="Votre adresse email"
+                        value={values.email}
+                        onChange={handleChange}
+                      />
+                      {errors.email && <p>{errors.email}</p>}
+                    </div>
+                    <div className="infos-inputs">
+                      <label className="form-label">
+                        Date de naissance (*)
+                      </label>
+                      <input
+                        className="form-input"
+                        type="date"
+                        name="birthday"
+                        placeholder="Année/Mois/Jour"
+                        value={values.birthday}
+                        onChange={handleChange}
+                      />
+                      {errors.birthday && <p>{errors.birthday}</p>}
+                    </div>
+                    <div className="infos-inputs">
+                      <label className="form-label">Téléphone</label>
+                      <input
+                        className="form-input"
+                        type="tel"
+                        name="phone"
+                        placeholder="Votre numéro de téléphone"
+                        value={values.phone}
+                        onChange={handleChange}
+                      />
+                      {errors.phone && <p>{errors.phone}</p>}
+                    </div>
                   </div>
-                  <div className="infos-inputs">
-                    <label className="form-label">Prénom (*)</label>
-                    <input
-                      className="form-input"
-                      type="text"
-                      name="firstname"
-                      placeholder="Votre prénom"
-                      value={values.firstname}
-                      onChange={handleChange}
-                    />
-                    {errors.firstname && <p>{errors.firstname}</p>}
-                  </div>
-                </div>
-                <div className="infos-inputs">
-                  <label className="form-label">Email (*)</label>
-                  <input
-                    className="form-input"
-                    type="email"
-                    name="email"
-                    placeholder="Votre adresse email"
-                    value={values.email}
-                    onChange={handleChange}
-                  />
-                  {errors.email && <p>{errors.email}</p>}
-                </div>
-                <div className="infos-inputs">
-                  <label className="form-label">Date de naissance (*)</label>
-                  <input
-                    className="form-input"
-                    type="date"
-                    name="birthday"
-                    placeholder="Année/Mois/Jour"
-                    value={values.birthday}
-                    onChange={handleChange}
-                  />
-                  {errors.birthday && <p>{errors.birthday}</p>}
-                </div>
-                <div className="infos-inputs">
-                  <label className="form-label">Téléphone</label>
-                  <input
-                    className="form-input"
-                    type="tel"
-                    name="phone"
-                    placeholder="Votre numéro de téléphone"
-                    value={values.phone}
-                    onChange={handleChange}
-                  />
-                  {errors.phone && <p>{errors.phone}</p>}
                 </div>
               </div>
               <div className="userinfos">Votre domaine d'activité (*)</div>
