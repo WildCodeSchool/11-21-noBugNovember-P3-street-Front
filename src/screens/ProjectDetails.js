@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import UsersInProject from "../components/UsersInProject";
-import Footer from "../components/Footer";
 import "../styles/ProjectDetails.css";
 const ProjectDetails = () => {
   const [projectDetail, setProjectDetail] = useState([]);
@@ -16,7 +15,6 @@ const ProjectDetails = () => {
     setCreatorId(`/talents/${[donnees]}`);
   };
 
-  console.log(projectDetail);
   const getProjectDetails = () => {
     axios
       .get(`${process.env.REACT_APP_BACK}/all/project_details/${params.id}`)
@@ -39,8 +37,6 @@ const ProjectDetails = () => {
   useEffect(() => {
     createLink();
   }, [projectDetail]);
-
-  console.log("user ID", creatorId);
 
   return (
     <div className="projectDetailsContainer">

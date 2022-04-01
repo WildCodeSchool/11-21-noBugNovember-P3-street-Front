@@ -19,10 +19,8 @@ const UsersForProject = (props) => {
       });
 
       alert(`${props.firstname} ${props.lastname} est retiré(e) du projet`);
-      console.log("project deleted");
       props.usersInProject();
     } else {
-      console.log("project not deleted");
     }
   };
 

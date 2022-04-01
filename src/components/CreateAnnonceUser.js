@@ -38,7 +38,6 @@ const CreateAnnonceUser = ({ idUser }) => {
           alert(`Erreur lors de l'enregistrement de l'annonce.`);
         });
     } else {
-      console.log("nope");
     }
   };
 

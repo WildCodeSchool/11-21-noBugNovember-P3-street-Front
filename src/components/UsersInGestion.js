@@ -32,13 +32,11 @@ const UsersInGestion = ({
 
   const searchUserStatut = (val) => {
     if (val === 0) {
-      console.log(blockedUsers.find((element) => element.id === user.id));
       setValidatedUsers(
         ...validatedUsers,
         (blockedUsers.find((element) => element.id === user.id).blocked = 0)
       );
     } else if (val === 1) {
-      console.log(validatedUsers.find((element) => element.id === user.id));
       setBlockedUsers(
         ...blockedUsers,
         (validatedUsers.find((element) => element.id === user.id).blocked = 1)
@@ -64,10 +62,8 @@ const UsersInGestion = ({
         `${process.env.REACT_APP_BACK}/admin/delete_user/${user.id}`
       );
       alert(`Utilisateur ${user.firstname} ${user.lastname} supprimé`);
-      console.log("user deleted");
       getBlockedUsers();
     } else {
-      console.log("user not deleted");
     }
   };
 

@@ -17,13 +17,9 @@ const Project = () => {
   const [selectSubDomain, setSelectSubDomain] = useState();
   const [selectView, setSelectView] = useState(0); //Choix entre tous les users et les annonces
   const [subDomain, setSubDomain] = useState([]); //Liste des sous-domaines
-  const [viewSubDomain, setViewSubDomain] = useState(false);
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
   const [filter, setFilter] = useState([]);
   const [selectStatus, setSelectStatus] = useState();
-  //    console.log("status", selectStatus);
-  // console.log("view", selectView);
-  console.log("domain", selectDomain);
 
   const arreteTout = (id) => {
     setIsFilter(false);

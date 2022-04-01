@@ -12,9 +12,6 @@ const AdminProjectAnnonceEdition = () => {
   const [subDomains, setSubDomains] = useState([]);
   const params = useParams();
   const path = "/admin/annonces";
-  console.log(editAnnonce);
-  console.log(annonceDetails);
-  console.log(subDomains);
 
   const getAnnonceDetails = () => {
     axios
@@ -43,7 +40,6 @@ const AdminProjectAnnonceEdition = () => {
         }
       );
     } else {
-      console.log("nope");
     }
   };
 
