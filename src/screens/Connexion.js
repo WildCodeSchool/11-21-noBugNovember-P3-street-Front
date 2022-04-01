@@ -112,7 +112,7 @@ function Connexion(props) {
                 <div className="connexionButton">
                   <input
                     onClick={() => connect()}
-                    type="button"
+                    type="submit"
                     value="Connexion"
                   />
                 </div>
@@ -126,7 +126,7 @@ function Connexion(props) {
                 </div>
                 <Link to="/add_user">
                   <div className="creationButton">
-                    <input type="submit" value="Créer un compte" />
+                    <input type="button" value="Créer un compte" />
                   </div>
                 </Link>
               </div>
