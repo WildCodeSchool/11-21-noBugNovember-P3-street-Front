@@ -221,7 +221,7 @@ const ProfilEdition = ({ idUser }) => {
               </div>
               <div className="colRightInfos">
                 <img
-                  className="avatarProfil"
+                  className="avatarProfil avatarProfilModif"
                   src={placeHolderAvatr}
                   alt={profil.firstname}
                 ></img>
