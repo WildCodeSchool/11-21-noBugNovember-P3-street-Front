@@ -22,10 +22,9 @@ const ProjectsInGestion = ({
         `${process.env.REACT_APP_BACK}/admin/project_delete/${project.id}`
       );
       alert(`Projet ${project.name} supprimé`);
-      console.log("project deleted");
+
       getBlockedProjects();
     } else {
-      console.log("project not deleted");
     }
   };
 
@@ -39,11 +38,10 @@ const ProjectsInGestion = ({
     ) {
       axios.put(`${process.env.REACT_APP_BACK}/admin/projects/${project.id}`);
       alert(`Projet ${project.name} validé`);
-      console.log("projet débloqué");
+
       getBlockedProjects();
       getValidatedProjects();
     } else {
-      console.log("projet non débloqué");
     }
   };
 

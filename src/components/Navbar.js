@@ -3,7 +3,7 @@ import axios from "axios";
 import Logo from "../assets/Logo.png";
 import Protected from "../components/Protected";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import exitwhite from "../assets/exitwhite.png";
 
 const Navbar = (props) => {
@@ -17,6 +17,8 @@ const Navbar = (props) => {
   const [isNavBarConnexionBtnActive, setIsNavBarConnexionBtnActive] =
     useState(false);
   const [isNavBarAdminBtnActive, setIsNavBarAdminBtnActive] = useState(false);
+
+  let navigate = useNavigate();
 
   const handleToggleAccueil = () => {
     setIsNavBarAccueilBtnActive(true);
@@ -76,6 +78,7 @@ const Navbar = (props) => {
   };
   const disconnect = () => {
     localStorage.clear();
+    navigate("/");
     window.location.reload();
   };
   useEffect(() => {

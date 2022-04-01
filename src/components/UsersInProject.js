@@ -7,14 +7,9 @@ const UsersInProject = ({ user }) => {
   let concatNom = user.lastname;
 
   const concatFirstLast = concatPrenom.concat(" ", concatNom);
-  console.log(concatFirstLast);
   return (
     <Link to={userId}>
       <div data-before={concatFirstLast} className="usersInProject">
-        {/*       <div className="userName">
-          {user.lastname} {user.firstname}
-        </div> */}
-
         {user.avatar === null ? (
           <img src={avatar} alt={user.firstname} className="avatarUsers" />
         ) : (

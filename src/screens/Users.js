@@ -21,8 +21,6 @@ const Users = () => {
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
   const [filter, setFilter] = useState([]);
 
-  //console.log(allUsers);
-
   const arreteTout = (id) => {
     setIsFilter(false);
     choiceView(id);
@@ -70,7 +68,6 @@ const Users = () => {
     ) {
       temp = dataTalent.filter((e) => e.art_name === selectSubDomain);
     }
-    console.log(temp);
     if (temp !== undefined) {
       setFilter(temp);
       setIsFilter(true);

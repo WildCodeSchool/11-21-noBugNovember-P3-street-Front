@@ -17,7 +17,6 @@ const Form = () => {
   const [domainId, setDomainId] = useState();
   const [subDomainId, setSubDomainId] = useState();
 
-  console.log(domain);
   const submitForm = () => {
     setIsSubmitted(true);
   };
@@ -75,7 +74,6 @@ const Form = () => {
     handleChange(e);
   };
 
-  console.log(values.firstname);
   const submitUser = () => {
     axios.post(`${process.env.REACT_APP_BACK}/users/submitUser`, {
       admin: 0,

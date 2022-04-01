@@ -17,7 +17,6 @@ const Profil = ({ idUser }) => {
     getProfil();
   }, []);
 
-  console.log(profil);
   return (
     <>
       <div className="form-container">

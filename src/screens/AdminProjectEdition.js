@@ -31,7 +31,7 @@ const AdminProjectEdition = () => {
   const getDomains = () => {
     axios
       .get("http://localhost:3030/all/domain")
-      .then((res) => console.log(res) || setDomaine(res.data));
+      .then((res) => setDomaine(res.data));
   };
 
   const getRegions = () => {
@@ -41,11 +41,8 @@ const AdminProjectEdition = () => {
   };
 
   const [newProject, setNewProject] = useState({});
-  console.log(newProject);
-
   let idDomaine;
   let idRegions;
-
   const editProject = (e) => {
     e.preventDefault();
     if (confirm(`Êtes-vous sûr de vouloir modifier ce projet?`) === true) {
@@ -69,7 +66,6 @@ const AdminProjectEdition = () => {
           idDomaine = 6;
           break;
         default:
-          console.log("domaine not found");
       }
       switch (secondSelect.current.value.toLowerCase()) {
         case "auvergne-rhône-alpes":
@@ -79,8 +75,6 @@ const AdminProjectEdition = () => {
           idRegions = 2;
           break;
         case "bretagne":
-          console.log("login");
-          // setIdrRegions(3);
           idRegions = 3;
           break;
         case "centre-val de loire":
@@ -115,7 +109,6 @@ const AdminProjectEdition = () => {
           idRegions = 13;
           break;
         default:
-          console.log("region not found");
       }
 
       axios
@@ -135,7 +128,6 @@ const AdminProjectEdition = () => {
           console.log(error);
         });
     } else {
-      console.log("nope");
     }
     setNewProject({});
   };
@@ -303,7 +295,6 @@ const AdminProjectEdition = () => {
                     }}
                   />
                 </Stack>
-                {console.log(projectDetail.date_end)}
               </div>
               <iframe
                 src={`https://www.youtube.com/embed/${newProject.youtube}`}

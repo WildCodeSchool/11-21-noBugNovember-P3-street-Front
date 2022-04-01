@@ -13,8 +13,6 @@ const UserDetail = () => {
   const [selectProjet, setSelectProjet] = useState(0);
   let { id } = useParams();
 
-  console.log(data);
-
   const choiceProjet = (id) => {
     setSelectProjet(id);
   };
