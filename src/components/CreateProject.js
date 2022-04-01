@@ -7,18 +7,10 @@ import Stack from "@mui/material/Stack";
 import axios from "axios";
 import AdminReturnButton from "./AdminReturnButton";
 
-const CreateProject = (idUser) => {
+const CreateProject = ({ idUser }) => {
   const [domaines, setDomaine] = useState([]);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
   const [regions, setRegions] = useState([]);
-  const [startDate, setStartDate] = useState([]);
-  const [endDate, setEndDate] = useState([]);
-  const [data, setData] = useState("");
-  const [photos, setPhotos] = useState();
   const [image, setImage] = useState({ data: "" });
-  const [status, setStatus] = useState("");
-  const [idrRegions, setIdrRegions] = useState(0);
   const [imgProfile, setImgProfile] = useState("");
   const path = "/profil";
   const mySelect = useRef();
@@ -32,10 +24,11 @@ const CreateProject = (idUser) => {
     startDate: "",
     endDate: "",
   });
+
   useEffect(() => {
     axios
       .get("http://localhost:3030/all/domain")
-      .then((res) => console.log(res) || setDomaine(res.data));
+      .then((res) => setDomaine(res.data));
   }, []);
 
   useEffect(() => {
@@ -45,14 +38,12 @@ const CreateProject = (idUser) => {
   }, []);
 
   const postProject = async (e) => {
-    console.log("postEnter");
     await setNewProject({
       ...newProject,
       domaines: mySelect.current.value,
       regions: secondSelect.current.value,
     });
     createProject(e);
-    console.log("leaveEnter");
   };
 
   let idDomaine;
@@ -60,7 +51,6 @@ const CreateProject = (idUser) => {
 
   const createProject = (e) => {
     e.preventDefault();
-    console.log("createProject", mySelect.current.value.toLowerCase());
     if (confirm(`Êtes-vous sûr de vouloir créer ce projet?`) === true) {
       switch (mySelect.current.value.toLowerCase()) {
         case "arts-visuels":
@@ -82,7 +72,6 @@ const CreateProject = (idUser) => {
           idDomaine = 6;
           break;
         default:
-          console.log("domaine not found");
       }
       switch (secondSelect.current.value.toLowerCase()) {
         case "auvergne-rhône-alpes":
@@ -92,8 +81,6 @@ const CreateProject = (idUser) => {
           idRegions = 2;
           break;
         case "bretagne":
-          console.log("login");
-          // setIdrRegions(3);
           idRegions = 3;
           break;
         case "centre-val de loire":
@@ -128,7 +115,6 @@ const CreateProject = (idUser) => {
           idRegions = 13;
           break;
         default:
-          console.log("region not found");
       }
       axios
         .post("http://localhost:3030/users/createproject", {
@@ -154,22 +140,19 @@ const CreateProject = (idUser) => {
     alert(
       "Votre projet a bien été soumis, il sera examiné par un administrateur afin d'être validé"
     );
-    console.log("leaveProject");
   };
 
   const handleSubmit = async (e) => {
-    console.log("chcoken");
     e.preventDefault();
     let formData = new FormData();
     formData.append("file", image.data);
-    console.log(formData);
     await fetch("http://localhost:3030/all/image", {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res) || setImgProfile(res.data);
+        setImgProfile(res.data);
       });
   };
 
@@ -182,7 +165,6 @@ const CreateProject = (idUser) => {
 
   return (
     <>
-      {console.log(imgProfile)}
       <div className="titleContainer">
         <h2>Créez votre projet</h2>
       </div>
@@ -198,8 +180,6 @@ const CreateProject = (idUser) => {
               onChange={(e) => {
                 const { value } = e.target;
                 setNewProject({ ...newProject, name: value });
-
-                // console.log(value)
               }}
             ></input>
 
@@ -220,8 +200,6 @@ const CreateProject = (idUser) => {
               onChange={(e) => {
                 const { value } = e.target;
                 setNewProject({ ...newProject, description: value });
-
-                // console.log(setDescription)
               }}
             ></textarea>
           </div>
@@ -328,7 +306,6 @@ const CreateProject = (idUser) => {
           </div>
         </div>
       </div>
-      {/* </form> */}
     </>
   );
 };

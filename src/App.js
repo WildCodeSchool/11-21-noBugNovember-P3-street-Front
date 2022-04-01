@@ -43,7 +43,6 @@ function App() {
       setIdUser(0);
     }
   }, []);
-  console.log(idUser);
 
   return (
     <div className="App">

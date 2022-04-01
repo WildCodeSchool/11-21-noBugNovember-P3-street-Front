@@ -1,9 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
 import "../styles/AdminGestionUsers.css";
-// import "../styles/NavbarAdmin.css";
-
 import UsersInGestion from "../components/UsersInGestion";
 import NavbarAdmin from "../components/NavbarAdmin";
 
@@ -15,8 +12,6 @@ const AdminGestionUsers = () => {
   const [searchTerm, setSearchTerm] = useState(undefined);
   const [validatedUsersToFilter, setValidatedUsersToFilter] = useState([]);
   const [blockedUsersToFilter, setBlockedUsersToFilter] = useState([]);
-  console.log(validatedUsers);
-  console.log(blockedUsers);
 
   //FUNCTIONS
   const getValidatedUsers = () => {

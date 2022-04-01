@@ -2,7 +2,6 @@
 import "../styles/Profil.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AdminReturnButton from "../components/AdminReturnButton";
 import { Link } from "react-router-dom";
 import placeHolderAvatr from "../assets/avatar.png";
 
@@ -38,7 +37,6 @@ const ProfilEdition = ({ idUser }) => {
       });
       alert("Profil modifié !");
     } else {
-      console.log("nope");
     }
   };
 
@@ -53,7 +51,6 @@ const ProfilEdition = ({ idUser }) => {
           <div className="join">
             <h1>Modifie ton profil {profil.firstname}</h1>
           </div>
-          {/*   (*) = Informations obligatoires */}
           <form onSubmit="" className="form-user" noValidate>
             <div className="colsInfos">
               <div className="colLeftInfos">
@@ -338,7 +335,6 @@ const ProfilEdition = ({ idUser }) => {
             <div className="userinfos">Votre description</div>
             <div className="description-container">
               <div className="description-inputs">
-                {/*     <label className="form-label">Description</label> */}
                 <textarea
                   className="description-input"
                   type="text"

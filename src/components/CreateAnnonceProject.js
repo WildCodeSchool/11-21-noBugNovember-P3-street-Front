@@ -11,7 +11,6 @@ const CreateAnnonceProject = () => {
   const [newAnnonce, setNewAnnonce] = useState({});
   const [subDomains, setSubDomains] = useState([]);
   const path = "/admin/annonces";
-  console.log(newAnnonce);
 
   const createAnnonce = (e) => {
     e.preventDefault();
@@ -31,7 +30,6 @@ const CreateAnnonceProject = () => {
           console.log(error);
         });
     } else {
-      console.log("nope");
     }
   };
   const getSubDomains = () => {

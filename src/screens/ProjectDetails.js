@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import UsersInProject from "../components/UsersInProject";
-import Footer from "../components/Footer";
 import "../styles/ProjectDetails.css";
 const ProjectDetails = () => {
   const [projectDetail, setProjectDetail] = useState([]);
@@ -15,7 +14,7 @@ const ProjectDetails = () => {
     let donnees = projectDetail.map((e) => e.idUser);
     setCreatorId(`/talents/${[donnees]}`);
   };
-  console.log(projectDetail);
+
   const getProjectDetails = () => {
     axios
       .get(`${process.env.REACT_APP_BACK}/all/project_details/${params.id}`)
@@ -38,8 +37,6 @@ const ProjectDetails = () => {
   useEffect(() => {
     createLink();
   }, [projectDetail]);
-
-  console.log("user ID", creatorId);
 
   return (
     <div className="projectDetailsContainer">
@@ -68,18 +65,18 @@ const ProjectDetails = () => {
               <div className="dateDetailsProject">
                 <p>
                   <i class="fa-solid fa-calendar-days"></i>&nbsp;Début :&nbsp;
-                  {projectDetail.map((el) => el.date_start /* .slice(0, 10) */)}
+                  {projectDetail.map((el) => el.date_start)}
                 </p>
                 <p>
                   <i class="fa-solid fa-flag-checkered"></i> Fin :&nbsp;
-                  {projectDetail.map((el) => el.end_date /* .slice(0, 10) */)}
+                  {projectDetail.map((el) => el.end_date)}
                 </p>
               </div>
               <div className="ouDetailsProject">
                 <p>
                   <i className="fa-solid fa-location-dot" />
                   &nbsp;
-                  {projectDetail.map((el) => el.localisation)}
+                  {projectDetail.map((el) => el.region_name)}
                 </p>
               </div>
             </div>
@@ -91,16 +88,9 @@ const ProjectDetails = () => {
         </div>
 
         <div className="membresDetailsProjet">
-          {/*      {creatorProject
-            // .filter((el) => el.firstname.includes(projectDetail.firstname))
-            .map((el, index) => (
-              <UsersInProject user={el} key={index} />
-            ))} */}
-          {projectUsers
-            // .filter((el) => el.firstname.includes(projectDetail.firstname))
-            .map((el, index) => (
-              <UsersInProject user={el} key={index} />
-            ))}
+          {projectUsers.map((el, index) => (
+            <UsersInProject user={el} key={index} />
+          ))}
         </div>
       </div>
       <div className="blocVisuelDetailsProjet">

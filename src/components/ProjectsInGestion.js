@@ -30,15 +30,14 @@ const ProjectsInGestion = ({
 
   const validatedProject = () => {
     if (
-      confirm(`Êtes-vous sûr de bloqué le projet ${project.name} ?`) === true
+      confirm(`Êtes-vous sûr de bloquer le projet ${project.name} ?`) === true
     ) {
       axios.put(`${process.env.REACT_APP_BACK}/admin/projects/${project.id}`);
       alert(`Projet ${project.name} bloqué`);
-      console.log("projet bloqué");
+
       getBlockedProjects();
       getValidatedProjects();
     } else {
-      console.log("projet non bloqué");
     }
   };
 
@@ -76,7 +75,10 @@ const ProjectsInGestion = ({
       </div>
       <div className={viewMore ? "secondeligne active" : "secondeligne"}>
         <div className="cestlelogo">
-          <img src={`${process.env.REACT_APP_BACK}/${project.logo}`} />
+          <img
+            src={`${process.env.REACT_APP_BACK}/${project.logo}`}
+            alt="logo"
+          />
         </div>
         <div className="descrip">{project.description}</div>
       </div>
