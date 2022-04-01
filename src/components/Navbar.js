@@ -78,7 +78,6 @@ const Navbar = (props) => {
     localStorage.clear();
     window.location.reload();
   };
-
   useEffect(() => {
     verify();
   }, [props.isConnect]);

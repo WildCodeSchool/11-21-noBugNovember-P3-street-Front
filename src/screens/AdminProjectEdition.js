@@ -126,6 +126,7 @@ const AdminProjectEdition = () => {
           description: newProject.description,
           domain_id: idDomaine,
           region_id: idRegions,
+          youtubelink: newProject.youtube,
         })
         .then(function (response) {
           console.log(response);
@@ -304,6 +305,21 @@ const AdminProjectEdition = () => {
                 </Stack>
                 {console.log(projectDetail.date_end)}
               </div>
+              <iframe
+                src={`https://www.youtube.com/embed/${newProject.youtube}`}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                allowfullscreen
+                className="player"
+              ></iframe>
+              <label>Ajouter un lien youtube : </label>
+              <input
+                type="text"
+                onChange={(e) =>
+                  setNewProject({ ...newProject, youtube: e.target.value })
+                }
+              />
               <div className="seventhContainer">
                 <div className="holderButton">
                   <div className="holderButton">

@@ -7,23 +7,15 @@ import Stack from "@mui/material/Stack";
 import axios from "axios";
 import AdminReturnButton from "./AdminReturnButton";
 
-const CreateProject = (idUser) => {
+const CreateProject = ({ idUser }) => {
   const [domaines, setDomaine] = useState([]);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
   const [regions, setRegions] = useState([]);
-  const [startDate, setStartDate] = useState([]);
-  const [endDate, setEndDate] = useState([]);
-  const [data, setData] = useState("");
-  const [photos, setPhotos] = useState();
   const [image, setImage] = useState({ data: "" });
-  const [status, setStatus] = useState("");
-  const [idrRegions, setIdrRegions] = useState(0);
   const [imgProfile, setImgProfile] = useState("");
   const path = "/profil";
   const mySelect = useRef();
   const secondSelect = useRef();
-
+  console.log(imgProfile);
   const [newProject, setNewProject] = useState({
     name: "",
     domaines: "",
@@ -32,6 +24,7 @@ const CreateProject = (idUser) => {
     startDate: "",
     endDate: "",
   });
+
   useEffect(() => {
     axios
       .get("http://localhost:3030/all/domain")
@@ -198,8 +191,6 @@ const CreateProject = (idUser) => {
               onChange={(e) => {
                 const { value } = e.target;
                 setNewProject({ ...newProject, name: value });
-
-                // console.log(value)
               }}
             ></input>
 
@@ -220,8 +211,6 @@ const CreateProject = (idUser) => {
               onChange={(e) => {
                 const { value } = e.target;
                 setNewProject({ ...newProject, description: value });
-
-                // console.log(setDescription)
               }}
             ></textarea>
           </div>
@@ -328,7 +317,6 @@ const CreateProject = (idUser) => {
           </div>
         </div>
       </div>
-      {/* </form> */}
     </>
   );
 };

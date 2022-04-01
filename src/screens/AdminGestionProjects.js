@@ -4,7 +4,7 @@ import axios from "axios";
 import ProjectsInGestion from "../components/ProjectsInGestion";
 import NavbarAdmin from "../components/NavbarAdmin";
 import ProjectsInValidation from "../components/ProjectsInValidation";
-
+import "../styles/CreateProject.css";
 const AdminGestionProjects = () => {
   const [validatedProjects, setValidatedProjects] = useState([]);
   const [blockedProjects, setBlockedProjects] = useState([]);
