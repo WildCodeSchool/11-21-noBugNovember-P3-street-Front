@@ -330,7 +330,7 @@ font-weight: bold;
 }
 .avatarProfil {
 object-fit: cover;
-width: 100%;
+width: 50%;
 }
 .AjoutAvatar {
   display: flex;
