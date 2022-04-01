@@ -81,7 +81,11 @@ const Profil = ({ idUser }) => {
               <div className="colRightInfos">
                 <img
                   className="avatarProfil"
-                  src={placeHolderAvatr}
+                  src={
+                    profil.avatar
+                      ? `${process.env.REACT_APP_BACK}/${profil.avatar}`
+                      : placeHolderAvatr
+                  }
                   alt={profil.firstname}
                 ></img>
               </div>
