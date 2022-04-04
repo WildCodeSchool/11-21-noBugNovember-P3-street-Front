@@ -9,12 +9,22 @@
   overflow: hidden;
   width: 100vw;
 }
+
+.navbar_container > a {
+
+  height: 100%;
+
+}
+
+
 .containerLogo {
   padding: 15px;
   width: 195px;
   max-width: 15vw;
   height: 100%;
+  display: flex;
   background-color: whitesmoke;
+  align-items: center;
 }
 .containerLogo a {
   height: 100%;
