@@ -1,0 +1,152 @@
+.usersInGestion {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px 0px 0px 25px;
+  margin: 10px;
+  background-color: var(--main);
+  transition: 0.5s;
+}
+.usersInGestion.active {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 220px;
+  border-radius: 25px 0px 0px 25px;
+  margin: 10px;
+}
+.boutonGestionValider {
+  border: 1px solid black;
+  padding: 1%;
+  border-radius: 50px;
+  background-color: rgba(73, 168, 73, 0.918);
+  cursor: pointer;
+}
+.boutonGestionBloquer {
+  border: 1px solid black;
+  padding: 1%;
+  border-radius: 50px;
+  background-color: rgba(235, 64, 64, 0.822);
+  cursor: pointer;
+}
+.boutonDeleteUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.entries {
+  margin-left: 1%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+}
+.entryViewMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 5%;
+  background-color: white;
+  color: var(--main);
+}
+.viewNone {
+  display: none;
+}
+.viewMore {
+  height: 300px;
+  color: white;
+  padding: 1%;
+  margin: 0;
+  display: flex;
+  background-color: var(--main);
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 5px;
+}
+.usersInGestionViewMore {
+  display: flex;
+  justify-content: space-around;
+  padding: 1%;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  background-color: var(--main);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.avatarGestionContainer {
+  width: 25%;
+  height: auto;
+}
+.avatarUserGestion {
+  width: 100%;
+  height: 100%;
+  position: cover;
+}
+.viewMoreDescr {
+  margin-left: 1%;
+  width: 40%;
+  text-align: center;
+}
+.viewMoreDescrTitle {
+  margin-bottom: 1%;
+}
+.viewMoreInfos {
+  width: 20%;
+  margin-left: 5%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.onvalideUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--main-dark);
+  color: white;
+  border-radius: 30px 0px 0px 0px;
+  cursor: pointer;
+}
+.onsupprimeUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--red-light);
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.onsupprimeUser:hover {
+  background-color: var(--red-dark);
+}
+.troisiemeligneUser {
+  display: none;
+}
+.troisiemeligneUser.active {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  color: white;
+}
+.lesbouttonsUsers {
+  display: flex;
+  height: 100%;
+  border-radius: 30px 0px 0px 0px;
+  overflow: hidden;
+}

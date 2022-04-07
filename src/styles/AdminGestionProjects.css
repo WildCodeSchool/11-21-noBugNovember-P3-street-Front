@@ -1,0 +1,69 @@
+.gestionProjectsContainer {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.adminnavbar {
+  z-index: 1;
+}
+.adminTitle {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.tableauContainer {
+  margin-top: 2%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1%;
+}
+.filtreGestionProjects {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.isvalidated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--second);
+  height: 100%;
+  width: 100%;
+/*   border-radius: 15px 0px 0px 15px; */
+}
+.isvalidated.active {
+  background-color: var(--second-dark);
+}
+.isproject {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--second);
+  height: 100%;
+  width: 100%;
+ /*  border-radius: 0px 15px 15px 0px; */
+}
+.isproject.active {
+  background-color: var(--second-dark);
+}
+
+.nameproject {
+  width: 25%;
+}
+
+.start_date {
+  width: 30%;
+}
+
+.initiateur {
+  width: 30%;
+}

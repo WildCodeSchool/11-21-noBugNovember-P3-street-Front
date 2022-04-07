@@ -1,0 +1,85 @@
+.firstContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+.titleContainer {
+  display: flex;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+}
+/* input {
+  border: 1px solid black;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: 3px;
+} */
+.name {
+  width: 300px;
+  height: 30px;
+  background-color: white;
+}
+.domaine {
+  width: 300px;
+  height: 30px;
+}
+.descriptionProject {
+  width: 550px;
+  height: 130px;
+  margin: 0;
+  resize: none;
+}
+.region {
+  width: 150px;
+  height: 30px;
+}
+.photoContainer {
+  width: 115px;
+  height: 115px;
+  border: 1px solid black;
+  background-color: white;
+}
+.fourthContainer {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  left: 145%;
+  bottom: 80%;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  left: -3%;
+}
+
+.submitProject {
+  background-color: rgba(9, 171, 133, 1);
+  color: white;
+  height: 35px;
+  width: 150px;
+  position: absolute;
+  right: -5%;
+  top: 160%;
+  border: none;
+}
+
+.photoChoice {
+  background-color: rgba(9, 171, 133, 1);
+  position: absolute;
+  top: 100%;
+  left: -34%;
+  border: none;
+  color: white;
+}
+
+.lienytb {
+  color: red;
+}

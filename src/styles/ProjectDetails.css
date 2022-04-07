@@ -1,55 +1,186 @@
 .projectDetailsContainer {
+  color: white;
+  width: 100vw;
+  min-height: 94vh;
+  height: auto;
   display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 2% 5%;
+}
+.avatarDetailsProjet {
+  display: flex;
+  width: 20vh;
+  height: 20vh;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background-color: red;
+  border-radius: 50%;
   justify-content: center;
+  align-items: center;
   align-content: center;
-  height: 94vh;
-  padding-top: 5%;
 }
-.projectInfos {
-  border: 1px solid red;
-  width: 60vw;
-  height: 50vh;
-  display: flex;
-}
-
-.projectTextContainer {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.projectAvatar {
-  width: 100%;
+.avatarDetailsProjet img {
   height: 100%;
 }
-
-.projectAvatarContainer {
-  border: 1px solid green;
-  width: 60%;
+.projectInfosContainer {
+  width: 40%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.usersContainer {
-  border: 1px solid yellow;
-  width: 15vw;
-  height: 80vh;
+.blocInfosDetailsProjet {
+  display: flex;
+  background-color: var(--second);
+  width: 40%;
+  min-height: 100%;
+  border-radius: 40px;
+  padding: 1%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.infosDetailsProjet {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
-
-.usersInProject {
+.infosDetailsProjet p {
+  margin: 0.5vh 0px;
+}
+.ouEtQuandDetailsProject {
+  width: 100%;
+  margin: 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 8vh;
+}
+.ouDetailsProject {
   display: flex;
   justify-content: center;
+}
+.dateDetailsProject {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.membresDetailsProjet {
+  display: flex;
+  flex-wrap: wrap;
+  width: 32vw;
+  height: auto;
+  overflow: hidden;
+}
+.createurDetailsProjet {
+  display: flex;
+}
+.nameCreatorDetailsProjet {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.wrapperAvatarInfos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.blocVisuelDetailsProjet {
+  display: flex;
+  width: 60%;
+  min-height: 100%;
+  padding: 1%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: black;
+}
+.detailsDetailsProjet {
+  display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
-  border: 1px solid blue;
 }
-
-.avatarContainer {
-  width: 60%;
+.detailsDetailsProjet p {
+  margin: 1vh;
 }
-
-.avatarUsers {
+.userSection {
+  border: 2px solid black;
+  height: 12vh;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.projectInfos {
+  width: 80%;
+  height: 80vh;
+  display: flex;
+  background-color: var(--second);
+  border-radius: 0 0 10px 10px;
+}
+.videoDetailsProjet {
+  height: 75%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.playerContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.player {
+  width: 100%;
+  height: 100%;
+}
+.usersInProject {
+  width: 5vw;
+  min-width: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0% 1% 0% 0%;
+  height: -webkit-fill-available;
+}
+.usersInProject img {
+  height: 10vh;
+}
+.usersInProject:hover {
+  -webkit-filter: brightness(100%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 0.2s ease;
+}
+.usersInProject:hover::before {
+  width: 5vw;
+  min-width: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 5, 1, 0.35) 0%,
+    rgba(0, 3, 0, 0.5) 25%,
+    rgba(0, 3, 0, 0.5) 75%,
+    rgba(0, 3, 0, 0.3) 90%,
+    rgba(0, 5, 1, 0) 100%
+  );
+  position: absolute;
+  content: attr(data-before);
+  text-align: center;
+  height: -webkit-fill-available;
+}
+.usersTitle {
+  width: auto;
 }

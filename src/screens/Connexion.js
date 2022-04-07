@@ -1,89 +1,141 @@
-import React, { useState } from 'react'
-import '../styles/Connexion.css'
-// import img from '../assets/neige.jpg'
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import sha256 from "crypto-js/sha256";
+import jwt_decode from "jwt-decode";
+import "../styles/Connexion.css";
+import Footer from "../components/Footer";
 
-// const sectionStyle = {
-// 	width: "100%",
-// 	height: "100vh",
-// 	backgroundImage: `url(${img})`,
-// 	backgroundPosition: 'center',
-//   	backgroundSize: 'cover',
-//   	backgroundRepeat: 'no-repeat'
-// }
+function Connexion(props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorConnect, setErrorConnect] = useState(false);
+  const [isOut, setIsOut] = useState(false);
+  const [forLoad, setForLoad] = useState(0);
 
-function Connexion() {
-	
-	const adminUser = {
-		email: "admin@admin.com",
-		password: "admin123"
-	}
+  let navigate = useNavigate();
 
-	const [user, setUser] = useState({email:""});
-	const [error, setError] = useState("");
+  const connect = () => {
+    setErrorConnect(false);
+    setIsOut(false);
+    if (props.idUser === 0) {
+      axios
+        .post(`${process.env.REACT_APP_BACK}/auth/login`, {
+          email: email,
+          password: sha256(password).toString(),
+        })
+        .then((res) => {
+          props.setIsConnect(true);
+          localStorage.setItem("token", res.headers["x-access-token"]);
+          let decoded = jwt_decode(localStorage.getItem("token"));
+          props.setName(decoded.name);
+          props.setIdUser(decoded.id);
+        })
+        .then(() => props.setIsConnect(true))
+        .catch((err) => {
+          if (err.response) {
+            setErrorConnect(true);
+          } else if (err.request) {
+            setIsOut(true);
+          }
+        });
+    } else {
+    }
+  };
 
-	const Login = details => {
-		console.log(details);
-	
-		if (details.email === adminUser.email && details.password === adminUser.password) {
-		console.log("Connecté(e)");
-		setUser({
-			email: details.email
-		});
-	} else {
-		console.log("Les infos ne correspondent pas !");
-		setError("Les infos ne correspondent pas !");
-	}
-  }
+  const disconnect = () => {
+    localStorage.clear();
+    props.setIsConnect(false);
+  };
 
-	const Logout = () => {
-		setUser({email: ""});
-	}
-	const [details, setDetails] = useState({email: "", password: ""});
+  const timer = async () => {
+    for (let i = 0; i < 101; i++) {
+      await new Promise((resolve) => setTimeout(resolve, 30));
+      setForLoad(i);
+    }
+    navigate("/");
+  };
 
-	const submitHandler = e => {
-		e.preventDefault();
+  useEffect(() => {
+    if (props.isConnect) {
+      timer();
+    }
+  }, [props.isConnect, localStorage.getItem("token")]);
 
-		Login(details);
-	}
-	
   return (
-	  <>
-		<div className='connexion'>
-	{(user.email !== "") ? (
-		<div className='welcome'>
-			<h2>Bienvenue chez StreetZer</h2>
-			<button onClick={Logout}>LOGOUT</button>
-		</div> 
-		) : ( 
-			<form onSubmit={submitHandler}>
-		<div className='form-inner'>
-			<h2>Login</h2>
-			{(error !== "") ? ( <div className="error">{error}</div> ) : "" }
-			<div className='form-group'>
-				<label htmlFor="email">Email: </label>
-				<input type="email" name="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email} />
-			</div>
-			<div className='form-group'>
-				<label htmlFor='password'>Password: </label>
-				<input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password} />
-			</div>
-			<div className='buttons'>
-				<div className='connexionButton'>
-					<input type="submit" value="Connexion" />
-				</div>
-				<div className='new'>
-					<h3>Nouveau chez StreetZer ?</h3>
-				</div>
-					<div className='creationButton'>
-						<input type="submit" value="Créer un compte" />
-					</div>
-			</div>
-		</div>
-	</form>
-		)}
-		</div>
-		</>
-		);
+    <>
+      <div className="connexion">
+        {props.isConnect || localStorage.getItem("token") !== null ? (
+          <div className="welcome">
+            <h2>Bienvenue chez StreetZer</h2>
+            <h3>Vous êtes bien connecté {props.name}</h3>
+            <h3>Redirection vers la page d'accueil</h3>
+            <progress value={forLoad} max="100" className="barre"></progress>
+          </div>
+        ) : (
+          <form className="formUsers">
+            <div className="form-inner">
+              <h2>Login</h2>
+              {errorConnect && (
+                <p className="inputText" id="gridCo4">
+                  ⚠ Mauvais nom d'utilisateur ou mot de passe <br />
+                  Si vous venez de créer votre compte, celui-ci doit être validé
+                  par un administrateur
+                </p>
+              )}
+              {isOut && (
+                <p className="inputText" id="gridCo4">
+                  ⚠ Serveur distant indisponible
+                </p>
+              )}
+              <div className="form-group">
+                <label htmlFor="email">Email : </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password">Password : </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+              </div>
+              <div className="buttons">
+                <div className="connexionButton">
+                  <input
+                    onClick={() => connect()}
+                    type="submit"
+                    value="Connexion"
+                  />
+                </div>
+                <div className="containerspacerConnexion">
+                  <div className="spacerConnexion"></div>
+                  <i class="fa-solid fa-bolt bolt-connexion"></i>
+                  <div className="spacerConnexion"></div>
+                </div>
+                <div className="new">
+                  <h3>Nouveau chez StreetZer ?</h3>
+                </div>
+                <Link to="/add_user">
+                  <div className="creationButton">
+                    <input type="button" value="Créer un compte" />
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </form>
+        )}
+      </div>
+    </>
+  );
 }
 
 export default Connexion;

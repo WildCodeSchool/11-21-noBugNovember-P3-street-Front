@@ -6,6 +6,7 @@ import "../styles/Project.css";
 import "../styles/SearchContainer.css";
 import SearchDomain from "../components/SearchDomain";
 import SearchSubDomain from "../components/SearchSubDomain";
+import Footer from "../components/Footer";
 
 const Project = () => {
   const [allProjects, setAllProjects] = useState([]);
@@ -16,13 +17,9 @@ const Project = () => {
   const [selectSubDomain, setSelectSubDomain] = useState();
   const [selectView, setSelectView] = useState(0); //Choix entre tous les users et les annonces
   const [subDomain, setSubDomain] = useState([]); //Liste des sous-domaines
-  const [viewSubDomain, setViewSubDomain] = useState(false);
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
   const [filter, setFilter] = useState([]);
   const [selectStatus, setSelectStatus] = useState();
-  console.log("status", selectStatus);
-  console.log("view", selectView);
-  console.log("domain", selectDomain);
 
   const arreteTout = (id) => {
     setIsFilter(false);
@@ -121,24 +118,26 @@ const Project = () => {
   return (
     <div className="talent">
       <div className="introtalents">
-        <h1>Liste des projets</h1>
+        <h2>Liste des projets</h2>
       </div>
       <div className="selecttalent">
         <div
-          className={selectView === 0 ? "all active" : "all"}
+          className={selectView === 0 ? "selector all active" : "selector all"}
           onClick={() => arreteTout(0)}
         >
           Voir tous les projets
         </div>
         <div
-          className={selectView === 1 ? "select active" : "select"}
+          className={
+            selectView === 1 ? "selector select active" : "selector select"
+          }
           onClick={() => arreteTout(1)}
         >
           Voir les annonces projets
         </div>
       </div>
       <div className="thefilter">
-        <div className="domain" onClick={() => derouleDomain()}>
+        <div className="selector domain" onClick={() => derouleDomain()}>
           {selectDomain !== undefined ? selectDomain : "Domaine"}
           <div className={viewDomain ? "hello" : "cache"}>
             <SearchDomain
@@ -151,19 +150,31 @@ const Project = () => {
         {selectView === 0 ? (
           <div className="statusFilter">
             <div
-              className={selectStatus === 0 ? "allStatus active" : "allStatus"}
+              className={
+                selectStatus === 0
+                  ? "selector allStatus active"
+                  : "selector allStatus"
+              }
               onClick={() => setSelectStatus(0)}
             >
               Projets en cours(recherche)
             </div>
             <div
-              className={selectStatus === 1 ? "allStatus active" : "allStatus"}
+              className={
+                selectStatus === 1
+                  ? "selector allStatus active"
+                  : "selector allStatus"
+              }
               onClick={() => setSelectStatus(1)}
             >
               Projet en cours(complet)
             </div>
             <div
-              className={selectStatus === 2 ? "allStatus active" : "allStatus"}
+              className={
+                selectStatus === 2
+                  ? "selector allStatus active"
+                  : "selector allStatus"
+              }
               onClick={() => setSelectStatus(2)}
             >
               Projets terminés
@@ -172,10 +183,10 @@ const Project = () => {
         ) : (
           ""
         )}
-        <div className="search" onClick={() => letsGo()}>
-          <i className="fa-solid fa-magnifying-glass" />
+        <div className="selector search" onClick={() => letsGo()}>
+          <i class="fa-solid fa-check" />
         </div>
-        <div className="cancel" onClick={() => goodBye()}>
+        <div className="selector cancel" onClick={() => goodBye()}>
           <i className="fa-solid fa-xmark"></i>
         </div>
       </div>
@@ -196,6 +207,7 @@ const Project = () => {
               <ProjectAnnonceCard annonce={el} key={index} />
             ))}
       </div>
+      <Footer />
     </div>
   );
 };

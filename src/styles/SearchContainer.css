@@ -1,76 +1,70 @@
-/* Container du composant  */
+/* Container du composant */
 .searchDomain {
-	position: absolute;
-	z-index: 1000;
-	bottom: -10px;
-	left: 30px;
-	transform: translateY(100%);
-	padding: 20px 15px;
-	color: white;
-	outline: none;
-	font-size: 0.8em;
-	border-radius: 32px;
-	background-color: #09ab85;
-	backdrop-filter: blur(20px);
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-	border: 1px solid;
+  position: absolute;
+  z-index: 1000;
+  bottom: -10px;
+  left: 30px;
+  transform: translateY(100%);
+  padding: 20px 15px;
+  color: white;
+  outline: none;
+  font-size: 0.8em;
+  border-radius: 32px;
+  background-color: var(--grey);
+  backdrop-filter: blur(20px);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid;
 }
-
 .searchSubDomain {
-	position: absolute;
-	z-index: 1000;
-	bottom: -10px;
-	left: 0px;
-	transform: translateY(100%);
-	padding: 20px 15px;
-	color: white;
-	outline: none;
-	font-size: 0.8em;
-	border-radius: 32px;
-	background-color: #09ab85;
-	backdrop-filter: blur(20px);
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-	border: 1px solid;
+  position: absolute;
+  width: 25vw;
+  z-index: 1000;
+  bottom: -10px;
+  left: 0px;
+  transform: translateY(100%);
+  padding: 20px 15px;
+  color: white;
+  outline: none;
+  font-size: 0.8em;
+  border-radius: 32px;
+  background-color: var(--grey);
+  backdrop-filter: blur(20px);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid;
 }
-
 .searchContainerHide {
-	display: none;
+  display: none;
 }
-
 /* Grille du composant */
-
 .searchGrid {
-	display: grid;
-	grid-template-columns: repeat(3, auto);
-	grid-template-rows: repeat(auto-fill, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(auto-fill, 1fr);
 }
-
 .searchGridDomain {
-	display: grid;
-	grid-template-columns: repeat(1, auto);
-	grid-template-rows: repeat(auto-fill, 1fr);
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  grid-template-rows: repeat(auto-fill, 1fr);
 }
-
 /* Elèment de la grille */
 .elGrid {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .elGrid p {
-	display: flex;
-	padding: 10px;
-	border: 1px solid transparent;
-	justify-content: center;
-	align-items: center;
-	min-width: 40px;
-	min-height: 40px;
-	border-radius: 32px;
-	cursor: pointer;
-	transition: 0.2s;
+  display: flex;
+  padding: 10px;
+  border: 1px solid transparent;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
 }
-
 .elGrid p:hover {
-	border: 1px solid white;
+  border: 1px solid white;
 }

@@ -1,0 +1,33 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  /*   margin-top: 30px; */
+  height: 90vh;
+}
+.welcomeadmin {
+  display: flex;
+  justify-content: center;
+  /*   font-size: 2em; */
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.contentadmin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.adminnavbar {
+  position: fixed;
+  left: 0;
+  top: 10vh;
+}
+.tableau {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

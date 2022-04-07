@@ -4,19 +4,21 @@
 .statusFilter {
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
-
 .allStatus {
   display: flex;
-  width: 250px;
+  width: 15vw;
   justify-content: center;
-  font-size: 1.25em;
-  padding: 10px;
-  background-color: #09ab85;
+  height: 5vh;
+  background-color: var(--grey);
   color: white;
   transition: 0.5s;
+  align-items: center;
 }
-
 .allStatus.active {
-  background-color: #086e56;
+  background-color: var(--main-dark);
+}
+.allStatus:hover {
+  background-color: var(--darkgrey);
 }

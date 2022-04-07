@@ -1,0 +1,219 @@
+.adminaddmates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ajout {
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px 15px 15px 15px;
+  color: white;
+  background-color: var(--main);
+  cursor: pointer;
+}
+.annuler {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px 10px 10px 10px;
+  color: white;
+  background-color: var(--red);
+  cursor: pointer;
+}
+.ausecours {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px 10px 10px 10px;
+  color: white;
+  background-color: var(--grey);
+  cursor: pointer;
+}
+.buttonAddMates {
+  position: absolute;
+  top: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  font-size: 1.5em;
+  color: white;
+  background-color: var(--main);
+  transition: 0.5s;
+}
+
+.buttonAddMates.active {
+  transform: rotateZ(180deg);
+}
+.choice {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.encart {
+  margin-top: 40px;
+}
+.equipiers {
+  display: grid;
+  width: 100%;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 0.4fr));
+  grid-gap: 15px;
+}
+.essai {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 230px;
+}
+.essai2 {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  margin-top: 20px;
+  width: 70%;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+  border-radius: 20px 20px 20px 20px;
+  height: 100px;
+  transition: 0.5s;
+}
+.essai2.active {
+  height: 250px;
+}
+.illustration2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 150px;
+  width: 150px;
+  margin-top: 5px;
+  border-radius: 50%;
+}
+.illustration2 img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.lacarte {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 25px 25px 25px 25px;
+  background-color: white;
+  width: 100%;
+  font-size: 1.5em;
+}
+.lancement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+}
+.lesinfos {
+  display: flex;
+  flex-direction: row;
+}
+.merci {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: -5px;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  background-color: var(--red);
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 1.25em;
+}
+.merci:hover {
+  background-color: rgba(245, 0, 0);
+  font-size: 1.5em;
+}
+.newcomponent {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+}
+.ok {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px 10px 10px 10px;
+  color: white;
+  background-color: var(--grey);
+  cursor: pointer;
+}
+.premierencart {
+  display: flex;
+  width: 20vw;
+}
+.recherche input {
+  height: 30px;
+  width: 200px;
+  border-radius: 15px 15px 15px 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+}
+.rien {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 2.5em;
+}
+.secondencart {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  justify-content: center;
+  background-color: white;
+  margin-left: 10px;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.select-mates {
+  margin-bottom: 10px;
+  height: 30px;
+  border-radius: 10px 10px 10px 10px;
+}
+.un {
+  display: flex;
+  font-size: 2em;
+  justify-self: center;
+  align-items: flex-start;
+}
+.validation {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px 10px 10px 10px;
+  color: white;
+  background-color: var(--main);
+  cursor: pointer;
+}

@@ -2,6 +2,8 @@ import SearchDomain from "../components/SearchDomain";
 import SearchSubDomain from "../components/SearchSubDomain";
 import UserCardAnnonce from "../components/UserCardAnnonce";
 import UserCard from "../components/UserCard";
+
+import Footer from "../components/Footer";
 import "../styles/User.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -18,8 +20,6 @@ const Users = () => {
   const [viewSubDomain, setViewSubDomain] = useState(false);
   const [isFilter, setIsFilter] = useState(false); //c'est filtré ou bien ?
   const [filter, setFilter] = useState([]);
-
-  console.log(dataTalent);
 
   const arreteTout = (id) => {
     setIsFilter(false);
@@ -68,7 +68,6 @@ const Users = () => {
     ) {
       temp = dataTalent.filter((e) => e.art_name === selectSubDomain);
     }
-    console.log(temp);
     if (temp !== undefined) {
       setFilter(temp);
       setIsFilter(true);
@@ -132,22 +131,24 @@ const Users = () => {
 
   return (
     <div className="talent">
-      <div className="introtalents">Liste de nos Membres</div>
+      <h2 className="introtalents">Liste de nos Membres</h2>
       <div className="selecttalent">
         <div
-          className={selectView === 0 ? "all active" : "all"}
+          className={selectView === 0 ? "all selector active" : "all selector"}
           onClick={() => arreteTout(0)}
         >
           Voir tous nos artistes
         </div>
         <div
-          className={selectView === 1 ? "select active" : "select"}
+          className={
+            selectView === 1 ? "select selector active" : "select selector"
+          }
           onClick={() => arreteTout(1)}
         >
           Voir les annonces
         </div>
       </div>
-      <div className="thefilter">
+      <div className="selector thefilter">
         <div className="domain" onClick={() => derouleDomain()}>
           {selectDomain !== undefined ? selectDomain : "Art"}
           <div className={viewDomain ? "hello" : "cache"}>
@@ -158,7 +159,7 @@ const Users = () => {
             />
           </div>
         </div>
-        <div className="subdomain" onClick={() => derouleSubDomain()}>
+        <div className="selector subdomain" onClick={() => derouleSubDomain()}>
           {selectSubDomain !== undefined ? selectSubDomain : "Métiers"}
           <div className={viewSubDomain ? "hello" : "cache"}>
             <SearchSubDomain
@@ -169,10 +170,10 @@ const Users = () => {
             />
           </div>
         </div>
-        <div className="search" onClick={() => letsGo()}>
-          <i className="fa-solid fa-magnifying-glass" />
+        <div className="selector search" onClick={() => letsGo()}>
+          <i class="fa-solid fa-check" />
         </div>
-        <div className="cancel" onClick={() => goodBye()}>
+        <div className="selector cancel" onClick={() => goodBye()}>
           <i className="fa-solid fa-xmark"></i>
         </div>
       </div>
@@ -181,6 +182,7 @@ const Users = () => {
           ? isFilter
             ? filter.map((users) => (
                 <UserCard
+                  id={users.id}
                   firstname={users.firstname}
                   lastname={users.lastname}
                   avatar={users.avatar}
@@ -194,6 +196,7 @@ const Users = () => {
                   spotify={users.spotify}
                   twitter={users.twitter}
                   youtube={users.youtube}
+                  tiktok={users.tiktok}
                   description={users.description_users}
                   domain={users.domain}
                   artname={users.art_name}
@@ -202,6 +205,7 @@ const Users = () => {
               ))
             : allUsers.map((users) => (
                 <UserCard
+                  id={users.id}
                   firstname={users.firstname}
                   lastname={users.lastname}
                   avatar={users.avatar}
@@ -215,6 +219,7 @@ const Users = () => {
                   spotify={users.spotify}
                   twitter={users.twitter}
                   youtube={users.youtube}
+                  tiktok={users.tiktok}
                   description={users.description_users}
                   domain={users.domain}
                   artname={users.art_name}
@@ -224,6 +229,7 @@ const Users = () => {
           : isFilter
           ? filter.map((users) => (
               <UserCardAnnonce
+                id={users.id}
                 firstname={users.firstname}
                 lastname={users.lastname}
                 avatar={users.avatar}
@@ -239,12 +245,14 @@ const Users = () => {
                 spotify={users.spotify}
                 twitter={users.twitter}
                 youtube={users.youtube}
+                tiktok={users.tiktok}
                 descriptionAnnonce={users.description_annonce}
                 date={users.date}
               />
             ))
           : dataTalent.map((users) => (
               <UserCardAnnonce
+                id={users.id}
                 firstname={users.firstname}
                 lastname={users.lastname}
                 avatar={users.avatar}
@@ -260,11 +268,13 @@ const Users = () => {
                 spotify={users.spotify}
                 twitter={users.twitter}
                 youtube={users.youtube}
+                tiktok={users.tiktok}
                 descriptionAnnonce={users.description_annonce}
                 date={users.date}
               />
             ))}
       </div>
+      <Footer />
     </div>
   );
 };

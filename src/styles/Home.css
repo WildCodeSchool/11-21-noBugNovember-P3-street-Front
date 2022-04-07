@@ -1,0 +1,238 @@
+.homeBanner {
+  height: 94vh;
+  width: 100vw;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 500px rgba(0, 0, 0, 0.7);
+}
+.homeBanner img {
+  width: max-content;
+  height: 100%;
+  z-index: -1;
+}
+.overlayBanner {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 45%;
+  color: var(--white);
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  outline: 5vh solid rgba(0, 0, 0, 0.5);
+}
+.quoteAuthor {
+  align-self: flex-end;
+}
+.sections {
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.homePresentation {
+  width: 80%;
+  height: 80%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 2%;
+  margin: 12vh 0vw;
+}
+.framePresentation {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid var(--main);
+  justify-content: center;
+}
+.framePresentationallP {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  padding: 6vh 6vh 2vh 6vh;
+}
+.framePresentation p {
+  margin: 1vh;
+}
+.btnNousrejoindre {
+  transform: translate(-50%, 50%);
+  align-self: flex-end;
+  justify-self: flex-end;
+  background-color: var(--red);
+  /* padding: 2% 3%; */
+  width: 10vw;
+  height: 8vh;
+  color: var(--white);
+  cursor: pointer;
+  outline: 1vw solid whitesmoke;
+  border-radius: 0.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   max-width: 200px;
+  max-height: 96px; 
+
+}
+.homeDoneProjects {
+  width: 100%;
+  height: 50%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3vw;
+  margin: 2vh 0vh 0vh 0vw;
+}
+.homeProjectDone {
+  width: 30vw;
+  height: 30vh;
+  background-color: var(--red);
+}
+.tousLesProjets {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tousLesProjetsBtn {
+  margin: 3vh;
+  display: flex;
+  background-color: var(--red);
+  color: whitesmoke;
+  width: 20vw;
+  height: 8vh;
+  border-radius: 0.5vw;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.comments {
+  background-color: transparent;
+  margin: 0vh 0vw 3vh 0vw;
+}
+.containerComments {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  padding: 5vw 5vw 0vw 5vw;
+}
+.comment {
+  display: flex;
+  width: 20vw;
+  height: 30vh;
+  background-color: transparent;
+  border: 1px solid gold;
+  border-radius: 5vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+}
+.rating {
+  display: flex;
+  margin: 3% 7% 7% 7%;
+}
+.textComment {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.commentAuteur {
+  text-align: end;
+}
+.fa-star,
+.fa-star-half {
+  color: gold;
+}
+.cta {
+  color: var(--main);
+  cursor: pointer;
+}
+.containerSeeComments {
+  width: 76%;
+  display: flex;
+  justify-content: center;
+}
+.seeComments,
+.searchTalentProjectBtn {
+  margin: 3vh;
+  display: flex;
+  background-color: var(--second);
+  color: var(--white);
+  width: 20vw;
+  height: 8vh;
+  border-radius: 0.5vw;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.seeComments:hover,
+.tousLesProjetsBtn:hover,
+.btnNousrejoindre:hover {
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.searchTalentProjectContainer {
+  margin: 6vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60%;
+}
+.fa-searchengin {
+  font-size: 100px;
+  color: var(--main);
+}
+.fa-folder-tree {
+  font-size: 100px;
+  color: var(--second);
+}
+.searchTalent,
+.searchProject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  height: 30vh;
+  width: 30vh;
+  justify-content: space-between;
+  border-radius: 50%;
+  padding: 6vh 0vh 6vh 0vh;
+}
+.containerSpacer {
+  margin: 12vh 0vh;
+  display: flex;
+  height: 2px;
+  align-items: center;
+  width: 100vh;
+  justify-content: space-between;
+}
+.spacerHome {
+  display: flex;
+  justify-content: center;
+  width: 20vw;
+  background-color: var(--main);
+  height: 2px;
+}
+.containerSpacer > .fa-bolt {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  outline: 2px solid var(--main);
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+}

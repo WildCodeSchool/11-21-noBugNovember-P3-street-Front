@@ -1,0 +1,81 @@
+.gestionUsersContainer {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adminTitle {
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+.tableauContainer {
+  margin-top: 2%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1%;
+}
+.filtreGestionUsers {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.isvalidatedUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px 0px 0px 15px;
+}
+.isvalidatedUser.activ {
+  background-color: var(--main-dark);
+}
+.isUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  /* border-radius: 0px 15px 15px 0px; */
+}
+.isFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 15px 15px 0px;
+}
+
+.isFilter > input {
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 20px 20px 0px;
+  /*   border: none; */
+  margin: 0;
+  border: 2px solid var(--main);
+  padding-left: 10px;
+}
+
+.isUser.activ {
+  background-color: var(--main-dark);
+}
+.searchBar {
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 4px;
+}

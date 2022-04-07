@@ -1,0 +1,123 @@
+.gestionAnnonceContainer {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adminTitle {
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+.tableauContainer {
+  margin-top: 2%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1%;
+}
+.filtreGestionAnnonce {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.isAnnonceUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.isAnnonceProject {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 15px 15px 0px;
+}
+.isFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 15px 15px 0px;
+}
+.searchBar {
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.filtreValidate {
+  margin-top: 10px;
+  display: flex;
+  cursor: pointer;
+  width: 35%;
+}
+
+.validated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px 0px 0px 15px;
+  padding: 0.5%;
+  color: whitesmoke;
+}
+
+.nonValidated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 15px 15px 0px;
+  padding: 0.5%;
+  color: whitesmoke;
+}
+.activ {
+  background-color: var(--main-dark);
+}
+
+.addAnnonce {
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: var(--main);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.addAnnonce:hover {
+  background-color: var(--main-dark);
+}
+
+.buttonAddAnnonceContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}

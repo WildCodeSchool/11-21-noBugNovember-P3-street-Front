@@ -1,0 +1,43 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 50%;
+  height: 100%;
+  border: solid 2px black;
+  border-radius: 20px;
+  padding: 20px 32px;
+  background-color: white;
+}
+
+.dashusers {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.dashprojects {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.title {
+  display: flex;
+  font-size: 2em;
+  justify-content: center;
+  align-items: flex-start;
+  /*   padding: 10px; */
+  margin-bottom: 30px;
+}
+
+.titleuser,
+.titleproject {
+  display: flex;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  justify-content: center;
+}

@@ -1,0 +1,226 @@
+.buttomreveal {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3px;
+  margin-top: 3px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: solid 2px white;
+  color: white;
+  cursor: pointer;
+}
+
+.buttomreveal.active {
+  color: red;
+}
+
+.cestlelogo {
+  display: flex;
+}
+.cestlelogo img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.changestatus {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--grey);
+  color: white;
+  border-radius: 0px 0px 0px 0px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.changestatus:hover {
+  background-color: var(--darkgrey);
+}
+.contentprojectadmin {
+  display: flex;
+  color: white;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.descrip {
+  padding: 10px;
+}
+
+.lesbouttons {
+  display: flex;
+  height: 100%;
+  border-radius: 30px 0px 0px 0px;
+}
+
+.ondegage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--red-light);
+  color: white;
+  border-radius: 30px 0px 0px 0px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.ondegage {
+  background-color: var(--red-dark);
+  color: white;
+  border-radius: 30px 0px 0px 0px;
+  cursor: pointer;
+}
+.onsupprime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--red-light);
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.onsupprime:hover {
+  background-color: var(--red-dark);
+}
+.onmodifie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--grey);
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.onmodifie:hover {
+  background-color: var(--darkgrey);
+  color: white;
+  cursor: pointer;
+}
+
+.onvalide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--main);
+  color: white;
+  border-radius: 30px 0px 0px 0px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.onvalide:hover {
+  background-color: var(--main-dark);
+}
+.popup {
+  position: absolute;
+  display: none;
+  top: 0;
+}
+.popup.active {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -60px;
+  width: 220%;
+  background-color: var(--main);
+  border-radius: 20px 20px 20px 20px;
+}
+.premiereligne {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: 50px;
+}
+.premierebarre {
+  transition: 0.5s;
+  /*  position: absolute; */
+}
+.premierebarre.active {
+  /*   position: absolute; */
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+
+.projectgestion {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px 0px 0px 25px;
+  margin: 10px;
+  background-color: var(--second);
+  transition: 0.5s;
+}
+.projectgestion.active {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 220px;
+  border-radius: 25px 0px 0px 25px;
+  margin: 10px;
+}
+.troisiemeligne {
+  display: flex;
+  opacity: 0;
+  transition: 0.2s;
+}
+.troisiemeligne.active {
+  position: absolute;
+  opacity: 1;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  color: white;
+}
+.recherche:hover,
+.enequipe:hover,
+.finish:hover {
+  border: solid 1px white;
+  border-radius: 20px 20px 20px 20px;
+}
+.secondebarre {
+  position: absolute;
+  font-weight: bold;
+  right: 13px;
+  transition: 0.5s;
+}
+.secondebarre.active {
+  position: absolute;
+  right: 18px;
+}
+.secondeligne {
+  display: flex;
+  opacity: 0;
+  transition: 0.2s;
+}
+.secondeligne.active {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  opacity: 1;
+  color: white;
+}

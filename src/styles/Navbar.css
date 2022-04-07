@@ -1,65 +1,121 @@
 .holderLogo {
   width: 100%;
 }
-
 .navbar_container {
-  background-color: rgba(9, 171, 133, 1);
-  height: 54px;
+  background-color: var(--main);
+  height: 6vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  width: 100vw;
 }
+
+.navbar_container > a {
+
+  height: 100%;
+
+}
+
 
 .containerLogo {
-  width: 180px;
+  padding: 15px;
+  width: 195px;
+  max-width: 15vw;
+  height: 100%;
+  display: flex;
+  background-color: whitesmoke;
+  align-items: center;
 }
-
+.containerLogo a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .holderLink {
-  padding: 14px;
-}
-
-.accueil {
-  padding: 12px;
-  background-color: white;
-  width: 108px;
-  height: 54px;
-  color: black;
-  text-align: center;
-  text-decoration: none;
 }
 
 .button {
   align-self: start;
   text-align: center;
 }
-
-.Link {
+.navbarBtn {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  height: 100%;
   width: 100%;
-  margin: auto;
-  color: white;
+  justify-content: center;
   align-items: center;
 }
-
+.navbarBtn:hover {
+  color: var(--main);
+  background-color: whitesmoke;
+}
+.navbarBtnActive {
+  color: var(--main);
+  background-color: whitesmoke;
+}
+.Link {
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 100%;
+}
+.Link a {
+  display: flex;
+  height: 100%;
+  width: 8vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 70px;
+}
 .holderImg {
   width: 2000px;
   height: 426px;
 }
-
 .containerConnexion {
   display: flex;
   align-content: center;
   align-items: center;
-  padding-right: 15px;
-  width: 150px;
+  width: 8vw;
+  min-width: 70px;
+  padding-right: 0.8vw;
+  height: 100%;
+  justify-content: center;
+}
+.containerConnexion a {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 70px;
 }
 
-/* .connect {
-    display:flex;
-    align-self: center;
-    position:absolute;
-    right: 0;
-    right: 6%;
-    
-} */
+.disconnectButton {
+  display: flex;
+  width: 2%;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5%;
+  cursor: pointer;
+  color: white;
+}
+
+.containerSpacerNavBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3%;
+}
+
+.containerSpacerNavBar:hover {
+  color: yellow;
+  cursor: pointer;
+}
+
+.exitwhite {
+  /*  width: 100%; */
+  height: 40%;
+}

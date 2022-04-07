@@ -8,21 +8,19 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-color: #094fabd0;
+  background-color: var(--second);
   color: white;
 }
-
 .head {
   display: flex;
   width: 100%;
   height: 150px;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--white);
   color: black;
   border-radius: 10px 10px 80px 10px;
 }
-
 .avatar img {
   margin-top: 5px;
   border-radius: 10px 0px 0px 0px;
@@ -30,7 +28,6 @@
   width: 150px;
   object-fit: cover;
 }
-
 .rightside {
   display: flex;
   flex-direction: column;
@@ -38,7 +35,6 @@
   height: 100%;
   justify-content: space-around;
 }
-
 .job {
   display: flex;
   justify-content: center;
@@ -46,7 +42,6 @@
   font-size: 2.5em;
   text-align: center;
 }
-
 .pseudo {
   display: flex;
   justify-content: end;
@@ -54,26 +49,13 @@
   padding-right: 50px;
   font-size: 1.5em;
 }
-
 .desc {
   margin: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.5em;
+  justify-content: flex-start;
+  font-size: 1em;
 }
-
 .content {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  margin: 5px;
-  height: 30px;
-}
-
-.bloque {
-  color: rgba(255, 255, 255, 0.4);
 }
