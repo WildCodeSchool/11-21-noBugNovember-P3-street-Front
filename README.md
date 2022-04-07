@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Streetzer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Streetzer est une plateforme de mise en relation d'artistes qui souhaitent se faire connaitre dans leur domaine et qui leur donne la possibilité de créer des projets collaboratifs avec les autres membres de la communauté.
+Les membres peuvent également rejoindre un projet déjà créé.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Installer Streetzer
 
-### `npm start`
+Cloner le projet front et back sur votre machine
+Dans les deux dossiers :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+  npm install //pour installer les dépendances nécessaires au bon fonctionnement
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+/!\ Penser à configurer vos variables d'environnement (fichier .env)
+en suivant l'exemple du fichier .env.sample
+Pour le back, dans le fichier .env, penser à bien configurer le JWT_SECRET
 
-### `npm test`
+```bash
+  npm start //pour lancer le projet sur votre serveur local
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Fonctionnalités
 
-### `npm run build`
+- Création et modification d'un compte utilisateur
+- Visualisation des projets et des membres disponibles
+- Création d'un projet
+- Création d'une annonce pour annoncer sa disponibilité et / sa recherche de collaborateurs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Capture d’écran 2022-03-31 155947](https://user-images.githubusercontent.com/91150258/161073922-2934a4f7-0bb3-47be-8417-aa8439f1c4f3.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Capture d’écran 2022-03-31 160626](https://user-images.githubusercontent.com/91150258/161074578-58814c5b-d36b-4fbf-b905-acf3bb3f3f13.jpg)
 
-### `npm run eject`
+![Capture d’écran 2022-03-31 160435](https://user-images.githubusercontent.com/91150258/161074182-5c394eea-7418-4d1d-a25f-364487748d8e.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Capture d’écran 2022-03-31 160729](https://user-images.githubusercontent.com/91150258/161074799-007b8d35-1a52-482c-bf6d-cc130d21fc8f.jpg)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Capture d’écran 2022-03-31 160853](https://user-images.githubusercontent.com/91150258/161075083-a8f0f195-0139-4b8e-b444-c3d135f6f16a.jpg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Capture d’écran 2022-03-31 161005](https://user-images.githubusercontent.com/91150258/161075384-50830366-3dd2-46ef-8669-0a7305c98b1f.jpg)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Capture d’écran 2022-03-31 161104](https://user-images.githubusercontent.com/91150258/161075549-3022e411-b039-463b-9495-5168f5d60972.jpg)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Capture d’écran 2022-03-31 181239](https://user-images.githubusercontent.com/91150258/161101441-9b64b325-1d23-46e6-b981-d388cf51e257.jpg)
